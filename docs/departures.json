@@ -1,19 +1,7 @@
 {
-  "updated": "12.04.2026 13:46:37",
+  "updated": "12.04.2026 13:47:03",
   "station": "Rīgā",
   "departures": [
-    {
-      "nr": "6122",
-      "dest": "Skulte",
-      "time": "13:47",
-      "fuel": "E",
-      "gps_delay": 0,
-      "dispatcher_delay": null,
-      "delay_source": "none",
-      "track": 10,
-      "platform": 2,
-      "status": "scheduled"
-    },
     {
       "nr": "834",
       "dest": "Sigulda",
@@ -96,7 +84,7 @@
       "delay_source": "none",
       "track": 1,
       "platform": 2,
-      "status": "scheduled"
+      "status": "gps"
     },
     {
       "nr": "6315",
@@ -120,7 +108,7 @@
       "delay_source": "none",
       "track": 11,
       "platform": 1,
-      "status": "scheduled"
+      "status": "gps"
     },
     {
       "nr": "836",
@@ -144,6 +132,18 @@
       "delay_source": "none",
       "track": 3,
       "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "810",
+      "dest": "Daugavpils",
+      "time": "15:31",
+      "fuel": "D",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 1,
+      "platform": 2,
       "status": "scheduled"
     }
   ],
