@@ -7,14 +7,65 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#0d0d0d;color:#ff8c00;font-family:'Share Tech Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem}
+  body{
+    background:#0d0d0d;
+    color:#ff8c00;
+    font-family:'Share Tech Mono',monospace;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:1rem
+  }
   h1{font-size:1rem;letter-spacing:.2em;color:#ff6600;margin-bottom:1.5rem;text-transform:uppercase}
-  table{width:100%;max-width:680px;border-collapse:collapse}
-  th{font-size:.7rem;letter-spacing:.15em;color:#ff6600;border-bottom:1px solid #ff660044;padding:.4rem .6rem;text-align:left}
-  td{padding:.5rem .6rem;font-size:.95rem;border-bottom:1px solid #1a1a1a}
+
+  table{width:100%;max-width:860px;border-collapse:collapse}
+  th{
+    font-size:.7rem;
+    letter-spacing:.15em;
+    color:#ff6600;
+    border-bottom:1px solid #ff660044;
+    padding:.4rem .6rem;
+    text-align:left;
+    white-space:nowrap
+  }
+  td{padding:.5rem .6rem;font-size:.95rem;border-bottom:1px solid #1a1a1a;white-space:nowrap}
+
+  /* track badge */
+  .track-cell{
+    display:flex;
+    align-items:center;
+    gap:.5rem
+  }
+  .badge{
+    display:inline-block;
+    padding:.15rem .45rem;
+    border-radius:3px;
+    font-size:.8rem;
+    font-weight:bold;
+    letter-spacing:.05em;
+    line-height:1.4
+  }
+  .badge-track{background:#1a1a1a;border:1px solid #ff660066;color:#ff8c00}
+  .badge-platform{background:#ff660022;border:1px solid #ff6600;color:#ff6600}
+
+  /* delay colours */
   .delay{color:#ff2200}
   .gps{color:#ffcc00}
-  .alert{max-width:680px;width:100%;background:#1a0a00;border:1px solid #ff6600;padding:.6rem 1rem;margin-bottom:1rem;font-size:.8rem;color:#ffaa44;display:none}
+
+  /* dispatcher alert banner */
+  .alert{
+    max-width:860px;
+    width:100%;
+    background:#1a0a00;
+    border:1px solid #ff6600;
+    padding:.6rem 1rem;
+    margin-bottom:1rem;
+    font-size:.8rem;
+    color:#ffaa44;
+    display:none
+  }
   .updated{font-size:.65rem;color:#555;margin-top:1rem}
 </style>
 </head>
@@ -22,26 +73,69 @@
 <h1>Rīga &#x2022; Atiešanas</h1>
 <div class="alert" id="alert"></div>
 <table>
-  <thead><tr><th>Nr.</th><th>Galamērķis</th><th>Laiks</th><th>Kavēšanās</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>Galamērķis</th>
+      <th>Laiks</th>
+      <th>Kavēšanās</th>
+      <th>Platforma</th>
+      <th>Ceļš</th>
+    </tr>
+  </thead>
   <tbody id="tbody"></tbody>
 </table>
 <div class="updated" id="updated"></div>
+
 <script>
-async function load(){
-  const r=await fetch('departures.json?t='+Date.now());
-  const d=await r.json();
-  const tb=document.getElementById('tbody');
-  tb.innerHTML='';
-  d.departures.forEach(dep=>{
-    const delay=dep.delay>0?`<span class="delay">+${dep.delay}min</span>`:dep.status==='gps'?'<span class="gps">GPS</span>':'';
-    tb.innerHTML+=`<tr><td>${dep.nr}</td><td>${dep.dest}</td><td>${dep.time}</td><td>${delay}</td></tr>`;
-  });
-  const al=document.getElementById('alert');
-  if(d.alert){al.textContent=d.alert;al.style.display='block';}else{al.style.display='none';}
-  document.getElementById('updated').textContent='Atjaunots: '+d.updated;
+async function load() {
+  try {
+    const r = await fetch('departures.json?t=' + Date.now());
+    const d = await r.json();
+    const tb = document.getElementById('tbody');
+    tb.innerHTML = '';
+
+    d.departures.forEach(dep => {
+      // --- delay cell ---
+      let delayHtml = '';
+      if (dep.delay_source === 'dispatcher' && dep.dispatcher_delay > 0) {
+        delayHtml = `<span class="delay">+${dep.dispatcher_delay} min</span>`;
+      } else if (dep.delay_source === 'gps' && dep.gps_delay > 0) {
+        delayHtml = `<span class="gps">+${dep.gps_delay} min</span>`;
+      }
+
+      // --- track & platform badges ---
+      const trackHtml    = dep.track    != null ? `<span class="badge badge-track">${dep.track}</span>`    : '—';
+      const platformHtml = dep.platform != null ? `<span class="badge badge-platform">P${dep.platform}</span>` : '—';
+
+      tb.innerHTML += `
+        <tr>
+          <td>${dep.nr}</td>
+          <td>${dep.dest}</td>
+          <td>${dep.time}</td>
+          <td>${delayHtml}</td>
+          <td>${platformHtml}</td>
+          <td>${trackHtml}</td>
+        </tr>`;
+    });
+
+    // --- alert banner ---
+    const al = document.getElementById('alert');
+    if (d.alert) {
+      al.textContent = d.alert;
+      al.style.display = 'block';
+    } else {
+      al.style.display = 'none';
+    }
+
+    document.getElementById('updated').textContent = 'Atjaunots: ' + d.updated;
+  } catch (e) {
+    console.error('Failed to load departures:', e);
+  }
 }
+
 load();
-setInterval(load,60000);
+setInterval(load, 60000);
 </script>
 </body>
 </html>

@@ -5,6 +5,9 @@ on:
     - cron: '* * * * *'   # every 1 minute
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -24,9 +27,9 @@ jobs:
         run: pip install -r scraper/requirements.txt
 
       - name: Run scraper
-        run: |
-          cd scraper
-          python scrape.py
+        run: python scraper/scrape.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}/scraper
 
       - name: Commit & push departures.json
         run: |
