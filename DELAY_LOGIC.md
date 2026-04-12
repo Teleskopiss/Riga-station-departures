@@ -1,19 +1,12 @@
-# Delay Logic
+# Delay & Track Logic
 
-This document describes how delays are handled in the scraper and how the
-ESP32 display should interpret the `departures.json` fields.
+## Delay priority
 
----
-
-## Sources (priority order, highest first)
-
-| Priority | Source | Field | Display behaviour |
+| Priority | Source | Field | Display |
 |---|---|---|---|
-| 1 | **Dispatcher** (vivi.lv manual) | `dispatcher_delay` | **Always shown**, not toggleable |
-| 2 | **GPS / WebSocket** (`wss://trainmap.pv.lv/ws`) | `gps_delay` | Stored, **toggleable** on display |
-| 3 | **Scheduled timetable** (trainGraph REST) | `time` | Baseline — never shown earlier |
-
----
+| 1 | Dispatcher (vivi.lv manual) | `dispatcher_delay` | Always shown, not toggleable |
+| 2 | GPS / WebSocket | `gps_delay` | Stored, toggleable on display |
+| 3 | Scheduled timetable | `time` | Baseline — never earlier |
 
 ## JSON fields per departure
 
@@ -21,57 +14,54 @@ ESP32 display should interpret the `departures.json` fields.
 {
   "nr":               "6717",
   "dest":             "Jelgava",
-  "time":             "11:35",      // always scheduled, never earlier
-  "track":            "-",
+  "time":             "11:35",
+  "track":            5,
+  "platform":         4,
   "fuel":             "E",
-  "status":           "gps",        // "scheduled" | "gps" | "stopped"
-  "gps_delay":        3,            // minutes late per WebSocket; 0 if none
-  "dispatcher_delay": null,         // minutes late per vivi.lv; null if none
-  "delay_source":     "gps"         // "none" | "gps" | "dispatcher"
+  "status":           "scheduled",
+  "gps_delay":        0,
+  "dispatcher_delay": null,
+  "delay_source":     "none"
 }
 ```
 
----
-
-## Display rules for ESP32
+## ESP32 display rules
 
 ```
-if delay_source == "dispatcher":
-    show time + dispatcher_delay  ← ALWAYS, no toggle
-    ignore gps_delay for display
-elif delay_source == "gps":
-    if gps_show_toggle == ON:
-        show time + gps_delay
-    else:
-        show scheduled time only
-else:
-    show scheduled time
+if delay_source == "dispatcher"  -> show time + dispatcher_delay  (ALWAYS, no toggle)
+elif delay_source == "gps"       -> if toggle ON: show time + gps_delay
+                                    if toggle OFF: show scheduled time
+else                             -> show scheduled time
 ```
 
-### Toggle behaviour
-- `dispatcher_delay` is **not toggleable** — it is a confirmed, human-verified delay
-- `gps_delay` is **toggleable** — it is an estimate from GPS position and may be noisy
-- The toggle state lives on the ESP32 (button or config), not in the JSON
+## Track priority
 
----
+1. **Construction override** — active only within a defined date range (`CONSTRUCTION_OVERRIDES` in `track_data.py`)
+2. **Explicit TRACK_MAP** — per train number
+3. **Pattern default** — by train number structure / destination
 
-## Global alert banner
+## Platform map
 
-The top-level `alert` string in `departures.json` is populated from dispatcher
-notices found on vivi.lv. It should be displayed as a scrolling ticker on the
-board regardless of toggle state, because it may contain text beyond just delay
-minutes (e.g. reason, affected stations).
+| Track | Platform |
+|---|---|
+| 11, 12 | 1 |
+| 1, 10  | 2 |
+| 3, 4   | 3 |
+| 5      | 4 |
 
-When `alert` is an empty string `""`, the banner is hidden.
+## Adding construction overrides
 
----
+In `scraper/track_data.py`, add an entry to `CONSTRUCTION_OVERRIDES`:
 
-## Scraper flow
-
+```python
+CONSTRUCTION_OVERRIDES = [
+    {
+        "date_from": date(2026, 5, 1),
+        "date_to":   date(2026, 5, 31),
+        "tracks": {
+            "6502": 4,   # normally 3, moved during works
+        }
+    },
+]
 ```
-1. trainGraph REST  → scheduled times (base)
-2. WebSocket        → gps_delay per route_id
-3. vivi.lv scrape   → dispatcher_delay per train_nr
-4. Merge (dispatcher > gps > none)
-5. Write docs/departures.json
-```
+The override is automatically ignored outside the date range.
