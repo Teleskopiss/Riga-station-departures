@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
 """
 Riga station departures scraper.
-
-Sources:
-  1. trainmap.vivi.lv/api/trainGraph  — scheduled timetable
-  2. wss://trainmap.pv.lv/ws          — live GPS / delay status
-  3. www.vivi.lv/lv/                  — dispatcher manual alerts
-
-Delay priority (highest wins):
-  dispatcher_delay  — always shown, not toggleable
-  gps_delay         — stored, toggleable on display side
-  0                 — scheduled time, never shown earlier
+API times are in UTC — converted to Europe/Riga for display.
 """
 
 import json
 import os
 import re
-import sys
 import threading
 from datetime import datetime, timezone, date, timedelta
+from zoneinfo import ZoneInfo
 
 import requests
 import websocket
@@ -29,7 +20,8 @@ TRAIN_GRAPH_URL    = "https://trainmap.vivi.lv/api/trainGraph"
 WS_URL             = "wss://trainmap.pv.lv/ws"
 VIVI_URL           = "https://www.vivi.lv/lv/"
 OUTPUT_PATH        = os.path.join(os.path.dirname(__file__), "..", "docs", "departures.json")
-RIGA_NAMES         = {"rīgā", "riga", "rīga"}   # match any capitalisation/case variant
+RIGA_TZ            = ZoneInfo("Europe/Riga")
+RIGA_NAMES         = {"rīgā", "riga", "rīga"}
 MAX_DEPARTURES     = 12
 WS_COLLECT_SECONDS = 8
 
@@ -38,24 +30,11 @@ WS_COLLECT_SECONDS = 8
 # 1. Scheduled departures
 # ---------------------------------------------------------------------------
 
-def fetch_scheduled(now: datetime) -> list[dict]:
+def fetch_scheduled(now_riga: datetime) -> list[dict]:
     resp = requests.get(TRAIN_GRAPH_URL, timeout=15)
     resp.raise_for_status()
     payload = resp.json()
-
-    # ---- DEBUG: print top-level keys and one sample train entry ----
-    print("[debug] API top-level keys:", list(payload.keys()) if isinstance(payload, dict) else type(payload))
-    trains = payload["data"] if isinstance(payload, dict) and "data" in payload else payload
-    if trains:
-        sample = trains[0]
-        print("[debug] Sample train keys:", list(sample.keys()))
-        stops = sample.get("stops", [])
-        if stops:
-            print("[debug] Sample stop keys:", list(stops[0].keys()))
-            print("[debug] First stop:", stops[0])
-            print("[debug] Last  stop:", stops[-1])
-    print(f"[debug] Total trains in response: {len(trains)}")
-    # ---- END DEBUG ----
+    trains  = payload["data"] if isinstance(payload, dict) and "data" in payload else payload
 
     departures = []
     for t in trains:
@@ -63,47 +42,50 @@ def fetch_scheduled(now: datetime) -> list[dict]:
         if not stops:
             continue
 
-        # Accept any Riga name variant in the first stop
         first_stop_name = str(stops[0].get("title") or stops[0].get("name") or "").strip()
         if first_stop_name.lower() not in RIGA_NAMES:
             continue
 
-        # Departure time field: try "departure" then "time"
         dep_raw = stops[0].get("departure") or stops[0].get("time") or ""
         try:
-            dep_dt = datetime.strptime(dep_raw, "%Y-%m-%d %H:%M:%S")
+            # API returns naive UTC datetime strings
+            dep_utc = datetime.strptime(dep_raw, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
         except ValueError:
             try:
-                dep_dt = datetime.strptime(dep_raw, "%H:%M:%S")
-                dep_dt = dep_dt.replace(year=now.year, month=now.month, day=now.day)
+                # Time-only string — attach today's UTC date
+                t_only  = datetime.strptime(dep_raw, "%H:%M:%S").replace(tzinfo=timezone.utc)
+                today   = datetime.now(timezone.utc).date()
+                dep_utc = t_only.replace(year=today.year, month=today.month, day=today.day)
             except ValueError:
-                print(f"[warn] Cannot parse departure time '{dep_raw}' for train {t.get('train')}")
+                print(f"[warn] Cannot parse time '{dep_raw}' for train {t.get('train')}")
                 continue
 
-        if dep_dt < now:
+        # Convert to Riga local time for display
+        dep_riga = dep_utc.astimezone(RIGA_TZ)
+
+        # Skip trains that already departed (compare in Riga time)
+        if dep_riga < now_riga:
             continue
 
-        last_stop_name = str(stops[-1].get("title") or stops[-1].get("name") or "?")
-
-        # Fuel type: "Š" = electro (Šosejs / electric symbol in LV API)
-        fuel_raw = str(t.get("fuelType") or t.get("type") or "")
-        fuel = "E" if fuel_raw in ("Š", "E", "electric") else "D"
+        last_stop = str(stops[-1].get("title") or stops[-1].get("name") or "?")
+        fuel_raw  = str(t.get("fuelType") or t.get("type") or "")
+        fuel      = "E" if fuel_raw in ("Š", "E", "electric") else "D"
 
         departures.append({
             "nr":               str(t.get("train") or t.get("number") or ""),
-            "dest":             last_stop_name,
-            "time":             dep_dt.strftime("%H:%M"),
+            "dest":             last_stop,
+            "time":             dep_riga.strftime("%H:%M"),   # Riga local HH:MM
             "fuel":             fuel,
             "gps_delay":        0,
             "dispatcher_delay": None,
             "delay_source":     "none",
-            "_dep_dt":          dep_dt,
+            "_dep_dt":          dep_riga,
             "_route_id":        str(t.get("id") or ""),
             "_train_nr":        str(t.get("train") or t.get("number") or ""),
         })
 
     departures.sort(key=lambda x: x["_dep_dt"])
-    print(f"[debug] Departures from Riga found: {len(departures)}")
+    print(f"[scraper] {len(departures)} departures from Riga")
     return departures[:MAX_DEPARTURES]
 
 
@@ -150,7 +132,7 @@ def fetch_live_status() -> dict[str, dict]:
 
 
 # ---------------------------------------------------------------------------
-# 3. Dispatcher alerts (vivi.lv)
+# 3. Dispatcher alerts
 # ---------------------------------------------------------------------------
 
 DELAY_PATTERN = re.compile(
@@ -161,14 +143,13 @@ DELAY_PATTERN = re.compile(
 def fetch_dispatcher_alerts() -> dict[str, int]:
     alerts: dict[str, int] = {}
     try:
-        resp = requests.get(VIVI_URL, timeout=10,
-                            headers={"Accept-Language": "lv"})
+        resp = requests.get(VIVI_URL, timeout=10, headers={"Accept-Language": "lv"})
         resp.raise_for_status()
         for m in DELAY_PATTERN.finditer(resp.text):
             alerts[m.group(1)] = int(m.group(2))
             print(f"[dispatcher] Train {m.group(1)} late {m.group(2)} min")
     except Exception as e:
-        print(f"[dispatcher] vivi.lv fetch failed: {e}")
+        print(f"[dispatcher] fetch failed: {e}")
     return alerts
 
 
@@ -177,23 +158,19 @@ def fetch_dispatcher_alerts() -> dict[str, int]:
 # ---------------------------------------------------------------------------
 
 def assign_tracks(departures: list[dict]) -> list[dict]:
-    today = date.today()
-    result = []
-    assigned: list[tuple[datetime, int]] = []
-
+    today    = date.today()
+    assigned = []
+    result   = []
     for d in departures:
-        dep_dt = d["_dep_dt"]
+        dep_dt       = d["_dep_dt"]
         window_start = dep_dt - timedelta(minutes=5)
-        soon = {trk for (dt, trk) in assigned if dt >= window_start}
-
-        track    = get_track(d["_train_nr"], d["dest"], soon_occupied=soon, today=today)
-        platform = get_platform(track)
-
-        d["track"]    = track
-        d["platform"] = platform
+        soon         = {trk for (dt, trk) in assigned if dt >= window_start}
+        track        = get_track(d["_train_nr"], d["dest"], soon_occupied=soon, today=today)
+        platform     = get_platform(track)
+        d["track"]   = track
+        d["platform"]= platform
         assigned.append((dep_dt, track))
         result.append(d)
-
     return result
 
 
@@ -201,25 +178,17 @@ def assign_tracks(departures: list[dict]) -> list[dict]:
 # 5. Merge delays
 # ---------------------------------------------------------------------------
 
-def merge_delays(departures: list[dict],
-                 live:       dict[str, dict],
-                 alerts:     dict[str, int]) -> list[dict]:
+def merge_delays(departures, live, alerts):
     clean = []
     for d in departures:
         route_id = d.pop("_route_id")
         train_nr = d.pop("_train_nr")
         d.pop("_dep_dt")
-
         ls        = live.get(route_id, {})
         gps_delay = ls.get("gps_delay_min", 0)
-
-        if ls.get("stopped"):
-            d["status"] = "stopped"
-        elif ls.get("gps_active"):
-            d["status"] = "gps"
-        else:
-            d["status"] = "scheduled"
-
+        if ls.get("stopped"):        d["status"] = "stopped"
+        elif ls.get("gps_active"):   d["status"] = "gps"
+        else:                         d["status"] = "scheduled"
         if train_nr in alerts:
             d["dispatcher_delay"] = alerts[train_nr]
             d["gps_delay"]        = gps_delay
@@ -232,7 +201,6 @@ def merge_delays(departures: list[dict],
             d["gps_delay"]        = 0
             d["dispatcher_delay"] = None
             d["delay_source"]     = "none"
-
         clean.append(d)
     return clean
 
@@ -242,31 +210,19 @@ def merge_delays(departures: list[dict],
 # ---------------------------------------------------------------------------
 
 def main():
-    now = datetime.now()
-    print(f"[scraper] start {now:%Y-%m-%d %H:%M:%S}")
+    now_riga = datetime.now(RIGA_TZ)
+    print(f"[scraper] {now_riga:%Y-%m-%d %H:%M:%S %Z}")
 
-    departures = fetch_scheduled(now)
+    departures = fetch_scheduled(now_riga)
     departures = assign_tracks(departures)
-
-    live   = fetch_live_status()
-    print(f"[scraper] live status: {len(live)} trains")
-
-    alerts = fetch_dispatcher_alerts()
-    print(f"[scraper] dispatcher alerts: {len(alerts)}")
-
+    live       = fetch_live_status()
+    alerts     = fetch_dispatcher_alerts()
     departures = merge_delays(departures, live, alerts)
 
-    alert_parts = [f"Vilciens {nr} kav\u0113jas {mins} min"
-                   for nr, mins in alerts.items()]
-
-    # Human-readable timestamp in Riga local time (UTC+3 in summer)
-    riga_now = datetime.now(timezone.utc).astimezone(
-        __import__('zoneinfo', fromlist=['ZoneInfo']).ZoneInfo('Europe/Riga')
-    )
-    updated_str = riga_now.strftime("%d.%m.%Y %H:%M:%S")
+    alert_parts = [f"Vilciens {nr} kav\u0113jas {mins} min" for nr, mins in alerts.items()]
 
     output = {
-        "updated":    updated_str,
+        "updated":    now_riga.strftime("%d.%m.%Y %H:%M:%S"),
         "station":    "Rīgā",
         "departures": departures,
         "alert":      "  |  ".join(alert_parts),
@@ -276,8 +232,7 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[scraper] written -> {out_path}")
-    print(f"[scraper] done. {len(departures)} departures written.")
+    print(f"[scraper] done → {len(departures)} departures written")
 
 
 if __name__ == "__main__":

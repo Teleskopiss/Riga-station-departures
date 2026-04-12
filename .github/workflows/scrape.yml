@@ -2,7 +2,7 @@ name: Scrape Riga Departures
 
 on:
   schedule:
-    - cron: '* * * * *'   # every 1 minute
+    - cron: '* * * * *'
   workflow_dispatch:
 
 env:
@@ -26,15 +26,24 @@ jobs:
       - name: Install dependencies
         run: pip install -r scraper/requirements.txt
 
-      - name: Run scraper
-        run: python scraper/scrape.py
+      # Run scraper 3 times, 20s apart, inside one job.
+      # GitHub throttles per-minute cron on low-activity repos,
+      # so this guarantees at least 3 updates per triggered run.
+      - name: Run scraper loop
+        run: |
+          for i in 1 2 3; do
+            echo "--- run $i ---"
+            python scraper/scrape.py
+            git add docs/departures.json
+            git diff --cached --quiet || git commit -m "chore: update departures [skip ci]"
+            git push
+            [ $i -lt 3 ] && sleep 20
+          done
         env:
           PYTHONPATH: ${{ github.workspace }}/scraper
 
-      - name: Commit & push departures.json
+      - name: Configure git
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/departures.json
-          git diff --cached --quiet || git commit -m "chore: update departures [skip ci]"
-          git push
