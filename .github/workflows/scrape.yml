@@ -26,9 +26,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r scraper/requirements.txt
 
-      # Run scraper 3 times, 20s apart, inside one job.
-      # GitHub throttles per-minute cron on low-activity repos,
-      # so this guarantees at least 3 updates per triggered run.
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Run scraper loop
         run: |
           for i in 1 2 3; do
@@ -41,9 +43,3 @@ jobs:
           done
         env:
           PYTHONPATH: ${{ github.workspace }}/scraper
-
-      - name: Configure git
-        if: always()
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
