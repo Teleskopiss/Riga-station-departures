@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Minute scraper: fetches live GPS delays + dispatcher alerts only.
-Writes live-delays.json. Tiny file (~1KB), polled every 30-60s by ESP32/web.
+Minute scraper: fetches live GPS delays + dispatcher alerts.
+Writes docs/live-delays.json.
+Keyed by route_id (matches route_id in full-day-trains.json).
 """
 
 import json
 import os
 import re
+import sys
 import threading
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
@@ -14,16 +16,16 @@ from zoneinfo import ZoneInfo
 import requests
 import websocket
 
-WS_URL       = "wss://trainmap.pv.lv/ws"
-VIVI_URL     = "https://www.vivi.lv/lv/"
-OUTPUT_PATH  = os.path.join(os.path.dirname(__file__), "..", "docs", "live-delays.json")
-RIGA_TZ      = ZoneInfo("Europe/Riga")
-WS_COLLECT_S = 8
+WS_URL      = "wss://trainmap.pv.lv/ws"
+VIVI_URL    = "https://www.vivi.lv/lv/"
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "live-delays.json")
+RIGA_TZ     = ZoneInfo("Europe/Riga")
+WS_TIMEOUT  = 8
 
 
-def fetch_live_status() -> dict[str, dict]:
-    status: dict[str, dict] = {}
-    done = threading.Event()
+def fetch_live_status() -> dict:
+    status = {}
+    done   = threading.Event()
 
     def on_message(ws_app, message):
         try:
@@ -53,7 +55,7 @@ def fetch_live_status() -> dict[str, dict]:
         on_error=lambda *_: done.set(),
     )
     threading.Thread(target=ws_app.run_forever, daemon=True).start()
-    done.wait(timeout=WS_COLLECT_S)
+    done.wait(timeout=WS_TIMEOUT)
     ws_app.close()
     return status
 
@@ -63,30 +65,30 @@ DELAY_RE = re.compile(
     re.IGNORECASE | re.UNICODE,
 )
 
-def fetch_dispatcher_alerts() -> dict[str, int]:
-    alerts: dict[str, int] = {}
+def fetch_dispatcher_alerts() -> dict:
+    alerts = {}
     try:
         resp = requests.get(VIVI_URL, timeout=10, headers={"Accept-Language": "lv"})
         resp.raise_for_status()
         for m in DELAY_RE.finditer(resp.text):
             alerts[m.group(1)] = int(m.group(2))
-            print(f"[dispatcher] Train {m.group(1)} late {m.group(2)} min")
+            print(f"[delays] dispatcher: train {m.group(1)} late {m.group(2)} min")
     except Exception as e:
-        print(f"[dispatcher] fetch failed: {e}")
+        print(f"[delays] dispatcher fetch failed: {e}")
     return alerts
 
 
 def main():
     now_riga = datetime.now(RIGA_TZ)
+    now_utc  = datetime.now(timezone.utc)
     print(f"[delays] {now_riga:%Y-%m-%d %H:%M:%S %Z}")
 
     live   = fetch_live_status()
     alerts = fetch_dispatcher_alerts()
-
     print(f"[delays] {len(live)} GPS entries, {len(alerts)} dispatcher alerts")
 
     output = {
-        "updated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "updated_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "updated":     now_riga.strftime("%d.%m.%Y %H:%M:%S"),
         "delays":      live,
         "alerts":      alerts,
@@ -100,4 +102,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"[delays] ERROR: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Hourly scraper: fetches full day schedule from Riga, writes full-day-trains.json.
-All times stored as UTC ISO strings. Tracks/platforms assigned here.
+Hourly scraper: fetches full day schedule from Riga.
+Writes docs/full-day-trains.json.
+All departure times stored as UTC ISO-8601 strings.
 ESP32 downloads this once per hour.
 """
 
 import json
 import os
+import sys
 from datetime import datetime, timezone, date, timedelta
 from zoneinfo import ZoneInfo
 
@@ -25,6 +27,7 @@ def fetch_full_day() -> list[dict]:
     resp.raise_for_status()
     payload = resp.json()
     trains  = payload["data"] if isinstance(payload, dict) and "data" in payload else payload
+    print(f"[schedule] API returned {len(trains)} total trains")
 
     today_utc = datetime.now(timezone.utc).date()
     result    = []
@@ -51,14 +54,15 @@ def fetch_full_day() -> list[dict]:
         fuel_raw = str(t.get("fuelType") or t.get("type") or "")
         fuel     = "E" if fuel_raw in ("\u0160", "E", "electric") else "D"
         last     = str(stops[-1].get("title") or stops[-1].get("name") or "?")
+        route_id = str(t.get("id") or "")
 
         result.append({
-            "nr":       str(t.get("train") or t.get("number") or ""),
-            "dest":     last,
-            "dep_utc":  dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "fuel":     fuel,
-            "_dep_utc": dep_utc,
-            "_route_id": str(t.get("id") or ""),
+            "nr":        str(t.get("train") or t.get("number") or ""),
+            "dest":      last,
+            "dep_utc":   dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "fuel":      fuel,
+            "route_id":  route_id,
+            "_dep_utc":  dep_utc,
         })
 
     result.sort(key=lambda x: x["_dep_utc"])
@@ -71,7 +75,6 @@ def assign_tracks(trains: list[dict]) -> list[dict]:
     out      = []
     for d in trains:
         dep_dt       = d.pop("_dep_utc")
-        d.pop("_route_id")
         window_start = dep_dt - timedelta(minutes=5)
         soon         = {trk for (dt, trk) in assigned if dt >= window_start}
         track        = get_track(d["nr"], d["dest"], soon_occupied=soon, today=today)
@@ -85,6 +88,7 @@ def assign_tracks(trains: list[dict]) -> list[dict]:
 
 def main():
     now_riga = datetime.now(RIGA_TZ)
+    now_utc  = datetime.now(timezone.utc)
     print(f"[schedule] {now_riga:%Y-%m-%d %H:%M:%S %Z}")
 
     trains = fetch_full_day()
@@ -93,7 +97,8 @@ def main():
     output = {
         "station":     "R\u012bg\u0101",
         "date":        now_riga.strftime("%Y-%m-%d"),
-        "updated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "updated_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "updated":     now_riga.strftime("%d.%m.%Y %H:%M:%S"),
         "total":       len(trains),
         "trains":      trains,
     }
@@ -102,8 +107,14 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[schedule] done \u2192 {len(trains)} trains written")
+    print(f"[schedule] done \u2192 {len(trains)} trains written to {out_path}")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"[schedule] ERROR: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

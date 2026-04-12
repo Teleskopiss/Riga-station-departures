@@ -2,7 +2,7 @@ name: Scrape Full Day Schedule
 
 on:
   schedule:
-    - cron: '0 * * * *'   # every hour on the hour
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 env:
@@ -30,12 +30,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run schedule scraper
-        run: python scraper/scrape_schedule.py || true
+        run: python scraper/scrape_schedule.py
         env:
           PYTHONPATH: ${{ github.workspace }}/scraper
 
-      - name: Commit & push
+      - name: Commit and push
         run: |
           git add docs/full-day-trains.json
-          git diff --cached --quiet || git commit -m "chore: update full-day schedule [skip ci]"
-          git push || true
+          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update full-day schedule [skip ci]" && git push)
