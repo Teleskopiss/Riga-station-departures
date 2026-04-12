@@ -1,25 +1,6 @@
 # Riga Station Departures
 
-Live departure board for Rīga Centrālā stacija, powered by [vivi.lv](https://www.vivi.lv).
-
-## How it works
-
-```
-ESP32 → fetches → GitHub Pages (departures.json)
-                        ↑
-               GitHub Actions (every 2 min)
-                        ↑
-               Python scraper
-               (trainGraph REST + WebSocket)
-```
-
-## Setup
-
-1. **Fork / clone** this repo
-2. Go to **Settings → Pages** → Source: `Deploy from branch` → Branch: `main` → Folder: `/docs`
-3. Enable **Actions** (Settings → Actions → Allow all)
-4. The scraper runs automatically every 2 minutes
-5. Your live JSON: `https://<username>.github.io/Riga-station-departures/departures.json`
+Live departure board for Rīga Centrālā stacija, https://teleskopiss.github.io/Riga-station-departures/
 
 ## Repo structure
 
@@ -44,8 +25,3 @@ docs/index.html                ← Browser preview of the board
   "alert": ""
 }
 ```
-
-## ESP32
-
-The ESP32 fetches `departures.json` every 2 minutes and renders the dot-matrix display.
-Arduino code coming soon.
