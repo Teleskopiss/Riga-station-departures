@@ -1,6 +1,151 @@
 {
-  "updated": "2026-04-12T10:22:03Z",
+  "updated": "12.04.2026 13:28:46",
   "station": "Rīgā",
-  "departures": [],
+  "departures": [
+    {
+      "nr": "6511",
+      "dest": "Tukums 1",
+      "time": "10:30",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 3,
+      "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6717",
+      "dest": "Jelgava",
+      "time": "10:35",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 5,
+      "platform": 4,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6224",
+      "dest": "Lielvārde",
+      "time": "10:39",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 4,
+      "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6122",
+      "dest": "Skulte",
+      "time": "10:47",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 10,
+      "platform": 2,
+      "status": "scheduled"
+    },
+    {
+      "nr": "834",
+      "dest": "Sigulda",
+      "time": "11:00",
+      "fuel": "D",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 11,
+      "platform": 1,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6313",
+      "dest": "Zolitūde",
+      "time": "11:00",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 3,
+      "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6513",
+      "dest": "Tukums 1",
+      "time": "11:30",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 3,
+      "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6719",
+      "dest": "Jelgava",
+      "time": "11:35",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 5,
+      "platform": 4,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6126",
+      "dest": "Saulkrasti",
+      "time": "11:38",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 10,
+      "platform": 2,
+      "status": "scheduled"
+    },
+    {
+      "nr": "6226",
+      "dest": "Aizkraukle",
+      "time": "11:39",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 4,
+      "platform": 3,
+      "status": "scheduled"
+    },
+    {
+      "nr": "874",
+      "dest": "Valga",
+      "time": "11:45",
+      "fuel": "D",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 1,
+      "platform": 2,
+      "status": "stopped"
+    },
+    {
+      "nr": "6315",
+      "dest": "Zolitūde",
+      "time": "12:00",
+      "fuel": "E",
+      "gps_delay": 0,
+      "dispatcher_delay": null,
+      "delay_source": "none",
+      "track": 3,
+      "platform": 3,
+      "status": "scheduled"
+    }
+  ],
   "alert": ""
 }
