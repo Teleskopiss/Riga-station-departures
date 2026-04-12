@@ -35,8 +35,8 @@ jobs:
             echo "--- run $i ---"
             python scraper/scrape_delays.py
             git add docs/live-delays.json
-            git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update live delays [skip ci]" && git push)
-            [ $i -lt 3 ] && sleep 20
+            git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update live delays [skip ci]" && git pull --rebase origin main && git push)
+            if [ $i -lt 3 ]; then sleep 20; fi
           done
         env:
           PYTHONPATH: ${{ github.workspace }}/scraper
