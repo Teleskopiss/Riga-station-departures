@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rīga – atiešanas saraksts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0d0d0d;color:#ff8c00;font-family:'Share Tech Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem}
+  h1{font-size:1rem;letter-spacing:.2em;color:#ff6600;margin-bottom:1.5rem;text-transform:uppercase}
+  table{width:100%;max-width:680px;border-collapse:collapse}
+  th{font-size:.7rem;letter-spacing:.15em;color:#ff6600;border-bottom:1px solid #ff660044;padding:.4rem .6rem;text-align:left}
+  td{padding:.5rem .6rem;font-size:.95rem;border-bottom:1px solid #1a1a1a}
+  .delay{color:#ff2200}
+  .gps{color:#ffcc00}
+  .alert{max-width:680px;width:100%;background:#1a0a00;border:1px solid #ff6600;padding:.6rem 1rem;margin-bottom:1rem;font-size:.8rem;color:#ffaa44;display:none}
+  .updated{font-size:.65rem;color:#555;margin-top:1rem}
+</style>
+</head>
+<body>
+<h1>Rīga &#x2022; Atiešanas</h1>
+<div class="alert" id="alert"></div>
+<table>
+  <thead><tr><th>Nr.</th><th>Galamērķis</th><th>Laiks</th><th>Kavēšanās</th></tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+<div class="updated" id="updated"></div>
+<script>
+async function load(){
+  const r=await fetch('departures.json?t='+Date.now());
+  const d=await r.json();
+  const tb=document.getElementById('tbody');
+  tb.innerHTML='';
+  d.departures.forEach(dep=>{
+    const delay=dep.delay>0?`<span class="delay">+${dep.delay}min</span>`:dep.status==='gps'?'<span class="gps">GPS</span>':'';
+    tb.innerHTML+=`<tr><td>${dep.nr}</td><td>${dep.dest}</td><td>${dep.time}</td><td>${delay}</td></tr>`;
+  });
+  const al=document.getElementById('alert');
+  if(d.alert){al.textContent=d.alert;al.style.display='block';}else{al.style.display='none';}
+  document.getElementById('updated').textContent='Atjaunots: '+d.updated;
+}
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>
