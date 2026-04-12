@@ -1,0 +1,44 @@
+name: Scrape Live Delays
+
+on:
+  schedule:
+    - cron: '* * * * *'   # every minute (GitHub may throttle, loop handles it)
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  scrape-delays:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # 3x loop with 20s gap — compensates for GitHub cron throttling
+      - name: Run delay scraper loop
+        run: |
+          for i in 1 2 3; do
+            echo "--- run $i ---"
+            python scraper/scrape_delays.py || true
+            git add docs/live-delays.json
+            git diff --cached --quiet || git commit -m "chore: update live delays [skip ci]"
+            git push || true
+            [ $i -lt 3 ] && sleep 20
+          done
+        env:
+          PYTHONPATH: ${{ github.workspace }}/scraper

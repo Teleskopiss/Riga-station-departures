@@ -1,0 +1,41 @@
+name: Scrape Full Day Schedule
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour on the hour
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  scrape-schedule:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run schedule scraper
+        run: python scraper/scrape_schedule.py || true
+        env:
+          PYTHONPATH: ${{ github.workspace }}/scraper
+
+      - name: Commit & push
+        run: |
+          git add docs/full-day-trains.json
+          git diff --cached --quiet || git commit -m "chore: update full-day schedule [skip ci]"
+          git push || true
