@@ -2,31 +2,40 @@
 """
 Riga station departures scraper.
 
+Sources:
+  1. trainmap.vivi.lv/api/trainGraph  — scheduled timetable
+  2. wss://trainmap.pv.lv/ws          — live GPS / delay status
+  3. www.vivi.lv/lv/                  — dispatcher manual alerts
+
 Delay priority (highest wins):
-  1. dispatcher_delay  — manually posted on vivi.lv, ALWAYS shown, not toggleable
-  2. gps_delay         — live WebSocket data, stored but toggleable on display side
-  3. 0                 — scheduled time, never shown as earlier than timetable
+  dispatcher_delay  — always shown, not toggleable
+  gps_delay         — stored, toggleable on display side
+  0                 — scheduled time, never shown earlier
 """
 
 import json
 import os
 import re
 import threading
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 import requests
 import websocket
 
-TRAIN_GRAPH_URL = "https://trainmap.vivi.lv/api/trainGraph"
-WS_URL          = "wss://trainmap.pv.lv/ws"
-VIVI_URL        = "https://www.vivi.lv/lv/"
-OUTPUT_PATH     = os.path.join(os.path.dirname(__file__), "..", "docs", "departures.json")
+from track_data import get_track, get_platform
+
+TRAIN_GRAPH_URL    = "https://trainmap.vivi.lv/api/trainGraph"
+WS_URL             = "wss://trainmap.pv.lv/ws"
+VIVI_URL           = "https://www.vivi.lv/lv/"
+OUTPUT_PATH        = os.path.join(os.path.dirname(__file__), "..", "docs", "departures.json")
 DEPARTURE_STATION  = "R\u012bg\u0101"
 MAX_DEPARTURES     = 12
 WS_COLLECT_SECONDS = 8
 
 
-# ── 1. Scheduled departures (REST) ────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# 1. Scheduled departures
+# ---------------------------------------------------------------------------
 
 def fetch_scheduled(now: datetime) -> list[dict]:
     resp = requests.get(TRAIN_GRAPH_URL, timeout=15)
@@ -43,16 +52,13 @@ def fetch_scheduled(now: datetime) -> list[dict]:
         if dep_dt < now:
             continue
         departures.append({
-            "nr":            str(t["train"]),
-            "dest":          stops[-1]["title"],
-            "time":          dep_dt.strftime("%H:%M"),  # always scheduled, never earlier
-            "track":         "-",
-            "fuel":          "E" if t.get("fuelType", "") == "\u0160" else "D",
-            # delay fields — filled in later
-            "gps_delay":         0,      # from WebSocket; toggleable on display
-            "dispatcher_delay":  None,   # from vivi.lv alert; always shown
-            "delay_source":      "none", # "none" | "gps" | "dispatcher"
-            # internals stripped before write
+            "nr":   str(t["train"]),
+            "dest": stops[-1]["title"],
+            "time": dep_dt.strftime("%H:%M"),
+            "fuel": "E" if t.get("fuelType", "") == "\u0160" else "D",
+            "gps_delay":        0,
+            "dispatcher_delay": None,
+            "delay_source":     "none",
             "_dep_dt":   dep_dt,
             "_route_id": str(t["id"]),
             "_train_nr": str(t["train"]),
@@ -62,14 +68,11 @@ def fetch_scheduled(now: datetime) -> list[dict]:
     return departures[:MAX_DEPARTURES]
 
 
-# ── 2. Live GPS delay (WebSocket) ──────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# 2. Live GPS status (WebSocket)
+# ---------------------------------------------------------------------------
 
 def fetch_live_status() -> dict[str, dict]:
-    """
-    Returns dict keyed by route_id:
-      { gps_delay_min, stopped, gps_active, finished }
-    gps_delay_min is best-effort: we measure extra waiting time beyond 1 min.
-    """
     status: dict[str, dict] = {}
     done = threading.Event()
 
@@ -79,15 +82,14 @@ def fetch_live_status() -> dict[str, dict]:
             if msg.get("type") != "back-end":
                 return
             for entry in msg.get("data", []):
-                rv = entry.get("returnValue", {})
+                rv       = entry.get("returnValue", {})
                 route_id = str(rv.get("id", ""))
                 if not route_id:
                     continue
-                waiting_ms  = rv.get("waitingTime", 0)
-                extra_ms    = max(0, waiting_ms - 60_000)
-                delay_min   = round(extra_ms / 60_000)
+                waiting_ms = rv.get("waitingTime", 0)
+                extra_ms   = max(0, waiting_ms - 60_000)
                 status[route_id] = {
-                    "gps_delay_min": delay_min,
+                    "gps_delay_min": round(extra_ms / 60_000),
                     "stopped":       rv.get("stopped", False),
                     "gps_active":    rv.get("isGpsActive", False),
                     "finished":      rv.get("finished", False),
@@ -97,57 +99,90 @@ def fetch_live_status() -> dict[str, dict]:
         except Exception:
             pass
 
-    ws_app = websocket.WebSocketApp(WS_URL, on_message=on_message,
-                                    on_error=lambda *_: done.set())
+    ws_app = websocket.WebSocketApp(
+        WS_URL,
+        on_message=on_message,
+        on_error=lambda *_: done.set(),
+    )
     threading.Thread(target=ws_app.run_forever, daemon=True).start()
     done.wait(timeout=WS_COLLECT_SECONDS)
     ws_app.close()
     return status
 
 
-# ── 3. Dispatcher alerts (vivi.lv scrape) ─────────────────────────────────────
+# ---------------------------------------------------------------------------
+# 3. Dispatcher alerts (vivi.lv)
+# ---------------------------------------------------------------------------
 
-# Pattern examples:
-#   "Vilciens 6245 Rīga–Aizkraukle kavējas 20 min satiksmes negadījuma dēļ"
-#   "Vilciens 813 Rīga–Daugavpils kavējas 15 min"
 DELAY_PATTERN = re.compile(
-    r"[Vv]ilcien[si]\s+(\d+)[^\d].*?kavējas\s+(\d+)\s*min",
-    re.IGNORECASE | re.UNICODE
+    r"[Vv]ilcien[si]\s+(\d+)[^\d].*?kav\u0113jas\s+(\d+)\s*min",
+    re.IGNORECASE | re.UNICODE,
 )
 
 def fetch_dispatcher_alerts() -> dict[str, int]:
-    """
-    Scrapes vivi.lv main page for dispatcher delay notices.
-    Returns dict: train_nr (str) -> delay_minutes (int)
-    These are ALWAYS shown, not toggleable.
-    """
     alerts: dict[str, int] = {}
     try:
         resp = requests.get(VIVI_URL, timeout=10,
                             headers={"Accept-Language": "lv"})
         resp.raise_for_status()
         for m in DELAY_PATTERN.finditer(resp.text):
-            train_nr  = m.group(1)
-            delay_min = int(m.group(2))
-            alerts[train_nr] = delay_min
-            print(f"[dispatcher] Train {train_nr} late {delay_min} min")
+            alerts[m.group(1)] = int(m.group(2))
+            print(f"[dispatcher] Train {m.group(1)} late {m.group(2)} min")
     except Exception as e:
-        print(f"[dispatcher] Could not fetch vivi.lv: {e}")
+        print(f"[dispatcher] vivi.lv fetch failed: {e}")
     return alerts
 
 
-# ── 4. Merge all sources ───────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# 4. Assign tracks & platforms
+# ---------------------------------------------------------------------------
 
-def build_output(departures: list[dict],
-                 live: dict[str, dict],
-                 alerts: dict[str, int]) -> dict:
+def assign_tracks(departures: list[dict]) -> list[dict]:
+    """
+    For each departure, determine track and platform.
+    Tracks occupied by trains departing within 5 minutes are passed as
+    'soon_occupied' to avoid placing two trains on the same track.
+    """
+    today = date.today()
+
+    # Build set of tracks that will be occupied within 5 min windows
+    # We iterate in time order (already sorted)
+    result = []
+    assigned_tracks: list[tuple[datetime, int]] = []  # (dep_dt, track)
+
+    for d in departures:
+        dep_dt = d["_dep_dt"]
+        # tracks occupied by trains departing within 5 min before this one
+        from datetime import timedelta
+        window_start = dep_dt - timedelta(minutes=5)
+        soon = {trk for (dt, trk) in assigned_tracks if dt >= window_start}
+
+        track    = get_track(d["_train_nr"], d["dest"],
+                             soon_occupied=soon, today=today)
+        platform = get_platform(track)
+
+        d["track"]    = track
+        d["platform"] = platform
+        assigned_tracks.append((dep_dt, track))
+        result.append(d)
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# 5. Merge delays
+# ---------------------------------------------------------------------------
+
+def merge_delays(departures: list[dict],
+                 live:       dict[str, dict],
+                 alerts:     dict[str, int]) -> list[dict]:
     clean = []
     for d in departures:
         route_id = d.pop("_route_id")
         train_nr = d.pop("_train_nr")
         d.pop("_dep_dt")
 
-        ls = live.get(route_id, {})
+        ls        = live.get(route_id, {})
         gps_delay = ls.get("gps_delay_min", 0)
 
         if ls.get("stopped"):
@@ -157,10 +192,9 @@ def build_output(departures: list[dict],
         else:
             d["status"] = "scheduled"
 
-        # Dispatcher alert overrides everything — always shown
         if train_nr in alerts:
             d["dispatcher_delay"] = alerts[train_nr]
-            d["gps_delay"]        = gps_delay   # still stored for reference
+            d["gps_delay"]        = gps_delay
             d["delay_source"]     = "dispatcher"
         elif gps_delay > 0:
             d["gps_delay"]        = gps_delay
@@ -172,45 +206,45 @@ def build_output(departures: list[dict],
             d["delay_source"]     = "none"
 
         clean.append(d)
+    return clean
 
-    # Build global alert string from any dispatcher notices
-    # (full text scraped separately if needed; for now reconstruct from alerts)
-    alert_parts = [
-        f"Vilciens {nr} kavējas {mins} min"
-        for nr, mins in alerts.items()
-    ]
-    alert_str = "  |  ".join(alert_parts)
 
-    return {
-        "updated":    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "station":    "R\u012bg\u0101",
-        "departures": clean,
-        "alert":      alert_str,
-    }
-
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 
 def main():
     now = datetime.now()
-    print(f"[scraper] {now:%H:%M:%S} — fetching scheduled data")
+    print(f"[scraper] {now:%H:%M:%S}")
+
     departures = fetch_scheduled(now)
-    print(f"[scraper] {len(departures)} upcoming departures from R\u012bg\u0101")
+    print(f"[scraper] {len(departures)} upcoming departures")
 
-    print("[scraper] Connecting to WebSocket...")
-    live = fetch_live_status()
-    print(f"[scraper] Live status: {len(live)} active trains")
+    departures = assign_tracks(departures)
 
-    print("[scraper] Checking vivi.lv dispatcher alerts...")
+    live   = fetch_live_status()
+    print(f"[scraper] live status: {len(live)} trains")
+
     alerts = fetch_dispatcher_alerts()
-    print(f"[scraper] Dispatcher alerts: {len(alerts)}")
+    print(f"[scraper] dispatcher alerts: {len(alerts)}")
 
-    output = build_output(departures, live, alerts)
+    departures = merge_delays(departures, live, alerts)
+
+    alert_parts = [f"Vilciens {nr} kav\u0113jas {mins} min"
+                   for nr, mins in alerts.items()]
+
+    output = {
+        "updated":    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "station":    "R\u012bg\u0101",
+        "departures": departures,
+        "alert":      "  |  ".join(alert_parts),
+    }
 
     out_path = os.path.abspath(OUTPUT_PATH)
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[scraper] Written → {out_path}")
-    print(f"[scraper] Alert: '{output['alert']}'")
+    print(f"[scraper] written -> {out_path}")
 
 
 if __name__ == "__main__":

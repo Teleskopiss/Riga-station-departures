@@ -2,8 +2,8 @@ name: Scrape Riga Departures
 
 on:
   schedule:
-    - cron: '*/2 * * * *'   # every 2 minutes
-  workflow_dispatch:         # allow manual trigger
+    - cron: '* * * * *'   # every 1 minute
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -24,12 +24,14 @@ jobs:
         run: pip install -r scraper/requirements.txt
 
       - name: Run scraper
-        run: python scraper/scrape.py
+        run: |
+          cd scraper
+          python scrape.py
 
       - name: Commit & push departures.json
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/departures.json
-          git diff --cached --quiet || git commit -m "chore: update departures.json [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: update departures [skip ci]"
           git push
