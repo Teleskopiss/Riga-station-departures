@@ -37,4 +37,4 @@ jobs:
       - name: Commit and push
         run: |
           git add docs/full-day-trains.json
-          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update full-day schedule [skip ci]" && git push)
+          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update full-day schedule [skip ci]" && git pull --rebase origin main && git push)
