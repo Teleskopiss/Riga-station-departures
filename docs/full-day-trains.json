@@ -1,8 +1,1395 @@
 {
   "station": "Rīgā",
   "date": "2026-04-17",
-  "updated_utc": "2026-04-17T03:27:32Z",
-  "updated": "17.04.2026 06:27:32",
-  "total": 0,
-  "trains": []
+  "updated_utc": "2026-04-17T08:48:30Z",
+  "updated": "17.04.2026 11:48:30",
+  "total": 154,
+  "trains": [
+    {
+      "nr": "6871",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T05:04:00Z",
+      "fuel": "E",
+      "route_id": "759696",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6202",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T05:09:00Z",
+      "fuel": "E",
+      "route_id": "759697",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6301",
+      "dest": "Imanta",
+      "dep_utc": "2026-04-17T05:15:00Z",
+      "fuel": "E",
+      "route_id": "759699",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6501",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T05:30:00Z",
+      "fuel": "E",
+      "route_id": "759701",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6701",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T05:35:00Z",
+      "fuel": "E",
+      "route_id": "759702",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6204",
+      "dest": "Ogre",
+      "dep_utc": "2026-04-17T05:39:00Z",
+      "fuel": "E",
+      "route_id": "759704",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6102",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T05:45:00Z",
+      "fuel": "E",
+      "route_id": "759705",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6303",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T06:00:00Z",
+      "fuel": "E",
+      "route_id": "760632",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6873",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T06:04:00Z",
+      "fuel": "E",
+      "route_id": "759711",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6206",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T06:09:00Z",
+      "fuel": "E",
+      "route_id": "759714",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6104",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T06:15:00Z",
+      "fuel": "E",
+      "route_id": "759715",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6208",
+      "dest": "Ogre",
+      "dep_utc": "2026-04-17T06:24:00Z",
+      "fuel": "E",
+      "route_id": "759716",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6503",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T06:30:00Z",
+      "fuel": "E",
+      "route_id": "759718",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "862",
+      "dest": "Valmiera",
+      "dep_utc": "2026-04-17T06:30:00Z",
+      "fuel": "D",
+      "route_id": "759719",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6705",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T06:35:00Z",
+      "fuel": "E",
+      "route_id": "759720",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6210",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T06:39:00Z",
+      "fuel": "E",
+      "route_id": "759722",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6106",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T06:45:00Z",
+      "fuel": "E",
+      "route_id": "759723",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6305",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T07:00:00Z",
+      "fuel": "E",
+      "route_id": "760636",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "802",
+      "dest": "Daugavpils",
+      "dep_utc": "2026-04-17T07:01:00Z",
+      "fuel": "D",
+      "route_id": "759728",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6875",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T07:04:00Z",
+      "fuel": "E",
+      "route_id": "759731",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6212",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T07:09:00Z",
+      "fuel": "E",
+      "route_id": "759732",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6108",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T07:15:00Z",
+      "fuel": "E",
+      "route_id": "759734",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6505",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T07:30:00Z",
+      "fuel": "E",
+      "route_id": "759737",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6709",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T07:35:00Z",
+      "fuel": "E",
+      "route_id": "759739",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6214",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T07:39:00Z",
+      "fuel": "E",
+      "route_id": "759741",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6110",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T07:45:00Z",
+      "fuel": "E",
+      "route_id": "759743",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "830",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T08:00:00Z",
+      "fuel": "D",
+      "route_id": "759747",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6307",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T08:00:00Z",
+      "fuel": "E",
+      "route_id": "760640",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "804",
+      "dest": "Zilupe",
+      "dep_utc": "2026-04-17T08:01:00Z",
+      "fuel": "D",
+      "route_id": "759748",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6877",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T08:04:00Z",
+      "fuel": "E",
+      "route_id": "759750",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6216",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T08:09:00Z",
+      "fuel": "E",
+      "route_id": "759753",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6112",
+      "dest": "Carnikava",
+      "dep_utc": "2026-04-17T08:15:00Z",
+      "fuel": "E",
+      "route_id": "759754",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6507",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T08:30:00Z",
+      "fuel": "E",
+      "route_id": "759755",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6713",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T08:35:00Z",
+      "fuel": "E",
+      "route_id": "759756",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6218",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T08:39:00Z",
+      "fuel": "E",
+      "route_id": "759757",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6114",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T08:45:00Z",
+      "fuel": "E",
+      "route_id": "759760",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6309",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T09:00:00Z",
+      "fuel": "E",
+      "route_id": "760644",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6220",
+      "dest": "Ogre",
+      "dep_utc": "2026-04-17T09:09:00Z",
+      "fuel": "E",
+      "route_id": "759765",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6509",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T09:30:00Z",
+      "fuel": "E",
+      "route_id": "759769",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "872",
+      "dest": "Valga",
+      "dep_utc": "2026-04-17T09:30:00Z",
+      "fuel": "D",
+      "route_id": "759770",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6715",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T09:35:00Z",
+      "fuel": "E",
+      "route_id": "759771",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6222",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T09:39:00Z",
+      "fuel": "E",
+      "route_id": "759773",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6118",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T09:45:00Z",
+      "fuel": "E",
+      "route_id": "759774",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6311",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T10:00:00Z",
+      "fuel": "E",
+      "route_id": "760648",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "702",
+      "dest": "Daugavpils",
+      "dep_utc": "2026-04-17T10:01:00Z",
+      "fuel": "D",
+      "route_id": "759776",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6511",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T10:30:00Z",
+      "fuel": "E",
+      "route_id": "759781",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6717",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T10:35:00Z",
+      "fuel": "E",
+      "route_id": "759783",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6224",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T10:39:00Z",
+      "fuel": "E",
+      "route_id": "759785",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6122",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T10:45:00Z",
+      "fuel": "E",
+      "route_id": "759787",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "834",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T11:00:00Z",
+      "fuel": "D",
+      "route_id": "759789",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6313",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T11:00:00Z",
+      "fuel": "E",
+      "route_id": "760652",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6513",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T11:30:00Z",
+      "fuel": "E",
+      "route_id": "759792",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6719",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T11:35:00Z",
+      "fuel": "E",
+      "route_id": "759793",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6126",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T11:38:00Z",
+      "fuel": "E",
+      "route_id": "759794",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6226",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T11:39:00Z",
+      "fuel": "E",
+      "route_id": "759796",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "874",
+      "dest": "Valga",
+      "dep_utc": "2026-04-17T11:45:00Z",
+      "fuel": "D",
+      "route_id": "759797",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6315",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T12:00:00Z",
+      "fuel": "E",
+      "route_id": "760656",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "704",
+      "dest": "Ludza",
+      "dep_utc": "2026-04-17T12:01:00Z",
+      "fuel": "D",
+      "route_id": "759799",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "836",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T12:30:00Z",
+      "fuel": "D",
+      "route_id": "759802",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6515",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T12:30:00Z",
+      "fuel": "E",
+      "route_id": "759803",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "810",
+      "dest": "Daugavpils",
+      "dep_utc": "2026-04-17T12:31:00Z",
+      "fuel": "D",
+      "route_id": "759804",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6721",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T12:35:00Z",
+      "fuel": "E",
+      "route_id": "759805",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6228",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T12:39:00Z",
+      "fuel": "E",
+      "route_id": "759807",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6130",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T12:45:00Z",
+      "fuel": "E",
+      "route_id": "759809",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6317",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T13:00:00Z",
+      "fuel": "E",
+      "route_id": "760660",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6230",
+      "dest": "Ogre",
+      "dep_utc": "2026-04-17T13:09:00Z",
+      "fuel": "E",
+      "route_id": "759812",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6517",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T13:30:00Z",
+      "fuel": "E",
+      "route_id": "759817",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6723",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T13:35:00Z",
+      "fuel": "E",
+      "route_id": "759818",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6232",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T13:39:00Z",
+      "fuel": "E",
+      "route_id": "759819",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6134",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T13:45:00Z",
+      "fuel": "E",
+      "route_id": "759822",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6319",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T14:00:00Z",
+      "fuel": "E",
+      "route_id": "760664",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6234",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T14:09:00Z",
+      "fuel": "E",
+      "route_id": "759825",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6519",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T14:30:00Z",
+      "fuel": "E",
+      "route_id": "759827",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "838",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T14:30:00Z",
+      "fuel": "D",
+      "route_id": "759828",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6725",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T14:35:00Z",
+      "fuel": "E",
+      "route_id": "759830",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6236",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T14:39:00Z",
+      "fuel": "E",
+      "route_id": "759832",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6138",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T14:45:00Z",
+      "fuel": "E",
+      "route_id": "759835",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6321",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T15:00:00Z",
+      "fuel": "E",
+      "route_id": "760668",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6238",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T15:09:00Z",
+      "fuel": "E",
+      "route_id": "759837",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6140",
+      "dest": "Carnikava",
+      "dep_utc": "2026-04-17T15:15:00Z",
+      "fuel": "E",
+      "route_id": "759838",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "840",
+      "dest": "Cēsis",
+      "dep_utc": "2026-04-17T15:23:00Z",
+      "fuel": "D",
+      "route_id": "759840",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6521",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T15:30:00Z",
+      "fuel": "E",
+      "route_id": "759842",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6729",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T15:35:00Z",
+      "fuel": "E",
+      "route_id": "759843",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6240",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T15:39:00Z",
+      "fuel": "E",
+      "route_id": "759844",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6142",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T15:45:00Z",
+      "fuel": "E",
+      "route_id": "759846",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6323",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T16:00:00Z",
+      "fuel": "E",
+      "route_id": "760672",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6879",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T16:05:00Z",
+      "fuel": "E",
+      "route_id": "759848",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "842",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T16:05:00Z",
+      "fuel": "D",
+      "route_id": "759849",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6242",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T16:09:00Z",
+      "fuel": "E",
+      "route_id": "759852",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6144",
+      "dest": "Carnikava",
+      "dep_utc": "2026-04-17T16:15:00Z",
+      "fuel": "E",
+      "route_id": "759854",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6523",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T16:30:00Z",
+      "fuel": "E",
+      "route_id": "759857",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "708",
+      "dest": "Indra",
+      "dep_utc": "2026-04-17T16:31:00Z",
+      "fuel": "D",
+      "route_id": "759858",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6733",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T16:35:00Z",
+      "fuel": "E",
+      "route_id": "759860",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6244",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T16:39:00Z",
+      "fuel": "E",
+      "route_id": "759861",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6146",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T16:45:00Z",
+      "fuel": "E",
+      "route_id": "759863",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6325",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T17:00:00Z",
+      "fuel": "E",
+      "route_id": "760676",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "812",
+      "dest": "Zilupe",
+      "dep_utc": "2026-04-17T17:01:00Z",
+      "fuel": "D",
+      "route_id": "759866",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6881",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T17:05:00Z",
+      "fuel": "E",
+      "route_id": "759867",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6246",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T17:09:00Z",
+      "fuel": "E",
+      "route_id": "759869",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6148",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T17:15:00Z",
+      "fuel": "E",
+      "route_id": "759872",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6248",
+      "dest": "Ogre",
+      "dep_utc": "2026-04-17T17:24:00Z",
+      "fuel": "E",
+      "route_id": "759874",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "864",
+      "dest": "Valmiera",
+      "dep_utc": "2026-04-17T17:26:00Z",
+      "fuel": "D",
+      "route_id": "759875",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6525",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T17:30:00Z",
+      "fuel": "E",
+      "route_id": "759876",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6737",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T17:35:00Z",
+      "fuel": "E",
+      "route_id": "759879",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6250",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T17:39:00Z",
+      "fuel": "E",
+      "route_id": "759882",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6152",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T17:45:00Z",
+      "fuel": "E",
+      "route_id": "759884",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "844",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T18:00:00Z",
+      "fuel": "D",
+      "route_id": "759886",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6327",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T18:00:00Z",
+      "fuel": "E",
+      "route_id": "760680",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "814",
+      "dest": "Daugavpils",
+      "dep_utc": "2026-04-17T18:01:00Z",
+      "fuel": "D",
+      "route_id": "759887",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6883",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T18:05:00Z",
+      "fuel": "E",
+      "route_id": "759889",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6252",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T18:09:00Z",
+      "fuel": "E",
+      "route_id": "759891",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6154",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T18:15:00Z",
+      "fuel": "E",
+      "route_id": "759893",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "723",
+      "dest": "Liepāja",
+      "dep_utc": "2026-04-17T18:20:00Z",
+      "fuel": "D",
+      "route_id": "759894",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6527",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T18:30:00Z",
+      "fuel": "E",
+      "route_id": "759897",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6741",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T18:35:00Z",
+      "fuel": "E",
+      "route_id": "759899",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "876",
+      "dest": "Valga",
+      "dep_utc": "2026-04-17T18:37:00Z",
+      "fuel": "D",
+      "route_id": "759901",
+      "track": 12,
+      "platform": 1
+    },
+    {
+      "nr": "6254",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T18:39:00Z",
+      "fuel": "E",
+      "route_id": "759902",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6156",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T18:45:00Z",
+      "fuel": "E",
+      "route_id": "759904",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6329",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T19:00:00Z",
+      "fuel": "E",
+      "route_id": "760684",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "820",
+      "dest": "Gulbene",
+      "dep_utc": "2026-04-17T19:01:00Z",
+      "fuel": "D",
+      "route_id": "759906",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6256",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T19:09:00Z",
+      "fuel": "E",
+      "route_id": "759908",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6158",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T19:15:00Z",
+      "fuel": "E",
+      "route_id": "759910",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6529",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T19:30:00Z",
+      "fuel": "E",
+      "route_id": "759912",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "866",
+      "dest": "Valmiera",
+      "dep_utc": "2026-04-17T19:30:00Z",
+      "fuel": "D",
+      "route_id": "759913",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6745",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T19:35:00Z",
+      "fuel": "E",
+      "route_id": "759915",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6258",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T19:39:00Z",
+      "fuel": "E",
+      "route_id": "759917",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6160",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T19:45:00Z",
+      "fuel": "E",
+      "route_id": "759918",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6331",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T20:00:00Z",
+      "fuel": "E",
+      "route_id": "760688",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6260",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T20:09:00Z",
+      "fuel": "E",
+      "route_id": "759923",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6162",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-04-17T20:19:00Z",
+      "fuel": "E",
+      "route_id": "759924",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6531",
+      "dest": "Tukums 1",
+      "dep_utc": "2026-04-17T20:30:00Z",
+      "fuel": "E",
+      "route_id": "759926",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6747",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T20:35:00Z",
+      "fuel": "E",
+      "route_id": "759928",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "846",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T20:37:00Z",
+      "fuel": "D",
+      "route_id": "759929",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6262",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T20:39:00Z",
+      "fuel": "E",
+      "route_id": "759931",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6164",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T20:47:00Z",
+      "fuel": "E",
+      "route_id": "759933",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6333",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T21:00:00Z",
+      "fuel": "E",
+      "route_id": "760692",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "822",
+      "dest": "Daugavpils",
+      "dep_utc": "2026-04-17T21:01:00Z",
+      "fuel": "D",
+      "route_id": "759935",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6264",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T21:09:00Z",
+      "fuel": "E",
+      "route_id": "759936",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6533",
+      "dest": "Tukums 2",
+      "dep_utc": "2026-04-17T21:30:00Z",
+      "fuel": "E",
+      "route_id": "759939",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "848",
+      "dest": "Cēsis",
+      "dep_utc": "2026-04-17T21:30:00Z",
+      "fuel": "D",
+      "route_id": "759940",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6749",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T21:35:00Z",
+      "fuel": "E",
+      "route_id": "759941",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6266",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T21:39:00Z",
+      "fuel": "E",
+      "route_id": "759942",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6166",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T21:45:00Z",
+      "fuel": "E",
+      "route_id": "759945",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6335",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T22:00:00Z",
+      "fuel": "E",
+      "route_id": "760696",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6535",
+      "dest": "Tukums 2",
+      "dep_utc": "2026-04-17T22:30:00Z",
+      "fuel": "E",
+      "route_id": "759949",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "850",
+      "dest": "Sigulda",
+      "dep_utc": "2026-04-17T22:30:00Z",
+      "fuel": "D",
+      "route_id": "759950",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6751",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T22:35:00Z",
+      "fuel": "E",
+      "route_id": "759951",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6268",
+      "dest": "Aizkraukle",
+      "dep_utc": "2026-04-17T22:39:00Z",
+      "fuel": "E",
+      "route_id": "759952",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6168",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T22:45:00Z",
+      "fuel": "E",
+      "route_id": "759954",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6337",
+      "dest": "Zolitūde",
+      "dep_utc": "2026-04-17T23:00:00Z",
+      "fuel": "E",
+      "route_id": "760698",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6753",
+      "dest": "Jelgava",
+      "dep_utc": "2026-04-17T23:35:00Z",
+      "fuel": "E",
+      "route_id": "759956",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "6270",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-04-17T23:39:00Z",
+      "fuel": "E",
+      "route_id": "759957",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6170",
+      "dest": "Skulte",
+      "dep_utc": "2026-04-17T23:45:00Z",
+      "fuel": "E",
+      "route_id": "759958",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6537",
+      "dest": "Tukums 2",
+      "dep_utc": "2026-04-17T23:45:00Z",
+      "fuel": "E",
+      "route_id": "759959",
+      "track": 3,
+      "platform": 3
+    }
+  ]
 }
