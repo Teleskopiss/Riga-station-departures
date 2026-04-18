@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-04-18T10:23:13Z",
-  "updated": "18.04.2026 13:23:13",
+  "updated_utc": "2026-04-18T10:23:38Z",
+  "updated": "18.04.2026 13:23:38",
   "delays": {
     "760048": {
       "gps_delay_min": 0,
@@ -10,12 +10,12 @@
     "760057": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "760058": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "760059": {
       "gps_delay_min": 0,
@@ -25,7 +25,7 @@
     "760060": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "760061": {
       "gps_delay_min": 0,
@@ -40,7 +40,7 @@
     "760063": {
       "gps_delay_min": 0,
       "stopped": true,
-      "gps_active": false
+      "gps_active": true
     },
     "760064": {
       "gps_delay_min": 0,
@@ -55,31 +55,31 @@
     "760067": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "760068": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "760069": {
-      "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": false
-    },
-    "760070": {
-      "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
-    },
-    "760071": {
       "gps_delay_min": 0,
       "stopped": false,
       "gps_active": true
     },
+    "760070": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": true
+    },
+    "760071": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
+    },
     "760072": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "760073": {
@@ -90,7 +90,7 @@
     "760074": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     }
   },
   "alerts": {}
