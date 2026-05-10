@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-05-10T16:03:54Z",
-  "updated": "10.05.2026 19:03:54",
+  "updated_utc": "2026-05-10T16:04:20Z",
+  "updated": "10.05.2026 19:04:20",
   "delays": {
     "768050": {
       "gps_delay_min": 0,
@@ -20,7 +20,7 @@
     "768064": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "768069": {
       "gps_delay_min": 0,
@@ -45,7 +45,7 @@
     "768083": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "768085": {
       "gps_delay_min": 0,
@@ -64,8 +64,8 @@
     },
     "768088": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "768089": {
       "gps_delay_min": 0,
@@ -80,7 +80,7 @@
     "768091": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "768092": {
       "gps_delay_min": 0,
@@ -90,17 +90,17 @@
     "768093": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "768094": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "768095": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "768096": {
       "gps_delay_min": 0,
@@ -110,7 +110,7 @@
     "768097": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "768098": {
       "gps_delay_min": 0,
@@ -139,7 +139,7 @@
     },
     "768104": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "768105": {
@@ -150,7 +150,7 @@
     "768107": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     }
   },
   "alerts": {}
