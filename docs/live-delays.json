@@ -1,21 +1,21 @@
 {
-  "updated_utc": "2026-05-14T17:27:21Z",
-  "updated": "14.05.2026 20:27:21",
+  "updated_utc": "2026-05-14T17:27:45Z",
+  "updated": "14.05.2026 20:27:45",
   "delays": {
     "769444": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "769468": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "769473": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "769475": {
       "gps_delay_min": 0,
@@ -30,7 +30,7 @@
     "769484": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "769491": {
       "gps_delay_min": 0,
@@ -45,27 +45,27 @@
     "769498": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "769499": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "769501": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "769503": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "769504": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "769507": {
       "gps_delay_min": 0,
@@ -80,12 +80,12 @@
     "769511": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "769512": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "769513": {
       "gps_delay_min": 0,
@@ -95,7 +95,7 @@
     "769514": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     }
   },
   "alerts": {}
