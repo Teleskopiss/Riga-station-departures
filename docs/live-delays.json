@@ -1,6 +1,32 @@
 {
-  "updated_utc": "2026-05-20T23:43:51Z",
-  "updated": "21.05.2026 02:43:51",
-  "delays": {},
+  "updated_utc": "2026-05-21T01:48:56Z",
+  "updated": "21.05.2026 04:48:56",
+  "delays": {
+    "771571": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": true
+    },
+    "771572": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": true
+    },
+    "771573": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
+    },
+    "771574": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
+    },
+    "771575": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": true
+    }
+  },
   "alerts": {}
 }
