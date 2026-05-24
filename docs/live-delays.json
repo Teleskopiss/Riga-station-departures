@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-05-24T09:43:48Z",
-  "updated": "24.05.2026 12:43:48",
+  "updated_utc": "2026-05-24T09:44:14Z",
+  "updated": "24.05.2026 12:44:14",
   "delays": {
     "772629": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "772641": {
       "gps_delay_min": 0,
@@ -15,11 +15,11 @@
     "772647": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "772648": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "772651": {
@@ -29,7 +29,7 @@
     },
     "772653": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "772654": {
@@ -40,7 +40,7 @@
     "772655": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "772656": {
       "gps_delay_min": 0,
@@ -50,27 +50,27 @@
     "772657": {
       "gps_delay_min": 0,
       "stopped": true,
-      "gps_active": true
+      "gps_active": false
     },
     "772658": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "772659": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "772660": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "772661": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "772662": {
       "gps_delay_min": 0,
@@ -85,11 +85,11 @@
     "772664": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "772665": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "772666": {
