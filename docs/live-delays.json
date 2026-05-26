@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-05-26T05:49:20Z",
-  "updated": "26.05.2026 08:49:20",
+  "updated_utc": "2026-05-26T05:49:45Z",
+  "updated": "26.05.2026 08:49:45",
   "delays": {
     "773206": {
       "gps_delay_min": 0,
@@ -15,11 +15,11 @@
     "773232": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "773242": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "773244": {
@@ -50,22 +50,22 @@
     "773256": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "773257": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": false
     },
     "773258": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "773259": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "773260": {
       "gps_delay_min": 0,
@@ -87,15 +87,10 @@
       "stopped": true,
       "gps_active": true
     },
-    "773265": {
+    "773266": {
       "gps_delay_min": 0,
       "stopped": false,
       "gps_active": false
-    },
-    "773266": {
-      "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
     },
     "773267": {
       "gps_delay_min": 0,
@@ -109,8 +104,8 @@
     },
     "773269": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "773270": {
       "gps_delay_min": 0,
@@ -119,7 +114,7 @@
     },
     "773271": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "773272": {
@@ -129,8 +124,8 @@
     },
     "773273": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     }
   },
   "alerts": {}
