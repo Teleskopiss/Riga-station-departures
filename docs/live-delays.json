@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-05-31T15:53:11Z",
-  "updated": "31.05.2026 18:53:11",
+  "updated_utc": "2026-05-31T15:53:36Z",
+  "updated": "31.05.2026 18:53:36",
   "delays": {
     "775086": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775088": {
       "gps_delay_min": 0,
@@ -15,7 +15,7 @@
     "775096": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775098": {
       "gps_delay_min": 0,
@@ -30,7 +30,7 @@
     "775110": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775112": {
       "gps_delay_min": 0,
@@ -45,7 +45,7 @@
     "775116": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775121": {
       "gps_delay_min": 0,
@@ -54,42 +54,37 @@
     },
     "775122": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "775124": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "775125": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775127": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775128": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "775129": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775130": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": true
-    },
-    "775132": {
-      "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "775133": {
@@ -110,7 +105,7 @@
     "775136": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775137": {
       "gps_delay_min": 0,
@@ -119,13 +114,13 @@
     },
     "775138": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "775139": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "775140": {
       "gps_delay_min": 0,
@@ -139,12 +134,12 @@
     },
     "775142": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "775143": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "775144": {
