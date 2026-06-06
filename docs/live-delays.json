@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-06T07:35:55Z",
-  "updated": "06.06.2026 10:35:55",
+  "updated_utc": "2026-06-06T07:36:19Z",
+  "updated": "06.06.2026 10:36:19",
   "delays": {
     "777072": {
       "gps_delay_min": 0,
@@ -14,12 +14,12 @@
     },
     "777083": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "777096": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "777098": {
@@ -30,17 +30,17 @@
     "777099": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "777101": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "777102": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "777104": {
       "gps_delay_min": 0,
@@ -60,11 +60,11 @@
     "777107": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "777108": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "777109": {
@@ -79,13 +79,13 @@
     },
     "777111": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "777112": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "777113": {
       "gps_delay_min": 0,
@@ -95,17 +95,22 @@
     "777114": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "777115": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "777116": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
+    },
+    "777117": {
+      "gps_delay_min": 0,
+      "stopped": true,
+      "gps_active": true
     }
   },
   "alerts": {}
