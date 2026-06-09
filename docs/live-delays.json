@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-09T09:33:24Z",
-  "updated": "09.06.2026 12:33:24",
+  "updated_utc": "2026-06-09T09:33:48Z",
+  "updated": "09.06.2026 12:33:48",
   "delays": {
     "778173": {
       "gps_delay_min": 0,
@@ -15,22 +15,22 @@
     "778197": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "778198": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "778200": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": true
+      "stopped": true,
+      "gps_active": false
     },
     "778201": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "778203": {
       "gps_delay_min": 0,
@@ -39,7 +39,7 @@
     },
     "778204": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "778205": {
@@ -49,13 +49,13 @@
     },
     "778206": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "778207": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "778208": {
       "gps_delay_min": 0,
@@ -69,12 +69,12 @@
     },
     "778210": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "778211": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "778212": {
@@ -85,7 +85,7 @@
     "778213": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "778214": {
       "gps_delay_min": 0,
@@ -95,7 +95,7 @@
     "778215": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "778216": {
       "gps_delay_min": 0,
