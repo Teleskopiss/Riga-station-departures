@@ -1,9 +1,11 @@
 name: Scrape Live Delays
 
 on:
-  schedule:
-    - cron: '* * * * *'
   workflow_dispatch:
+
+concurrency:
+  group: scrape-delays
+  cancel-in-progress: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -29,14 +31,12 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run delay scraper loop
-        run: |
-          for i in 1 2 3; do
-            echo "--- run $i ---"
-            python scraper/scrape_delays.py
-            git add docs/live-delays.json
-            git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update live delays [skip ci]" && git pull --rebase origin main && git push)
-            if [ $i -lt 3 ]; then sleep 20; fi
-          done
+      - name: Run delay scraper
+        run: python scraper/scrape_delays.py
         env:
           PYTHONPATH: ${{ github.workspace }}/scraper
+
+      - name: Commit and push
+        run: |
+          git add docs/live-delays.json
+          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update live delays [skip ci]" && git pull --rebase origin main && git push)
