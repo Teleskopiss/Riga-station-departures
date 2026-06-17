@@ -4,125 +4,370 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rīga – Atiešanas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#0d0d0d;color:#ff8c00;font-family:'Share Tech Mono',monospace;
-       min-height:100vh;display:flex;flex-direction:column;align-items:center;
-       justify-content:center;padding:1rem}
-  h1{font-size:1rem;letter-spacing:.2em;color:#ff6600;margin-bottom:1.4rem;text-transform:uppercase}
-  table{width:100%;max-width:860px;border-collapse:collapse}
-  th{font-size:.7rem;letter-spacing:.15em;color:#ff6600;
-     border-bottom:1px solid #ff660044;padding:.4rem .6rem;text-align:left;white-space:nowrap}
-  td{padding:.5rem .6rem;font-size:.95rem;border-bottom:1px solid #1a1a1a;white-space:nowrap}
-  .delay{color:#ff2200}
-  .gps{color:#ffcc00}
-  .badge{display:inline-block;padding:.1rem .4rem;border-radius:3px;
-         font-size:.8rem;font-weight:bold;line-height:1.4}
-  .bt{background:#1a1a1a;border:1px solid #ff660066;color:#ff8c00}
-  .bp{background:#ff660022;border:1px solid #ff6600;color:#ff6600}
-  .alert{max-width:860px;width:100%;background:#1a0a00;border:1px solid #ff6600;
-         padding:.6rem 1rem;margin-bottom:1rem;font-size:.8rem;color:#ffaa44;display:none}
-  .updated{font-size:.65rem;color:#555;margin-top:1rem}
+  :root {
+    --bg:       #0a0a0a;
+    --surface:  #111111;
+    --border:   #1e1e1e;
+    --orange:   #ff8c00;
+    --orange2:  #ff6600;
+    --red:      #ff2200;
+    --yellow:   #ffcc00;
+    --green:    #22cc66;
+    --muted:    #555;
+    --text-xs:  0.72rem;
+    --text-sm:  0.85rem;
+    --text-base:0.95rem;
+    --radius:   4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--orange);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem 1rem 2rem;
+  }
+
+  /* ── Header ── */
+  .header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .station-name {
+    font-size: 1rem;
+    letter-spacing: .2em;
+    color: var(--orange2);
+    text-transform: uppercase;
+  }
+
+  .clock {
+    font-size: 1.45rem;
+    letter-spacing: .12em;
+    color: var(--orange);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Alert banner ── */
+  .alert {
+    width: 100%;
+    max-width: 900px;
+    background: #1a0a00;
+    border: 1px solid var(--orange2);
+    padding: .5rem .9rem;
+    margin-bottom: .9rem;
+    font-size: var(--text-sm);
+    color: #ffaa44;
+    display: none;
+    border-radius: var(--radius);
+  }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    font-size: var(--text-xs);
+    letter-spacing: .13em;
+    color: var(--orange2);
+    padding: .35rem .55rem;
+    text-align: left;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: .48rem .55rem;
+    font-size: var(--text-base);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  tr.row-next {
+    background: #1a0e00;
+  }
+
+  /* ── Delay badges ── */
+  .delay-dispatcher {
+    display: inline-flex;
+    align-items: center;
+    gap: .3em;
+    color: var(--red);
+    font-size: var(--text-sm);
+  }
+  .delay-gps {
+    display: inline-flex;
+    align-items: center;
+    gap: .3em;
+    color: var(--yellow);
+    font-size: var(--text-sm);
+  }
+  .delay-stopped {
+    display: inline-flex;
+    align-items: center;
+    gap: .3em;
+    color: var(--red);
+    font-size: var(--text-xs);
+    opacity: .85;
+  }
+  .delay-none {
+    color: var(--green);
+    font-size: var(--text-xs);
+  }
+
+  .src-tag {
+    display: inline-block;
+    font-size: .6rem;
+    letter-spacing: .05em;
+    padding: .05em .3em;
+    border-radius: 2px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .src-disp { background: #3a0800; border: 1px solid var(--red);    color: var(--red); }
+  .src-gps  { background: #2a2000; border: 1px solid var(--yellow); color: var(--yellow); }
+
+  /* ── Track / Platform badges ── */
+  .badge {
+    display: inline-block;
+    padding: .1rem .4rem;
+    border-radius: 3px;
+    font-size: var(--text-sm);
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  .bt { background: #1a1a1a; border: 1px solid #ff660055; color: var(--orange); }
+  .bp { background: #ff660018; border: 1px solid var(--orange2); color: var(--orange2); }
+
+  /* ── Fuel dot ── */
+  .fuel-e { color: var(--green);  font-size: var(--text-xs); }
+  .fuel-d { color: #aaa;          font-size: var(--text-xs); }
+
+  /* ── "Next" tag on first upcoming row ── */
+  .next-label {
+    display: inline-block;
+    font-size: .58rem;
+    letter-spacing: .1em;
+    padding: .08em .4em;
+    border-radius: 2px;
+    border: 1px solid var(--orange2);
+    color: var(--orange2);
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: .4em;
+    animation: blink 1.4s step-start infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ── Footer ── */
+  .footer {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .8rem;
+  }
+  .updated { font-size: var(--text-xs); color: var(--muted); }
+  .legend  { font-size: var(--text-xs); color: var(--muted); display: flex; gap: .8rem; flex-wrap: wrap; }
+  .leg-item { display: flex; align-items: center; gap: .3em; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .col-fuel, .col-route { display: none; }
+    td, th { padding: .4rem .35rem; }
+    .clock { font-size: 1.15rem; }
+  }
 </style>
 </head>
 <body>
-<h1>Rīga &#x2022; Atiešanas</h1>
+
+<div class="header">
+  <span class="station-name">Rīga &bull; Atiešanas</span>
+  <span class="clock" id="clock">--:--:--</span>
+</div>
+
 <div class="alert" id="alert"></div>
+
 <table>
-  <thead><tr>
-    <th>Nr.</th><th>Galamērķis</th><th>Laiks</th>
-    <th>Kavēš.</th><th>Platf.</th><th>Ceļš</th>
-  </tr></thead>
+  <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>Galamērķis</th>
+      <th>Laiks</th>
+      <th>Kavēšanās</th>
+      <th>Platf.</th>
+      <th>Ceļš</th>
+      <th class="col-fuel">Kur.</th>
+    </tr>
+  </thead>
   <tbody id="tbody"></tbody>
 </table>
-<div class="updated" id="upd"></div>
+
+<div class="footer">
+  <div class="legend">
+    <span class="leg-item"><span style="color:var(--red)">+Xmin</span>&thinsp;<span class="src-tag src-disp">disp</span>&nbsp;Dispečers</span>
+    <span class="leg-item"><span style="color:var(--yellow)">+Xmin</span>&thinsp;<span class="src-tag src-gps">gps</span>&nbsp;GPS</span>
+    <span class="leg-item"><span style="color:var(--green)">&#10003;</span>&nbsp;Laicīgi</span>
+  </div>
+  <div class="updated" id="upd"></div>
+</div>
 
 <script>
-const RIGA_TZ = 'Europe/Riga';
+const RIGA_TZ  = 'Europe/Riga';
+const SHOW_MAX = 14;
 
+/* ── Live clock ── */
+function tickClock() {
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleTimeString('lv-LV', { timeZone: RIGA_TZ,
+      hour: '2-digit', minute: '2-digit', second: '2-digit' });
+}
+tickClock();
+setInterval(tickClock, 1000);
+
+/* ── Helpers ── */
 function rigaNow() {
-  return new Date(new Date().toLocaleString('en-US', {timeZone: RIGA_TZ}));
-}
-
-function parseUTC(s) {
-  // s = "2026-04-12T10:39:00Z"
-  return new Date(s);
-}
-
-function toRiga(d) {
-  return new Date(d.toLocaleString('en-US', {timeZone: RIGA_TZ}));
+  return new Date(new Date().toLocaleString('en-US', { timeZone: RIGA_TZ }));
 }
 
 function fmtTime(depUTC) {
-  const d = new Date(depUTC);
-  return d.toLocaleTimeString('lv-LV', {timeZone: RIGA_TZ, hour:'2-digit', minute:'2-digit'});
+  return new Date(depUTC).toLocaleTimeString('lv-LV',
+    { timeZone: RIGA_TZ, hour: '2-digit', minute: '2-digit' });
 }
 
+function minutesUntil(depUTC) {
+  return Math.round((new Date(depUTC) - new Date()) / 60000);
+}
+
+/* ── Main loader ── */
 async function load() {
   try {
     const [sched, live] = await Promise.all([
-      fetch('full-day-trains.json?t='+Date.now()).then(r=>r.json()),
-      fetch('live-delays.json?t='+Date.now()).then(r=>r.json())
+      fetch('full-day-trains.json?t=' + Date.now()).then(r => r.json()),
+      fetch('live-delays.json?t='     + Date.now()).then(r => r.json())
     ]);
 
-    const now     = rigaNow();
-    const delays  = live.delays  || {};
-    const alerts  = live.alerts  || {};
+    const now      = new Date();
+    const delays   = live.delays  || {};
+    const alerts   = live.alerts  || {};    // { trainNr: delayMin }
 
-    // Filter to upcoming trains, show next 12
+    /* Filter trains that haven't departed yet (using device UTC time).
+       A train is still "upcoming" if its dep_utc is in the future,
+       OR if it departs within the next 2 minutes (boarding). */
     const upcoming = sched.trains
-      .filter(tr => new Date(tr.dep_utc) > new Date())
-      .slice(0, 12);
+      .filter(tr => new Date(tr.dep_utc) > new Date(now - 2 * 60 * 1000))
+      .slice(0, SHOW_MAX);
 
     const tb = document.getElementById('tbody');
     tb.innerHTML = '';
 
-    upcoming.forEach(tr => {
-      // Find GPS delay by matching any route that references this train nr
-      // (route_id not stored in full-day, so match by train nr in alerts)
+    upcoming.forEach((tr, idx) => {
+      /* ── Delay resolution (DELAY_LOGIC.md priority order) ──
+         Priority 1: dispatcher alert  (alerts[tr.nr])
+         Priority 2: GPS delay         (delays[tr.route_id])
+         Priority 3: on-time           */
       let delayHtml = '';
-      const dispDelay = alerts[tr.nr];
-      if (dispDelay) {
-        delayHtml = `<span class="delay">+${dispDelay} min</span>`;
+      const dispMin = alerts[tr.nr];
+
+      if (dispMin != null && dispMin > 0) {
+        /* Dispatcher – highest priority, always shown */
+        delayHtml = `<span class="delay-dispatcher">
+          +${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span>
+        </span>`;
       } else {
-        // find gps by scanning delays for this train (best effort)
-        const gpsEntry = Object.values(delays).find(d => d.train_nr === tr.nr);
-        if (gpsEntry && gpsEntry.gps_delay_min > 0) {
-          delayHtml = `<span class="gps">+${gpsEntry.gps_delay_min} min</span>`;
+        /* GPS – match by route_id stored in the schedule JSON */
+        const gpsEntry = tr.route_id ? delays[tr.route_id] : null;
+        if (gpsEntry) {
+          if (gpsEntry.stopped) {
+            delayHtml = `<span class="delay-stopped">&#9632; apst.</span>`;
+          } else if (gpsEntry.gps_delay_min > 0) {
+            delayHtml = `<span class="delay-gps">
+              +${gpsEntry.gps_delay_min}&thinsp;min <span class="src-tag src-gps">gps</span>
+            </span>`;
+          } else if (gpsEntry.gps_active) {
+            delayHtml = `<span class="delay-none">&#10003;</span>`;
+          }
         }
+        /* else: no GPS data yet – leave blank */
       }
 
-      const timeStr = fmtTime(tr.dep_utc);
-      const track    = tr.track    != null ? `<span class="badge bt">${tr.track}</span>`    : '&mdash;';
-      const platform = tr.platform != null ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
+      const timeStr  = fmtTime(tr.dep_utc);
+      const track    = tr.track    != null
+        ? `<span class="badge bt">${tr.track}</span>` : '&mdash;';
+      const platform = tr.platform != null
+        ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
+      const fuel     = tr.fuel === 'E'
+        ? `<span class="fuel-e" title="Elektriskais">E</span>`
+        : `<span class="fuel-d" title="Dīzelis">D</span>`;
 
-      tb.innerHTML += `<tr>
+      /* Highlight the very next departure */
+      const isNext   = idx === 0;
+      const rowClass = isNext ? ' class="row-next"' : '';
+      const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
+
+      tb.innerHTML += `<tr${rowClass}>
         <td>${tr.nr}</td>
-        <td>${tr.dest}</td>
+        <td>${tr.dest}${nextTag}</td>
         <td>${timeStr}</td>
         <td>${delayHtml}</td>
         <td>${platform}</td>
         <td>${track}</td>
+        <td class="col-fuel">${fuel}</td>
       </tr>`;
     });
 
-    // Alert banner from dispatcher
+    /* Empty-state message when all trains have departed */
+    if (upcoming.length === 0) {
+      tb.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">
+        Šodien vairs nav gaidāmu vilcienu.
+      </td></tr>`;
+    }
+
+    /* ── Alert banner (dispatcher alerts) ── */
     const alertText = Object.entries(alerts)
-      .map(([nr, min]) => `Vilciens ${nr} kav\u0113jas ${min} min`)
+      .filter(([, min]) => min > 0)
+      .map(([nr, min]) => `Vilciens ${nr} kavējas ${min} min`)
       .join('  |  ');
     const al = document.getElementById('alert');
     if (alertText) { al.textContent = alertText; al.style.display = 'block'; }
     else           { al.style.display = 'none'; }
 
     document.getElementById('upd').textContent = 'Atjaunots: ' + live.updated;
-  } catch(e) {
-    console.error(e);
+
+  } catch (e) {
+    console.error('Load error:', e);
+    document.getElementById('upd').textContent = 'Kļūda ielādējot datus.';
   }
 }
 
 load();
-setInterval(load, 60000);
+setInterval(load, 60_000);
 </script>
 </body>
 </html>
