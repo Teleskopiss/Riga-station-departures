@@ -1,9 +1,9 @@
 {
-  "station": "Rīgā",
-  "date": "2026-06-17",
-  "updated_utc": "2026-06-17T20:22:39Z",
-  "updated": "17.06.2026 23:22:39",
-  "total": 178,
+  "station": "Rīga",
+  "date": "2026-06-18",
+  "updated_utc": "2026-06-17T22:47:53Z",
+  "updated": "18.06.2026 01:47:53",
+  "total": 356,
   "trains": [
     {
       "nr": "6871",
@@ -42,6 +42,15 @@
       "platform": 3
     },
     {
+      "nr": "6702",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T05:35:00Z",
+      "fuel": "E",
+      "route_id": "780917",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6102",
       "dest": "Skulte",
       "dep_utc": "2026-06-17T05:38:00Z",
@@ -62,11 +71,38 @@
     {
       "nr": "6701",
       "dest": "Jelgava",
-      "dep_utc": "2026-06-17T05:35:00Z",
+      "dep_utc": "2026-06-17T05:39:00Z",
       "fuel": "E",
       "route_id": "780933",
       "track": 1,
       "platform": 2
+    },
+    {
+      "nr": "6201",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T05:51:00Z",
+      "fuel": "E",
+      "route_id": "780919",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6101",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T05:53:00Z",
+      "fuel": "E",
+      "route_id": "780918",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6502",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T05:59:00Z",
+      "fuel": "E",
+      "route_id": "780916",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "6403",
@@ -105,6 +141,15 @@
       "platform": 3
     },
     {
+      "nr": "6203",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:21:00Z",
+      "fuel": "E",
+      "route_id": "780922",
+      "track": 4,
+      "platform": 3
+    },
+    {
       "nr": "6208",
       "dest": "Ogre",
       "dep_utc": "2026-06-17T06:24:00Z",
@@ -112,6 +157,15 @@
       "route_id": "780947",
       "track": 10,
       "platform": 2
+    },
+    {
+      "nr": "6504",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:29:00Z",
+      "fuel": "E",
+      "route_id": "780930",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "6503",
@@ -130,6 +184,15 @@
       "route_id": "780949",
       "track": 11,
       "platform": 1
+    },
+    {
+      "nr": "6704",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:35:00Z",
+      "fuel": "E",
+      "route_id": "780934",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6106",
@@ -168,6 +231,42 @@
       "platform": 3
     },
     {
+      "nr": "6506",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:49:00Z",
+      "fuel": "E",
+      "route_id": "780928",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6205",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:51:00Z",
+      "fuel": "E",
+      "route_id": "780937",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6103",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:53:00Z",
+      "fuel": "E",
+      "route_id": "780938",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "821",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T06:59:00Z",
+      "fuel": "D",
+      "route_id": "780915",
+      "track": 11,
+      "platform": 1
+    },
+    {
       "nr": "6407",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T07:00:00Z",
@@ -204,6 +303,15 @@
       "platform": 2
     },
     {
+      "nr": "6872",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:09:00Z",
+      "fuel": "E",
+      "route_id": "780944",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6212",
       "dest": "Aizkraukle",
       "dep_utc": "2026-06-17T07:09:00Z",
@@ -211,6 +319,42 @@
       "route_id": "780966",
       "track": 4,
       "platform": 3
+    },
+    {
+      "nr": "6508",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:14:00Z",
+      "fuel": "E",
+      "route_id": "780936",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "865",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:16:00Z",
+      "fuel": "D",
+      "route_id": "780921",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6207",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:21:00Z",
+      "fuel": "E",
+      "route_id": "780940",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6105",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:23:00Z",
+      "fuel": "E",
+      "route_id": "780945",
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6301",
@@ -222,6 +366,24 @@
       "platform": 3
     },
     {
+      "nr": "815",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:29:00Z",
+      "fuel": "D",
+      "route_id": "780923",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6402",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:29:00Z",
+      "fuel": "E",
+      "route_id": "780953",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6505",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T07:30:00Z",
@@ -229,6 +391,15 @@
       "route_id": "780973",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6708",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:35:00Z",
+      "fuel": "E",
+      "route_id": "780954",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6110",
@@ -258,11 +429,74 @@
       "platform": 4
     },
     {
+      "nr": "6209",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:40:00Z",
+      "fuel": "E",
+      "route_id": "780960",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6510",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:44:00Z",
+      "fuel": "E",
+      "route_id": "780955",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6303",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T07:45:00Z",
       "fuel": "E",
       "route_id": "780981",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "875",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:46:00Z",
+      "fuel": "D",
+      "route_id": "780926",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6211",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:51:00Z",
+      "fuel": "E",
+      "route_id": "780957",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6107",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:53:00Z",
+      "fuel": "E",
+      "route_id": "780958",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "811",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:59:00Z",
+      "fuel": "D",
+      "route_id": "780914",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6404",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T07:59:00Z",
+      "fuel": "E",
+      "route_id": "780967",
       "track": 3,
       "platform": 3
     },
@@ -303,11 +537,38 @@
       "platform": 4
     },
     {
+      "nr": "863",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:08:00Z",
+      "fuel": "D",
+      "route_id": "780946",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6874",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:09:00Z",
+      "fuel": "E",
+      "route_id": "780968",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6216",
       "dest": "Lielvārde",
       "dep_utc": "2026-06-17T08:09:00Z",
       "fuel": "E",
       "route_id": "780990",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6213",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:10:00Z",
+      "fuel": "E",
+      "route_id": "780974",
       "track": 4,
       "platform": 3
     },
@@ -321,11 +582,56 @@
       "platform": 1
     },
     {
+      "nr": "6406",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:14:00Z",
+      "fuel": "E",
+      "route_id": "780975",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6305",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T08:15:00Z",
       "fuel": "E",
       "route_id": "780994",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "724",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:19:00Z",
+      "fuel": "D",
+      "route_id": "780920",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6215",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:21:00Z",
+      "fuel": "E",
+      "route_id": "780962",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6109",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:23:00Z",
+      "fuel": "E",
+      "route_id": "780969",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6512",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:29:00Z",
+      "fuel": "E",
+      "route_id": "780965",
       "track": 3,
       "platform": 3
     },
@@ -337,6 +643,24 @@
       "route_id": "780997",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "849",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:33:00Z",
+      "fuel": "D",
+      "route_id": "780972",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6712",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:35:00Z",
+      "fuel": "E",
+      "route_id": "780979",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6114",
@@ -366,6 +690,51 @@
       "platform": 3
     },
     {
+      "nr": "6302",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:44:00Z",
+      "fuel": "E",
+      "route_id": "780989",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6217",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:51:00Z",
+      "fuel": "E",
+      "route_id": "780982",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6111",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:53:00Z",
+      "fuel": "E",
+      "route_id": "780983",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "705",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:59:00Z",
+      "fuel": "D",
+      "route_id": "780935",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6408",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T08:59:00Z",
+      "fuel": "E",
+      "route_id": "780992",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6411",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T09:00:00Z",
@@ -375,12 +744,66 @@
       "platform": 3
     },
     {
+      "nr": "847",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:06:00Z",
+      "fuel": "D",
+      "route_id": "780971",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6876",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:09:00Z",
+      "fuel": "E",
+      "route_id": "780995",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6220",
       "dest": "Ogre",
       "dep_utc": "2026-06-17T09:09:00Z",
       "fuel": "E",
       "route_id": "781007",
       "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6304",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:14:00Z",
+      "fuel": "E",
+      "route_id": "781002",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6219",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:21:00Z",
+      "fuel": "E",
+      "route_id": "780988",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6113",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:23:00Z",
+      "fuel": "E",
+      "route_id": "780996",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6514",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:29:00Z",
+      "fuel": "E",
+      "route_id": "780991",
+      "track": 3,
       "platform": 3
     },
     {
@@ -400,6 +823,15 @@
       "route_id": "781016",
       "track": 12,
       "platform": 1
+    },
+    {
+      "nr": "6716",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:35:00Z",
+      "fuel": "E",
+      "route_id": "781001",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6118",
@@ -429,6 +861,42 @@
       "platform": 4
     },
     {
+      "nr": "6306",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:44:00Z",
+      "fuel": "E",
+      "route_id": "781010",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6221",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:51:00Z",
+      "fuel": "E",
+      "route_id": "781003",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6117",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:53:00Z",
+      "fuel": "E",
+      "route_id": "781004",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6410",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T09:59:00Z",
+      "fuel": "E",
+      "route_id": "781009",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6413",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T10:00:00Z",
@@ -447,13 +915,22 @@
       "platform": 1
     },
     {
+      "nr": "6878",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:09:00Z",
+      "fuel": "E",
+      "route_id": "781011",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6120",
       "dest": "Carnikava",
       "dep_utc": "2026-06-17T10:10:00Z",
       "fuel": "E",
       "route_id": "781026",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6313",
@@ -465,6 +942,33 @@
       "platform": 3
     },
     {
+      "nr": "6223",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:21:00Z",
+      "fuel": "E",
+      "route_id": "781006",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6119",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:23:00Z",
+      "fuel": "E",
+      "route_id": "781012",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6516",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:29:00Z",
+      "fuel": "E",
+      "route_id": "781008",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6511",
       "dest": "Ķemeri",
       "dep_utc": "2026-06-17T10:30:00Z",
@@ -472,6 +976,24 @@
       "route_id": "781031",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6720",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:35:00Z",
+      "fuel": "E",
+      "route_id": "781020",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "831",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:36:00Z",
+      "fuel": "D",
+      "route_id": "781014",
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6122",
@@ -501,6 +1023,42 @@
       "platform": 3
     },
     {
+      "nr": "6225",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:51:00Z",
+      "fuel": "E",
+      "route_id": "781025",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6121",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:53:00Z",
+      "fuel": "E",
+      "route_id": "781027",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "813",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:59:00Z",
+      "fuel": "D",
+      "route_id": "780980",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6412",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T10:59:00Z",
+      "fuel": "E",
+      "route_id": "781024",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6415",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T11:00:00Z",
@@ -515,8 +1073,8 @@
       "dep_utc": "2026-06-17T11:10:00Z",
       "fuel": "E",
       "route_id": "781042",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6317",
@@ -528,6 +1086,33 @@
       "platform": 3
     },
     {
+      "nr": "6227",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:21:00Z",
+      "fuel": "E",
+      "route_id": "781030",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6123",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:23:00Z",
+      "fuel": "E",
+      "route_id": "781029",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6518",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:29:00Z",
+      "fuel": "E",
+      "route_id": "781023",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6513",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T11:30:00Z",
@@ -535,6 +1120,24 @@
       "route_id": "781047",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6722",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:35:00Z",
+      "fuel": "E",
+      "route_id": "781036",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "861",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:36:00Z",
+      "fuel": "D",
+      "route_id": "781013",
+      "track": 1,
+      "platform": 2
     },
     {
       "nr": "6126",
@@ -564,6 +1167,15 @@
       "platform": 4
     },
     {
+      "nr": "6314",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:44:00Z",
+      "fuel": "E",
+      "route_id": "781039",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "874",
       "dest": "Valga",
       "dep_utc": "2026-06-17T11:45:00Z",
@@ -571,6 +1183,33 @@
       "route_id": "781052",
       "track": 1,
       "platform": 2
+    },
+    {
+      "nr": "6229",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:51:00Z",
+      "fuel": "E",
+      "route_id": "781032",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6125",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:53:00Z",
+      "fuel": "E",
+      "route_id": "781043",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6414",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T11:59:00Z",
+      "fuel": "E",
+      "route_id": "781040",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "6417",
@@ -609,6 +1248,24 @@
       "platform": 3
     },
     {
+      "nr": "6127",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:23:00Z",
+      "fuel": "E",
+      "route_id": "781045",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6520",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:29:00Z",
+      "fuel": "E",
+      "route_id": "781041",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "836",
       "dest": "Sigulda",
       "dep_utc": "2026-06-17T12:30:00Z",
@@ -636,6 +1293,15 @@
       "platform": 2
     },
     {
+      "nr": "6724",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:35:00Z",
+      "fuel": "E",
+      "route_id": "781051",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6130",
       "dest": "Skulte",
       "dep_utc": "2026-06-17T12:38:00Z",
@@ -661,6 +1327,42 @@
       "route_id": "781068",
       "track": 5,
       "platform": 4
+    },
+    {
+      "nr": "6318",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:44:00Z",
+      "fuel": "E",
+      "route_id": "781055",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6231",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:51:00Z",
+      "fuel": "E",
+      "route_id": "781046",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6129",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:53:00Z",
+      "fuel": "E",
+      "route_id": "781058",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6416",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T12:59:00Z",
+      "fuel": "E",
+      "route_id": "781056",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "6419",
@@ -699,6 +1401,24 @@
       "platform": 3
     },
     {
+      "nr": "6131",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:23:00Z",
+      "fuel": "E",
+      "route_id": "781060",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6522",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:29:00Z",
+      "fuel": "E",
+      "route_id": "781064",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6517",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T13:30:00Z",
@@ -706,6 +1426,24 @@
       "route_id": "781084",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6726",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:35:00Z",
+      "fuel": "E",
+      "route_id": "781069",
+      "track": 5,
+      "platform": 4
+    },
+    {
+      "nr": "833",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:36:00Z",
+      "fuel": "D",
+      "route_id": "781061",
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6134",
@@ -735,6 +1473,51 @@
       "platform": 4
     },
     {
+      "nr": "6322",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:44:00Z",
+      "fuel": "E",
+      "route_id": "781073",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6233",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:51:00Z",
+      "fuel": "E",
+      "route_id": "781070",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6133",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:53:00Z",
+      "fuel": "E",
+      "route_id": "781078",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "801",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:59:00Z",
+      "fuel": "D",
+      "route_id": "781037",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6418",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T13:59:00Z",
+      "fuel": "E",
+      "route_id": "781076",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6421",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T14:00:00Z",
@@ -758,8 +1541,8 @@
       "dep_utc": "2026-06-17T14:10:00Z",
       "fuel": "E",
       "route_id": "781095",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6329",
@@ -767,6 +1550,24 @@
       "dep_utc": "2026-06-17T14:15:00Z",
       "fuel": "E",
       "route_id": "781096",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6135",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:23:00Z",
+      "fuel": "E",
+      "route_id": "781082",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6524",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:29:00Z",
+      "fuel": "E",
+      "route_id": "781074",
       "track": 3,
       "platform": 3
     },
@@ -787,6 +1588,15 @@
       "route_id": "781101",
       "track": 1,
       "platform": 2
+    },
+    {
+      "nr": "6728",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:35:00Z",
+      "fuel": "E",
+      "route_id": "781088",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6138",
@@ -816,6 +1626,42 @@
       "platform": 3
     },
     {
+      "nr": "6326",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:44:00Z",
+      "fuel": "E",
+      "route_id": "781093",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6235",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:51:00Z",
+      "fuel": "E",
+      "route_id": "781083",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6137",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:53:00Z",
+      "fuel": "E",
+      "route_id": "781097",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6420",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T14:59:00Z",
+      "fuel": "E",
+      "route_id": "781092",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6423",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T15:00:00Z",
@@ -823,6 +1669,15 @@
       "route_id": "781109",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "835",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:06:00Z",
+      "fuel": "D",
+      "route_id": "781089",
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6238",
@@ -852,6 +1707,24 @@
       "platform": 3
     },
     {
+      "nr": "6237",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:21:00Z",
+      "fuel": "E",
+      "route_id": "781108",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6139",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:23:00Z",
+      "fuel": "E",
+      "route_id": "781098",
+      "track": 10,
+      "platform": 2
+    },
+    {
       "nr": "840",
       "dest": "Cēsis",
       "dep_utc": "2026-06-17T15:25:00Z",
@@ -861,6 +1734,15 @@
       "platform": 1
     },
     {
+      "nr": "6526",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:29:00Z",
+      "fuel": "E",
+      "route_id": "781091",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6521",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T15:30:00Z",
@@ -868,6 +1750,15 @@
       "route_id": "781120",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6730",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:35:00Z",
+      "fuel": "E",
+      "route_id": "781107",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6142",
@@ -897,11 +1788,47 @@
       "platform": 3
     },
     {
+      "nr": "6330",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:44:00Z",
+      "fuel": "E",
+      "route_id": "781113",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6335",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T15:45:00Z",
       "fuel": "E",
       "route_id": "781125",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6239",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:51:00Z",
+      "fuel": "E",
+      "route_id": "781102",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6141",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:53:00Z",
+      "fuel": "E",
+      "route_id": "781116",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6422",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T15:59:00Z",
+      "fuel": "E",
+      "route_id": "781112",
       "track": 3,
       "platform": 3
     },
@@ -960,6 +1887,33 @@
       "platform": 1
     },
     {
+      "nr": "6241",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:21:00Z",
+      "fuel": "E",
+      "route_id": "781117",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6143",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:23:00Z",
+      "fuel": "E",
+      "route_id": "781119",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6528",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:29:00Z",
+      "fuel": "E",
+      "route_id": "781110",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6427",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T16:30:00Z",
@@ -976,6 +1930,15 @@
       "route_id": "781141",
       "track": 1,
       "platform": 2
+    },
+    {
+      "nr": "6732",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:35:00Z",
+      "fuel": "E",
+      "route_id": "781124",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6146",
@@ -1005,11 +1968,56 @@
       "platform": 4
     },
     {
+      "nr": "6334",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:44:00Z",
+      "fuel": "E",
+      "route_id": "781131",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6525",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T16:45:00Z",
       "fuel": "E",
       "route_id": "781148",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "873",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:47:00Z",
+      "fuel": "D",
+      "route_id": "781099",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6243",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:51:00Z",
+      "fuel": "E",
+      "route_id": "781080",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6145",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:53:00Z",
+      "fuel": "E",
+      "route_id": "781135",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6424",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T16:59:00Z",
+      "fuel": "E",
+      "route_id": "781129",
       "track": 3,
       "platform": 3
     },
@@ -1059,6 +2067,15 @@
       "platform": 3
     },
     {
+      "nr": "6336",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:14:00Z",
+      "fuel": "E",
+      "route_id": "781144",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6341",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T17:15:00Z",
@@ -1068,11 +2085,38 @@
       "platform": 3
     },
     {
+      "nr": "837",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:16:00Z",
+      "fuel": "D",
+      "route_id": "781132",
+      "track": 1,
+      "platform": 2
+    },
+    {
       "nr": "6150",
       "dest": "Carnikava",
       "dep_utc": "2026-06-17T17:20:00Z",
       "fuel": "E",
       "route_id": "781162",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6245",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:21:00Z",
+      "fuel": "E",
+      "route_id": "781138",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6147",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:23:00Z",
+      "fuel": "E",
+      "route_id": "781136",
       "track": 11,
       "platform": 1
     },
@@ -1095,6 +2139,24 @@
       "platform": 1
     },
     {
+      "nr": "803",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:29:00Z",
+      "fuel": "D",
+      "route_id": "781072",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6530",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:29:00Z",
+      "fuel": "E",
+      "route_id": "781128",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6431",
       "dest": "Sloka",
       "dep_utc": "2026-06-17T17:30:00Z",
@@ -1102,6 +2164,15 @@
       "route_id": "781166",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6736",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:35:00Z",
+      "fuel": "E",
+      "route_id": "781147",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6152",
@@ -1131,6 +2202,15 @@
       "platform": 4
     },
     {
+      "nr": "6338",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:44:00Z",
+      "fuel": "E",
+      "route_id": "781153",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "844",
       "dest": "Sigulda",
       "dep_utc": "2026-06-17T17:45:00Z",
@@ -1145,6 +2225,33 @@
       "dep_utc": "2026-06-17T17:45:00Z",
       "fuel": "E",
       "route_id": "781176",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6247",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:51:00Z",
+      "fuel": "E",
+      "route_id": "781142",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6149",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:53:00Z",
+      "fuel": "E",
+      "route_id": "781158",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6426",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T17:59:00Z",
+      "fuel": "E",
+      "route_id": "781156",
       "track": 3,
       "platform": 3
     },
@@ -1185,12 +2292,30 @@
       "platform": 1
     },
     {
+      "nr": "6880",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:09:00Z",
+      "fuel": "E",
+      "route_id": "781160",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6252",
       "dest": "Lielvārde",
       "dep_utc": "2026-06-17T18:09:00Z",
       "fuel": "E",
       "route_id": "781181",
       "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6428",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:14:00Z",
+      "fuel": "E",
+      "route_id": "781167",
+      "track": 3,
       "platform": 3
     },
     {
@@ -1203,6 +2328,24 @@
       "platform": 3
     },
     {
+      "nr": "6249",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:21:00Z",
+      "fuel": "E",
+      "route_id": "781164",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6151",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:23:00Z",
+      "fuel": "E",
+      "route_id": "781161",
+      "track": 10,
+      "platform": 2
+    },
+    {
       "nr": "723",
       "dest": "Liepāja",
       "dep_utc": "2026-06-17T18:23:00Z",
@@ -1210,6 +2353,15 @@
       "route_id": "781190",
       "track": 1,
       "platform": 2
+    },
+    {
+      "nr": "6532",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:29:00Z",
+      "fuel": "E",
+      "route_id": "781155",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "876",
@@ -1228,6 +2380,15 @@
       "route_id": "781193",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6740",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:35:00Z",
+      "fuel": "E",
+      "route_id": "781174",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6156",
@@ -1257,11 +2418,56 @@
       "platform": 4
     },
     {
+      "nr": "6342",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:44:00Z",
+      "fuel": "E",
+      "route_id": "781183",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6533",
       "dest": "Tukums 2",
       "dep_utc": "2026-06-17T18:45:00Z",
       "fuel": "E",
       "route_id": "781201",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "841",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:46:00Z",
+      "fuel": "D",
+      "route_id": "781172",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6251",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:51:00Z",
+      "fuel": "E",
+      "route_id": "781168",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6153",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:53:00Z",
+      "fuel": "E",
+      "route_id": "781187",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6430",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T18:59:00Z",
+      "fuel": "E",
+      "route_id": "781182",
       "track": 3,
       "platform": 3
     },
@@ -1284,6 +2490,15 @@
       "platform": 1
     },
     {
+      "nr": "6882",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:05:00Z",
+      "fuel": "E",
+      "route_id": "781186",
+      "track": 5,
+      "platform": 4
+    },
+    {
       "nr": "6158",
       "dest": "Saulkrasti",
       "dep_utc": "2026-06-17T19:08:00Z",
@@ -1291,6 +2506,15 @@
       "route_id": "781205",
       "track": 10,
       "platform": 2
+    },
+    {
+      "nr": "6253",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:09:00Z",
+      "fuel": "E",
+      "route_id": "781194",
+      "track": 4,
+      "platform": 3
     },
     {
       "nr": "6256",
@@ -1302,6 +2526,15 @@
       "platform": 3
     },
     {
+      "nr": "6432",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:14:00Z",
+      "fuel": "E",
+      "route_id": "781195",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6349",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T19:15:00Z",
@@ -1309,6 +2542,51 @@
       "route_id": "781211",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "839",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:16:00Z",
+      "fuel": "D",
+      "route_id": "781169",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6255",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:21:00Z",
+      "fuel": "E",
+      "route_id": "781191",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6155",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:23:00Z",
+      "fuel": "E",
+      "route_id": "781189",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6534",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:29:00Z",
+      "fuel": "E",
+      "route_id": "781185",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "809",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:30:00Z",
+      "fuel": "D",
+      "route_id": "781139",
+      "track": 1,
+      "platform": 2
     },
     {
       "nr": "6535",
@@ -1327,6 +2605,15 @@
       "route_id": "781215",
       "track": 11,
       "platform": 1
+    },
+    {
+      "nr": "6744",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:35:00Z",
+      "fuel": "E",
+      "route_id": "781200",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6160",
@@ -1356,11 +2643,56 @@
       "platform": 4
     },
     {
+      "nr": "6346",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:44:00Z",
+      "fuel": "E",
+      "route_id": "781206",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6351",
       "dest": "Dubulti",
       "dep_utc": "2026-06-17T19:45:00Z",
       "fuel": "E",
       "route_id": "781222",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6257",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:51:00Z",
+      "fuel": "E",
+      "route_id": "781196",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6157",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:53:00Z",
+      "fuel": "E",
+      "route_id": "781202",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "703",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:59:00Z",
+      "fuel": "D",
+      "route_id": "781149",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6434",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T19:59:00Z",
+      "fuel": "E",
+      "route_id": "781207",
       "track": 3,
       "platform": 3
     },
@@ -1372,6 +2704,15 @@
       "route_id": "781224",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6884",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:05:00Z",
+      "fuel": "E",
+      "route_id": "781210",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6162",
@@ -1392,6 +2733,42 @@
       "platform": 3
     },
     {
+      "nr": "6436",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:14:00Z",
+      "fuel": "E",
+      "route_id": "781217",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6259",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:21:00Z",
+      "fuel": "E",
+      "route_id": "781213",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6159",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:23:00Z",
+      "fuel": "E",
+      "route_id": "781212",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6536",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:29:00Z",
+      "fuel": "E",
+      "route_id": "781208",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "846",
       "dest": "Sigulda",
       "dep_utc": "2026-06-17T20:30:00Z",
@@ -1408,6 +2785,15 @@
       "route_id": "781234",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6748",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:35:00Z",
+      "fuel": "E",
+      "route_id": "781221",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6164",
@@ -1434,6 +2820,42 @@
       "fuel": "E",
       "route_id": "781238",
       "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6350",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:44:00Z",
+      "fuel": "E",
+      "route_id": "781227",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6261",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:51:00Z",
+      "fuel": "E",
+      "route_id": "781216",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6161",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:53:00Z",
+      "fuel": "E",
+      "route_id": "781223",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6438",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T20:59:00Z",
+      "fuel": "E",
+      "route_id": "781229",
+      "track": 3,
       "platform": 3
     },
     {
@@ -1464,6 +2886,60 @@
       "platform": 3
     },
     {
+      "nr": "6352",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:14:00Z",
+      "fuel": "E",
+      "route_id": "781240",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "843",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:15:00Z",
+      "fuel": "D",
+      "route_id": "781225",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6263",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:21:00Z",
+      "fuel": "E",
+      "route_id": "781232",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6163",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:23:00Z",
+      "fuel": "E",
+      "route_id": "781231",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "825",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:29:00Z",
+      "fuel": "D",
+      "route_id": "781184",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6538",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:29:00Z",
+      "fuel": "E",
+      "route_id": "781230",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "848",
       "dest": "Cēsis",
       "dep_utc": "2026-06-17T21:30:00Z",
@@ -1480,6 +2956,15 @@
       "route_id": "781250",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "6750",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:35:00Z",
+      "fuel": "E",
+      "route_id": "781239",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6166",
@@ -1509,11 +2994,65 @@
       "platform": 4
     },
     {
+      "nr": "6265",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:51:00Z",
+      "fuel": "E",
+      "route_id": "781235",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6165",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:53:00Z",
+      "fuel": "E",
+      "route_id": "781241",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6440",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T21:59:00Z",
+      "fuel": "E",
+      "route_id": "781246",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6541",
       "dest": "Ķemeri",
       "dep_utc": "2026-06-17T22:00:00Z",
       "fuel": "E",
       "route_id": "781256",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6267",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T22:21:00Z",
+      "fuel": "E",
+      "route_id": "781248",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6167",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T22:23:00Z",
+      "fuel": "E",
+      "route_id": "781247",
+      "track": 10,
+      "platform": 2
+    },
+    {
+      "nr": "6540",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T22:29:00Z",
+      "fuel": "E",
+      "route_id": "781244",
       "track": 3,
       "platform": 3
     },
@@ -1534,6 +3073,15 @@
       "route_id": "781262",
       "track": 10,
       "platform": 2
+    },
+    {
+      "nr": "6752",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T22:35:00Z",
+      "fuel": "E",
+      "route_id": "781254",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6168",
@@ -1563,6 +3111,15 @@
       "platform": 4
     },
     {
+      "nr": "6442",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T22:59:00Z",
+      "fuel": "E",
+      "route_id": "781258",
+      "track": 3,
+      "platform": 3
+    },
+    {
       "nr": "6545",
       "dest": "Ķemeri",
       "dep_utc": "2026-06-17T23:00:00Z",
@@ -1570,6 +3127,51 @@
       "route_id": "781267",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "845",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T23:06:00Z",
+      "fuel": "D",
+      "route_id": "781255",
+      "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6269",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T23:21:00Z",
+      "fuel": "E",
+      "route_id": "781257",
+      "track": 4,
+      "platform": 3
+    },
+    {
+      "nr": "6169",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T23:23:00Z",
+      "fuel": "E",
+      "route_id": "781260",
+      "track": 11,
+      "platform": 1
+    },
+    {
+      "nr": "6542",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T23:29:00Z",
+      "fuel": "E",
+      "route_id": "781259",
+      "track": 3,
+      "platform": 3
+    },
+    {
+      "nr": "6754",
+      "dest": "Rīga",
+      "dep_utc": "2026-06-17T23:35:00Z",
+      "fuel": "E",
+      "route_id": "781266",
+      "track": 5,
+      "platform": 4
     },
     {
       "nr": "6791",
