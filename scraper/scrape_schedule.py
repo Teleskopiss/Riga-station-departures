@@ -19,7 +19,16 @@ from track_data import get_track, get_platform
 TRAIN_GRAPH_URL = "https://trainmap.vivi.lv/api/trainGraph"
 OUTPUT_PATH     = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
 RIGA_TZ         = ZoneInfo("Europe/Riga")
-RIGA_NAMES      = {"r\u012bg\u0101", "riga", "r\u012bga"}
+RIGA_NAMES      = {"rīgā", "riga", "rīga"}
+
+
+def find_riga_stop(stops: list) -> dict | None:
+    """Return the first stop whose name matches RIGA_NAMES, or None."""
+    for stop in stops:
+        name = str(stop.get("title") or stop.get("name") or "").strip()
+        if name.lower() in RIGA_NAMES:
+            return stop
+    return None
 
 
 def fetch_full_day() -> list[dict]:
@@ -36,11 +45,13 @@ def fetch_full_day() -> list[dict]:
         stops = t.get("stops", [])
         if not stops:
             continue
-        first = str(stops[0].get("title") or stops[0].get("name") or "").strip()
-        if first.lower() not in RIGA_NAMES:
+
+        # Find the Rīga stop explicitly by name — do not assume it is stops[0].
+        riga_stop = find_riga_stop(stops)
+        if riga_stop is None:
             continue
 
-        dep_raw = stops[0].get("departure") or stops[0].get("time") or ""
+        dep_raw = riga_stop.get("departure") or riga_stop.get("time") or ""
         try:
             dep_utc = datetime.strptime(dep_raw, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
         except ValueError:
@@ -52,7 +63,7 @@ def fetch_full_day() -> list[dict]:
                 continue
 
         fuel_raw = str(t.get("fuelType") or t.get("type") or "")
-        fuel     = "E" if fuel_raw in ("\u0160", "E", "electric") else "D"
+        fuel     = "E" if fuel_raw in ("Š", "E", "electric") else "D"
         last     = str(stops[-1].get("title") or stops[-1].get("name") or "?")
         route_id = str(t.get("id") or "")
 
@@ -95,7 +106,7 @@ def main():
     trains = assign_tracks(trains)
 
     output = {
-        "station":     "R\u012bg\u0101",
+        "station":     "Rīga",
         "date":        now_riga.strftime("%Y-%m-%d"),
         "updated_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "updated":     now_riga.strftime("%d.%m.%Y %H:%M:%S"),
@@ -107,7 +118,7 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[schedule] done \u2192 {len(trains)} trains written to {out_path}")
+    print(f"[schedule] done → {len(trains)} trains written to {out_path}")
 
 
 if __name__ == "__main__":
