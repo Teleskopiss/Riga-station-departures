@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-17T20:53:07Z",
-  "updated": "17.06.2026 23:53:07",
+  "updated_utc": "2026-06-17T20:53:43Z",
+  "updated": "17.06.2026 23:53:43",
   "delays": {
     "781243": {
       "gps_delay_min": 0,
@@ -24,8 +24,8 @@
     },
     "781269": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781270": {
       "gps_delay_min": 0,
@@ -35,7 +35,7 @@
     "781271": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     }
   },
   "alerts": {}
