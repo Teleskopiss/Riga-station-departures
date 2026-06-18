@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-18T14:24:35Z",
-  "updated": "18.06.2026 17:24:35",
+  "updated_utc": "2026-06-18T14:25:34Z",
+  "updated": "18.06.2026 17:25:34",
   "delays": {
     "781432": {
       "gps_delay_min": 0,
@@ -44,23 +44,23 @@
     },
     "781504": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": false
     },
     "781506": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781507": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781508": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781509": {
       "gps_delay_min": 0,
@@ -69,12 +69,12 @@
     },
     "781510": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781511": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781512": {
@@ -89,13 +89,13 @@
     },
     "781514": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781515": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781516": {
       "gps_delay_min": 0,
@@ -119,12 +119,12 @@
     },
     "781520": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781521": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "781522": {
@@ -134,7 +134,7 @@
     },
     "781523": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781524": {
