@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-18T13:32:31Z",
-  "updated": "18.06.2026 16:32:31",
+  "updated_utc": "2026-06-18T13:33:30Z",
+  "updated": "18.06.2026 16:33:30",
   "delays": {
     "781432": {
       "gps_delay_min": 0,
@@ -15,7 +15,7 @@
     "781459": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781466": {
       "gps_delay_min": 0,
@@ -24,13 +24,13 @@
     },
     "781478": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781480": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781482": {
       "gps_delay_min": 0,
@@ -45,17 +45,17 @@
     "781486": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781487": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781488": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781489": {
       "gps_delay_min": 0,
@@ -74,7 +74,7 @@
     },
     "781492": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "781493": {
@@ -85,11 +85,11 @@
     "781494": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781495": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "781496": {
@@ -119,10 +119,15 @@
     },
     "781501": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781502": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
+    },
+    "781503": {
       "gps_delay_min": 0,
       "stopped": true,
       "gps_active": true
