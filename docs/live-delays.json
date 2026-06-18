@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-18T03:35:30Z",
-  "updated": "18.06.2026 06:35:30",
+  "updated_utc": "2026-06-18T03:36:35Z",
+  "updated": "18.06.2026 06:36:35",
   "delays": {
     "781274": {
       "gps_delay_min": 0,
@@ -34,18 +34,18 @@
     },
     "781288": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781292": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781295": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781296": {
       "gps_delay_min": 0,
@@ -54,8 +54,8 @@
     },
     "781297": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781298": {
       "gps_delay_min": 0,
@@ -64,13 +64,13 @@
     },
     "781299": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781300": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781301": {
       "gps_delay_min": 0,
@@ -85,7 +85,7 @@
     "781303": {
       "gps_delay_min": 0,
       "stopped": true,
-      "gps_active": false
+      "gps_active": true
     },
     "781304": {
       "gps_delay_min": 0,
@@ -95,7 +95,7 @@
     "781305": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781306": {
       "gps_delay_min": 0,
@@ -104,7 +104,7 @@
     },
     "781307": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781308": {
@@ -121,6 +121,11 @@
       "gps_delay_min": 0,
       "stopped": false,
       "gps_active": false
+    },
+    "781311": {
+      "gps_delay_min": 0,
+      "stopped": true,
+      "gps_active": true
     }
   },
   "alerts": {}
