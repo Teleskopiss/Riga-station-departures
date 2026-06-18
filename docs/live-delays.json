@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-18T12:31:38Z",
-  "updated": "18.06.2026 15:31:38",
+  "updated_utc": "2026-06-18T12:32:39Z",
+  "updated": "18.06.2026 15:32:39",
   "delays": {
     "781425": {
       "gps_delay_min": 0,
@@ -10,12 +10,12 @@
     "781432": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781459": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781460": {
       "gps_delay_min": 0,
@@ -29,8 +29,8 @@
     },
     "781462": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781464": {
       "gps_delay_min": 0,
@@ -44,7 +44,7 @@
     },
     "781469": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "781470": {
@@ -54,17 +54,17 @@
     },
     "781471": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781472": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "781473": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781474": {
@@ -74,13 +74,13 @@
     },
     "781475": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": false
     },
     "781476": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781477": {
       "gps_delay_min": 0,
@@ -94,13 +94,13 @@
     },
     "781479": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781480": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     }
   },
   "alerts": {}
