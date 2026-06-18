@@ -19,7 +19,7 @@ from track_data import get_track, get_platform
 TRAIN_GRAPH_URL = "https://trainmap.vivi.lv/api/trainGraph"
 OUTPUT_PATH     = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
 RIGA_TZ         = ZoneInfo("Europe/Riga")
-RIGA_NAMES      = {"rīgā", "riga", "rīga"}
+RIGA_NAMES      = {"r\u012bg\u0101", "riga", "r\u012bga"}
 
 
 def find_riga_stop(stops: list) -> dict | None:
@@ -46,7 +46,15 @@ def fetch_full_day() -> list[dict]:
         if not stops:
             continue
 
-        # Find the Rīga stop explicitly by name — do not assume it is stops[0].
+        # Only include trains that DEPART from R\u012bg\u0101, i.e. R\u012bg\u0101 must be the
+        # first stop. Trains where R\u012bg\u0101 appears later are arrivals or
+        # pass-throughs and must not appear on the departure board.
+        first_name = str(stops[0].get("title") or stops[0].get("name") or "").strip()
+        if first_name.lower() not in RIGA_NAMES:
+            continue
+
+        # Use find_riga_stop to get the correct stop object (guards against
+        # any future API reordering within the first stop entry).
         riga_stop = find_riga_stop(stops)
         if riga_stop is None:
             continue
@@ -62,18 +70,15 @@ def fetch_full_day() -> list[dict]:
                 print(f"[warn] Cannot parse '{dep_raw}' for train {t.get('train')}")
                 continue
 
-        fuel_raw = str(t.get("fuelType") or t.get("type") or "")
-        fuel     = "E" if fuel_raw in ("Š", "E", "electric") else "D"
         last     = str(stops[-1].get("title") or stops[-1].get("name") or "?")
         route_id = str(t.get("id") or "")
 
         result.append({
-            "nr":        str(t.get("train") or t.get("number") or ""),
-            "dest":      last,
-            "dep_utc":   dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "fuel":      fuel,
-            "route_id":  route_id,
-            "_dep_utc":  dep_utc,
+            "nr":       str(t.get("train") or t.get("number") or ""),
+            "dest":     last,
+            "dep_utc":  dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "route_id": route_id,
+            "_dep_utc": dep_utc,
         })
 
     result.sort(key=lambda x: x["_dep_utc"])
@@ -106,7 +111,7 @@ def main():
     trains = assign_tracks(trains)
 
     output = {
-        "station":     "Rīga",
+        "station":     "R\u012bga",
         "date":        now_riga.strftime("%Y-%m-%d"),
         "updated_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "updated":     now_riga.strftime("%d.%m.%Y %H:%M:%S"),
@@ -118,7 +123,7 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[schedule] done → {len(trains)} trains written to {out_path}")
+    print(f"[schedule] done \u2192 {len(trains)} trains written to {out_path}")
 
 
 if __name__ == "__main__":

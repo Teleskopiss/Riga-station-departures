@@ -162,10 +162,6 @@
   .bt { background: #1a1a1a; border: 1px solid #ff660055; color: var(--orange); }
   .bp { background: #ff660018; border: 1px solid var(--orange2); color: var(--orange2); }
 
-  /* ── Fuel dot ── */
-  .fuel-e { color: var(--green);  font-size: var(--text-xs); }
-  .fuel-d { color: #aaa;          font-size: var(--text-xs); }
-
   /* ── "Next" tag on first upcoming row ── */
   .next-label {
     display: inline-block;
@@ -212,7 +208,7 @@
 
   /* ── Responsive ── */
   @media (max-width: 600px) {
-    .col-fuel, .col-route { display: none; }
+    .col-route { display: none; }
     td, th { padding: .4rem .35rem; }
     .clock { font-size: 1.15rem; }
   }
@@ -232,12 +228,11 @@
   <thead>
     <tr>
       <th>Nr.</th>
-      <th>Galamērķis</th>
+      <th>Galamerķis</th>
       <th>Laiks</th>
       <th>Kavēšanās</th>
       <th>Platf.</th>
       <th>Ceļš</th>
-      <th class="col-fuel">Kur.</th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -245,7 +240,7 @@
 
 <div class="footer">
   <div class="legend">
-    <span class="leg-item"><span style="color:var(--red)">+Xmin</span>&thinsp;<span class="src-tag src-disp">disp</span>&nbsp;Dispečers</span>
+    <span class="leg-item"><span style="color:var(--red)">+Xmin</span>&thinsp;<span class="src-tag src-disp">disp</span>&nbsp;Dispeċers</span>
     <span class="leg-item"><span style="color:var(--yellow)">+Xmin</span>&thinsp;<span class="src-tag src-gps">gps</span>&nbsp;GPS</span>
     <span class="leg-item"><span style="color:var(--green)">&#10003;</span>&nbsp;Laicīgi</span>
   </div>
@@ -276,24 +271,12 @@ setInterval(tickClock, 1000);
  */
 function depAsToday(depUTC) {
   const d = new Date(depUTC);
-  // Extract HH:MM:SS from the UTC timestamp
   const hh = d.getUTCHours();
   const mm = d.getUTCMinutes();
   const ss = d.getUTCSeconds();
 
-  // Build a fresh Date for today in Riga, but with the same wall-clock time
-  const rigaNowStr = new Date().toLocaleDateString('en-CA', { timeZone: RIGA_TZ }); // "YYYY-MM-DD"
-  // We need to interpret HH:MM:SS as Riga local time and convert back to UTC
-  // Build ISO string for Riga local time
+  const rigaNowStr = new Date().toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
   const pad = n => String(n).padStart(2, '0');
-  // Create a Date by parsing "YYYY-MM-DDTHH:MM:SS" as if it were Riga time
-  const localStr = `${rigaNowStr}T${pad(hh)}:${pad(mm)}:${pad(ss)}`;
-  // Use the Intl trick: create the date in Riga timezone
-  const rigaDate = new Date(new Date(localStr + 'Z').toLocaleString('en-US', { timeZone: 'UTC' }));
-  // Actually, simpler: treat the UTC HH:MM from dep_utc as the Riga departure time
-  // (since Latvian train timetables list local times, and the scraper stores them as
-  //  if they were UTC – i.e. the "UTC" value is really the local time number).
-  // So just build: today's date + that HH:MM in Riga timezone offset.
   const tzOffset = getRigaOffsetMs();
   const todayMidnightUTC = new Date(rigaNowStr + 'T00:00:00Z').getTime() - tzOffset;
   const depMs = hh * 3600000 + mm * 60000 + ss * 1000;
@@ -307,11 +290,10 @@ function getRigaOffsetMs() {
     year: 'numeric', month: '2-digit', day: '2-digit',
     hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const rigaParsed = new Date(rigaStr);
-  return rigaParsed - now; // positive = east of UTC
+  return rigaParsed - now;
 }
 
 function fmtTime(depUTC) {
-  // Show the time digits from dep_utc directly as Riga local time
   const d = new Date(depUTC);
   const pad = n => String(n).padStart(2, '0');
   return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
@@ -329,15 +311,11 @@ async function load() {
     const delays = live.delays || {};
     const alerts = live.alerts || {};
 
-    // Detect stale data: if the JSON date doesn't match today in Riga
     const rigaToday = now.toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
     const jsonDate  = sched.date || '';
     const isStale   = jsonDate && jsonDate !== rigaToday;
     document.getElementById('stale-warn').style.display = isStale ? 'block' : 'none';
 
-    /* Filter trains that haven't departed yet.
-       depAsToday() remaps the dep_utc to today's date, so stale JSON still works.
-       We keep trains departing within the next 2 minutes (boarding window). */
     const cutoff = new Date(now.getTime() - 2 * 60 * 1000);
 
     const upcoming = sched.trains
@@ -349,10 +327,6 @@ async function load() {
     tb.innerHTML = '';
 
     upcoming.forEach((tr, idx) => {
-      /* ── Delay resolution (DELAY_LOGIC.md priority order) ──
-         Priority 1: dispatcher alert  (alerts[tr.nr])
-         Priority 2: GPS delay         (delays[tr.route_id])
-         Priority 3: on-time           */
       let delayHtml = '';
       const dispMin = alerts[tr.nr];
 
@@ -380,9 +354,6 @@ async function load() {
         ? `<span class="badge bt">${tr.track}</span>` : '&mdash;';
       const platform = tr.platform != null
         ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
-      const fuel     = tr.fuel === 'E'
-        ? `<span class="fuel-e" title="Elektriskais">E</span>`
-        : `<span class="fuel-d" title="Dīzelis">D</span>`;
 
       const isNext   = idx === 0;
       const rowClass = isNext ? ' class="row-next"' : '';
@@ -395,17 +366,15 @@ async function load() {
         <td>${delayHtml}</td>
         <td>${platform}</td>
         <td>${track}</td>
-        <td class="col-fuel">${fuel}</td>
       </tr>`;
     });
 
     if (upcoming.length === 0) {
-      tb.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">
-        Šodien vairs nav gaidāmu vilcienu.
+      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">
+        Šodien vairs nav gaIdāmu vilcieņu.
       </td></tr>`;
     }
 
-    /* ── Alert banner ── */
     const alertText = Object.entries(alerts)
       .filter(([, min]) => min > 0)
       .map(([nr, min]) => `Vilciens ${nr} kavējas ${min} min`)
