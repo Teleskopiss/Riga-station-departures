@@ -19,7 +19,7 @@ from track_data import get_track, get_platform
 TRAIN_GRAPH_URL = "https://trainmap.vivi.lv/api/trainGraph"
 OUTPUT_PATH     = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
 RIGA_TZ         = ZoneInfo("Europe/Riga")
-RIGA_NAMES      = {"r\u012bg\u0101", "riga", "r\u012bga"}
+RIGA_NAMES      = {"rīgā", "riga", "rīga"}
 
 
 def find_riga_stop(stops: list) -> dict | None:
@@ -38,7 +38,7 @@ def fetch_full_day() -> list[dict]:
     trains  = payload["data"] if isinstance(payload, dict) and "data" in payload else payload
     print(f"[schedule] API returned {len(trains)} total trains")
 
-    today_utc = datetime.now(timezone.utc).date()
+    today_riga = datetime.now(RIGA_TZ).date()
     result    = []
 
     for t in trains:
@@ -46,8 +46,8 @@ def fetch_full_day() -> list[dict]:
         if not stops:
             continue
 
-        # Only include trains that DEPART from R\u012bg\u0101, i.e. R\u012bg\u0101 must be the
-        # first stop. Trains where R\u012bg\u0101 appears later are arrivals or
+        # Only include trains that DEPART from Rīgā, i.e. Rīgā must be the
+        # first stop. Trains where Rīgā appears later are arrivals or
         # pass-throughs and must not appear on the departure board.
         first_name = str(stops[0].get("title") or stops[0].get("name") or "").strip()
         if first_name.lower() not in RIGA_NAMES:
@@ -60,12 +60,13 @@ def fetch_full_day() -> list[dict]:
             continue
 
         dep_raw = riga_stop.get("departure") or riga_stop.get("time") or ""
+        # The API returns times in Riga local time, not UTC. Parse accordingly.
         try:
-            dep_utc = datetime.strptime(dep_raw, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+            dep_riga = datetime.strptime(dep_raw, "%Y-%m-%d %H:%M:%S").replace(tzinfo=RIGA_TZ)
         except ValueError:
             try:
-                t_only  = datetime.strptime(dep_raw, "%H:%M:%S").replace(tzinfo=timezone.utc)
-                dep_utc = t_only.replace(year=today_utc.year, month=today_utc.month, day=today_utc.day)
+                t_only   = datetime.strptime(dep_raw, "%H:%M:%S").replace(tzinfo=RIGA_TZ)
+                dep_riga = t_only.replace(year=today_riga.year, month=today_riga.month, day=today_riga.day)
             except ValueError:
                 print(f"[warn] Cannot parse '{dep_raw}' for train {t.get('train')}")
                 continue
@@ -76,9 +77,9 @@ def fetch_full_day() -> list[dict]:
         result.append({
             "nr":       str(t.get("train") or t.get("number") or ""),
             "dest":     last,
-            "dep_utc":  dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "dep_utc":  dep_riga.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "route_id": route_id,
-            "_dep_utc": dep_utc,
+            "_dep_utc": dep_riga,
         })
 
     result.sort(key=lambda x: x["_dep_utc"])
@@ -111,7 +112,7 @@ def main():
     trains = assign_tracks(trains)
 
     output = {
-        "station":     "R\u012bga",
+        "station":     "Rīga",
         "date":        now_riga.strftime("%Y-%m-%d"),
         "updated_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "updated":     now_riga.strftime("%d.%m.%Y %H:%M:%S"),
@@ -123,7 +124,7 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[schedule] done \u2192 {len(trains)} trains written to {out_path}")
+    print(f"[schedule] done → {len(trains)} trains written to {out_path}")
 
 
 if __name__ == "__main__":
