@@ -1,16 +1,16 @@
 {
-  "updated_utc": "2026-06-19T11:23:32Z",
-  "updated": "19.06.2026 14:23:32",
+  "updated_utc": "2026-06-19T11:24:32Z",
+  "updated": "19.06.2026 14:24:32",
   "delays": {
     "781775": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781786": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781793": {
       "gps_delay_min": 0,
@@ -27,11 +27,6 @@
       "stopped": false,
       "gps_active": true
     },
-    "781803": {
-      "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
-    },
     "781804": {
       "gps_delay_min": 0,
       "stopped": false,
@@ -39,7 +34,7 @@
     },
     "781805": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781807": {
@@ -50,12 +45,12 @@
     "781808": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781809": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781810": {
       "gps_delay_min": 0,
@@ -75,7 +70,7 @@
     "781813": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781814": {
       "gps_delay_min": 0,
@@ -85,17 +80,17 @@
     "781815": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781816": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "781817": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "781818": {
       "gps_delay_min": 0,
@@ -104,7 +99,7 @@
     },
     "781819": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     }
   },
