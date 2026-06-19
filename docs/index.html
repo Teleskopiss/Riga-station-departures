@@ -264,23 +264,39 @@ setInterval(tickClock, 1000);
 /* ── Helpers ── */
 
 /**
- * Returns a Date whose date part is today in Riga time,
- * but whose time part is taken from the dep_utc string's HH:MM.
- * This makes the filter work even when the JSON was generated
- * yesterday (or any other day).
+ * Format dep_utc as local Riga time HH:MM.
+ * FIX: was using getUTCHours/getUTCMinutes which showed UTC (3h behind EEST).
+ */
+function fmtTime(depUTC) {
+  return new Date(depUTC).toLocaleTimeString('lv-LV', {
+    timeZone: RIGA_TZ,
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+}
+
+/**
+ * Returns a Date anchored to today in Riga time, using
+ * the HH:MM from dep_utc converted to Riga local time.
+ * This keeps the filter correct even when the JSON was
+ * generated on a different day.
  */
 function depAsToday(depUTC) {
-  const d = new Date(depUTC);
-  const hh = d.getUTCHours();
-  const mm = d.getUTCMinutes();
-  const ss = d.getUTCSeconds();
+  // Get the Riga local HH:MM:SS from the UTC timestamp
+  const rigaTimeStr = new Date(depUTC).toLocaleTimeString('en-US', {
+    timeZone: RIGA_TZ, hour12: false,
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  // rigaTimeStr is like "08:01:00"
+  const [hh, mm, ss] = rigaTimeStr.split(':').map(Number);
 
-  const rigaNowStr = new Date().toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
-  const pad = n => String(n).padStart(2, '0');
+  // Today's date string in Riga timezone
+  const rigaToday = new Date().toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
+  // Build a UTC ms timestamp: midnight Riga today + local HH:MM:SS
   const tzOffset = getRigaOffsetMs();
-  const todayMidnightUTC = new Date(rigaNowStr + 'T00:00:00Z').getTime() - tzOffset;
-  const depMs = hh * 3600000 + mm * 60000 + ss * 1000;
-  return new Date(todayMidnightUTC + depMs);
+  const todayMidnightUTC = new Date(rigaToday + 'T00:00:00Z').getTime() - tzOffset;
+  return new Date(todayMidnightUTC + hh * 3600000 + mm * 60000 + ss * 1000);
 }
 
 /* Get Riga UTC offset in milliseconds for current moment */
@@ -289,14 +305,7 @@ function getRigaOffsetMs() {
   const rigaStr = now.toLocaleString('en-US', { timeZone: RIGA_TZ, hour12: false,
     year: 'numeric', month: '2-digit', day: '2-digit',
     hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  const rigaParsed = new Date(rigaStr);
-  return rigaParsed - now;
-}
-
-function fmtTime(depUTC) {
-  const d = new Date(depUTC);
-  const pad = n => String(n).padStart(2, '0');
-  return `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
+  return new Date(rigaStr) - now;
 }
 
 /* ── Main loader ── */
@@ -318,9 +327,15 @@ async function load() {
 
     const cutoff = new Date(now.getTime() - 2 * 60 * 1000);
 
+    // FIX: trains with a dispatcher alert must never be filtered out by the
+    // 2-minute cutoff — they stay visible until the alert is cleared, even
+    // if they departed Riga a while ago.
     const upcoming = sched.trains
       .map(tr => ({ ...tr, _depToday: depAsToday(tr.dep_utc) }))
-      .filter(tr => tr._depToday > cutoff)
+      .filter(tr => {
+        const hasDispAlert = alerts[tr.nr] != null;
+        return hasDispAlert || tr._depToday > cutoff;
+      })
       .slice(0, SHOW_MAX);
 
     const tb = document.getElementById('tbody');
@@ -328,13 +343,25 @@ async function load() {
 
     upcoming.forEach((tr, idx) => {
       let delayHtml = '';
-      const dispMin = alerts[tr.nr];
 
-      if (dispMin != null && dispMin > 0) {
-        delayHtml = `<span class="delay-dispatcher">
-          +${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span>
-        </span>`;
+      // FIX: dispatcher alert ALWAYS wins — it overrides GPS data and the
+      // on-time checkmark regardless of when the train left Riga.
+      const dispMin = alerts[tr.nr];
+      if (dispMin != null) {
+        // Alert exists: show it even if dispMin === 0 (means "announced but
+        // no minute count yet") — use "> 0" only for the "+Xmin" label.
+        if (dispMin > 0) {
+          delayHtml = `<span class="delay-dispatcher">
+            +${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span>
+          </span>`;
+        } else {
+          // Alert present but no minute count — show the disp badge alone
+          delayHtml = `<span class="delay-dispatcher">
+            <span class="src-tag src-disp">disp</span>
+          </span>`;
+        }
       } else {
+        // No dispatcher alert — fall back to GPS data
         const gpsEntry = tr.route_id ? delays[tr.route_id] : null;
         if (gpsEntry) {
           if (gpsEntry.stopped) {
@@ -346,6 +373,7 @@ async function load() {
           } else if (gpsEntry.gps_active) {
             delayHtml = `<span class="delay-none">&#10003;</span>`;
           }
+          // gps_active:false and no delay → leave blank (no false checkmark)
         }
       }
 
@@ -365,19 +393,18 @@ async function load() {
         <td>${timeStr}</td>
         <td>${delayHtml}</td>
         <td>${platform}</td>
-        <td>${track}</td>
+        <td>${tr.track != null ? `<span class="badge bt">${tr.track}</span>` : '&mdash;'}</td>
       </tr>`;
     });
 
     if (upcoming.length === 0) {
       tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">
-        Šodien vairs nav gaIdāmu vilcieņu.
+        Šodien vairs nav gaidāmu vilcienu.
       </td></tr>`;
     }
 
     const alertText = Object.entries(alerts)
-      .filter(([, min]) => min > 0)
-      .map(([nr, min]) => `Vilciens ${nr} kavējas ${min} min`)
+      .map(([nr, min]) => min > 0 ? `Vilciens ${nr} kavējas ${min} min` : `Vilciens ${nr} – dispečera paziņojums`)
       .join('  |  ');
     const al = document.getElementById('alert');
     if (alertText) { al.textContent = alertText; al.style.display = 'block'; }
