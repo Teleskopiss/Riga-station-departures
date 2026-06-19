@@ -1,16 +1,16 @@
 {
-  "updated_utc": "2026-06-19T10:36:30Z",
-  "updated": "19.06.2026 13:36:30",
+  "updated_utc": "2026-06-19T10:37:33Z",
+  "updated": "19.06.2026 13:37:33",
   "delays": {
     "781757": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781773": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781775": {
       "gps_delay_min": 0,
@@ -20,7 +20,7 @@
     "781783": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781785": {
       "gps_delay_min": 0,
@@ -30,12 +30,12 @@
     "781786": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781788": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781789": {
       "gps_delay_min": 0,
@@ -45,12 +45,12 @@
     "781791": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781792": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781793": {
       "gps_delay_min": 0,
@@ -90,12 +90,12 @@
     "781800": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781802": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781803": {
       "gps_delay_min": 0,
@@ -118,6 +118,16 @@
       "gps_active": false
     },
     "781807": {
+      "gps_delay_min": 0,
+      "stopped": true,
+      "gps_active": true
+    },
+    "781808": {
+      "gps_delay_min": 0,
+      "stopped": true,
+      "gps_active": true
+    },
+    "781809": {
       "gps_delay_min": 0,
       "stopped": true,
       "gps_active": true
