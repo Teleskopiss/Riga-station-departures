@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-06-19T07:41:32Z",
-  "updated": "19.06.2026 10:41:32",
+  "updated_utc": "2026-06-19T07:42:32Z",
+  "updated": "19.06.2026 10:42:32",
   "delays": {
     "781700": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781706": {
       "gps_delay_min": 0,
@@ -20,7 +20,7 @@
     "781735": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781736": {
       "gps_delay_min": 0,
@@ -29,8 +29,8 @@
     },
     "781739": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781741": {
       "gps_delay_min": 0,
@@ -44,7 +44,7 @@
     },
     "781743": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781744": {
@@ -54,8 +54,8 @@
     },
     "781745": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781746": {
       "gps_delay_min": 0,
@@ -65,26 +65,26 @@
     "781747": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781748": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781749": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781750": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781751": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "781752": {
@@ -110,7 +110,7 @@
     "781756": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     }
   },
   "alerts": {}
