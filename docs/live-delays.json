@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-19T16:35:31Z",
-  "updated": "19.06.2026 19:35:31",
+  "updated_utc": "2026-06-19T16:36:31Z",
+  "updated": "19.06.2026 19:36:31",
   "delays": {
     "781862": {
       "gps_delay_min": 0,
@@ -10,7 +10,7 @@
     "781870": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781872": {
       "gps_delay_min": 0,
@@ -49,8 +49,8 @@
     },
     "781920": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": false
+      "stopped": false,
+      "gps_active": true
     },
     "781922": {
       "gps_delay_min": 0,
@@ -74,13 +74,13 @@
     },
     "781926": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781927": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "781928": {
       "gps_delay_min": 0,
@@ -90,7 +90,7 @@
     "781929": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "781930": {
       "gps_delay_min": 0,
@@ -99,13 +99,13 @@
     },
     "781931": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781932": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781933": {
       "gps_delay_min": 0,
@@ -129,8 +129,8 @@
     },
     "781937": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "781938": {
       "gps_delay_min": 0,
@@ -143,6 +143,11 @@
       "gps_active": false
     },
     "781940": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
+    },
+    "781941": {
       "gps_delay_min": 0,
       "stopped": true,
       "gps_active": true
