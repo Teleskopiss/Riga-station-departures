@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-20T04:26:32Z",
-  "updated": "20.06.2026 07:26:32",
+  "updated_utc": "2026-06-20T04:27:31Z",
+  "updated": "20.06.2026 07:27:31",
   "delays": {
     "781998": {
       "gps_delay_min": 0,
@@ -10,7 +10,7 @@
     "782004": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782009": {
       "gps_delay_min": 0,
@@ -18,11 +18,6 @@
       "gps_active": true
     },
     "782010": {
-      "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": true
-    },
-    "782022": {
       "gps_delay_min": 0,
       "stopped": false,
       "gps_active": true
@@ -45,7 +40,7 @@
     "782028": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782029": {
       "gps_delay_min": 0,
@@ -55,12 +50,12 @@
     "782031": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782032": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782033": {
       "gps_delay_min": 0,
@@ -70,7 +65,7 @@
     "782034": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782035": {
       "gps_delay_min": 0,
@@ -79,8 +74,8 @@
     },
     "782036": {
       "gps_delay_min": 0,
-      "stopped": false,
-      "gps_active": false
+      "stopped": true,
+      "gps_active": true
     },
     "782037": {
       "gps_delay_min": 0,
@@ -90,36 +85,36 @@
     "782038": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782039": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782040": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782041": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782042": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "782043": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "782044": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     }
   },
