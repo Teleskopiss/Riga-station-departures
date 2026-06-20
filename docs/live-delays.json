@@ -1,6 +1,6 @@
 {
-  "updated_utc": "2026-06-20T09:11:32Z",
-  "updated": "20.06.2026 12:11:32",
+  "updated_utc": "2026-06-20T09:12:31Z",
+  "updated": "20.06.2026 12:12:31",
   "delays": {
     "782054": {
       "gps_delay_min": 0,
@@ -14,37 +14,37 @@
     },
     "782083": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": true
     },
     "782099": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
-    },
-    "782103": {
-      "gps_delay_min": 0,
-      "stopped": true,
       "gps_active": true
     },
-    "782108": {
+    "782103": {
       "gps_delay_min": 0,
       "stopped": false,
       "gps_active": false
     },
-    "782109": {
+    "782108": {
       "gps_delay_min": 0,
       "stopped": true,
       "gps_active": true
+    },
+    "782109": {
+      "gps_delay_min": 0,
+      "stopped": false,
+      "gps_active": false
     },
     "782110": {
       "gps_delay_min": 0,
-      "stopped": true,
-      "gps_active": true
+      "stopped": false,
+      "gps_active": false
     },
     "782111": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "782112": {
@@ -70,16 +70,16 @@
     "782116": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     },
     "782117": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "782118": {
       "gps_delay_min": 0,
-      "stopped": true,
+      "stopped": false,
       "gps_active": false
     },
     "782119": {
@@ -90,17 +90,17 @@
     "782120": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": false
+      "gps_active": true
     },
     "782121": {
       "gps_delay_min": 0,
-      "stopped": false,
+      "stopped": true,
       "gps_active": true
     },
     "782122": {
       "gps_delay_min": 0,
       "stopped": false,
-      "gps_active": true
+      "gps_active": false
     }
   },
   "alerts": {}
