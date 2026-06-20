@@ -92,18 +92,7 @@
   }
   tr.row-next { background: #1a0e00; }
 
-  .delay-dispatcher { display:inline-flex;align-items:center;gap:.3em;color:var(--red);font-size:var(--text-sm); }
-  .delay-gps        { display:inline-flex;align-items:center;gap:.3em;color:var(--yellow);font-size:var(--text-sm); }
-  .delay-stopped    { display:inline-flex;align-items:center;gap:.3em;color:var(--red);font-size:var(--text-xs);opacity:.85; }
-  .delay-none       { color:var(--green);font-size:var(--text-xs); }
-
-  .src-tag {
-    display:inline-block;font-size:.6rem;letter-spacing:.05em;
-    padding:.05em .3em;border-radius:2px;vertical-align:middle;
-    text-transform:uppercase;line-height:1.5;
-  }
-  .src-disp { background:#3a0800;border:1px solid var(--red);color:var(--red); }
-  .src-gps  { background:#2a2000;border:1px solid var(--yellow);color:var(--yellow); }
+  .delay { color: var(--red); font-size: var(--text-sm); }
 
   .badge { display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:var(--text-sm);font-weight:bold;line-height:1.4; }
   .bt { background:#1a1a1a;border:1px solid #ff660055;color:var(--orange); }
@@ -133,10 +122,8 @@
   }
   .updated { font-size:var(--text-xs);color:var(--muted); }
   .legend  { font-size:var(--text-xs);color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap; }
-  .leg-item { display:flex;align-items:center;gap:.3em; }
 
   @media (max-width:600px) {
-    .col-route { display:none; }
     td, th { padding:.4rem .35rem; }
     .clock { font-size:1.15rem; }
   }
@@ -168,9 +155,7 @@
 
 <div class="footer">
   <div class="legend">
-    <span class="leg-item"><span style="color:var(--red)">+Xmin</span>&thinsp;<span class="src-tag src-disp">disp</span>&nbsp;Dispeċers</span>
-    <span class="leg-item"><span style="color:var(--yellow)">+Xmin</span>&thinsp;<span class="src-tag src-gps">gps</span>&nbsp;GPS</span>
-    <span class="leg-item"><span style="color:var(--green)">&#10003;</span>&nbsp;Laicīgi</span>
+    <span style="color:var(--red)">+Xmin</span>&nbsp;= kavējas
   </div>
   <div class="updated" id="upd"></div>
 </div>
@@ -178,7 +163,7 @@
 <script>
 const SHOW_MAX = 14;
 
-// ── Clock using device local time ──
+// Clock using device local time
 function tickClock() {
   const n = new Date();
   const h = String(n.getHours()).padStart(2,'0');
@@ -189,29 +174,22 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// ── Format dep_utc as HH:MM using the DEVICE local time ──
-// new Date(utcString) gives a Date in UTC internally.
-// getHours()/getMinutes() returns LOCAL time automatically.
-// If the device is set to EEST (Europe/Riga), this is correct.
+// Format dep_utc as HH:MM using device local time
 function fmtTime(depUTC) {
   const d = new Date(depUTC);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
-// ── Build a comparable timestamp for filtering ──
-// Takes the local HH:MM:SS of the departure and places it on today's date
-// so the cutoff comparison works even when the JSON was scraped yesterday.
+// Place the departure's local HH:MM on today's local date for filtering
 function depAsToday(depUTC) {
   const d   = new Date(depUTC);
   const now = new Date();
-  // Use today's local Y/M/D with the departure's local H/M/S
   return new Date(
     now.getFullYear(), now.getMonth(), now.getDate(),
     d.getHours(), d.getMinutes(), d.getSeconds()
   );
 }
 
-// ── Main loader ──
 async function load() {
   try {
     const [sched, live] = await Promise.all([
@@ -220,24 +198,24 @@ async function load() {
     ]);
 
     const now    = new Date();
-    const delays = live.delays || {};
-    const alerts = live.alerts || {};
+    // live.trains is { "804": { "delay": 5 }, ... }
+    // Only delayed trains appear in this object
+    const delays = live.trains || {};
 
-    // Stale-data check: compare JSON date field to device local date
+    // Stale-data check
     const localToday = now.getFullYear() + '-' +
       String(now.getMonth()+1).padStart(2,'0') + '-' +
       String(now.getDate()).padStart(2,'0');
-    const jsonDate = sched.date || '';
     document.getElementById('stale-warn').style.display =
-      (jsonDate && jsonDate !== localToday) ? 'block' : 'none';
+      (sched.date && sched.date !== localToday) ? 'block' : 'none';
 
     const cutoff = new Date(now.getTime() - 2 * 60 * 1000);
 
     const upcoming = sched.trains
       .map(tr => ({ ...tr, _dep: depAsToday(tr.dep_utc) }))
       .filter(tr => {
-        // Trains with a dispatcher alert are always shown regardless of time
-        if (alerts[tr.nr] != null) return true;
+        // Keep trains with a delay alert even if past the cutoff
+        if (delays[tr.nr]) return true;
         return tr._dep > cutoff;
       })
       .slice(0, SHOW_MAX);
@@ -246,27 +224,11 @@ async function load() {
     tb.innerHTML = '';
 
     upcoming.forEach((tr, idx) => {
-      let delayHtml = '';
-      const dispMin = alerts[tr.nr];
-
-      if (dispMin != null) {
-        // Dispatcher alert always wins over GPS
-        delayHtml = dispMin > 0
-          ? `<span class="delay-dispatcher">+${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span></span>`
-          : `<span class="delay-dispatcher"><span class="src-tag src-disp">disp</span></span>`;
-      } else {
-        const gps = tr.route_id ? delays[tr.route_id] : null;
-        if (gps) {
-          if (gps.stopped) {
-            delayHtml = `<span class="delay-stopped">&#9632; apst.</span>`;
-          } else if (gps.gps_delay_min > 0) {
-            delayHtml = `<span class="delay-gps">+${gps.gps_delay_min}&thinsp;min <span class="src-tag src-gps">gps</span></span>`;
-          } else if (gps.gps_active) {
-            delayHtml = `<span class="delay-none">&#10003;</span>`;
-          }
-          // gps_active:false + 0 delay = no badge (signal lost, unknown state)
-        }
-      }
+      const delayEntry = delays[tr.nr];
+      // delayEntry is { delay: N } if the train is late, otherwise undefined
+      const delayHtml  = delayEntry
+        ? `<span class="delay">+${delayEntry.delay}&thinsp;min</span>`
+        : '';
 
       const isNext   = idx === 0;
       const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
@@ -288,10 +250,9 @@ async function load() {
       tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
     }
 
-    // Alert banner
-    const alertParts = Object.entries(alerts).map(([nr, min]) =>
-      min > 0 ? `Vilciens ${nr} kavējas ${min} min` : `Vilciens ${nr} – dispečera paziņojums`
-    );
+    // Alert banner — show all delayed trains
+    const alertParts = Object.entries(delays)
+      .map(([nr, d]) => `Vilciens ${nr} kavējas ${d.delay} min`);
     const al = document.getElementById('alert');
     if (alertParts.length) { al.textContent = alertParts.join('  |  '); al.style.display = 'block'; }
     else                   { al.style.display = 'none'; }
