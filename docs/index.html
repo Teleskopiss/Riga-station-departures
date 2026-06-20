@@ -36,7 +36,6 @@
     padding: 1.2rem 1rem 2rem;
   }
 
-  /* ── Header ── */
   .header {
     width: 100%;
     max-width: 900px;
@@ -47,14 +46,12 @@
     gap: 1rem;
     flex-wrap: wrap;
   }
-
   .station-name {
     font-size: 1rem;
     letter-spacing: .2em;
     color: var(--orange2);
     text-transform: uppercase;
   }
-
   .clock {
     font-size: 1.45rem;
     letter-spacing: .12em;
@@ -62,7 +59,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* ── Alert banner ── */
   .alert {
     width: 100%;
     max-width: 900px;
@@ -76,17 +72,8 @@
     border-radius: var(--radius);
   }
 
-  /* ── Table ── */
-  table {
-    width: 100%;
-    max-width: 900px;
-    border-collapse: collapse;
-  }
-
-  thead tr {
-    border-bottom: 1px solid var(--border);
-  }
-
+  table { width: 100%; max-width: 900px; border-collapse: collapse; }
+  thead tr { border-bottom: 1px solid var(--border); }
   th {
     font-size: var(--text-xs);
     letter-spacing: .13em;
@@ -96,7 +83,6 @@
     white-space: nowrap;
     text-transform: uppercase;
   }
-
   td {
     padding: .48rem .55rem;
     font-size: var(--text-base);
@@ -104,113 +90,55 @@
     white-space: nowrap;
     vertical-align: middle;
   }
+  tr.row-next { background: #1a0e00; }
 
-  tr.row-next {
-    background: #1a0e00;
-  }
-
-  /* ── Delay badges ── */
-  .delay-dispatcher {
-    display: inline-flex;
-    align-items: center;
-    gap: .3em;
-    color: var(--red);
-    font-size: var(--text-sm);
-  }
-  .delay-gps {
-    display: inline-flex;
-    align-items: center;
-    gap: .3em;
-    color: var(--yellow);
-    font-size: var(--text-sm);
-  }
-  .delay-stopped {
-    display: inline-flex;
-    align-items: center;
-    gap: .3em;
-    color: var(--red);
-    font-size: var(--text-xs);
-    opacity: .85;
-  }
-  .delay-none {
-    color: var(--green);
-    font-size: var(--text-xs);
-  }
+  .delay-dispatcher { display:inline-flex;align-items:center;gap:.3em;color:var(--red);font-size:var(--text-sm); }
+  .delay-gps        { display:inline-flex;align-items:center;gap:.3em;color:var(--yellow);font-size:var(--text-sm); }
+  .delay-stopped    { display:inline-flex;align-items:center;gap:.3em;color:var(--red);font-size:var(--text-xs);opacity:.85; }
+  .delay-none       { color:var(--green);font-size:var(--text-xs); }
 
   .src-tag {
-    display: inline-block;
-    font-size: .6rem;
-    letter-spacing: .05em;
-    padding: .05em .3em;
-    border-radius: 2px;
-    vertical-align: middle;
-    text-transform: uppercase;
-    line-height: 1.5;
+    display:inline-block;font-size:.6rem;letter-spacing:.05em;
+    padding:.05em .3em;border-radius:2px;vertical-align:middle;
+    text-transform:uppercase;line-height:1.5;
   }
-  .src-disp { background: #3a0800; border: 1px solid var(--red);    color: var(--red); }
-  .src-gps  { background: #2a2000; border: 1px solid var(--yellow); color: var(--yellow); }
+  .src-disp { background:#3a0800;border:1px solid var(--red);color:var(--red); }
+  .src-gps  { background:#2a2000;border:1px solid var(--yellow);color:var(--yellow); }
 
-  /* ── Track / Platform badges ── */
-  .badge {
-    display: inline-block;
-    padding: .1rem .4rem;
-    border-radius: 3px;
-    font-size: var(--text-sm);
-    font-weight: bold;
-    line-height: 1.4;
-  }
-  .bt { background: #1a1a1a; border: 1px solid #ff660055; color: var(--orange); }
-  .bp { background: #ff660018; border: 1px solid var(--orange2); color: var(--orange2); }
+  .badge { display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:var(--text-sm);font-weight:bold;line-height:1.4; }
+  .bt { background:#1a1a1a;border:1px solid #ff660055;color:var(--orange); }
+  .bp { background:#ff660018;border:1px solid var(--orange2);color:var(--orange2); }
 
-  /* ── "Next" tag on first upcoming row ── */
   .next-label {
-    display: inline-block;
-    font-size: .58rem;
-    letter-spacing: .1em;
-    padding: .08em .4em;
-    border-radius: 2px;
-    border: 1px solid var(--orange2);
-    color: var(--orange2);
-    text-transform: uppercase;
-    vertical-align: middle;
-    margin-left: .4em;
-    animation: blink 1.4s step-start infinite;
+    display:inline-block;font-size:.58rem;letter-spacing:.1em;
+    padding:.08em .4em;border-radius:2px;
+    border:1px solid var(--orange2);color:var(--orange2);
+    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
+    animation:blink 1.4s step-start infinite;
   }
-  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes blink { 50% { opacity:0; } }
 
-  /* ── Stale-data warning ── */
   .stale-warn {
-    width: 100%;
-    max-width: 900px;
-    background: #1a1400;
-    border: 1px solid var(--yellow);
-    padding: .4rem .9rem;
-    margin-bottom: .7rem;
-    font-size: var(--text-xs);
-    color: var(--yellow);
-    display: none;
-    border-radius: var(--radius);
+    width:100%;max-width:900px;
+    background:#1a1400;border:1px solid var(--yellow);
+    padding:.4rem .9rem;margin-bottom:.7rem;
+    font-size:var(--text-xs);color:var(--yellow);
+    display:none;border-radius:var(--radius);
   }
 
-  /* ── Footer ── */
   .footer {
-    max-width: 900px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: .4rem;
-    margin-top: .8rem;
+    max-width:900px;width:100%;
+    display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:.4rem;margin-top:.8rem;
   }
-  .updated { font-size: var(--text-xs); color: var(--muted); }
-  .legend  { font-size: var(--text-xs); color: var(--muted); display: flex; gap: .8rem; flex-wrap: wrap; }
-  .leg-item { display: flex; align-items: center; gap: .3em; }
+  .updated { font-size:var(--text-xs);color:var(--muted); }
+  .legend  { font-size:var(--text-xs);color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap; }
+  .leg-item { display:flex;align-items:center;gap:.3em; }
 
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    .col-route { display: none; }
-    td, th { padding: .4rem .35rem; }
-    .clock { font-size: 1.15rem; }
+  @media (max-width:600px) {
+    .col-route { display:none; }
+    td, th { padding:.4rem .35rem; }
+    .clock { font-size:1.15rem; }
   }
 </style>
 </head>
@@ -248,67 +176,42 @@
 </div>
 
 <script>
-const RIGA_TZ  = 'Europe/Riga';
 const SHOW_MAX = 14;
 
-/* ── Live clock ── */
+// ── Clock using device local time ──
 function tickClock() {
-  const now = new Date();
-  document.getElementById('clock').textContent =
-    now.toLocaleTimeString('lv-LV', { timeZone: RIGA_TZ,
-      hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const n = new Date();
+  const h = String(n.getHours()).padStart(2,'0');
+  const m = String(n.getMinutes()).padStart(2,'0');
+  const s = String(n.getSeconds()).padStart(2,'0');
+  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
 }
 tickClock();
 setInterval(tickClock, 1000);
 
-/* ── Helpers ── */
-
-/**
- * Format dep_utc as local Riga time HH:MM.
- * FIX: was using getUTCHours/getUTCMinutes which showed UTC (3h behind EEST).
- */
+// ── Format dep_utc as HH:MM using the DEVICE local time ──
+// new Date(utcString) gives a Date in UTC internally.
+// getHours()/getMinutes() returns LOCAL time automatically.
+// If the device is set to EEST (Europe/Riga), this is correct.
 function fmtTime(depUTC) {
-  return new Date(depUTC).toLocaleTimeString('lv-LV', {
-    timeZone: RIGA_TZ,
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  });
+  const d = new Date(depUTC);
+  return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
-/**
- * Returns a Date anchored to today in Riga time, using
- * the HH:MM from dep_utc converted to Riga local time.
- * This keeps the filter correct even when the JSON was
- * generated on a different day.
- */
+// ── Build a comparable timestamp for filtering ──
+// Takes the local HH:MM:SS of the departure and places it on today's date
+// so the cutoff comparison works even when the JSON was scraped yesterday.
 function depAsToday(depUTC) {
-  // Get the Riga local HH:MM:SS from the UTC timestamp
-  const rigaTimeStr = new Date(depUTC).toLocaleTimeString('en-US', {
-    timeZone: RIGA_TZ, hour12: false,
-    hour: '2-digit', minute: '2-digit', second: '2-digit'
-  });
-  // rigaTimeStr is like "08:01:00"
-  const [hh, mm, ss] = rigaTimeStr.split(':').map(Number);
-
-  // Today's date string in Riga timezone
-  const rigaToday = new Date().toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
-  // Build a UTC ms timestamp: midnight Riga today + local HH:MM:SS
-  const tzOffset = getRigaOffsetMs();
-  const todayMidnightUTC = new Date(rigaToday + 'T00:00:00Z').getTime() - tzOffset;
-  return new Date(todayMidnightUTC + hh * 3600000 + mm * 60000 + ss * 1000);
-}
-
-/* Get Riga UTC offset in milliseconds for current moment */
-function getRigaOffsetMs() {
+  const d   = new Date(depUTC);
   const now = new Date();
-  const rigaStr = now.toLocaleString('en-US', { timeZone: RIGA_TZ, hour12: false,
-    year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  return new Date(rigaStr) - now;
+  // Use today's local Y/M/D with the departure's local H/M/S
+  return new Date(
+    now.getFullYear(), now.getMonth(), now.getDate(),
+    d.getHours(), d.getMinutes(), d.getSeconds()
+  );
 }
 
-/* ── Main loader ── */
+// ── Main loader ──
 async function load() {
   try {
     const [sched, live] = await Promise.all([
@@ -320,21 +223,22 @@ async function load() {
     const delays = live.delays || {};
     const alerts = live.alerts || {};
 
-    const rigaToday = now.toLocaleDateString('en-CA', { timeZone: RIGA_TZ });
-    const jsonDate  = sched.date || '';
-    const isStale   = jsonDate && jsonDate !== rigaToday;
-    document.getElementById('stale-warn').style.display = isStale ? 'block' : 'none';
+    // Stale-data check: compare JSON date field to device local date
+    const localToday = now.getFullYear() + '-' +
+      String(now.getMonth()+1).padStart(2,'0') + '-' +
+      String(now.getDate()).padStart(2,'0');
+    const jsonDate = sched.date || '';
+    document.getElementById('stale-warn').style.display =
+      (jsonDate && jsonDate !== localToday) ? 'block' : 'none';
 
     const cutoff = new Date(now.getTime() - 2 * 60 * 1000);
 
-    // FIX: trains with a dispatcher alert must never be filtered out by the
-    // 2-minute cutoff — they stay visible until the alert is cleared, even
-    // if they departed Riga a while ago.
     const upcoming = sched.trains
-      .map(tr => ({ ...tr, _depToday: depAsToday(tr.dep_utc) }))
+      .map(tr => ({ ...tr, _dep: depAsToday(tr.dep_utc) }))
       .filter(tr => {
-        const hasDispAlert = alerts[tr.nr] != null;
-        return hasDispAlert || tr._depToday > cutoff;
+        // Trains with a dispatcher alert are always shown regardless of time
+        if (alerts[tr.nr] != null) return true;
+        return tr._dep > cutoff;
       })
       .slice(0, SHOW_MAX);
 
@@ -343,76 +247,58 @@ async function load() {
 
     upcoming.forEach((tr, idx) => {
       let delayHtml = '';
-
-      // FIX: dispatcher alert ALWAYS wins — it overrides GPS data and the
-      // on-time checkmark regardless of when the train left Riga.
       const dispMin = alerts[tr.nr];
+
       if (dispMin != null) {
-        // Alert exists: show it even if dispMin === 0 (means "announced but
-        // no minute count yet") — use "> 0" only for the "+Xmin" label.
-        if (dispMin > 0) {
-          delayHtml = `<span class="delay-dispatcher">
-            +${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span>
-          </span>`;
-        } else {
-          // Alert present but no minute count — show the disp badge alone
-          delayHtml = `<span class="delay-dispatcher">
-            <span class="src-tag src-disp">disp</span>
-          </span>`;
-        }
+        // Dispatcher alert always wins over GPS
+        delayHtml = dispMin > 0
+          ? `<span class="delay-dispatcher">+${dispMin}&thinsp;min <span class="src-tag src-disp">disp</span></span>`
+          : `<span class="delay-dispatcher"><span class="src-tag src-disp">disp</span></span>`;
       } else {
-        // No dispatcher alert — fall back to GPS data
-        const gpsEntry = tr.route_id ? delays[tr.route_id] : null;
-        if (gpsEntry) {
-          if (gpsEntry.stopped) {
+        const gps = tr.route_id ? delays[tr.route_id] : null;
+        if (gps) {
+          if (gps.stopped) {
             delayHtml = `<span class="delay-stopped">&#9632; apst.</span>`;
-          } else if (gpsEntry.gps_delay_min > 0) {
-            delayHtml = `<span class="delay-gps">
-              +${gpsEntry.gps_delay_min}&thinsp;min <span class="src-tag src-gps">gps</span>
-            </span>`;
-          } else if (gpsEntry.gps_active) {
+          } else if (gps.gps_delay_min > 0) {
+            delayHtml = `<span class="delay-gps">+${gps.gps_delay_min}&thinsp;min <span class="src-tag src-gps">gps</span></span>`;
+          } else if (gps.gps_active) {
             delayHtml = `<span class="delay-none">&#10003;</span>`;
           }
-          // gps_active:false and no delay → leave blank (no false checkmark)
+          // gps_active:false + 0 delay = no badge (signal lost, unknown state)
         }
       }
 
-      const timeStr  = fmtTime(tr.dep_utc);
-      const track    = tr.track    != null
-        ? `<span class="badge bt">${tr.track}</span>` : '&mdash;';
-      const platform = tr.platform != null
-        ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
-
       const isNext   = idx === 0;
-      const rowClass = isNext ? ' class="row-next"' : '';
       const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
+      const rowClass = isNext ? ' class="row-next"' : '';
+      const platform = tr.platform != null ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
+      const track    = tr.track    != null ? `<span class="badge bt">${tr.track}</span>`    : '&mdash;';
 
       tb.innerHTML += `<tr${rowClass}>
         <td>${tr.nr}</td>
         <td>${tr.dest}${nextTag}</td>
-        <td>${timeStr}</td>
+        <td>${fmtTime(tr.dep_utc)}</td>
         <td>${delayHtml}</td>
         <td>${platform}</td>
-        <td>${tr.track != null ? `<span class="badge bt">${tr.track}</span>` : '&mdash;'}</td>
+        <td>${track}</td>
       </tr>`;
     });
 
     if (upcoming.length === 0) {
-      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">
-        Šodien vairs nav gaidāmu vilcienu.
-      </td></tr>`;
+      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
     }
 
-    const alertText = Object.entries(alerts)
-      .map(([nr, min]) => min > 0 ? `Vilciens ${nr} kavējas ${min} min` : `Vilciens ${nr} – dispečera paziņojums`)
-      .join('  |  ');
+    // Alert banner
+    const alertParts = Object.entries(alerts).map(([nr, min]) =>
+      min > 0 ? `Vilciens ${nr} kavējas ${min} min` : `Vilciens ${nr} – dispečera paziņojums`
+    );
     const al = document.getElementById('alert');
-    if (alertText) { al.textContent = alertText; al.style.display = 'block'; }
-    else           { al.style.display = 'none'; }
+    if (alertParts.length) { al.textContent = alertParts.join('  |  '); al.style.display = 'block'; }
+    else                   { al.style.display = 'none'; }
 
     document.getElementById('upd').textContent = 'Atjaunots: ' + live.updated;
 
-  } catch (e) {
+  } catch(e) {
     console.error('Load error:', e);
     document.getElementById('upd').textContent = 'Kļūda ielādējot datus.';
   }
