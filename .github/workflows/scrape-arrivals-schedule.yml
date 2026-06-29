@@ -1,17 +1,15 @@
-name: Scrape Live Delays
+name: Scrape Arrivals Schedule
 
 on:
+  schedule:
+    - cron: '30 * * * *'
   workflow_dispatch:
-
-concurrency:
-  group: scrape-delays
-  cancel-in-progress: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  scrape-delays:
+  scrape-arrivals-schedule:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -31,12 +29,10 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run delay scraper
-        run: python scraper/scrape_delays.py
-        env:
-          PYTHONPATH: ${{ github.workspace }}/scraper
+      - name: Run arrivals schedule scraper
+        run: python scraper/scrape_arrivals_schedule.py
 
       - name: Commit and push
         run: |
-          git add docs/live-delays.json docs/live-arrival-delays.json
-          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update live delays [skip ci]" && git pull --rebase origin main && git push)
+          git add docs/full-day-arrivals.json
+          git diff --cached --quiet && echo "No changes" || (git commit -m "chore: update arrivals schedule [skip ci]" && git pull --rebase origin main && git push)

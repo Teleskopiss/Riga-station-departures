@@ -1,16 +1,27 @@
 #!/usr/bin/env python3
 """
 Minute scraper: fetches live GPS delays + dispatcher alerts.
-Writes docs/live-delays.json.
+Writes two files:
+  docs/live-delays.json        — departures from Rīga
+  docs/live-arrival-delays.json — arrivals to Rīga
 
-Format - keyed by train number, only trains with delay > 0 included:
+Format per file — keyed by train number:
 {
-  "updated": "29.06.2026 20:01:00",
+  "updated": "30.06.2026 01:00:00",
   "trains": {
-    "6745": { "delay": 5 },
-    "6747": { "delay": 2 }
+    "6745": {
+      "gps_delay":        5,
+      "dispatcher_delay": 0,
+      "dispatcher_text":  ""
+    }
   }
 }
+
+gps_delay        — minutes late from GPS/WebSocket (0 if no data)
+dispatcher_delay — minutes extracted from dispatcher text on vivi.lv (0 if none)
+dispatcher_text  — raw sentence from vivi.lv (empty string if none)
+
+Delay is considered active as long as the text is present on the website.
 """
 
 import json
@@ -24,39 +35,35 @@ from zoneinfo import ZoneInfo
 import requests
 import websocket
 
-WS_URL      = "wss://trainmap.pv.lv/ws"
-SCHED_PATH  = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "live-delays.json")
-RIGA_TZ     = ZoneInfo("Europe/Riga")
-WS_TIMEOUT  = 8
+WS_URL            = "wss://trainmap.pv.lv/ws"
+DEP_SCHED_PATH    = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
+ARR_SCHED_PATH    = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-arrivals.json")
+DEP_OUTPUT_PATH   = os.path.join(os.path.dirname(__file__), "..", "docs", "live-delays.json")
+ARR_OUTPUT_PATH   = os.path.join(os.path.dirname(__file__), "..", "docs", "live-arrival-delays.json")
+RIGA_TZ           = ZoneInfo("Europe/Riga")
+WS_TIMEOUT        = 8
 
-# Dispatcher pages to scrape — try both; EN has "Train No. XXXX is delayed ~N minutes"
-# LV has "vilciens XXXX kavējas N min" style text when shown
 DISPATCHER_URLS = [
     "https://www.vivi.lv/en/",
     "https://www.vivi.lv/lv/",
 ]
 
-# English format:  "Train No. 6747 Jelgava ... is delayed ~15 minutes"
-#                  "Train No. 6747 ... is delayed ~15 min"
-# Also handles without ~: "is delayed 15 minutes"
+# English: "Train No. 6747 Jelgava ... is delayed ~15 minutes"
 RE_EN = re.compile(
-    r"Train\s+No[.\s]+(\d{3,5})[^.]*?is\s+delayed\s+~?\s*(\d+)\s*min",
+    r"(Train\s+No[.\s]+(\d{3,5})[^.]*?is\s+delayed\s+~?\s*(\d+)\s*min[^.]*\.?)",
     re.IGNORECASE | re.DOTALL,
 )
-
-# Latvian format:  "vilciens 6747 kavējas 15 min"
-#                  "vilciena 6747 kavēšanās ~15 min"
+# Latvian: "vilciens 6747 kavējas 15 min"
 RE_LV = re.compile(
-    r"vilcien[a-zāčēģīķļņšūž]*\s+(?:Nr\.?\s*)?(\d{3,5})[^.]*?kav[ēe][a-zāčēģīķļņšūž]*\s+~?\s*(\d+)\s*min",
+    r"(vilcien[a-zāčēģīķļņšūž]*\s+(?:Nr\.?\s*)?(\d{3,5})[^.]*?kav[ēe][a-zāčēģīķļņšūž]*\s+~?\s*(\d+)\s*min[^.]*\.?)",
     re.IGNORECASE | re.UNICODE | re.DOTALL,
 )
 
 
-def load_route_to_nr() -> dict:
-    """Build route_id -> train_nr lookup from the schedule file."""
+def load_route_map(path: str) -> dict:
+    """Build route_id -> train_nr lookup from a schedule file."""
     try:
-        with open(os.path.abspath(SCHED_PATH), encoding="utf-8") as f:
+        with open(os.path.abspath(path), encoding="utf-8") as f:
             sched = json.load(f)
         return {
             tr["route_id"]: tr["nr"]
@@ -64,16 +71,26 @@ def load_route_to_nr() -> dict:
             if tr.get("route_id") and tr.get("nr")
         }
     except Exception as e:
-        print(f"[delays] could not load schedule for route lookup: {e}")
+        print(f"[delays] could not load route map from {path}: {e}")
         return {}
+
+
+def load_train_nrs(path: str) -> set:
+    """Return set of train numbers present in a schedule file."""
+    try:
+        with open(os.path.abspath(path), encoding="utf-8") as f:
+            sched = json.load(f)
+        return {str(tr["nr"]) for tr in sched.get("trains", []) if tr.get("nr")}
+    except Exception as e:
+        print(f"[delays] could not load train nrs from {path}: {e}")
+        return set()
 
 
 def fetch_gps_delays(route_to_nr: dict) -> dict:
     """
     Returns {train_nr: delay_minutes} from the trainmap WebSocket.
-    Positive delayTime (ms) = late.
     """
-    raw  = {}   # route_id -> delay_ms
+    raw  = {}
     done = threading.Event()
     msgs = []
 
@@ -87,22 +104,14 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
                 route_id = str(rv.get("id", ""))
                 if not route_id:
                     continue
-
-                # Try explicit delay fields in priority order
                 delay_ms = rv.get("delayTime") or rv.get("delay") or 0
-
-                # Fallback: nested trainInfo sub-object
                 if not delay_ms:
                     info     = rv.get("trainInfo") or {}
                     delay_ms = info.get("delayTime") or info.get("delay") or 0
-
-                # Fallback: lateTime field
                 if not delay_ms:
                     delay_ms = rv.get("lateTime") or 0
-
                 raw[route_id] = int(delay_ms)
-                msgs.append({"route_id": route_id, "delay_ms": int(delay_ms), "keys": list(rv.keys())})
-
+                msgs.append({"route_id": route_id, "delay_ms": int(delay_ms)})
             done.set()
             ws_app.close()
         except Exception as ex:
@@ -116,15 +125,6 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
     threading.Thread(target=ws_app.run_forever, daemon=True).start()
     done.wait(timeout=WS_TIMEOUT)
     ws_app.close()
-
-    if msgs:
-        sample = msgs[0]
-        print(f"[delays] ws sample keys: {sample['keys']}")
-        delayed = [m for m in msgs if m["delay_ms"] > 0][:5]
-        if delayed:
-            print(f"[delays] delayed samples: {delayed}")
-        else:
-            print(f"[delays] no positive delay_ms in {len(msgs)} ws entries")
 
     result = {}
     for route_id, delay_ms in raw.items():
@@ -141,14 +141,11 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
 
 def fetch_dispatcher_alerts() -> dict:
     """
-    Scrapes vivi.lv EN and LV pages for live dispatcher delay messages.
-
-    English format (active on /en/):
-        Train No. 6747 Jelgava (20:05) - Riga is delayed ~12 minutes.
-    Latvian format (active on /lv/):
-        Vilciens 6747 kavējas 12 min.
+    Scrapes vivi.lv for dispatcher delay messages.
+    Returns {train_nr: {"delay": int, "text": str}}.
+    The delay is considered active as long as the text is present on the site.
     """
-    alerts = {}
+    alerts  = {}
     headers = {"User-Agent": "Mozilla/5.0 (compatible; delay-scraper/1.0)"}
 
     for url in DISPATCHER_URLS:
@@ -157,27 +154,17 @@ def fetch_dispatcher_alerts() -> dict:
             resp.raise_for_status()
             text = resp.text
 
-            # Print a snippet around any "delayed" / "kavē" match for debugging
-            for keyword in ("is delayed", "kavē"):
-                pos = text.lower().find(keyword.lower())
-                if pos != -1:
-                    snippet = text[max(0, pos-60):pos+120].replace("\n", " ")
-                    print(f"[delays] dispatcher snippet ({url}): ...{snippet}...")
-                    break
-
-            found = False
             for m in RE_EN.finditer(text):
-                nr, mins = m.group(1), int(m.group(2))
-                alerts[nr] = mins
+                raw_sentence, nr, mins = m.group(1).strip(), m.group(2), int(m.group(3))
+                alerts[nr] = {"delay": mins, "text": raw_sentence}
                 print(f"[delays] dispatcher EN: train {nr} late {mins} min")
-                found = True
-            for m in RE_LV.finditer(text):
-                nr, mins = m.group(1), int(m.group(2))
-                alerts[nr] = mins
-                print(f"[delays] dispatcher LV: train {nr} late {mins} min")
-                found = True
 
-            if not found:
+            for m in RE_LV.finditer(text):
+                raw_sentence, nr, mins = m.group(1).strip(), m.group(2), int(m.group(3))
+                alerts[nr] = {"delay": mins, "text": raw_sentence}
+                print(f"[delays] dispatcher LV: train {nr} late {mins} min")
+
+            if not RE_EN.search(text) and not RE_LV.search(text):
                 print(f"[delays] no dispatcher delays found on {url}")
 
         except Exception as e:
@@ -186,32 +173,61 @@ def fetch_dispatcher_alerts() -> dict:
     return alerts
 
 
+def build_output(gps: dict, dispatcher: dict, train_nrs: set) -> dict:
+    """
+    Merge GPS and dispatcher data for a set of train numbers.
+    Every train with any delay is included; both tags always present.
+    """
+    all_nrs = (set(gps.keys()) | set(dispatcher.keys())) & train_nrs
+    trains  = {}
+    for nr in all_nrs:
+        gps_min  = gps.get(nr, 0)
+        disp     = dispatcher.get(nr, {})
+        disp_min = disp.get("delay", 0)
+        disp_txt = disp.get("text", "")
+        if gps_min > 0 or disp_min > 0:
+            trains[nr] = {
+                "gps_delay":        gps_min,
+                "dispatcher_delay": disp_min,
+                "dispatcher_text":  disp_txt,
+            }
+    return trains
+
+
 def main():
     now_riga = datetime.now(RIGA_TZ)
     print(f"[delays] {now_riga:%Y-%m-%d %H:%M:%S %Z}")
 
-    route_to_nr = load_route_to_nr()
-    gps         = fetch_gps_delays(route_to_nr)
-    dispatcher  = fetch_dispatcher_alerts()
+    # Build combined route map from both schedules
+    dep_route_map = load_route_map(DEP_SCHED_PATH)
+    arr_route_map = load_route_map(ARR_SCHED_PATH)
+    combined_map  = {**dep_route_map, **arr_route_map}
+
+    dep_nrs = load_train_nrs(DEP_SCHED_PATH)
+    arr_nrs = load_train_nrs(ARR_SCHED_PATH)
+
+    gps        = fetch_gps_delays(combined_map)
+    dispatcher = fetch_dispatcher_alerts()
     print(f"[delays] {len(gps)} gps delayed, {len(dispatcher)} dispatcher alerts")
 
-    # Merge: dispatcher wins when both sources agree on the same train
-    trains = {}
-    for nr, delay in gps.items():
-        trains[nr] = {"delay": delay}
-    for nr, delay in dispatcher.items():
-        trains[nr] = {"delay": delay}
+    dep_trains = build_output(gps, dispatcher, dep_nrs)
+    arr_trains = build_output(gps, dispatcher, arr_nrs)
 
-    output = {
-        "updated": now_riga.strftime("%d.%m.%Y %H:%M:%S"),
-        "trains":  trains,
-    }
+    timestamp = now_riga.strftime("%d.%m.%Y %H:%M:%S")
 
-    out_path = os.path.abspath(OUTPUT_PATH)
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[delays] done -> {len(trains)} delayed trains written")
+    for out_path, trains in [
+        (DEP_OUTPUT_PATH, dep_trains),
+        (ARR_OUTPUT_PATH, arr_trains),
+    ]:
+        output = {
+            "updated": timestamp,
+            "trains":  trains,
+        }
+        p = os.path.abspath(out_path)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+        print(f"[delays] written → {len(trains)} trains to {p}")
 
 
 if __name__ == "__main__":

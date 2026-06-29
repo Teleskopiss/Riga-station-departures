@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rīga – Atiešanas</title>
+<title>Rīga – Satiksme</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -16,6 +16,7 @@
     --red:      #ff2200;
     --yellow:   #ffcc00;
     --green:    #22cc66;
+    --blue:     #4ab3ff;
     --muted:    #555;
     --text-xs:  0.72rem;
     --text-sm:  0.85rem;
@@ -49,28 +50,74 @@
   .station-name { font-size:1rem;letter-spacing:.2em;color:var(--orange2);text-transform:uppercase; }
   .clock { font-size:1.45rem;letter-spacing:.12em;color:var(--orange);font-variant-numeric:tabular-nums; }
 
+  /* Section separator */
+  .section-header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.4rem 0 0.5rem;
+  }
+  .section-title {
+    font-size: var(--text-xs);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .section-title.dep { color: var(--orange2); }
+  .section-title.arr { color: var(--blue); }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
   table { width:100%;max-width:900px;border-collapse:collapse; }
   thead tr { border-bottom:1px solid var(--border); }
   th {
-    font-size:var(--text-xs);letter-spacing:.13em;color:var(--orange2);
+    font-size:var(--text-xs);letter-spacing:.13em;
     padding:.35rem .55rem;text-align:left;white-space:nowrap;text-transform:uppercase;
   }
+  th.dep-th { color: var(--orange2); }
+  th.arr-th { color: var(--blue); }
   td {
     padding:.48rem .55rem;font-size:var(--text-base);
     border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:middle;
   }
-  tr.row-next { background:#1a0e00; }
+  tr.row-next-dep { background:#1a0e00; }
+  tr.row-next-arr { background:#00101a; }
 
-  .delay { color:var(--red);font-size:var(--text-sm); }
+  /* Delay tag pair */
+  .delay-tags { display:inline-flex;gap:.25rem;align-items:center; }
+  .dtag {
+    display:inline-block;padding:.08rem .35rem;border-radius:3px;
+    font-size:var(--text-xs);line-height:1.5;white-space:nowrap;
+  }
+  /* GPS delay */
+  .dtag-gps-empty { border:1px solid #333;color:#444; }
+  .dtag-gps-val   { border:1px solid #ff440055;color:var(--red);background:#1a0000; }
+  /* Dispatcher delay */
+  .dtag-disp-empty { border:1px solid #333;color:#444; }
+  .dtag-disp-val   { border:1px solid var(--yellow);color:var(--yellow);background:#1a1400; }
 
   .badge { display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:var(--text-sm);font-weight:bold;line-height:1.4; }
-  .bt { background:#1a1a1a;border:1px solid #ff660055;color:var(--orange); }
-  .bp { background:#ff660018;border:1px solid var(--orange2);color:var(--orange2); }
+  .bt     { background:#1a1a1a;border:1px solid #ff660055;color:var(--orange); }
+  .bp     { background:#ff660018;border:1px solid var(--orange2);color:var(--orange2); }
+  .bt-arr { background:#001a1a;border:1px solid #4ab3ff55;color:var(--blue); }
+  .bp-arr { background:#00131f;border:1px solid #4ab3ff88;color:var(--blue); }
 
   .next-label {
     display:inline-block;font-size:.58rem;letter-spacing:.1em;
     padding:.08em .4em;border-radius:2px;
     border:1px solid var(--orange2);color:var(--orange2);
+    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
+    animation:blink 1.4s step-start infinite;
+  }
+  .next-label-arr {
+    display:inline-block;font-size:.58rem;letter-spacing:.1em;
+    padding:.08em .4em;border-radius:2px;
+    border:1px solid var(--blue);color:var(--blue);
     text-transform:uppercase;vertical-align:middle;margin-left:.4em;
     animation:blink 1.4s step-start infinite;
   }
@@ -107,29 +154,56 @@
 <body>
 
 <div class="header">
-  <span class="station-name">Rīga &bull; Atiešanas</span>
+  <span class="station-name">Rīga &bull; Satiksme</span>
   <span class="clock" id="clock">--:--:--</span>
 </div>
 
 <div class="stale-warn" id="stale-warn">&#9888; Datu datums nesakrīt ar šodienu – tiek rādīts pēc laika.</div>
 <div id="debug-box"></div>
 
+<!-- DEPARTURES -->
+<div class="section-header">
+  <span class="section-title dep">&#9654; Atiešanas</span>
+  <div class="section-line"></div>
+</div>
 <table>
   <thead>
     <tr>
-      <th>Nr.</th>
-      <th>Galamerķis</th>
-      <th>Laiks</th>
-      <th>Kavēšanās</th>
-      <th>Platf.</th>
-      <th>Ceļš</th>
+      <th class="dep-th">Nr.</th>
+      <th class="dep-th">Galamērķis</th>
+      <th class="dep-th">Laiks</th>
+      <th class="dep-th">Kavēšanās</th>
+      <th class="dep-th">Platf.</th>
+      <th class="dep-th">Ceļš</th>
     </tr>
   </thead>
-  <tbody id="tbody"></tbody>
+  <tbody id="tbody-dep"></tbody>
+</table>
+
+<!-- ARRIVALS -->
+<div class="section-header">
+  <span class="section-title arr">&#9664; Ierašanās</span>
+  <div class="section-line"></div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="arr-th">Nr.</th>
+      <th class="arr-th">Izcelsme</th>
+      <th class="arr-th">Laiks</th>
+      <th class="arr-th">Kavēšanās</th>
+      <th class="arr-th">Platf.</th>
+      <th class="arr-th">Ceļš</th>
+    </tr>
+  </thead>
+  <tbody id="tbody-arr"></tbody>
 </table>
 
 <div class="footer">
-  <div class="legend"><span style="color:var(--red)">+Xmin</span> = kavējas</div>
+  <div class="legend">
+    <span style="color:var(--red)">GPS</span> = gps kavēšanās &nbsp;
+    <span style="color:var(--yellow)">DISP</span> = dispečera paziņojums
+  </div>
   <div class="updated" id="upd"></div>
 </div>
 
@@ -153,107 +227,127 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-function fmtTime(depUTC) {
-  const d = new Date(depUTC);
+function fmtTime(utcStr) {
+  const d = new Date(utcStr);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
+function delayTagsHtml(info) {
+  // info = { gps_delay: 0, dispatcher_delay: 5, dispatcher_text: "..." } or null
+  const gps  = info?.gps_delay        ?? 0;
+  const disp = info?.dispatcher_delay ?? 0;
+  const text = info?.dispatcher_text  ?? '';
+
+  const gpsHtml = gps > 0
+    ? `<span class="dtag dtag-gps-val" title="GPS kavēšanās">GPS +${gps}min</span>`
+    : `<span class="dtag dtag-gps-empty" title="Nav GPS datu">GPS —</span>`;
+
+  const dispTitle = text ? text.replace(/"/g, '&quot;') : 'Nav dispečera paziņojuma';
+  const dispHtml = disp > 0
+    ? `<span class="dtag dtag-disp-val" title="${dispTitle}">DISP +${disp}min</span>`
+    : `<span class="dtag dtag-disp-empty" title="${dispTitle}">DISP —</span>`;
+
+  return `<div class="delay-tags">${gpsHtml}${dispHtml}</div>`;
+}
+
 async function safeFetch(url) {
-  const res = await fetch(url);
+  const res  = await fetch(url);
   const text = await res.text();
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}\n${text.slice(0,300)}`);
-  try {
-    return JSON.parse(text);
-  } catch(e) {
-    throw new Error(`JSON parse failed for ${url}\nStatus: ${res.status}\nBody: ${text.slice(0,400)}`);
+  try   { return JSON.parse(text); }
+  catch (e) { throw new Error(`JSON parse failed for ${url}\nBody: ${text.slice(0,400)}`); }
+}
+
+function renderTable(tbodyId, trains, delays, timeKey, originKey, isArr) {
+  const nowMs = Date.now();
+  const upcoming = trains
+    .filter(tr => {
+      const schedMs = new Date(tr[timeKey]).getTime();
+      const info    = delays[tr.nr];
+      const dispMin = info?.dispatcher_delay ?? 0;
+      const gpsMin  = info?.gps_delay        ?? 0;
+      const maxDelay = Math.max(dispMin, gpsMin);
+      return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
+    })
+    .slice(0, SHOW_MAX);
+
+  const tb = document.getElementById(tbodyId);
+  tb.innerHTML = '';
+
+  upcoming.forEach((tr, idx) => {
+    const info     = delays[tr.nr] ?? null;
+    const isNext   = idx === 0;
+    const nextTag  = isNext
+      ? (isArr
+          ? `<span class="next-label-arr">nākošais</span>`
+          : `<span class="next-label">nākošais</span>`)
+      : '';
+    const rowClass = isNext ? (isArr ? ' class="row-next-arr"' : ' class="row-next-dep"') : '';
+    const platform = tr.platform != null ? `<span class="badge ${isArr ? 'bp-arr' : 'bp'}">${tr.platform}</span>` : '&mdash;';
+    const track    = tr.track    != null ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`    : '&mdash;';
+
+    tb.innerHTML += `<tr${rowClass}>
+      <td>${tr.nr}</td>
+      <td>${tr[originKey]}${nextTag}</td>
+      <td>${fmtTime(tr[timeKey])}</td>
+      <td>${delayTagsHtml(info)}</td>
+      <td>${platform}</td>
+      <td>${track}</td>
+    </tr>`;
+  });
+
+  if (upcoming.length === 0) {
+    const msg = isArr
+      ? 'Šodien vairs nav gaidāmu vilcienu.'
+      : 'Šodien vairs nav gaidāmu vilcienu.';
+    tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">${msg}</td></tr>`;
   }
 }
 
 async function load() {
   const debugLines = [];
   debugLines.push('load() @ ' + new Date().toISOString());
-  debugLines.push('page URL: ' + location.href);
 
   try {
-    const schedURL = 'full-day-trains.json?t=' + Date.now();
-    const liveURL  = 'live-delays.json?t='     + Date.now();
+    const t = Date.now();
+    const [schedDep, schedArr, liveDepRaw, liveArrRaw] = await Promise.allSettled([
+      safeFetch(`full-day-trains.json?t=${t}`),
+      safeFetch(`full-day-arrivals.json?t=${t}`),
+      safeFetch(`live-delays.json?t=${t}`),
+      safeFetch(`live-arrival-delays.json?t=${t}`),
+    ]);
 
-    debugLines.push('fetching: ' + schedURL);
-    let sched;
-    try {
-      sched = await safeFetch(schedURL);
-      debugLines.push('sched OK — trains: ' + (sched.trains?.length ?? '?') + ', date: ' + sched.date);
-    } catch(e) {
-      debugLines.push('SCHED FAIL: ' + e.message);
+    if (schedDep.status === 'rejected') {
+      debugLines.push('SCHED DEP FAIL: ' + schedDep.reason);
       showDebug(debugLines);
-      document.getElementById('upd').textContent = 'Kļūda: ' + e.message.split('\n')[0];
+      document.getElementById('upd').textContent = 'Kļūda: ' + schedDep.reason;
       return;
     }
-
-    debugLines.push('fetching: ' + liveURL);
-    let live = { trains: {}, updated: '' };
-    try {
-      live = await safeFetch(liveURL);
-      debugLines.push('live OK — keys: ' + Object.keys(live.trains || {}).length);
-    } catch(e) {
-      debugLines.push('LIVE FAIL (non-fatal): ' + e.message);
+    if (schedArr.status === 'rejected') {
+      debugLines.push('SCHED ARR FAIL (non-fatal): ' + schedArr.reason);
     }
 
-    const nowMs  = Date.now();
-    const delays = live.trains || {};
+    const dep    = schedDep.value;
+    const arr    = schedArr.status === 'fulfilled' ? schedArr.value : { trains: [] };
+    const liveDep = (liveDepRaw.status === 'fulfilled' ? liveDepRaw.value?.trains : null) ?? {};
+    const liveArr = (liveArrRaw.status === 'fulfilled' ? liveArrRaw.value?.trains : null) ?? {};
 
     const today = new Date();
     const localToday = today.getFullYear() + '-' +
       String(today.getMonth()+1).padStart(2,'0') + '-' +
       String(today.getDate()).padStart(2,'0');
 
-    debugLines.push('localToday: ' + localToday + ', sched.date: ' + sched.date);
-    debugLines.push('nowMs UTC: ' + new Date(nowMs).toISOString());
-
     document.getElementById('stale-warn').style.display =
-      (sched.date && sched.date !== localToday) ? 'block' : 'none';
+      (dep.date && dep.date !== localToday) ? 'block' : 'none';
 
-    const upcoming = sched.trains
-      .filter(tr => {
-        const schedMs = new Date(tr.dep_utc).getTime();
-        const delayMs = (delays[tr.nr]?.delay ?? 0) * 60_000;
-        return (schedMs + delayMs + GRACE_MS) > nowMs;
-      })
-      .slice(0, SHOW_MAX);
+    renderTable('tbody-dep', dep.trains  || [], liveDep, 'dep_utc', 'dest',   false);
+    renderTable('tbody-arr', arr.trains  || [], liveArr, 'arr_utc', 'origin', true);
 
-    debugLines.push('upcoming count: ' + upcoming.length);
+    const updDep = liveDepRaw.status === 'fulfilled' ? liveDepRaw.value?.updated : null;
+    const updArr = liveArrRaw.status === 'fulfilled' ? liveArrRaw.value?.updated : null;
+    document.getElementById('upd').textContent = 'Atjaunots: ' + (updDep || dep.updated || '—');
 
-    const tb = document.getElementById('tbody');
-    tb.innerHTML = '';
-
-    upcoming.forEach((tr, idx) => {
-      const delayMin  = delays[tr.nr]?.delay ?? 0;
-      const delayHtml = delayMin > 0
-        ? `<span class="delay">+${delayMin}&thinsp;min</span>`
-        : '';
-      const isNext   = idx === 0;
-      const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
-      const rowClass = isNext ? ' class="row-next"' : '';
-      const platform = tr.platform != null ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
-      const track    = tr.track    != null ? `<span class="badge bt">${tr.track}</span>`    : '&mdash;';
-
-      tb.innerHTML += `<tr${rowClass}>
-        <td>${tr.nr}</td>
-        <td>${tr.dest}${nextTag}</td>
-        <td>${fmtTime(tr.dep_utc)}</td>
-        <td>${delayHtml}</td>
-        <td>${platform}</td>
-        <td>${track}</td>
-      </tr>`;
-    });
-
-    if (upcoming.length === 0) {
-      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gāidāmu vilcienu.</td></tr>`;
-    }
-
-    document.getElementById('upd').textContent = 'Atjaunots: ' + (live.updated || sched.updated || '—');
-
-    if (debugLines.some(l => l.includes('FAIL'))) {
+    if (debugLines.some(l => l.includes('FAIL') && !l.includes('non-fatal'))) {
       showDebug(debugLines);
     } else {
       dbg.style.display = 'none';
