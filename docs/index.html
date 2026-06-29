@@ -61,6 +61,10 @@
   }
   tr.row-next { background:#1a0e00; }
 
+  /* Past trains — dimmed filler rows */
+  tr.row-past td { color: #444; }
+  tr.row-past .badge { background:#111 !important;border-color:#333 !important;color:#444 !important; }
+
   .delay { color:var(--red);font-size:var(--text-sm); }
 
   .badge { display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:var(--text-sm);font-weight:bold;line-height:1.4; }
@@ -73,6 +77,12 @@
     border:1px solid var(--orange2);color:var(--orange2);
     text-transform:uppercase;vertical-align:middle;margin-left:.4em;
     animation:blink 1.4s step-start infinite;
+  }
+  .past-label {
+    display:inline-block;font-size:.58rem;letter-spacing:.1em;
+    padding:.08em .4em;border-radius:2px;
+    border:1px solid #333;color:#444;
+    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
   }
   @keyframes blink { 50%{opacity:0;} }
 
@@ -197,7 +207,6 @@ async function load() {
       debugLines.push('live OK — keys: ' + Object.keys(live.trains || {}).length);
     } catch(e) {
       debugLines.push('LIVE FAIL (non-fatal): ' + e.message);
-      // live delays failing is non-fatal — continue with empty delays
     }
 
     const nowMs  = Date.now();
@@ -214,33 +223,53 @@ async function load() {
     document.getElementById('stale-warn').style.display =
       (sched.date && sched.date !== localToday) ? 'block' : 'none';
 
-    const upcoming = sched.trains
-      .filter(tr => {
-        const schedMs  = new Date(tr.dep_utc).getTime();
-        const delayMs  = (delays[tr.nr]?.delay ?? 0) * 60_000;
-        return (schedMs + delayMs + GRACE_MS) > nowMs;
-      })
-      .slice(0, SHOW_MAX);
+    // Split all trains into upcoming and already-departed
+    const upcoming = [];
+    const departed = [];
+    for (const tr of sched.trains) {
+      const schedMs = new Date(tr.dep_utc).getTime();
+      const delayMs = (delays[tr.nr]?.delay ?? 0) * 60_000;
+      if ((schedMs + delayMs + GRACE_MS) > nowMs) {
+        upcoming.push(tr);
+      } else {
+        departed.push(tr); // already sorted chronologically from JSON
+      }
+    }
 
-    debugLines.push('upcoming count: ' + upcoming.length);
+    // Build display rows: upcoming first, then fill with most-recent departed
+    let rows;
+    if (upcoming.length >= SHOW_MAX) {
+      rows = upcoming.slice(0, SHOW_MAX).map(tr => ({ tr, past: false }));
+    } else {
+      const need    = SHOW_MAX - upcoming.length;
+      // departed is in chronological order — take the last `need` (most recent)
+      const fillers = departed.slice(-need).reverse();
+      rows = [
+        ...upcoming.map(tr  => ({ tr, past: false })),
+        ...fillers.map(tr   => ({ tr, past: true  })),
+      ];
+    }
+
+    debugLines.push('upcoming: ' + upcoming.length + ', fillers: ' + Math.max(0, SHOW_MAX - upcoming.length));
 
     const tb = document.getElementById('tbody');
     tb.innerHTML = '';
 
-    upcoming.forEach((tr, idx) => {
+    rows.forEach(({ tr, past }, idx) => {
       const delayMin  = delays[tr.nr]?.delay ?? 0;
-      const delayHtml = delayMin > 0
+      const delayHtml = (!past && delayMin > 0)
         ? `<span class="delay">+${delayMin}&thinsp;min</span>`
         : '';
-      const isNext   = idx === 0;
+      const isNext   = !past && idx === 0;
       const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
-      const rowClass = isNext ? ' class="row-next"' : '';
+      const pastTag  = past   ? `<span class="past-label">pagājis</span>`  : '';
+      const rowClass = past ? ' class="row-past"' : (isNext ? ' class="row-next"' : '');
       const platform = tr.platform != null ? `<span class="badge bp">${tr.platform}</span>` : '&mdash;';
       const track    = tr.track    != null ? `<span class="badge bt">${tr.track}</span>`    : '&mdash;';
 
       tb.innerHTML += `<tr${rowClass}>
         <td>${tr.nr}</td>
-        <td>${tr.dest}${nextTag}</td>
+        <td>${tr.dest}${nextTag}${pastTag}</td>
         <td>${fmtTime(tr.dep_utc)}</td>
         <td>${delayHtml}</td>
         <td>${platform}</td>
@@ -248,13 +277,12 @@ async function load() {
       </tr>`;
     });
 
-    if (upcoming.length === 0) {
-      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
+    if (rows.length === 0) {
+      tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien nav neviena vilciena.</td></tr>`;
     }
 
     document.getElementById('upd').textContent = 'Atjaunots: ' + (live.updated || sched.updated || '—');
 
-    // Only show debug box if something went wrong
     if (debugLines.some(l => l.includes('FAIL'))) {
       showDebug(debugLines);
     } else {
