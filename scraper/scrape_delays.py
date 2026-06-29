@@ -18,18 +18,39 @@ import os
 import re
 import sys
 import threading
-from datetime import datetime, timezone
+from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import requests
 import websocket
 
 WS_URL      = "wss://trainmap.pv.lv/ws"
-VIVI_URL    = "https://www.vivi.lv/lv/"
 SCHED_PATH  = os.path.join(os.path.dirname(__file__), "..", "docs", "full-day-trains.json")
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "live-delays.json")
 RIGA_TZ     = ZoneInfo("Europe/Riga")
 WS_TIMEOUT  = 8
+
+# Dispatcher pages to scrape — try both; EN has "Train No. XXXX is delayed ~N minutes"
+# LV has "vilciens XXXX kavējas N min" style text when shown
+DISPATCHER_URLS = [
+    "https://www.vivi.lv/en/",
+    "https://www.vivi.lv/lv/",
+]
+
+# English format:  "Train No. 6747 Jelgava ... is delayed ~15 minutes"
+#                  "Train No. 6747 ... is delayed ~15 min"
+# Also handles without ~: "is delayed 15 minutes"
+RE_EN = re.compile(
+    r"Train\s+No[.\s]+(\d{3,5})[^.]*?is\s+delayed\s+~?\s*(\d+)\s*min",
+    re.IGNORECASE | re.DOTALL,
+)
+
+# Latvian format:  "vilciens 6747 kavējas 15 min"
+#                  "vilciena 6747 kavēšanās ~15 min"
+RE_LV = re.compile(
+    r"vilcien[a-zāčēģīķļņšūž]*\s+(?:Nr\.?\s*)?(\d{3,5})[^.]*?kav[ēe][a-zāčēģīķļņšūž]*\s+~?\s*(\d+)\s*min",
+    re.IGNORECASE | re.UNICODE | re.DOTALL,
+)
 
 
 def load_route_to_nr() -> dict:
@@ -49,16 +70,12 @@ def load_route_to_nr() -> dict:
 
 def fetch_gps_delays(route_to_nr: dict) -> dict:
     """
-    Returns {train_nr: delay_minutes} for trains that are running late.
-
-    The trainmap WebSocket sends each train's real-time data.
-    We look at 'delayTime' (or 'delay') in milliseconds — positive means late.
-    Some API versions use 'waitingTime' but that counts time until next stop,
-    not delay. We try both fields and pick whichever is clearly a delay.
+    Returns {train_nr: delay_minutes} from the trainmap WebSocket.
+    Positive delayTime (ms) = late.
     """
-    raw   = {}   # route_id -> delay_ms
-    done  = threading.Event()
-    msgs  = []   # collect raw entries for debug
+    raw  = {}   # route_id -> delay_ms
+    done = threading.Event()
+    msgs = []
 
     def on_message(ws_app, message):
         try:
@@ -71,16 +88,16 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
                 if not route_id:
                     continue
 
-                # Try explicit delay fields first
+                # Try explicit delay fields in priority order
                 delay_ms = rv.get("delayTime") or rv.get("delay") or 0
 
-                # Fallback: some versions expose delay inside 'trainInfo'
-                if delay_ms == 0:
-                    info = rv.get("trainInfo") or {}
+                # Fallback: nested trainInfo sub-object
+                if not delay_ms:
+                    info     = rv.get("trainInfo") or {}
                     delay_ms = info.get("delayTime") or info.get("delay") or 0
 
-                # Another fallback: 'lateTime' field
-                if delay_ms == 0:
+                # Fallback: lateTime field
+                if not delay_ms:
                     delay_ms = rv.get("lateTime") or 0
 
                 raw[route_id] = int(delay_ms)
@@ -100,15 +117,14 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
     done.wait(timeout=WS_TIMEOUT)
     ws_app.close()
 
-    # Debug: print a sample of what keys the API returned
     if msgs:
         sample = msgs[0]
         print(f"[delays] ws sample keys: {sample['keys']}")
-        delayed_samples = [m for m in msgs if m['delay_ms'] > 0][:5]
-        if delayed_samples:
-            print(f"[delays] delayed samples: {delayed_samples}")
+        delayed = [m for m in msgs if m["delay_ms"] > 0][:5]
+        if delayed:
+            print(f"[delays] delayed samples: {delayed}")
         else:
-            print(f"[delays] no positive delay_ms found in {len(msgs)} entries")
+            print(f"[delays] no positive delay_ms in {len(msgs)} ws entries")
 
     result = {}
     for route_id, delay_ms in raw.items():
@@ -123,24 +139,50 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
     return result
 
 
-DELAY_RE = re.compile(
-    r"[Vv]ilcien[si]\s+(\d+)[^\d].*?kav\u0113jas\s+(\d+)\s*min",
-    re.IGNORECASE | re.UNICODE,
-)
-
 def fetch_dispatcher_alerts() -> dict:
-    """Returns {train_nr: delay_minutes} from dispatcher announcements on vivi.lv."""
+    """
+    Scrapes vivi.lv EN and LV pages for live dispatcher delay messages.
+
+    English format (active on /en/):
+        Train No. 6747 Jelgava (20:05) - Riga is delayed ~12 minutes.
+    Latvian format (active on /lv/):
+        Vilciens 6747 kavējas 12 min.
+    """
     alerts = {}
-    try:
-        resp = requests.get(VIVI_URL, timeout=10, headers={"Accept-Language": "lv"})
-        resp.raise_for_status()
-        for m in DELAY_RE.finditer(resp.text):
-            nr  = m.group(1)
-            min = int(m.group(2))
-            alerts[nr] = min
-            print(f"[delays] dispatcher: train {nr} late {min} min")
-    except Exception as e:
-        print(f"[delays] dispatcher fetch failed: {e}")
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; delay-scraper/1.0)"}
+
+    for url in DISPATCHER_URLS:
+        try:
+            resp = requests.get(url, timeout=10, headers=headers)
+            resp.raise_for_status()
+            text = resp.text
+
+            # Print a snippet around any "delayed" / "kavē" match for debugging
+            for keyword in ("is delayed", "kavē"):
+                pos = text.lower().find(keyword.lower())
+                if pos != -1:
+                    snippet = text[max(0, pos-60):pos+120].replace("\n", " ")
+                    print(f"[delays] dispatcher snippet ({url}): ...{snippet}...")
+                    break
+
+            found = False
+            for m in RE_EN.finditer(text):
+                nr, mins = m.group(1), int(m.group(2))
+                alerts[nr] = mins
+                print(f"[delays] dispatcher EN: train {nr} late {mins} min")
+                found = True
+            for m in RE_LV.finditer(text):
+                nr, mins = m.group(1), int(m.group(2))
+                alerts[nr] = mins
+                print(f"[delays] dispatcher LV: train {nr} late {mins} min")
+                found = True
+
+            if not found:
+                print(f"[delays] no dispatcher delays found on {url}")
+
+        except Exception as e:
+            print(f"[delays] dispatcher fetch failed ({url}): {e}")
+
     return alerts
 
 
@@ -153,12 +195,12 @@ def main():
     dispatcher  = fetch_dispatcher_alerts()
     print(f"[delays] {len(gps)} gps delayed, {len(dispatcher)} dispatcher alerts")
 
-    # Merge: dispatcher wins if both sources report the same train
+    # Merge: dispatcher wins when both sources agree on the same train
     trains = {}
     for nr, delay in gps.items():
         trains[nr] = {"delay": delay}
     for nr, delay in dispatcher.items():
-        trains[nr] = {"delay": delay}  # dispatcher overrides gps
+        trains[nr] = {"delay": delay}
 
     output = {
         "updated": now_riga.strftime("%d.%m.%Y %H:%M:%S"),
