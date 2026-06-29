@@ -3,15 +3,14 @@
 Minute scraper: fetches live GPS delays + dispatcher alerts.
 Writes docs/live-delays.json.
 
-New format - keyed by train number (nr), only trains with delay > 0 included:
+Format - keyed by train number, only trains with delay > 0 included:
 {
-  "updated": "20.06.2026 14:01:00",
+  "updated": "29.06.2026 20:01:00",
   "trains": {
-    "804": { "delay": 5 },
-    "812": { "delay": 2 }
+    "6745": { "delay": 5 },
+    "6747": { "delay": 2 }
   }
 }
-If a train has no delay, it is not present in the dict at all.
 """
 
 import json
@@ -34,20 +33,32 @@ WS_TIMEOUT  = 8
 
 
 def load_route_to_nr() -> dict:
-    """Build a route_id -> train_nr lookup from the schedule file."""
+    """Build route_id -> train_nr lookup from the schedule file."""
     try:
         with open(os.path.abspath(SCHED_PATH), encoding="utf-8") as f:
             sched = json.load(f)
-        return {tr["route_id"]: tr["nr"] for tr in sched.get("trains", []) if tr.get("route_id") and tr.get("nr")}
+        return {
+            tr["route_id"]: tr["nr"]
+            for tr in sched.get("trains", [])
+            if tr.get("route_id") and tr.get("nr")
+        }
     except Exception as e:
         print(f"[delays] could not load schedule for route lookup: {e}")
         return {}
 
 
 def fetch_gps_delays(route_to_nr: dict) -> dict:
-    """Returns {train_nr: delay_minutes} for trains with delay > 0."""
-    raw    = {}
-    done   = threading.Event()
+    """
+    Returns {train_nr: delay_minutes} for trains that are running late.
+
+    The trainmap WebSocket sends each train's real-time data.
+    We look at 'delayTime' (or 'delay') in milliseconds — positive means late.
+    Some API versions use 'waitingTime' but that counts time until next stop,
+    not delay. We try both fields and pick whichever is clearly a delay.
+    """
+    raw   = {}   # route_id -> delay_ms
+    done  = threading.Event()
+    msgs  = []   # collect raw entries for debug
 
     def on_message(ws_app, message):
         try:
@@ -59,13 +70,26 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
                 route_id = str(rv.get("id", ""))
                 if not route_id:
                     continue
-                waiting_ms = rv.get("waitingTime", 0)
-                delay_min  = round(max(0, waiting_ms - 60_000) / 60_000)
-                raw[route_id] = delay_min
+
+                # Try explicit delay fields first
+                delay_ms = rv.get("delayTime") or rv.get("delay") or 0
+
+                # Fallback: some versions expose delay inside 'trainInfo'
+                if delay_ms == 0:
+                    info = rv.get("trainInfo") or {}
+                    delay_ms = info.get("delayTime") or info.get("delay") or 0
+
+                # Another fallback: 'lateTime' field
+                if delay_ms == 0:
+                    delay_ms = rv.get("lateTime") or 0
+
+                raw[route_id] = int(delay_ms)
+                msgs.append({"route_id": route_id, "delay_ms": int(delay_ms), "keys": list(rv.keys())})
+
             done.set()
             ws_app.close()
-        except Exception:
-            pass
+        except Exception as ex:
+            print(f"[delays] ws parse error: {ex}")
 
     ws_app = websocket.WebSocketApp(
         WS_URL,
@@ -76,13 +100,24 @@ def fetch_gps_delays(route_to_nr: dict) -> dict:
     done.wait(timeout=WS_TIMEOUT)
     ws_app.close()
 
+    # Debug: print a sample of what keys the API returned
+    if msgs:
+        sample = msgs[0]
+        print(f"[delays] ws sample keys: {sample['keys']}")
+        delayed_samples = [m for m in msgs if m['delay_ms'] > 0][:5]
+        if delayed_samples:
+            print(f"[delays] delayed samples: {delayed_samples}")
+        else:
+            print(f"[delays] no positive delay_ms found in {len(msgs)} entries")
+
     result = {}
-    for route_id, delay_min in raw.items():
+    for route_id, delay_ms in raw.items():
+        delay_min = round(delay_ms / 60_000)
         if delay_min <= 0:
-            continue  # on time - skip entirely
+            continue
         nr = route_to_nr.get(route_id)
         if not nr:
-            continue  # unknown train number - skip
+            continue
         result[nr] = delay_min
         print(f"[delays] gps: train {nr} late {delay_min} min")
     return result
@@ -94,7 +129,7 @@ DELAY_RE = re.compile(
 )
 
 def fetch_dispatcher_alerts() -> dict:
-    """Returns {train_nr: delay_minutes} from dispatcher announcements."""
+    """Returns {train_nr: delay_minutes} from dispatcher announcements on vivi.lv."""
     alerts = {}
     try:
         resp = requests.get(VIVI_URL, timeout=10, headers={"Accept-Language": "lv"})
@@ -123,7 +158,7 @@ def main():
     for nr, delay in gps.items():
         trains[nr] = {"delay": delay}
     for nr, delay in dispatcher.items():
-        trains[nr] = {"delay": delay}  # overwrite gps with dispatcher
+        trains[nr] = {"delay": delay}  # dispatcher overrides gps
 
     output = {
         "updated": now_riga.strftime("%d.%m.%Y %H:%M:%S"),
@@ -134,7 +169,7 @@ def main():
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"[delays] done → {len(trains)} delayed trains written")
+    print(f"[delays] done -> {len(trains)} delayed trains written")
 
 
 if __name__ == "__main__":

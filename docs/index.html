@@ -46,53 +46,30 @@
     gap: 1rem;
     flex-wrap: wrap;
   }
-  .station-name {
-    font-size: 1rem;
-    letter-spacing: .2em;
-    color: var(--orange2);
-    text-transform: uppercase;
-  }
-  .clock {
-    font-size: 1.45rem;
-    letter-spacing: .12em;
-    color: var(--orange);
-    font-variant-numeric: tabular-nums;
-  }
+  .station-name { font-size:1rem;letter-spacing:.2em;color:var(--orange2);text-transform:uppercase; }
+  .clock { font-size:1.45rem;letter-spacing:.12em;color:var(--orange);font-variant-numeric:tabular-nums; }
 
   .alert {
-    width: 100%;
-    max-width: 900px;
-    background: #1a0a00;
-    border: 1px solid var(--orange2);
-    padding: .5rem .9rem;
-    margin-bottom: .9rem;
-    font-size: var(--text-sm);
-    color: #ffaa44;
-    display: none;
-    border-radius: var(--radius);
+    width:100%;max-width:900px;
+    background:#1a0a00;border:1px solid var(--orange2);
+    padding:.5rem .9rem;margin-bottom:.9rem;
+    font-size:var(--text-sm);color:#ffaa44;
+    display:none;border-radius:var(--radius);
   }
 
-  table { width: 100%; max-width: 900px; border-collapse: collapse; }
-  thead tr { border-bottom: 1px solid var(--border); }
+  table { width:100%;max-width:900px;border-collapse:collapse; }
+  thead tr { border-bottom:1px solid var(--border); }
   th {
-    font-size: var(--text-xs);
-    letter-spacing: .13em;
-    color: var(--orange2);
-    padding: .35rem .55rem;
-    text-align: left;
-    white-space: nowrap;
-    text-transform: uppercase;
+    font-size:var(--text-xs);letter-spacing:.13em;color:var(--orange2);
+    padding:.35rem .55rem;text-align:left;white-space:nowrap;text-transform:uppercase;
   }
   td {
-    padding: .48rem .55rem;
-    font-size: var(--text-base);
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-    vertical-align: middle;
+    padding:.48rem .55rem;font-size:var(--text-base);
+    border-bottom:1px solid var(--border);white-space:nowrap;vertical-align:middle;
   }
-  tr.row-next { background: #1a0e00; }
+  tr.row-next { background:#1a0e00; }
 
-  .delay { color: var(--red); font-size: var(--text-sm); }
+  .delay { color:var(--red);font-size:var(--text-sm); }
 
   .badge { display:inline-block;padding:.1rem .4rem;border-radius:3px;font-size:var(--text-sm);font-weight:bold;line-height:1.4; }
   .bt { background:#1a1a1a;border:1px solid #ff660055;color:var(--orange); }
@@ -105,7 +82,7 @@
     text-transform:uppercase;vertical-align:middle;margin-left:.4em;
     animation:blink 1.4s step-start infinite;
   }
-  @keyframes blink { 50% { opacity:0; } }
+  @keyframes blink { 50%{opacity:0;} }
 
   .stale-warn {
     width:100%;max-width:900px;
@@ -115,13 +92,9 @@
     display:none;border-radius:var(--radius);
   }
 
-  .footer {
-    max-width:900px;width:100%;
-    display:flex;justify-content:space-between;
-    flex-wrap:wrap;gap:.4rem;margin-top:.8rem;
-  }
+  .footer { max-width:900px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-top:.8rem; }
   .updated { font-size:var(--text-xs);color:var(--muted); }
-  .legend  { font-size:var(--text-xs);color:var(--muted);display:flex;gap:.8rem;flex-wrap:wrap; }
+  .legend  { font-size:var(--text-xs);color:var(--muted); }
 
   @media (max-width:600px) {
     td, th { padding:.4rem .35rem; }
@@ -154,40 +127,34 @@
 </table>
 
 <div class="footer">
-  <div class="legend">
-    <span style="color:var(--red)">+Xmin</span>&nbsp;= kavējas
-  </div>
+  <div class="legend"><span style="color:var(--red)">+Xmin</span> = kavējas</div>
   <div class="updated" id="upd"></div>
 </div>
 
 <script>
-const SHOW_MAX = 14;
+const SHOW_MAX    = 14;
+const BASE_CUTOFF = 2 * 60 * 1000;  // 2 min after scheduled departure
 
-// Clock using device local time
 function tickClock() {
   const n = new Date();
-  const h = String(n.getHours()).padStart(2,'0');
-  const m = String(n.getMinutes()).padStart(2,'0');
-  const s = String(n.getSeconds()).padStart(2,'0');
-  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
+  document.getElementById('clock').textContent =
+    String(n.getHours()).padStart(2,'0') + ':' +
+    String(n.getMinutes()).padStart(2,'0') + ':' +
+    String(n.getSeconds()).padStart(2,'0');
 }
 tickClock();
 setInterval(tickClock, 1000);
 
-// Format dep_utc as HH:MM using device local time
 function fmtTime(depUTC) {
   const d = new Date(depUTC);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
-// Place the departure's local HH:MM on today's local date for filtering
+// Place the departure's local time on today's date for filtering
 function depAsToday(depUTC) {
-  const d   = new Date(depUTC);
-  const now = new Date();
-  return new Date(
-    now.getFullYear(), now.getMonth(), now.getDate(),
-    d.getHours(), d.getMinutes(), d.getSeconds()
-  );
+  const d = new Date(depUTC), now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate(),
+                  d.getHours(), d.getMinutes(), d.getSeconds());
 }
 
 async function load() {
@@ -198,9 +165,7 @@ async function load() {
     ]);
 
     const now    = new Date();
-    // live.trains is { "804": { "delay": 5 }, ... }
-    // Only delayed trains appear in this object
-    const delays = live.trains || {};
+    const delays = live.trains || {};  // { "6745": { delay: 5 }, ... }
 
     // Stale-data check
     const localToday = now.getFullYear() + '-' +
@@ -209,13 +174,14 @@ async function load() {
     document.getElementById('stale-warn').style.display =
       (sched.date && sched.date !== localToday) ? 'block' : 'none';
 
-    const cutoff = new Date(now.getTime() - 2 * 60 * 1000);
-
     const upcoming = sched.trains
       .map(tr => ({ ...tr, _dep: depAsToday(tr.dep_utc) }))
       .filter(tr => {
-        // Keep trains with a delay alert even if past the cutoff
-        if (delays[tr.nr]) return true;
+        const delayEntry = delays[tr.nr];
+        // For delayed trains: extend the cutoff by the delay amount
+        // so a train 10 min late stays on the board until 10+2 min after scheduled time
+        const extraMs = delayEntry ? delayEntry.delay * 60_000 : 0;
+        const cutoff  = new Date(now.getTime() - BASE_CUTOFF - extraMs);
         return tr._dep > cutoff;
       })
       .slice(0, SHOW_MAX);
@@ -225,7 +191,6 @@ async function load() {
 
     upcoming.forEach((tr, idx) => {
       const delayEntry = delays[tr.nr];
-      // delayEntry is { delay: N } if the train is late, otherwise undefined
       const delayHtml  = delayEntry
         ? `<span class="delay">+${delayEntry.delay}&thinsp;min</span>`
         : '';
@@ -250,7 +215,7 @@ async function load() {
       tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
     }
 
-    // Alert banner — show all delayed trains
+    // Alert banner
     const alertParts = Object.entries(delays)
       .map(([nr, d]) => `Vilciens ${nr} kavējas ${d.delay} min`);
     const al = document.getElementById('alert');
