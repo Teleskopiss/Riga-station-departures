@@ -84,6 +84,16 @@
     display:none;border-radius:var(--radius);
   }
 
+  #debug-box {
+    width:100%;max-width:900px;
+    background:#1a0000;border:1px solid var(--red);
+    padding:.6rem .9rem;margin-bottom:.7rem;
+    font-size:var(--text-xs);color:var(--red);
+    display:none;border-radius:var(--radius);
+    white-space:pre-wrap;word-break:break-all;
+    line-height:1.6;
+  }
+
   .footer { max-width:900px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-top:.8rem; }
   .updated { font-size:var(--text-xs);color:var(--muted); }
   .legend  { font-size:var(--text-xs);color:var(--muted); }
@@ -102,6 +112,7 @@
 </div>
 
 <div class="stale-warn" id="stale-warn">&#9888; Datu datums nesakrīt ar šodienu – tiek rādīts pēc laika.</div>
+<div id="debug-box"></div>
 
 <table>
   <thead>
@@ -124,7 +135,13 @@
 
 <script>
 const SHOW_MAX = 14;
-const GRACE_MS = 2 * 60 * 1000; // 2 min grace after actual departure
+const GRACE_MS = 2 * 60 * 1000;
+
+const dbg = document.getElementById('debug-box');
+function showDebug(lines) {
+  dbg.style.display = 'block';
+  dbg.textContent = lines.join('\n');
+}
 
 function tickClock() {
   const n = new Date();
@@ -136,40 +153,76 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// dep_utc is already UTC — getHours() returns local time correctly
 function fmtTime(depUTC) {
   const d = new Date(depUTC);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
-async function load() {
+async function safeFetch(url) {
+  const res = await fetch(url);
+  const text = await res.text();
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}\n${text.slice(0,300)}`);
   try {
-    const [sched, live] = await Promise.all([
-      fetch('full-day-trains.json?t=' + Date.now()).then(r => r.json()),
-      fetch('live-delays.json?t='     + Date.now()).then(r => r.json())
-    ]);
+    return JSON.parse(text);
+  } catch(e) {
+    throw new Error(`JSON parse failed for ${url}\nStatus: ${res.status}\nBody: ${text.slice(0,400)}`);
+  }
+}
+
+async function load() {
+  const debugLines = [];
+  debugLines.push('load() @ ' + new Date().toISOString());
+  debugLines.push('page URL: ' + location.href);
+
+  try {
+    const schedURL = 'full-day-trains.json?t=' + Date.now();
+    const liveURL  = 'live-delays.json?t='     + Date.now();
+
+    debugLines.push('fetching: ' + schedURL);
+    let sched;
+    try {
+      sched = await safeFetch(schedURL);
+      debugLines.push('sched OK — trains: ' + (sched.trains?.length ?? '?') + ', date: ' + sched.date);
+    } catch(e) {
+      debugLines.push('SCHED FAIL: ' + e.message);
+      showDebug(debugLines);
+      document.getElementById('upd').textContent = 'Kļūda: ' + e.message.split('\n')[0];
+      return;
+    }
+
+    debugLines.push('fetching: ' + liveURL);
+    let live = { trains: {}, updated: '' };
+    try {
+      live = await safeFetch(liveURL);
+      debugLines.push('live OK — keys: ' + Object.keys(live.trains || {}).length);
+    } catch(e) {
+      debugLines.push('LIVE FAIL (non-fatal): ' + e.message);
+      // live delays failing is non-fatal — continue with empty delays
+    }
 
     const nowMs  = Date.now();
     const delays = live.trains || {};
 
-    // Stale-data check: sched.date is "YYYY-MM-DD" in local time
     const today = new Date();
     const localToday = today.getFullYear() + '-' +
       String(today.getMonth()+1).padStart(2,'0') + '-' +
       String(today.getDate()).padStart(2,'0');
+
+    debugLines.push('localToday: ' + localToday + ', sched.date: ' + sched.date);
+    debugLines.push('nowMs UTC: ' + new Date(nowMs).toISOString());
+
     document.getElementById('stale-warn').style.display =
       (sched.date && sched.date !== localToday) ? 'block' : 'none';
 
     const upcoming = sched.trains
       .filter(tr => {
-        // Pure UTC millisecond comparison — no timezone reconstruction needed
-        const schedMs   = new Date(tr.dep_utc).getTime();
-        const delayMs   = (delays[tr.nr]?.delay ?? 0) * 60_000;
-        // Train stays until: scheduled UTC + delay + 2 min grace
-        const expiresMs = schedMs + delayMs + GRACE_MS;
-        return expiresMs > nowMs;
+        const schedMs  = new Date(tr.dep_utc).getTime();
+        const delayMs  = (delays[tr.nr]?.delay ?? 0) * 60_000;
+        return (schedMs + delayMs + GRACE_MS) > nowMs;
       })
       .slice(0, SHOW_MAX);
+
+    debugLines.push('upcoming count: ' + upcoming.length);
 
     const tb = document.getElementById('tbody');
     tb.innerHTML = '';
@@ -179,7 +232,6 @@ async function load() {
       const delayHtml = delayMin > 0
         ? `<span class="delay">+${delayMin}&thinsp;min</span>`
         : '';
-
       const isNext   = idx === 0;
       const nextTag  = isNext ? `<span class="next-label">nākošais</span>` : '';
       const rowClass = isNext ? ' class="row-next"' : '';
@@ -200,10 +252,19 @@ async function load() {
       tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
     }
 
-    document.getElementById('upd').textContent = 'Atjaunots: ' + live.updated;
+    document.getElementById('upd').textContent = 'Atjaunots: ' + (live.updated || sched.updated || '—');
+
+    // Only show debug box if something went wrong
+    if (debugLines.some(l => l.includes('FAIL'))) {
+      showDebug(debugLines);
+    } else {
+      dbg.style.display = 'none';
+    }
 
   } catch(e) {
-    console.error('Load error:', e);
+    debugLines.push('UNEXPECTED: ' + e.message);
+    debugLines.push(e.stack || '');
+    showDebug(debugLines);
     document.getElementById('upd').textContent = 'Kļūda ielādējot datus.';
   }
 }
