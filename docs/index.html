@@ -58,24 +58,15 @@
     gap: 0.8rem;
     margin: 1.4rem 0 0.5rem;
   }
-  .section-title {
-    font-size: var(--text-xs);
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+  .section-title { font-size:var(--text-xs);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap; }
   .section-title.dep { color: var(--orange2); }
   .section-title.arr { color: var(--blue); }
   .section-line { flex:1;height:1px;background:var(--border); }
 
-  /* Per-section sync line */
   .section-meta {
-    width: 100%;
-    max-width: 900px;
-    font-size: var(--text-xs);
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-    letter-spacing: .04em;
+    width:100%;max-width:900px;
+    font-size:var(--text-xs);color:var(--muted);
+    margin-bottom:.4rem;letter-spacing:.04em;
   }
 
   table { width:100%;max-width:900px;border-collapse:collapse; }
@@ -92,17 +83,17 @@
   }
   tr.row-next-dep { background:#1a0e00; }
   tr.row-next-arr { background:#00101a; }
+  tr.row-tomorrow td { border-top:1px solid #2a2a2a; }
 
-  /* Tomorrow marker row */
-  tr.row-tomorrow td {
-    border-top: 1px solid #2a2a2a;
+  /* Blink for trains departing within 5 min */
+  @keyframes nr-blink {
+    0%   { opacity: 1; }
+    66%  { opacity: 1; }   /* on for ~800ms of 1200ms cycle */
+    67%  { opacity: 0; }
+    99%  { opacity: 0; }   /* off for ~400ms */
+    100% { opacity: 1; }
   }
-  .tomorrow-label {
-    display:inline-block;font-size:.58rem;letter-spacing:.08em;
-    padding:.06em .35em;border-radius:2px;
-    border:1px solid #444;color:#666;
-    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
-  }
+  .blink-nr { animation: nr-blink 1.2s step-start infinite; color: var(--yellow); }
 
   .delay-tags { display:inline-flex;gap:.25rem;align-items:center; }
   .dtag {
@@ -120,40 +111,22 @@
   .bt-arr { background:#001a1a;border:1px solid #4ab3ff55;color:var(--blue); }
   .bp-arr { background:#00131f;border:1px solid #4ab3ff88;color:var(--blue); }
 
-  .next-label {
-    display:inline-block;font-size:.58rem;letter-spacing:.1em;
-    padding:.08em .4em;border-radius:2px;
-    border:1px solid var(--orange2);color:var(--orange2);
-    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
-    animation:blink 1.4s step-start infinite;
-  }
-  .next-label-arr {
-    display:inline-block;font-size:.58rem;letter-spacing:.1em;
-    padding:.08em .4em;border-radius:2px;
-    border:1px solid var(--blue);color:var(--blue);
-    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
-    animation:blink 1.4s step-start infinite;
-  }
-  @keyframes blink { 50%{opacity:0;} }
-
   #debug-box {
     width:100%;max-width:900px;
     background:#1a0000;border:1px solid var(--red);
     padding:.6rem .9rem;margin-bottom:.7rem;
     font-size:var(--text-xs);color:var(--red);
     display:none;border-radius:var(--radius);
-    white-space:pre-wrap;word-break:break-all;
-    line-height:1.6;
+    white-space:pre-wrap;word-break:break-all;line-height:1.6;
   }
 
   .footer {
     max-width:900px;width:100%;
-    display:flex;justify-content:space-between;
-    flex-wrap:wrap;gap:.3rem;margin-top:1rem;
-    border-top:1px solid var(--border);padding-top:.6rem;
+    display:flex;flex-direction:column;gap:.3rem;
+    margin-top:1rem;border-top:1px solid var(--border);padding-top:.6rem;
   }
-  .footer-row { width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem; }
-  .legend { font-size:var(--text-xs);color:var(--muted); }
+  .footer-row { display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem; }
+  .legend   { font-size:var(--text-xs);color:var(--muted); }
   .sync-line { font-size:var(--text-xs);color:var(--muted); }
 
   @media (max-width:600px) {
@@ -224,17 +197,14 @@
 </div>
 
 <script>
-const SHOW_MAX = 14;
-const GRACE_MS = 2 * 60 * 1000;
-// Show tomorrow's trains to fill the board once today has fewer than this many left
-const TOMORROW_THRESHOLD = SHOW_MAX;
+const SHOW_MAX   = 14;
+const GRACE_MS   = 2 * 60 * 1000;
+const BLINK_MS   = 5 * 60 * 1000;   // blink when ≤ 5 min to scheduled dep
 
 const dbg = document.getElementById('debug-box');
-function showDebug(lines) {
-  dbg.style.display = 'block';
-  dbg.textContent = lines.join('\n');
-}
+function showDebug(lines) { dbg.style.display = 'block'; dbg.textContent = lines.join('\n'); }
 
+// ── Clock ────────────────────────────────────────────────────────────────────
 function tickClock() {
   const n = new Date();
   document.getElementById('clock').textContent =
@@ -245,6 +215,23 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
+// ── Blink ticker (runs every second, touches only the nr cells) ───────────────
+// Each rendered row stores dep time in a data attribute so we don't re-render.
+function tickBlink() {
+  const nowMs = Date.now();
+  document.querySelectorAll('td[data-dep-ms]').forEach(td => {
+    const depMs = parseInt(td.dataset.depMs, 10);
+    const diff  = depMs - nowMs;
+    if (diff > 0 && diff <= BLINK_MS) {
+      td.classList.add('blink-nr');
+    } else {
+      td.classList.remove('blink-nr');
+    }
+  });
+}
+setInterval(tickBlink, 1000);
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 function fmtTime(utcStr) {
   const d = new Date(utcStr);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
@@ -254,31 +241,25 @@ function delayTagsHtml(info) {
   const gps  = info?.gps_delay        ?? 0;
   const disp = info?.dispatcher_delay ?? 0;
   const text = info?.dispatcher_text  ?? '';
-
   const gpsHtml = gps > 0
     ? `<span class="dtag dtag-gps-val" title="GPS kavēšanās">GPS +${gps}min</span>`
     : `<span class="dtag dtag-gps-empty" title="Nav GPS datu">GPS —</span>`;
-
   const dispTitle = text ? text.replace(/"/g, '&quot;') : 'Nav dispečera paziņojuma';
   const dispHtml = disp > 0
     ? `<span class="dtag dtag-disp-val" title="${dispTitle}">DISP +${disp}min</span>`
     : `<span class="dtag dtag-disp-empty" title="${dispTitle}">DISP —</span>`;
-
   return `<div class="delay-tags">${gpsHtml}${dispHtml}</div>`;
 }
 
 async function safeFetch(url) {
   const res  = await fetch(url);
   const text = await res.text();
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}\n${text.slice(0,300)}`);
-  try   { return JSON.parse(text); }
-  catch (e) { throw new Error(`JSON parse failed for ${url}\nBody: ${text.slice(0,400)}`); }
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  try { return JSON.parse(text); }
+  catch { throw new Error(`JSON parse failed`); }
 }
 
-/**
- * Shifts all times in a schedule forward by 24 h so tomorrow's trains
- * sort correctly after today's when merged.
- */
+// ── Cross-day blending ───────────────────────────────────────────────────────
 function shiftByDay(trains, timeKey) {
   return trains.map(tr => ({
     ...tr,
@@ -287,59 +268,36 @@ function shiftByDay(trains, timeKey) {
   }));
 }
 
-/**
- * Build the display list:
- *  1. Filter today's trains to upcoming (with grace + delay).
- *  2. If fewer than SHOW_MAX remain, append tomorrow's trains (shifted +24h)
- *     so the board always shows a full screen.
- *  3. Slice to SHOW_MAX.
- */
 function buildRows(todayTrains, tomorrowTrains, delays, timeKey) {
   const nowMs = Date.now();
-
   function isUpcoming(tr) {
     const schedMs  = new Date(tr[timeKey]).getTime();
     const info     = delays[tr.nr];
     const maxDelay = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0);
     return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
   }
-
   const todayUpcoming = todayTrains.filter(isUpcoming);
-
-  if (todayUpcoming.length >= SHOW_MAX) {
-    return todayUpcoming.slice(0, SHOW_MAX);
-  }
-
-  // Need to fill from tomorrow
-  const need          = SHOW_MAX - todayUpcoming.length;
-  const tomorrowFill  = shiftByDay(tomorrowTrains, timeKey).slice(0, need);
-  return [...todayUpcoming, ...tomorrowFill];
+  if (todayUpcoming.length >= SHOW_MAX) return todayUpcoming.slice(0, SHOW_MAX);
+  const need = SHOW_MAX - todayUpcoming.length;
+  return [...todayUpcoming, ...shiftByDay(tomorrowTrains, timeKey).slice(0, need)];
 }
 
+// ── Render ───────────────────────────────────────────────────────────────────
 function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   const tb = document.getElementById(tbodyId);
   tb.innerHTML = '';
 
-  let firstTomorrow = true;
+  let tomorrowLineDone = false;
 
-  rows.forEach((tr, idx) => {
+  rows.forEach((tr) => {
     const isTomorrow = !!tr._tomorrow;
-    const info       = delays[tr.nr] ?? null;
-    const isNext     = idx === 0;
+    const info       = isTomorrow ? null : (delays[tr.nr] ?? null);
+    const depMs      = new Date(tr[timeKey]).getTime();
 
-    const nextTag = isNext
-      ? (isArr
-          ? `<span class="next-label-arr">nākošais</span>`
-          : `<span class="next-label">nākošais</span>`)
+    const rowClass = isTomorrow && !tomorrowLineDone
+      ? ' class="row-tomorrow"'
       : '';
-    const tomorrowTag = (isTomorrow && firstTomorrow)
-      ? `<span class="tomorrow-label">rīt</span>`
-      : '';
-    if (isTomorrow) firstTomorrow = false;
-
-    const rowClass = isNext
-      ? (isArr ? ' class="row-next-arr"' : ' class="row-next-dep"')
-      : (isTomorrow ? ' class="row-tomorrow"' : '');
+    if (isTomorrow) tomorrowLineDone = true;
 
     const platform = tr.platform != null
       ? `<span class="badge ${isArr ? 'bp-arr' : 'bp'}">${tr.platform}</span>`
@@ -348,11 +306,12 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
       ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`
       : '&mdash;';
 
+    // Store depMs on the nr cell so the blink ticker can read it without re-render
     tb.innerHTML += `<tr${rowClass}>
-      <td>${tr.nr}</td>
-      <td>${tr[nameKey]}${nextTag}${tomorrowTag}</td>
+      <td data-dep-ms="${depMs}">${tr.nr}</td>
+      <td>${tr[nameKey]}</td>
       <td>${fmtTime(tr[timeKey])}</td>
-      <td>${delayTagsHtml(isTomorrow ? null : info)}</td>
+      <td>${delayTagsHtml(info)}</td>
       <td>${platform}</td>
       <td>${track}</td>
     </tr>`;
@@ -361,10 +320,13 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   if (rows.length === 0) {
     tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Nav datu.</td></tr>`;
   }
+
+  // Run blink check immediately after render so state is correct from the start
+  tickBlink();
 }
 
+// ── Load ─────────────────────────────────────────────────────────────────────
 async function load() {
-  const debugLines = [];
   try {
     const t = Date.now();
     const [r0, r1, r2, r3] = await Promise.allSettled([
@@ -374,48 +336,25 @@ async function load() {
       safeFetch(`live-arrival-delays.json?t=${t}`),
     ]);
 
-    if (r0.status === 'rejected') {
-      showDebug(['DEP SCHED FAIL: ' + r0.reason]);
-      return;
-    }
+    if (r0.status === 'rejected') { showDebug(['DEP SCHED FAIL: ' + r0.reason]); return; }
 
-    const depSched  = r0.value;
-    const arrSched  = r1.status === 'fulfilled' ? r1.value : { trains: [], updated: null };
-    const liveDep   = (r2.status === 'fulfilled' ? r2.value?.trains : null) ?? {};
-    const liveArr   = (r3.status === 'fulfilled' ? r3.value?.trains : null) ?? {};
+    const depSched   = r0.value;
+    const arrSched   = r1.status === 'fulfilled' ? r1.value : { trains: [], updated: null };
+    const liveDep    = (r2.status === 'fulfilled' ? r2.value?.trains : null) ?? {};
+    const liveArr    = (r3.status === 'fulfilled' ? r3.value?.trains : null) ?? {};
     const liveDepUpd = r2.status === 'fulfilled' ? r2.value?.updated : null;
 
-    // Update sync timestamps
-    document.getElementById('meta-dep').textContent =
-      'Saraksts sinhr.: ' + (depSched.updated || '—');
-    document.getElementById('meta-arr').textContent =
-      'Saraksts sinhr.: ' + (arrSched.updated || '—');
-    document.getElementById('sync-delays').textContent =
-      'Kavējumi sinhr.: ' + (liveDepUpd || '—');
+    document.getElementById('meta-dep').textContent    = 'Saraksts sinhr.: ' + (depSched.updated || '—');
+    document.getElementById('meta-arr').textContent    = 'Saraksts sinhr.: ' + (arrSched.updated || '—');
+    document.getElementById('sync-delays').textContent = 'Kavējumi sinhr.: '  + (liveDepUpd    || '—');
 
-    // The JSON contains today's trains. For the "tomorrow" fill we reuse
-    // the same file — the schedule is nearly identical day-to-day and the
-    // arrivals/departures scraper refreshes hourly, so it will always
-    // reflect the current timetable. We simply treat all trains in the
-    // file as tomorrow's when we need to fill past midnight.
-    const depRows = buildRows(
-      depSched.trains || [],
-      depSched.trains || [],   // same timetable for tomorrow
-      liveDep,
-      'dep_utc'
-    );
-    const arrRows = buildRows(
-      arrSched.trains || [],
-      arrSched.trains || [],
-      liveArr,
-      'arr_utc'
-    );
+    const depRows = buildRows(depSched.trains || [], depSched.trains || [], liveDep, 'dep_utc');
+    const arrRows = buildRows(arrSched.trains || [], arrSched.trains || [], liveArr, 'arr_utc');
 
     renderTable('tbody-dep', depRows, liveDep, 'dep_utc', 'dest',   false);
     renderTable('tbody-arr', arrRows, liveArr, 'arr_utc', 'origin', true);
 
     dbg.style.display = 'none';
-
   } catch(e) {
     showDebug(['UNEXPECTED: ' + e.message, e.stack || '']);
   }
