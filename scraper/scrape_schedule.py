@@ -71,13 +71,18 @@ def fetch_full_day() -> list[dict]:
                 print(f"[warn] Cannot parse '{dep_raw}' for train {t.get('train')}")
                 continue
 
+        # Convert Riga local time to real UTC before storing.
+        # Using strftime(...Z) on a local datetime just copies the local
+        # digits and lies about the timezone — always convert first.
+        dep_utc = dep_riga.astimezone(timezone.utc)
+
         last     = str(stops[-1].get("title") or stops[-1].get("name") or "?")
         route_id = str(t.get("id") or "")
 
         result.append({
             "nr":       str(t.get("train") or t.get("number") or ""),
             "dest":     last,
-            "dep_utc":  dep_riga.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "dep_utc":  dep_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "route_id": route_id,
             "_dep_utc": dep_riga,
         })
