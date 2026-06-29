@@ -123,8 +123,8 @@
 </div>
 
 <script>
-const SHOW_MAX    = 14;
-const BASE_CUTOFF = 2 * 60 * 1000;  // 2 min after scheduled dep
+const SHOW_MAX = 14;
+const GRACE_MS = 2 * 60 * 1000; // 2 min grace after actual departure
 
 function tickClock() {
   const n = new Date();
@@ -136,16 +136,10 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
+// dep_utc is already UTC — getHours() returns local time correctly
 function fmtTime(depUTC) {
   const d = new Date(depUTC);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
-}
-
-// Map dep_utc time onto today's local date for cutoff comparison
-function depAsToday(depUTC) {
-  const d = new Date(depUTC), now = new Date();
-  return new Date(now.getFullYear(), now.getMonth(), now.getDate(),
-                  d.getHours(), d.getMinutes(), d.getSeconds());
 }
 
 async function load() {
@@ -155,23 +149,25 @@ async function load() {
       fetch('live-delays.json?t='     + Date.now()).then(r => r.json())
     ]);
 
-    const now    = new Date();
+    const nowMs  = Date.now();
     const delays = live.trains || {};
 
-    // Stale-data check
-    const localToday = now.getFullYear() + '-' +
-      String(now.getMonth()+1).padStart(2,'0') + '-' +
-      String(now.getDate()).padStart(2,'0');
+    // Stale-data check: sched.date is "YYYY-MM-DD" in local time
+    const today = new Date();
+    const localToday = today.getFullYear() + '-' +
+      String(today.getMonth()+1).padStart(2,'0') + '-' +
+      String(today.getDate()).padStart(2,'0');
     document.getElementById('stale-warn').style.display =
       (sched.date && sched.date !== localToday) ? 'block' : 'none';
 
     const upcoming = sched.trains
-      .map(tr => ({ ...tr, _dep: depAsToday(tr.dep_utc) }))
       .filter(tr => {
-        const delayMs = (delays[tr.nr]?.delay ?? 0) * 60_000;
-        // Keep train until: scheduled time + delay + 2 min grace
-        const cutoff = new Date(now.getTime() - BASE_CUTOFF - delayMs);
-        return tr._dep > cutoff;
+        // Pure UTC millisecond comparison — no timezone reconstruction needed
+        const schedMs   = new Date(tr.dep_utc).getTime();
+        const delayMs   = (delays[tr.nr]?.delay ?? 0) * 60_000;
+        // Train stays until: scheduled UTC + delay + 2 min grace
+        const expiresMs = schedMs + delayMs + GRACE_MS;
+        return expiresMs > nowMs;
       })
       .slice(0, SHOW_MAX);
 
