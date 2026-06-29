@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rīga – Satiksme</title>
+<title>Rīga</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -50,7 +50,6 @@
   .station-name { font-size:1rem;letter-spacing:.2em;color:var(--orange2);text-transform:uppercase; }
   .clock { font-size:1.45rem;letter-spacing:.12em;color:var(--orange);font-variant-numeric:tabular-nums; }
 
-  /* Section separator */
   .section-header {
     width: 100%;
     max-width: 900px;
@@ -67,10 +66,16 @@
   }
   .section-title.dep { color: var(--orange2); }
   .section-title.arr { color: var(--blue); }
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+  .section-line { flex:1;height:1px;background:var(--border); }
+
+  /* Per-section sync line */
+  .section-meta {
+    width: 100%;
+    max-width: 900px;
+    font-size: var(--text-xs);
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    letter-spacing: .04em;
   }
 
   table { width:100%;max-width:900px;border-collapse:collapse; }
@@ -88,16 +93,24 @@
   tr.row-next-dep { background:#1a0e00; }
   tr.row-next-arr { background:#00101a; }
 
-  /* Delay tag pair */
+  /* Tomorrow marker row */
+  tr.row-tomorrow td {
+    border-top: 1px solid #2a2a2a;
+  }
+  .tomorrow-label {
+    display:inline-block;font-size:.58rem;letter-spacing:.08em;
+    padding:.06em .35em;border-radius:2px;
+    border:1px solid #444;color:#666;
+    text-transform:uppercase;vertical-align:middle;margin-left:.4em;
+  }
+
   .delay-tags { display:inline-flex;gap:.25rem;align-items:center; }
   .dtag {
     display:inline-block;padding:.08rem .35rem;border-radius:3px;
     font-size:var(--text-xs);line-height:1.5;white-space:nowrap;
   }
-  /* GPS delay */
-  .dtag-gps-empty { border:1px solid #333;color:#444; }
-  .dtag-gps-val   { border:1px solid #ff440055;color:var(--red);background:#1a0000; }
-  /* Dispatcher delay */
+  .dtag-gps-empty  { border:1px solid #333;color:#444; }
+  .dtag-gps-val    { border:1px solid #ff440055;color:var(--red);background:#1a0000; }
   .dtag-disp-empty { border:1px solid #333;color:#444; }
   .dtag-disp-val   { border:1px solid var(--yellow);color:var(--yellow);background:#1a1400; }
 
@@ -123,14 +136,6 @@
   }
   @keyframes blink { 50%{opacity:0;} }
 
-  .stale-warn {
-    width:100%;max-width:900px;
-    background:#1a1400;border:1px solid var(--yellow);
-    padding:.4rem .9rem;margin-bottom:.7rem;
-    font-size:var(--text-xs);color:var(--yellow);
-    display:none;border-radius:var(--radius);
-  }
-
   #debug-box {
     width:100%;max-width:900px;
     background:#1a0000;border:1px solid var(--red);
@@ -141,9 +146,15 @@
     line-height:1.6;
   }
 
-  .footer { max-width:900px;width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-top:.8rem; }
-  .updated { font-size:var(--text-xs);color:var(--muted); }
-  .legend  { font-size:var(--text-xs);color:var(--muted); }
+  .footer {
+    max-width:900px;width:100%;
+    display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:.3rem;margin-top:1rem;
+    border-top:1px solid var(--border);padding-top:.6rem;
+  }
+  .footer-row { width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem; }
+  .legend { font-size:var(--text-xs);color:var(--muted); }
+  .sync-line { font-size:var(--text-xs);color:var(--muted); }
 
   @media (max-width:600px) {
     td, th { padding:.4rem .35rem; }
@@ -154,18 +165,18 @@
 <body>
 
 <div class="header">
-  <span class="station-name">Rīga &bull; Satiksme</span>
+  <span class="station-name">Rīga</span>
   <span class="clock" id="clock">--:--:--</span>
 </div>
 
-<div class="stale-warn" id="stale-warn">&#9888; Datu datums nesakrīt ar šodienu – tiek rādīts pēc laika.</div>
 <div id="debug-box"></div>
 
 <!-- DEPARTURES -->
 <div class="section-header">
-  <span class="section-title dep">&#9654; Atiešanas</span>
+  <span class="section-title dep">Atiešanas</span>
   <div class="section-line"></div>
 </div>
+<div class="section-meta" id="meta-dep">Saraksts sinhr.: —</div>
 <table>
   <thead>
     <tr>
@@ -182,9 +193,10 @@
 
 <!-- ARRIVALS -->
 <div class="section-header">
-  <span class="section-title arr">&#9664; Ierašanās</span>
+  <span class="section-title arr">Ierašanās</span>
   <div class="section-line"></div>
 </div>
+<div class="section-meta" id="meta-arr">Saraksts sinhr.: —</div>
 <table>
   <thead>
     <tr>
@@ -200,16 +212,22 @@
 </table>
 
 <div class="footer">
-  <div class="legend">
-    <span style="color:var(--red)">GPS</span> = gps kavēšanās &nbsp;
-    <span style="color:var(--yellow)">DISP</span> = dispečera paziņojums
+  <div class="footer-row">
+    <span class="legend">
+      <span style="color:var(--red)">GPS</span> = gps kavēšanās &nbsp;
+      <span style="color:var(--yellow)">DISP</span> = dispečera paziņojums
+    </span>
   </div>
-  <div class="updated" id="upd"></div>
+  <div class="footer-row">
+    <span class="sync-line" id="sync-delays">Kavējumi sinhr.: —</span>
+  </div>
 </div>
 
 <script>
 const SHOW_MAX = 14;
 const GRACE_MS = 2 * 60 * 1000;
+// Show tomorrow's trains to fill the board once today has fewer than this many left
+const TOMORROW_THRESHOLD = SHOW_MAX;
 
 const dbg = document.getElementById('debug-box');
 function showDebug(lines) {
@@ -233,7 +251,6 @@ function fmtTime(utcStr) {
 }
 
 function delayTagsHtml(info) {
-  // info = { gps_delay: 0, dispatcher_delay: 5, dispatcher_text: "..." } or null
   const gps  = info?.gps_delay        ?? 0;
   const disp = info?.dispatcher_delay ?? 0;
   const text = info?.dispatcher_text  ?? '';
@@ -258,106 +275,149 @@ async function safeFetch(url) {
   catch (e) { throw new Error(`JSON parse failed for ${url}\nBody: ${text.slice(0,400)}`); }
 }
 
-function renderTable(tbodyId, trains, delays, timeKey, originKey, isArr) {
-  const nowMs = Date.now();
-  const upcoming = trains
-    .filter(tr => {
-      const schedMs = new Date(tr[timeKey]).getTime();
-      const info    = delays[tr.nr];
-      const dispMin = info?.dispatcher_delay ?? 0;
-      const gpsMin  = info?.gps_delay        ?? 0;
-      const maxDelay = Math.max(dispMin, gpsMin);
-      return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
-    })
-    .slice(0, SHOW_MAX);
+/**
+ * Shifts all times in a schedule forward by 24 h so tomorrow's trains
+ * sort correctly after today's when merged.
+ */
+function shiftByDay(trains, timeKey) {
+  return trains.map(tr => ({
+    ...tr,
+    [timeKey]: new Date(new Date(tr[timeKey]).getTime() + 86400_000).toISOString(),
+    _tomorrow: true,
+  }));
+}
 
+/**
+ * Build the display list:
+ *  1. Filter today's trains to upcoming (with grace + delay).
+ *  2. If fewer than SHOW_MAX remain, append tomorrow's trains (shifted +24h)
+ *     so the board always shows a full screen.
+ *  3. Slice to SHOW_MAX.
+ */
+function buildRows(todayTrains, tomorrowTrains, delays, timeKey) {
+  const nowMs = Date.now();
+
+  function isUpcoming(tr) {
+    const schedMs  = new Date(tr[timeKey]).getTime();
+    const info     = delays[tr.nr];
+    const maxDelay = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0);
+    return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
+  }
+
+  const todayUpcoming = todayTrains.filter(isUpcoming);
+
+  if (todayUpcoming.length >= SHOW_MAX) {
+    return todayUpcoming.slice(0, SHOW_MAX);
+  }
+
+  // Need to fill from tomorrow
+  const need          = SHOW_MAX - todayUpcoming.length;
+  const tomorrowFill  = shiftByDay(tomorrowTrains, timeKey).slice(0, need);
+  return [...todayUpcoming, ...tomorrowFill];
+}
+
+function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   const tb = document.getElementById(tbodyId);
   tb.innerHTML = '';
 
-  upcoming.forEach((tr, idx) => {
-    const info     = delays[tr.nr] ?? null;
-    const isNext   = idx === 0;
-    const nextTag  = isNext
+  let firstTomorrow = true;
+
+  rows.forEach((tr, idx) => {
+    const isTomorrow = !!tr._tomorrow;
+    const info       = delays[tr.nr] ?? null;
+    const isNext     = idx === 0;
+
+    const nextTag = isNext
       ? (isArr
           ? `<span class="next-label-arr">nākošais</span>`
           : `<span class="next-label">nākošais</span>`)
       : '';
-    const rowClass = isNext ? (isArr ? ' class="row-next-arr"' : ' class="row-next-dep"') : '';
-    const platform = tr.platform != null ? `<span class="badge ${isArr ? 'bp-arr' : 'bp'}">${tr.platform}</span>` : '&mdash;';
-    const track    = tr.track    != null ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`    : '&mdash;';
+    const tomorrowTag = (isTomorrow && firstTomorrow)
+      ? `<span class="tomorrow-label">rīt</span>`
+      : '';
+    if (isTomorrow) firstTomorrow = false;
+
+    const rowClass = isNext
+      ? (isArr ? ' class="row-next-arr"' : ' class="row-next-dep"')
+      : (isTomorrow ? ' class="row-tomorrow"' : '');
+
+    const platform = tr.platform != null
+      ? `<span class="badge ${isArr ? 'bp-arr' : 'bp'}">${tr.platform}</span>`
+      : '&mdash;';
+    const track = tr.track != null
+      ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`
+      : '&mdash;';
 
     tb.innerHTML += `<tr${rowClass}>
       <td>${tr.nr}</td>
-      <td>${tr[originKey]}${nextTag}</td>
+      <td>${tr[nameKey]}${nextTag}${tomorrowTag}</td>
       <td>${fmtTime(tr[timeKey])}</td>
-      <td>${delayTagsHtml(info)}</td>
+      <td>${delayTagsHtml(isTomorrow ? null : info)}</td>
       <td>${platform}</td>
       <td>${track}</td>
     </tr>`;
   });
 
-  if (upcoming.length === 0) {
-    const msg = isArr
-      ? 'Šodien vairs nav gaidāmu vilcienu.'
-      : 'Šodien vairs nav gaidāmu vilcienu.';
-    tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">${msg}</td></tr>`;
+  if (rows.length === 0) {
+    tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Nav datu.</td></tr>`;
   }
 }
 
 async function load() {
   const debugLines = [];
-  debugLines.push('load() @ ' + new Date().toISOString());
-
   try {
     const t = Date.now();
-    const [schedDep, schedArr, liveDepRaw, liveArrRaw] = await Promise.allSettled([
+    const [r0, r1, r2, r3] = await Promise.allSettled([
       safeFetch(`full-day-trains.json?t=${t}`),
       safeFetch(`full-day-arrivals.json?t=${t}`),
       safeFetch(`live-delays.json?t=${t}`),
       safeFetch(`live-arrival-delays.json?t=${t}`),
     ]);
 
-    if (schedDep.status === 'rejected') {
-      debugLines.push('SCHED DEP FAIL: ' + schedDep.reason);
-      showDebug(debugLines);
-      document.getElementById('upd').textContent = 'Kļūda: ' + schedDep.reason;
+    if (r0.status === 'rejected') {
+      showDebug(['DEP SCHED FAIL: ' + r0.reason]);
       return;
     }
-    if (schedArr.status === 'rejected') {
-      debugLines.push('SCHED ARR FAIL (non-fatal): ' + schedArr.reason);
-    }
 
-    const dep    = schedDep.value;
-    const arr    = schedArr.status === 'fulfilled' ? schedArr.value : { trains: [] };
-    const liveDep = (liveDepRaw.status === 'fulfilled' ? liveDepRaw.value?.trains : null) ?? {};
-    const liveArr = (liveArrRaw.status === 'fulfilled' ? liveArrRaw.value?.trains : null) ?? {};
+    const depSched  = r0.value;
+    const arrSched  = r1.status === 'fulfilled' ? r1.value : { trains: [], updated: null };
+    const liveDep   = (r2.status === 'fulfilled' ? r2.value?.trains : null) ?? {};
+    const liveArr   = (r3.status === 'fulfilled' ? r3.value?.trains : null) ?? {};
+    const liveDepUpd = r2.status === 'fulfilled' ? r2.value?.updated : null;
 
-    const today = new Date();
-    const localToday = today.getFullYear() + '-' +
-      String(today.getMonth()+1).padStart(2,'0') + '-' +
-      String(today.getDate()).padStart(2,'0');
+    // Update sync timestamps
+    document.getElementById('meta-dep').textContent =
+      'Saraksts sinhr.: ' + (depSched.updated || '—');
+    document.getElementById('meta-arr').textContent =
+      'Saraksts sinhr.: ' + (arrSched.updated || '—');
+    document.getElementById('sync-delays').textContent =
+      'Kavējumi sinhr.: ' + (liveDepUpd || '—');
 
-    document.getElementById('stale-warn').style.display =
-      (dep.date && dep.date !== localToday) ? 'block' : 'none';
+    // The JSON contains today's trains. For the "tomorrow" fill we reuse
+    // the same file — the schedule is nearly identical day-to-day and the
+    // arrivals/departures scraper refreshes hourly, so it will always
+    // reflect the current timetable. We simply treat all trains in the
+    // file as tomorrow's when we need to fill past midnight.
+    const depRows = buildRows(
+      depSched.trains || [],
+      depSched.trains || [],   // same timetable for tomorrow
+      liveDep,
+      'dep_utc'
+    );
+    const arrRows = buildRows(
+      arrSched.trains || [],
+      arrSched.trains || [],
+      liveArr,
+      'arr_utc'
+    );
 
-    renderTable('tbody-dep', dep.trains  || [], liveDep, 'dep_utc', 'dest',   false);
-    renderTable('tbody-arr', arr.trains  || [], liveArr, 'arr_utc', 'origin', true);
+    renderTable('tbody-dep', depRows, liveDep, 'dep_utc', 'dest',   false);
+    renderTable('tbody-arr', arrRows, liveArr, 'arr_utc', 'origin', true);
 
-    const updDep = liveDepRaw.status === 'fulfilled' ? liveDepRaw.value?.updated : null;
-    const updArr = liveArrRaw.status === 'fulfilled' ? liveArrRaw.value?.updated : null;
-    document.getElementById('upd').textContent = 'Atjaunots: ' + (updDep || dep.updated || '—');
-
-    if (debugLines.some(l => l.includes('FAIL') && !l.includes('non-fatal'))) {
-      showDebug(debugLines);
-    } else {
-      dbg.style.display = 'none';
-    }
+    dbg.style.display = 'none';
 
   } catch(e) {
-    debugLines.push('UNEXPECTED: ' + e.message);
-    debugLines.push(e.stack || '');
-    showDebug(debugLines);
-    document.getElementById('upd').textContent = 'Kļūda ielādējot datus.';
+    showDebug(['UNEXPECTED: ' + e.message, e.stack || '']);
   }
 }
 
