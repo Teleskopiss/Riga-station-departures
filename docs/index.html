@@ -49,14 +49,6 @@
   .station-name { font-size:1rem;letter-spacing:.2em;color:var(--orange2);text-transform:uppercase; }
   .clock { font-size:1.45rem;letter-spacing:.12em;color:var(--orange);font-variant-numeric:tabular-nums; }
 
-  .alert {
-    width:100%;max-width:900px;
-    background:#1a0a00;border:1px solid var(--orange2);
-    padding:.5rem .9rem;margin-bottom:.9rem;
-    font-size:var(--text-sm);color:#ffaa44;
-    display:none;border-radius:var(--radius);
-  }
-
   table { width:100%;max-width:900px;border-collapse:collapse; }
   thead tr { border-bottom:1px solid var(--border); }
   th {
@@ -110,7 +102,6 @@
 </div>
 
 <div class="stale-warn" id="stale-warn">&#9888; Datu datums nesakrīt ar šodienu – tiek rādīts pēc laika.</div>
-<div class="alert" id="alert"></div>
 
 <table>
   <thead>
@@ -133,7 +124,7 @@
 
 <script>
 const SHOW_MAX    = 14;
-const BASE_CUTOFF = 2 * 60 * 1000;  // 2 min after scheduled departure
+const BASE_CUTOFF = 2 * 60 * 1000;  // 2 min after scheduled dep
 
 function tickClock() {
   const n = new Date();
@@ -150,7 +141,7 @@ function fmtTime(depUTC) {
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
-// Place the departure's local time on today's date for filtering
+// Map dep_utc time onto today's local date for cutoff comparison
 function depAsToday(depUTC) {
   const d = new Date(depUTC), now = new Date();
   return new Date(now.getFullYear(), now.getMonth(), now.getDate(),
@@ -165,7 +156,7 @@ async function load() {
     ]);
 
     const now    = new Date();
-    const delays = live.trains || {};  // { "6745": { delay: 5 }, ... }
+    const delays = live.trains || {};
 
     // Stale-data check
     const localToday = now.getFullYear() + '-' +
@@ -177,11 +168,9 @@ async function load() {
     const upcoming = sched.trains
       .map(tr => ({ ...tr, _dep: depAsToday(tr.dep_utc) }))
       .filter(tr => {
-        const delayEntry = delays[tr.nr];
-        // For delayed trains: extend the cutoff by the delay amount
-        // so a train 10 min late stays on the board until 10+2 min after scheduled time
-        const extraMs = delayEntry ? delayEntry.delay * 60_000 : 0;
-        const cutoff  = new Date(now.getTime() - BASE_CUTOFF - extraMs);
+        const delayMs = (delays[tr.nr]?.delay ?? 0) * 60_000;
+        // Keep train until: scheduled time + delay + 2 min grace
+        const cutoff = new Date(now.getTime() - BASE_CUTOFF - delayMs);
         return tr._dep > cutoff;
       })
       .slice(0, SHOW_MAX);
@@ -190,9 +179,9 @@ async function load() {
     tb.innerHTML = '';
 
     upcoming.forEach((tr, idx) => {
-      const delayEntry = delays[tr.nr];
-      const delayHtml  = delayEntry
-        ? `<span class="delay">+${delayEntry.delay}&thinsp;min</span>`
+      const delayMin  = delays[tr.nr]?.delay ?? 0;
+      const delayHtml = delayMin > 0
+        ? `<span class="delay">+${delayMin}&thinsp;min</span>`
         : '';
 
       const isNext   = idx === 0;
@@ -214,13 +203,6 @@ async function load() {
     if (upcoming.length === 0) {
       tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Šodien vairs nav gaidāmu vilcienu.</td></tr>`;
     }
-
-    // Alert banner
-    const alertParts = Object.entries(delays)
-      .map(([nr, d]) => `Vilciens ${nr} kavējas ${d.delay} min`);
-    const al = document.getElementById('alert');
-    if (alertParts.length) { al.textContent = alertParts.join('  |  '); al.style.display = 'block'; }
-    else                   { al.style.display = 'none'; }
 
     document.getElementById('upd').textContent = 'Atjaunots: ' + live.updated;
 
