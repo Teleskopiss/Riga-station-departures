@@ -79,7 +79,6 @@
   tr.row-next-arr { background:#00101a; }
   tr.row-tomorrow td { border-top:1px solid #2a2a2a; }
 
-  /* Blink: same color as normal text, just flashes */
   @keyframes nr-blink {
     0%   { opacity: 1; }
     66%  { opacity: 1; }
@@ -87,6 +86,7 @@
     99%  { opacity: 0; }
     100% { opacity: 1; }
   }
+  /* blink only affects opacity, no color change */
   .blink-nr { animation: nr-blink 1.2s step-start infinite; }
 
   .delay-tags { display:inline-flex;gap:.25rem;align-items:center; }
@@ -195,9 +195,10 @@
 </div>
 
 <script>
-const SHOW_MAX = 14;
-const DAY_MS   = 86_400_000;
-const BLINK_MS = 5 * 60 * 1000;
+const SHOW_MAX      = 14;
+const DAY_MS        = 86_400_000;
+const BLINK_MS      = 5 * 60 * 1000;   // blink starts 5min before dep
+const ARR_LINGER_MS = 5 * 60 * 1000;   // arrivals stay 5min after scheduled arrival
 
 const dbg = document.getElementById('debug-box');
 function showDebug(lines) { dbg.style.display = 'block'; dbg.textContent = lines.join('\n'); }
@@ -213,15 +214,36 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// ── Blink ticker
-function tickBlink() {
+// ── Per-second tick: update blink on dep rows + remove expired rows instantly
+function tickSecond() {
   const nowMs = Date.now();
-  document.querySelectorAll('td[data-dep-ms]').forEach(td => {
-    const diff = parseInt(td.dataset.depMs, 10) - nowMs;
-    td.classList.toggle('blink-nr', diff > 0 && diff <= BLINK_MS);
+
+  // Departures: blink from 5min before until the scheduled second passes
+  document.querySelectorAll('#tbody-dep tr').forEach(row => {
+    const td = row.querySelector('td[data-dep-ms]');
+    if (!td) return;
+    const depMs  = parseInt(td.dataset.depMs, 10);
+    const delayMs = parseInt(td.dataset.delayMs || '0', 10);
+    const removeAt = depMs + delayMs;
+    if (nowMs >= removeAt) {
+      row.remove();
+      return;
+    }
+    const diff = depMs - nowMs;  // blink based on scheduled time regardless of delay
+    td.classList.toggle('blink-nr', diff <= BLINK_MS);
+  });
+
+  // Arrivals: no blink, linger ARR_LINGER_MS after arrival then remove
+  document.querySelectorAll('#tbody-arr tr').forEach(row => {
+    const td = row.querySelector('td[data-dep-ms]');
+    if (!td) return;
+    const arrMs   = parseInt(td.dataset.depMs, 10);
+    const delayMs = parseInt(td.dataset.delayMs || '0', 10);
+    const removeAt = arrMs + delayMs + ARR_LINGER_MS;
+    if (nowMs >= removeAt) row.remove();
   });
 }
-setInterval(tickBlink, 1000);
+setInterval(tickSecond, 1000);
 
 // ── Helpers
 function fmtTime(utcStr) {
@@ -281,16 +303,14 @@ function shiftByDay(trains, timeKey) {
   }));
 }
 
-function buildRows(trains, delays, timeKey) {
+function buildRows(trains, delays, timeKey, lingerMs) {
   const nowMs = Date.now();
 
-  // No grace period: train disappears as soon as scheduled time has passed,
-  // extended only by actual dispatcher/GPS delay if present.
   function isUpcoming(tr) {
     const schedMs  = new Date(tr[timeKey]).getTime();
     const info     = delays[tr.nr];
     const delayMs  = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0) * 60_000;
-    return (schedMs + delayMs) > nowMs;
+    return (schedMs + delayMs + lingerMs) > nowMs;
   }
 
   const upcoming = trains.filter(isUpcoming);
@@ -309,7 +329,8 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   rows.forEach(tr => {
     const isTomorrow = !!tr._tomorrow;
     const info       = isTomorrow ? null : (delays[tr.nr] ?? null);
-    const depMs      = new Date(tr[timeKey]).getTime();
+    const schedMs    = new Date(tr[timeKey]).getTime();
+    const delayMs    = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0) * 60_000;
 
     const rowClass = (isTomorrow && !tomorrowLineDone) ? ' class="row-tomorrow"' : '';
     if (isTomorrow) tomorrowLineDone = true;
@@ -321,8 +342,9 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
       ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`
       : '&mdash;';
 
+    // data-dep-ms = scheduled time, data-delay-ms = delay in ms
     tb.innerHTML += `<tr${rowClass}>
-      <td data-dep-ms="${depMs}">${tr.nr}</td>
+      <td data-dep-ms="${schedMs}" data-delay-ms="${delayMs}">${tr.nr}</td>
       <td>${tr[nameKey]}</td>
       <td>${fmtTime(tr[timeKey])}</td>
       <td>${delayTagsHtml(info)}</td>
@@ -334,7 +356,8 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   if (rows.length === 0) {
     tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Nav datu.</td></tr>`;
   }
-  tickBlink();
+  // Run immediately after render so blink state is correct from frame 1
+  tickSecond();
 }
 
 // ── Load
@@ -363,8 +386,8 @@ async function load() {
     const depTrains = normaliseToToday(depSched.trains || [], 'dep_utc');
     const arrTrains = normaliseToToday(arrSched.trains || [], 'arr_utc');
 
-    renderTable('tbody-dep', buildRows(depTrains, liveDep, 'dep_utc'), liveDep, 'dep_utc', 'dest',   false);
-    renderTable('tbody-arr', buildRows(arrTrains, liveArr, 'arr_utc'), liveArr, 'arr_utc', 'origin', true);
+    renderTable('tbody-dep', buildRows(depTrains, liveDep, 'dep_utc', 0),            liveDep, 'dep_utc', 'dest',   false);
+    renderTable('tbody-arr', buildRows(arrTrains, liveArr, 'arr_utc', ARR_LINGER_MS), liveArr, 'arr_utc', 'origin', true);
 
     dbg.style.display = 'none';
   } catch(e) {
