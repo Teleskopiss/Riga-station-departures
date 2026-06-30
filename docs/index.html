@@ -85,12 +85,11 @@
   tr.row-next-arr { background:#00101a; }
   tr.row-tomorrow td { border-top:1px solid #2a2a2a; }
 
-  /* Blink for trains departing within 5 min */
   @keyframes nr-blink {
     0%   { opacity: 1; }
-    66%  { opacity: 1; }   /* on for ~800ms of 1200ms cycle */
+    66%  { opacity: 1; }
     67%  { opacity: 0; }
-    99%  { opacity: 0; }   /* off for ~400ms */
+    99%  { opacity: 0; }
     100% { opacity: 1; }
   }
   .blink-nr { animation: nr-blink 1.2s step-start infinite; color: var(--yellow); }
@@ -126,7 +125,7 @@
     margin-top:1rem;border-top:1px solid var(--border);padding-top:.6rem;
   }
   .footer-row { display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem; }
-  .legend   { font-size:var(--text-xs);color:var(--muted); }
+  .legend    { font-size:var(--text-xs);color:var(--muted); }
   .sync-line { font-size:var(--text-xs);color:var(--muted); }
 
   @media (max-width:600px) {
@@ -197,14 +196,15 @@
 </div>
 
 <script>
-const SHOW_MAX   = 14;
-const GRACE_MS   = 2 * 60 * 1000;
-const BLINK_MS   = 5 * 60 * 1000;   // blink when ≤ 5 min to scheduled dep
+const SHOW_MAX = 14;
+const GRACE_MS = 2 * 60 * 1000;
+const BLINK_MS = 5 * 60 * 1000;
+const DAY_MS   = 86_400_000;
 
 const dbg = document.getElementById('debug-box');
 function showDebug(lines) { dbg.style.display = 'block'; dbg.textContent = lines.join('\n'); }
 
-// ── Clock ────────────────────────────────────────────────────────────────────
+// ── Clock ────────────────────────────────────────────────────────────────
 function tickClock() {
   const n = new Date();
   document.getElementById('clock').textContent =
@@ -215,23 +215,17 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// ── Blink ticker (runs every second, touches only the nr cells) ───────────────
-// Each rendered row stores dep time in a data attribute so we don't re-render.
+// ── Blink ticker ────────────────────────────────────────────────────────────
 function tickBlink() {
   const nowMs = Date.now();
   document.querySelectorAll('td[data-dep-ms]').forEach(td => {
-    const depMs = parseInt(td.dataset.depMs, 10);
-    const diff  = depMs - nowMs;
-    if (diff > 0 && diff <= BLINK_MS) {
-      td.classList.add('blink-nr');
-    } else {
-      td.classList.remove('blink-nr');
-    }
+    const diff = parseInt(td.dataset.depMs, 10) - nowMs;
+    td.classList.toggle('blink-nr', diff > 0 && diff <= BLINK_MS);
   });
 }
 setInterval(tickBlink, 1000);
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────────
 function fmtTime(utcStr) {
   const d = new Date(utcStr);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
@@ -256,47 +250,85 @@ async function safeFetch(url) {
   const text = await res.text();
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   try { return JSON.parse(text); }
-  catch { throw new Error(`JSON parse failed`); }
+  catch { throw new Error('JSON parse failed'); }
 }
 
-// ── Cross-day blending ───────────────────────────────────────────────────────
+// ── Date normalisation ───────────────────────────────────────────────────────────
+//
+// The scraper stores schedules in UTC but Latvia is UTC+3 (EEST).
+// A train that leaves at 05:04 local is stored as 2026-06-29T02:04:00Z even
+// when the JSON was written on 2026-06-30. The calendar date in dep_utc is
+// always "yesterday" when the file was scraped before midnight UTC (= before
+// 03:00 EEST). We detect this and shift all times forward +24h so the
+// browser's Date.now() comparison works correctly.
+//
+// Detection: look at the date portion of the FIRST train's time.
+// If it is strictly before today's local date → shift the whole array.
+function localDateStr(d) {
+  // Returns "YYYY-MM-DD" in local time
+  return d.getFullYear() + '-' +
+    String(d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(d.getDate()).padStart(2, '0');
+}
+
+function normaliseToToday(trains, timeKey) {
+  if (!trains || trains.length === 0) return trains;
+
+  const todayStr  = localDateStr(new Date());
+  const firstDate = localDateStr(new Date(trains[0][timeKey]));
+
+  if (firstDate >= todayStr) return trains; // already on today or future, no shift needed
+
+  // All timestamps are from a past calendar day in local time → shift +24h
+  const shiftMs = DAY_MS * Math.ceil(
+    (new Date(todayStr).getTime() - new Date(firstDate).getTime()) / DAY_MS
+  );
+
+  return trains.map(tr => ({
+    ...tr,
+    [timeKey]: new Date(new Date(tr[timeKey]).getTime() + shiftMs).toISOString(),
+  }));
+}
+
+// ── Cross-day blending (fill board with tomorrow when today runs out) ─────────
 function shiftByDay(trains, timeKey) {
   return trains.map(tr => ({
     ...tr,
-    [timeKey]: new Date(new Date(tr[timeKey]).getTime() + 86400_000).toISOString(),
+    [timeKey]: new Date(new Date(tr[timeKey]).getTime() + DAY_MS).toISOString(),
     _tomorrow: true,
   }));
 }
 
-function buildRows(todayTrains, tomorrowTrains, delays, timeKey) {
+function buildRows(trains, delays, timeKey) {
   const nowMs = Date.now();
+
   function isUpcoming(tr) {
     const schedMs  = new Date(tr[timeKey]).getTime();
     const info     = delays[tr.nr];
     const maxDelay = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0);
     return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
   }
-  const todayUpcoming = todayTrains.filter(isUpcoming);
-  if (todayUpcoming.length >= SHOW_MAX) return todayUpcoming.slice(0, SHOW_MAX);
-  const need = SHOW_MAX - todayUpcoming.length;
-  return [...todayUpcoming, ...shiftByDay(tomorrowTrains, timeKey).slice(0, need)];
+
+  const upcoming = trains.filter(isUpcoming);
+  if (upcoming.length >= SHOW_MAX) return upcoming.slice(0, SHOW_MAX);
+
+  // Pad with tomorrow (same timetable shifted +24h)
+  const need = SHOW_MAX - upcoming.length;
+  return [...upcoming, ...shiftByDay(trains, timeKey).filter(isUpcoming).slice(0, need)];
 }
 
 // ── Render ───────────────────────────────────────────────────────────────────
 function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   const tb = document.getElementById(tbodyId);
   tb.innerHTML = '';
-
   let tomorrowLineDone = false;
 
-  rows.forEach((tr) => {
+  rows.forEach(tr => {
     const isTomorrow = !!tr._tomorrow;
     const info       = isTomorrow ? null : (delays[tr.nr] ?? null);
     const depMs      = new Date(tr[timeKey]).getTime();
 
-    const rowClass = isTomorrow && !tomorrowLineDone
-      ? ' class="row-tomorrow"'
-      : '';
+    const rowClass = (isTomorrow && !tomorrowLineDone) ? ' class="row-tomorrow"' : '';
     if (isTomorrow) tomorrowLineDone = true;
 
     const platform = tr.platform != null
@@ -306,7 +338,6 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
       ? `<span class="badge ${isArr ? 'bt-arr' : 'bt'}">${tr.track}</span>`
       : '&mdash;';
 
-    // Store depMs on the nr cell so the blink ticker can read it without re-render
     tb.innerHTML += `<tr${rowClass}>
       <td data-dep-ms="${depMs}">${tr.nr}</td>
       <td>${tr[nameKey]}</td>
@@ -320,8 +351,6 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   if (rows.length === 0) {
     tb.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted)">Nav datu.</td></tr>`;
   }
-
-  // Run blink check immediately after render so state is correct from the start
   tickBlink();
 }
 
@@ -342,17 +371,18 @@ async function load() {
     const arrSched   = r1.status === 'fulfilled' ? r1.value : { trains: [], updated: null };
     const liveDep    = (r2.status === 'fulfilled' ? r2.value?.trains : null) ?? {};
     const liveArr    = (r3.status === 'fulfilled' ? r3.value?.trains : null) ?? {};
-    const liveDepUpd = r2.status === 'fulfilled' ? r2.value?.updated : null;
+    const liveDepUpd = r2.status === 'fulfilled'  ? r2.value?.updated : null;
 
     document.getElementById('meta-dep').textContent    = 'Saraksts sinhr.: ' + (depSched.updated || '—');
     document.getElementById('meta-arr').textContent    = 'Saraksts sinhr.: ' + (arrSched.updated || '—');
     document.getElementById('sync-delays').textContent = 'Kavējumi sinhr.: '  + (liveDepUpd    || '—');
 
-    const depRows = buildRows(depSched.trains || [], depSched.trains || [], liveDep, 'dep_utc');
-    const arrRows = buildRows(arrSched.trains || [], arrSched.trains || [], liveArr, 'arr_utc');
+    // Normalise dates: shift +24h if scraper wrote yesterday's UTC date
+    const depTrains = normaliseToToday(depSched.trains || [], 'dep_utc');
+    const arrTrains = normaliseToToday(arrSched.trains || [], 'arr_utc');
 
-    renderTable('tbody-dep', depRows, liveDep, 'dep_utc', 'dest',   false);
-    renderTable('tbody-arr', arrRows, liveArr, 'arr_utc', 'origin', true);
+    renderTable('tbody-dep', buildRows(depTrains, liveDep, 'dep_utc'), liveDep, 'dep_utc', 'dest',   false);
+    renderTable('tbody-arr', buildRows(arrTrains, liveArr, 'arr_utc'), liveArr, 'arr_utc', 'origin', true);
 
     dbg.style.display = 'none';
   } catch(e) {
