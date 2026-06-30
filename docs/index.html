@@ -63,12 +63,6 @@
   .section-title.arr { color: var(--blue); }
   .section-line { flex:1;height:1px;background:var(--border); }
 
-  .section-meta {
-    width:100%;max-width:900px;
-    font-size:var(--text-xs);color:var(--muted);
-    margin-bottom:.4rem;letter-spacing:.04em;
-  }
-
   table { width:100%;max-width:900px;border-collapse:collapse; }
   thead tr { border-bottom:1px solid var(--border); }
   th {
@@ -85,6 +79,7 @@
   tr.row-next-arr { background:#00101a; }
   tr.row-tomorrow td { border-top:1px solid #2a2a2a; }
 
+  /* Blink: same color as normal text, just flashes */
   @keyframes nr-blink {
     0%   { opacity: 1; }
     66%  { opacity: 1; }
@@ -92,7 +87,7 @@
     99%  { opacity: 0; }
     100% { opacity: 1; }
   }
-  .blink-nr { animation: nr-blink 1.2s step-start infinite; color: var(--yellow); }
+  .blink-nr { animation: nr-blink 1.2s step-start infinite; }
 
   .delay-tags { display:inline-flex;gap:.25rem;align-items:center; }
   .dtag {
@@ -121,7 +116,7 @@
 
   .footer {
     max-width:900px;width:100%;
-    display:flex;flex-direction:column;gap:.3rem;
+    display:flex;flex-direction:column;gap:.25rem;
     margin-top:1rem;border-top:1px solid var(--border);padding-top:.6rem;
   }
   .footer-row { display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem; }
@@ -148,7 +143,6 @@
   <span class="section-title dep">Atiešanas</span>
   <div class="section-line"></div>
 </div>
-<div class="section-meta" id="meta-dep">Saraksts sinhr.: —</div>
 <table>
   <thead>
     <tr>
@@ -168,7 +162,6 @@
   <span class="section-title arr">Ierašanās</span>
   <div class="section-line"></div>
 </div>
-<div class="section-meta" id="meta-arr">Saraksts sinhr.: —</div>
 <table>
   <thead>
     <tr>
@@ -191,20 +184,25 @@
     </span>
   </div>
   <div class="footer-row">
-    <span class="sync-line" id="sync-delays">Kavējumi sinhr.: —</span>
+    <span class="sync-line" id="sync-dep">Atiešanas saraksts: —</span>
+  </div>
+  <div class="footer-row">
+    <span class="sync-line" id="sync-arr">Ierašanās saraksts: —</span>
+  </div>
+  <div class="footer-row">
+    <span class="sync-line" id="sync-delays">Kavējumi: —</span>
   </div>
 </div>
 
 <script>
 const SHOW_MAX = 14;
-const GRACE_MS = 2 * 60 * 1000;
-const BLINK_MS = 5 * 60 * 1000;
 const DAY_MS   = 86_400_000;
+const BLINK_MS = 5 * 60 * 1000;
 
 const dbg = document.getElementById('debug-box');
 function showDebug(lines) { dbg.style.display = 'block'; dbg.textContent = lines.join('\n'); }
 
-// ── Clock ────────────────────────────────────────────────────────────────
+// ── Clock
 function tickClock() {
   const n = new Date();
   document.getElementById('clock').textContent =
@@ -215,7 +213,7 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// ── Blink ticker ────────────────────────────────────────────────────────────
+// ── Blink ticker
 function tickBlink() {
   const nowMs = Date.now();
   document.querySelectorAll('td[data-dep-ms]').forEach(td => {
@@ -225,7 +223,7 @@ function tickBlink() {
 }
 setInterval(tickBlink, 1000);
 
-// ── Helpers ────────────────────────────────────────────────────────────────
+// ── Helpers
 function fmtTime(utcStr) {
   const d = new Date(utcStr);
   return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
@@ -253,19 +251,8 @@ async function safeFetch(url) {
   catch { throw new Error('JSON parse failed'); }
 }
 
-// ── Date normalisation ───────────────────────────────────────────────────────────
-//
-// The scraper stores schedules in UTC but Latvia is UTC+3 (EEST).
-// A train that leaves at 05:04 local is stored as 2026-06-29T02:04:00Z even
-// when the JSON was written on 2026-06-30. The calendar date in dep_utc is
-// always "yesterday" when the file was scraped before midnight UTC (= before
-// 03:00 EEST). We detect this and shift all times forward +24h so the
-// browser's Date.now() comparison works correctly.
-//
-// Detection: look at the date portion of the FIRST train's time.
-// If it is strictly before today's local date → shift the whole array.
+// ── Date normalisation (fix UTC-vs-EEST off-by-one-day scraper bug)
 function localDateStr(d) {
-  // Returns "YYYY-MM-DD" in local time
   return d.getFullYear() + '-' +
     String(d.getMonth() + 1).padStart(2, '0') + '-' +
     String(d.getDate()).padStart(2, '0');
@@ -273,24 +260,19 @@ function localDateStr(d) {
 
 function normaliseToToday(trains, timeKey) {
   if (!trains || trains.length === 0) return trains;
-
   const todayStr  = localDateStr(new Date());
   const firstDate = localDateStr(new Date(trains[0][timeKey]));
-
-  if (firstDate >= todayStr) return trains; // already on today or future, no shift needed
-
-  // All timestamps are from a past calendar day in local time → shift +24h
+  if (firstDate >= todayStr) return trains;
   const shiftMs = DAY_MS * Math.ceil(
     (new Date(todayStr).getTime() - new Date(firstDate).getTime()) / DAY_MS
   );
-
   return trains.map(tr => ({
     ...tr,
     [timeKey]: new Date(new Date(tr[timeKey]).getTime() + shiftMs).toISOString(),
   }));
 }
 
-// ── Cross-day blending (fill board with tomorrow when today runs out) ─────────
+// ── Cross-day blending
 function shiftByDay(trains, timeKey) {
   return trains.map(tr => ({
     ...tr,
@@ -302,22 +284,23 @@ function shiftByDay(trains, timeKey) {
 function buildRows(trains, delays, timeKey) {
   const nowMs = Date.now();
 
+  // No grace period: train disappears as soon as scheduled time has passed,
+  // extended only by actual dispatcher/GPS delay if present.
   function isUpcoming(tr) {
     const schedMs  = new Date(tr[timeKey]).getTime();
     const info     = delays[tr.nr];
-    const maxDelay = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0);
-    return (schedMs + maxDelay * 60_000 + GRACE_MS) > nowMs;
+    const delayMs  = Math.max(info?.dispatcher_delay ?? 0, info?.gps_delay ?? 0) * 60_000;
+    return (schedMs + delayMs) > nowMs;
   }
 
   const upcoming = trains.filter(isUpcoming);
   if (upcoming.length >= SHOW_MAX) return upcoming.slice(0, SHOW_MAX);
 
-  // Pad with tomorrow (same timetable shifted +24h)
   const need = SHOW_MAX - upcoming.length;
   return [...upcoming, ...shiftByDay(trains, timeKey).filter(isUpcoming).slice(0, need)];
 }
 
-// ── Render ───────────────────────────────────────────────────────────────────
+// ── Render
 function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   const tb = document.getElementById(tbodyId);
   tb.innerHTML = '';
@@ -354,7 +337,7 @@ function renderTable(tbodyId, rows, delays, timeKey, nameKey, isArr) {
   tickBlink();
 }
 
-// ── Load ─────────────────────────────────────────────────────────────────────
+// ── Load
 async function load() {
   try {
     const t = Date.now();
@@ -373,11 +356,10 @@ async function load() {
     const liveArr    = (r3.status === 'fulfilled' ? r3.value?.trains : null) ?? {};
     const liveDepUpd = r2.status === 'fulfilled'  ? r2.value?.updated : null;
 
-    document.getElementById('meta-dep').textContent    = 'Saraksts sinhr.: ' + (depSched.updated || '—');
-    document.getElementById('meta-arr').textContent    = 'Saraksts sinhr.: ' + (arrSched.updated || '—');
-    document.getElementById('sync-delays').textContent = 'Kavējumi sinhr.: '  + (liveDepUpd    || '—');
+    document.getElementById('sync-dep').textContent     = 'Atiešanas saraksts: '  + (depSched.updated || '—');
+    document.getElementById('sync-arr').textContent     = 'Ierašanās saraksts: ' + (arrSched.updated  || '—');
+    document.getElementById('sync-delays').textContent  = 'Kavējumi: '            + (liveDepUpd       || '—');
 
-    // Normalise dates: shift +24h if scraper wrote yesterday's UTC date
     const depTrains = normaliseToToday(depSched.trains || [], 'dep_utc');
     const arrTrains = normaliseToToday(arrSched.trains || [], 'arr_utc');
 
