@@ -1,15 +1,15 @@
 {
-  "updated": "02.07.2026 12:32:22",
+  "updated": "02.07.2026 12:33:22",
   "trains": {
-    "6721": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Vilciena Nr. 6721 Rīga (12:35) - Jelgava (13:22)  paredzamais kavējums ~10 min."
-    },
     "6719": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 6719 Rīga (11:35) - Jelgava (12:22) is delayed ~20 minutes."
+    },
+    "6721": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Vilciena Nr. 6721 Rīga (12:35) - Jelgava (13:22)  paredzamais kavējums ~10 min."
     }
   }
 }
