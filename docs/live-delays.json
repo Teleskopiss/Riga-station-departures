@@ -1,15 +1,15 @@
 {
-  "updated": "06.07.2026 00:04:53",
+  "updated": "06.07.2026 00:05:52",
   "trains": {
-    "6545": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 6545 Rīga (23:00) - Ķemeri (23:58) is delayed ~10 minutes."
-    },
     "6268": {
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 6268 Rīga (22:39) - Aizkraukle (23:56) is delayed ~10 minutes."
+    },
+    "6545": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6545 Rīga (23:00) - Ķemeri (23:58) is delayed ~10 minutes."
     }
   }
 }
