@@ -1,20 +1,20 @@
 {
-  "updated": "06.07.2026 08:47:55",
+  "updated": "06.07.2026 08:48:55",
   "trains": {
-    "847": {
+    "863": {
       "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~25 minutes."
+      "dispatcher_delay": 50,
+      "dispatcher_text": "Train No. 863 Valmiera (06:24) - Rīga (08:08) is delayed ~50 minutes."
     },
     "849": {
       "gps_delay": 0,
       "dispatcher_delay": 55,
       "dispatcher_text": "Train No. 849 Sigulda (07:27) - Rīga (08:33) is delayed ~55 minutes."
     },
-    "863": {
+    "847": {
       "gps_delay": 0,
-      "dispatcher_delay": 50,
-      "dispatcher_text": "Train No. 863 Valmiera (06:24) - Rīga (08:08) is delayed ~50 minutes."
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~25 minutes."
     }
   }
 }
