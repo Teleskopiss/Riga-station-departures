@@ -1,6 +1,11 @@
 {
-  "updated": "06.07.2026 08:29:55",
+  "updated": "06.07.2026 08:30:53",
   "trains": {
+    "847": {
+      "gps_delay": 0,
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~25 minutes."
+    },
     "863": {
       "gps_delay": 0,
       "dispatcher_delay": 50,
@@ -10,11 +15,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 45,
       "dispatcher_text": "Train No. 849 Sigulda (07:27) - Rīga (08:33) is delayed ~45 minutes."
-    },
-    "847": {
-      "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~25 minutes."
     }
   }
 }
