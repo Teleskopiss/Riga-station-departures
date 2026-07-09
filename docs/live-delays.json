@@ -1,15 +1,15 @@
 {
-  "updated": "09.07.2026 16:55:00",
+  "updated": "09.07.2026 16:56:05",
   "trains": {
-    "6521": {
-      "gps_delay": 0,
-      "dispatcher_delay": 20,
-      "dispatcher_text": "Train No. 6521 Rīga (15:30) - Tukums II (16:53) is delayed ~20 minutes."
-    },
     "6240": {
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 6240 Rīga (15:39) - Aizkraukle (16:58) is delayed ~10 minutes."
+    },
+    "6521": {
+      "gps_delay": 0,
+      "dispatcher_delay": 20,
+      "dispatcher_text": "Train No. 6521 Rīga (15:30) - Tukums II (16:53) is delayed ~20 minutes."
     }
   }
 }
