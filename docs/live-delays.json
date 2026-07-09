@@ -1,15 +1,15 @@
 {
-  "updated": "09.07.2026 18:47:09",
+  "updated": "09.07.2026 18:48:04",
   "trains": {
-    "6254": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Vilciena Nr. 6254 Rīga (18:39) - Aizkraukle (19:58)  paredzamais kavējums ~10 min."
-    },
     "6529": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 6529 Rīga (17:45) - Tukums II (18:55) is delayed ~20 minutes."
+    },
+    "6254": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6254 Rīga (18:39) - Aizkraukle (19:58) is delayed ~10 minutes."
     }
   }
 }
