@@ -1,15 +1,15 @@
 {
-  "updated": "09.07.2026 09:43:07",
+  "updated": "09.07.2026 09:44:03",
   "trains": {
-    "6222": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Vilciena Nr. 6222 Rīga (09:39) - Aizkraukle (10:57)  paredzamais kavējums ~10 min."
-    },
     "6507": {
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Train No. 6507 Rīga (08:30) - Tukums II (09:53) is delayed ~15 minutes."
+    },
+    "6222": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Vilciena Nr. 6222 Rīga (09:39) - Aizkraukle (10:57)  paredzamais kavējums ~10 min."
     }
   }
 }
