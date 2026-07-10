@@ -1,15 +1,15 @@
 {
-  "updated": "10.07.2026 21:03:00",
+  "updated": "10.07.2026 21:03:55",
   "trains": {
-    "6261": {
-      "gps_delay": 0,
-      "dispatcher_delay": 35,
-      "dispatcher_text": "Train No. 6261 Aizkraukle (19:33) - Rīga (20:51) is delayed ~35 minutes."
-    },
     "6263": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 6263 Lielvārde (20:24) - Rīga (21:21) is delayed ~20 minutes."
+    },
+    "6261": {
+      "gps_delay": 0,
+      "dispatcher_delay": 35,
+      "dispatcher_text": "Train No. 6261 Aizkraukle (19:33) - Rīga (20:51) is delayed ~35 minutes."
     }
   }
 }
