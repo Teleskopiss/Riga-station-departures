@@ -1,11 +1,6 @@
 {
-  "updated": "13.07.2026 07:54:52",
+  "updated": "13.07.2026 07:55:52",
   "trains": {
-    "6505": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 6505 Rīga (07:30) - Tukums II (08:53) is delayed ~10 minutes."
-    },
     "6212": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
@@ -15,6 +10,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 6301 Rīga (07:23) - Dubulti (07:53) is delayed ~10 minutes."
+    },
+    "6505": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6505 Rīga (07:30) - Tukums II (08:53) is delayed ~10 minutes."
     }
   }
 }
