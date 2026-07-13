@@ -1,15 +1,15 @@
 {
-  "updated": "13.07.2026 07:39:51",
+  "updated": "13.07.2026 07:40:52",
   "trains": {
-    "6301": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 6301 Rīga (07:23) - Dubulti (07:53) is delayed ~10 minutes."
-    },
     "6212": {
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Train No. 6212 Rīga (07:09) - Aizkraukle (08:28) is delayed ~15 minutes."
+    },
+    "6301": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6301 Rīga (07:23) - Dubulti (07:53) is delayed ~10 minutes."
     }
   }
 }
