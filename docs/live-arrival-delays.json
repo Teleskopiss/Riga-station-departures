@@ -1,15 +1,15 @@
 {
-  "updated": "16.07.2026 06:45:10",
+  "updated": "16.07.2026 06:46:13",
   "trains": {
-    "6504": {
-      "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 6504 Ķemeri (05:32) - Rīga (06:29) is delayed ~25 minutes."
-    },
     "6506": {
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 6506 Tukums II (05:29) - Rīga (06:49) is delayed ~10 minutes."
+    },
+    "6504": {
+      "gps_delay": 0,
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 6504 Ķemeri (05:32) - Rīga (06:29) is delayed ~25 minutes."
     }
   }
 }
