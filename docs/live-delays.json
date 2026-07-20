@@ -1,11 +1,6 @@
 {
-  "updated": "20.07.2026 20:16:04",
+  "updated": "20.07.2026 20:17:06",
   "trains": {
-    "6162": {
-      "gps_delay": 0,
-      "dispatcher_delay": 20,
-      "dispatcher_text": "Vilciena Nr. 6162 Rīga (20:08) - Saulkrasti (21:04)  paredzamais kavējums ~20 min."
-    },
     "6158": {
       "gps_delay": 0,
       "dispatcher_delay": 40,
@@ -15,6 +10,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Vilciena Nr. 6160 Rīga (19:38) - Skulte (20:45)  paredzamais kavējums ~20 min."
+    },
+    "6162": {
+      "gps_delay": 0,
+      "dispatcher_delay": 20,
+      "dispatcher_text": "Vilciena Nr. 6162 Rīga (20:08) - Saulkrasti (21:04)  paredzamais kavējums ~20 min."
     }
   }
 }
