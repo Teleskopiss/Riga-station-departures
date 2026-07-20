@@ -1,10 +1,10 @@
 {
-  "updated": "20.07.2026 19:50:02",
+  "updated": "20.07.2026 19:51:05",
   "trains": {
-    "6154": {
+    "6160": {
       "gps_delay": 0,
-      "dispatcher_delay": 50,
-      "dispatcher_text": "Train No. 6154 Rīga (18:08) - Saulkrasti (19:04) is delayed ~50 minutes."
+      "dispatcher_delay": 20,
+      "dispatcher_text": "Vilciena Nr. 6160 Rīga (19:38) - Skulte (20:45)  paredzamais kavējums ~20 min."
     },
     "6156": {
       "gps_delay": 0,
@@ -16,10 +16,10 @@
       "dispatcher_delay": 35,
       "dispatcher_text": "Train No. 6158 Rīga (19:08) - Saulkrasti (20:04) is delayed ~35 minutes."
     },
-    "6160": {
+    "6154": {
       "gps_delay": 0,
-      "dispatcher_delay": 20,
-      "dispatcher_text": "Vilciena Nr. 6160 Rīga (19:38) - Skulte (20:45)  paredzamais kavējums ~20 min."
+      "dispatcher_delay": 50,
+      "dispatcher_text": "Train No. 6154 Rīga (18:08) - Saulkrasti (19:04) is delayed ~50 minutes."
     }
   }
 }
