@@ -1,15 +1,15 @@
 {
-  "updated": "20.07.2026 19:10:12",
+  "updated": "20.07.2026 19:11:02",
   "trains": {
-    "6154": {
-      "gps_delay": 0,
-      "dispatcher_delay": 45,
-      "dispatcher_text": "Train No. 6154 Rīga (18:08) - Saulkrasti (19:04) is delayed ~45 minutes."
-    },
     "6158": {
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Vilciena Nr. 6158 Rīga (19:08) - Saulkrasti (20:04)  paredzamais kavējums ~10 min."
+    },
+    "6154": {
+      "gps_delay": 0,
+      "dispatcher_delay": 45,
+      "dispatcher_text": "Train No. 6154 Rīga (18:08) - Saulkrasti (19:04) is delayed ~45 minutes."
     }
   }
 }
