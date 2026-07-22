@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-07-22",
-  "updated_utc": "2026-07-22T09:30:59Z",
-  "updated": "22.07.2026 12:30:59",
-  "total": 178,
+  "updated_utc": "2026-07-22T11:52:26Z",
+  "updated": "22.07.2026 14:52:26",
+  "total": 177,
   "trains": [
     {
       "nr": "6871",
@@ -294,14 +294,6 @@
       "platform": 3
     },
     {
-      "nr": "6507",
-      "dest": "Tukums 2",
-      "dep_utc": "2026-07-22T05:30:00Z",
-      "route_id": "793440",
-      "track": 3,
-      "platform": 3
-    },
-    {
       "nr": "6713",
       "dest": "Jelgava",
       "dep_utc": "2026-07-22T05:35:00Z",
@@ -402,8 +394,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-07-22T07:10:00Z",
       "route_id": "793468",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6313",
@@ -610,8 +602,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-07-22T10:10:00Z",
       "route_id": "793520",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6325",
