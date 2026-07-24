@@ -1,15 +1,15 @@
 {
-  "updated": "24.07.2026 11:28:32",
+  "updated": "24.07.2026 11:29:29",
   "trains": {
-    "6123": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 6123 Skulte (10:17) - Rīga (11:23) is delayed ~10 minutes."
-    },
     "801": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 801 Daugavpils (10:52) - Rīga (13:59) is delayed ~20 minutes."
+    },
+    "6123": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6123 Skulte (10:17) - Rīga (11:23) is delayed ~10 minutes."
     }
   }
 }
