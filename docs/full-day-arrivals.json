@@ -1,1359 +1,1367 @@
 {
   "station": "Rīga",
   "date": "2026-07-26",
-  "updated_utc": "2026-07-25T22:31:41Z",
-  "updated": "26.07.2026 01:31:41",
-  "total": 169,
+  "updated_utc": "2026-07-26T01:08:39Z",
+  "updated": "26.07.2026 04:08:39",
+  "total": 170,
   "trains": [
+    {
+      "nr": "6281",
+      "origin": "Lielvārde",
+      "arr_utc": "2026-07-25T22:57:00Z",
+      "route_id": "794793",
+      "platform": 0,
+      "track": 0
+    },
     {
       "nr": "6702",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T02:25:00Z",
-      "route_id": "794455",
+      "arr_utc": "2026-07-26T02:25:00Z",
+      "route_id": "794798",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6201",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T02:51:00Z",
-      "route_id": "794457",
+      "arr_utc": "2026-07-26T02:51:00Z",
+      "route_id": "794800",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6101",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T02:53:00Z",
-      "route_id": "794456",
+      "arr_utc": "2026-07-26T02:53:00Z",
+      "route_id": "794799",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6502",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T02:59:00Z",
-      "route_id": "794454",
+      "arr_utc": "2026-07-26T02:59:00Z",
+      "route_id": "794797",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6203",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T03:21:00Z",
-      "route_id": "794460",
+      "arr_utc": "2026-07-26T03:21:00Z",
+      "route_id": "794803",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6704",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T03:25:00Z",
-      "route_id": "794470",
+      "arr_utc": "2026-07-26T03:25:00Z",
+      "route_id": "794812",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6504",
       "origin": "Ķemeri",
-      "arr_utc": "2026-07-25T03:29:00Z",
-      "route_id": "794467",
+      "arr_utc": "2026-07-26T03:29:00Z",
+      "route_id": "794809",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6506",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T03:49:00Z",
-      "route_id": "794465",
+      "arr_utc": "2026-07-26T03:49:00Z",
+      "route_id": "794807",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6205",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T03:51:00Z",
-      "route_id": "794472",
+      "arr_utc": "2026-07-26T03:51:00Z",
+      "route_id": "794815",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6103",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T03:53:00Z",
-      "route_id": "794473",
+      "arr_utc": "2026-07-26T03:53:00Z",
+      "route_id": "794816",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "821",
       "origin": "Daugavpils",
-      "arr_utc": "2026-07-25T03:59:00Z",
-      "route_id": "794453",
+      "arr_utc": "2026-07-26T03:59:00Z",
+      "route_id": "794796",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6508",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T04:14:00Z",
-      "route_id": "794471",
+      "arr_utc": "2026-07-26T04:14:00Z",
+      "route_id": "794814",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "865",
       "origin": "Valmiera",
-      "arr_utc": "2026-07-25T04:16:00Z",
-      "route_id": "794459",
+      "arr_utc": "2026-07-26T04:16:00Z",
+      "route_id": "794802",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6207",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T04:21:00Z",
-      "route_id": "794475",
+      "arr_utc": "2026-07-26T04:21:00Z",
+      "route_id": "794818",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6105",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T04:23:00Z",
-      "route_id": "794477",
+      "arr_utc": "2026-07-26T04:23:00Z",
+      "route_id": "794820",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6708",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T04:25:00Z",
-      "route_id": "794483",
+      "arr_utc": "2026-07-26T04:25:00Z",
+      "route_id": "794827",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6402",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T04:29:00Z",
-      "route_id": "794485",
+      "arr_utc": "2026-07-26T04:29:00Z",
+      "route_id": "794826",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6510",
       "origin": "Tukums 1",
-      "arr_utc": "2026-07-25T04:44:00Z",
-      "route_id": "794486",
+      "arr_utc": "2026-07-26T04:44:00Z",
+      "route_id": "794828",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "875",
       "origin": "Valga",
-      "arr_utc": "2026-07-25T04:46:00Z",
-      "route_id": "794462",
+      "arr_utc": "2026-07-26T04:46:00Z",
+      "route_id": "794805",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6211",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T04:51:00Z",
-      "route_id": "794488",
+      "arr_utc": "2026-07-26T04:51:00Z",
+      "route_id": "794829",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6107",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T04:53:00Z",
-      "route_id": "794489",
+      "arr_utc": "2026-07-26T04:53:00Z",
+      "route_id": "794830",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "811",
       "origin": "Zilupe",
-      "arr_utc": "2026-07-25T04:59:00Z",
-      "route_id": "794452",
+      "arr_utc": "2026-07-26T04:59:00Z",
+      "route_id": "794795",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6404",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T04:59:00Z",
-      "route_id": "794495",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "863",
-      "origin": "Valmiera",
-      "arr_utc": "2026-07-25T05:08:00Z",
-      "route_id": "794478",
+      "arr_utc": "2026-07-26T04:59:00Z",
+      "route_id": "794836",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "724",
       "origin": "Liepāja",
-      "arr_utc": "2026-07-25T05:10:00Z",
-      "route_id": "794458",
+      "arr_utc": "2026-07-26T05:10:00Z",
+      "route_id": "794801",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6215",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T05:21:00Z",
-      "route_id": "794492",
+      "arr_utc": "2026-07-26T05:21:00Z",
+      "route_id": "794833",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6109",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T05:23:00Z",
-      "route_id": "794496",
+      "arr_utc": "2026-07-26T05:23:00Z",
+      "route_id": "794837",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6712",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T05:25:00Z",
-      "route_id": "794503",
+      "arr_utc": "2026-07-26T05:25:00Z",
+      "route_id": "794844",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6512",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T05:29:00Z",
-      "route_id": "794493",
+      "arr_utc": "2026-07-26T05:29:00Z",
+      "route_id": "794834",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "849",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T05:33:00Z",
-      "route_id": "794497",
+      "arr_utc": "2026-07-26T05:33:00Z",
+      "route_id": "794838",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6217",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T05:51:00Z",
-      "route_id": "794505",
+      "arr_utc": "2026-07-26T05:51:00Z",
+      "route_id": "794847",
       "platform": 0,
       "track": 0
     },
     {
-      "nr": "707",
-      "origin": "Indra",
-      "arr_utc": "2026-07-25T05:59:00Z",
-      "route_id": "794464",
+      "nr": "705",
+      "origin": "Krāslava",
+      "arr_utc": "2026-07-26T05:59:00Z",
+      "route_id": "794813",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6408",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T05:59:00Z",
-      "route_id": "794511",
+      "arr_utc": "2026-07-26T05:59:00Z",
+      "route_id": "794853",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "847",
       "origin": "Cēsis",
-      "arr_utc": "2026-07-25T06:06:00Z",
-      "route_id": "794498",
+      "arr_utc": "2026-07-26T06:06:00Z",
+      "route_id": "794839",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6219",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T06:21:00Z",
-      "route_id": "794509",
+      "arr_utc": "2026-07-26T06:21:00Z",
+      "route_id": "794851",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6113",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T06:23:00Z",
-      "route_id": "794513",
+      "arr_utc": "2026-07-26T06:23:00Z",
+      "route_id": "794855",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6716",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T06:25:00Z",
-      "route_id": "794519",
+      "arr_utc": "2026-07-26T06:25:00Z",
+      "route_id": "794860",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6514",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T06:29:00Z",
-      "route_id": "794512",
+      "arr_utc": "2026-07-26T06:29:00Z",
+      "route_id": "794852",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6221",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T06:51:00Z",
-      "route_id": "794520",
+      "arr_utc": "2026-07-26T06:51:00Z",
+      "route_id": "794862",
       "platform": 0,
       "track": 0
     },
     {
-      "nr": "819",
-      "origin": "Gulbene",
-      "arr_utc": "2026-07-25T06:59:00Z",
-      "route_id": "794487",
+      "nr": "817",
+      "origin": "Madona",
+      "arr_utc": "2026-07-26T06:59:00Z",
+      "route_id": "794843",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6410",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T06:59:00Z",
-      "route_id": "794525",
+      "arr_utc": "2026-07-26T06:59:00Z",
+      "route_id": "794865",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6223",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T07:21:00Z",
-      "route_id": "794522",
+      "arr_utc": "2026-07-26T07:21:00Z",
+      "route_id": "794864",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6119",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T07:23:00Z",
-      "route_id": "794527",
+      "arr_utc": "2026-07-26T07:23:00Z",
+      "route_id": "794869",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6720",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T07:25:00Z",
-      "route_id": "794534",
+      "arr_utc": "2026-07-26T07:25:00Z",
+      "route_id": "794876",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6516",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T07:29:00Z",
-      "route_id": "794523",
+      "arr_utc": "2026-07-26T07:29:00Z",
+      "route_id": "794867",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "831",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T07:36:00Z",
-      "route_id": "794529",
+      "arr_utc": "2026-07-26T07:36:00Z",
+      "route_id": "794871",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6225",
       "origin": "Ogre",
-      "arr_utc": "2026-07-25T07:51:00Z",
-      "route_id": "794540",
+      "arr_utc": "2026-07-26T07:51:00Z",
+      "route_id": "794883",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6121",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T07:53:00Z",
-      "route_id": "794542",
+      "arr_utc": "2026-07-26T07:53:00Z",
+      "route_id": "794885",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "813",
       "origin": "Daugavpils",
-      "arr_utc": "2026-07-25T07:59:00Z",
-      "route_id": "794504",
+      "arr_utc": "2026-07-26T07:59:00Z",
+      "route_id": "794846",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6412",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T07:59:00Z",
-      "route_id": "794538",
+      "arr_utc": "2026-07-26T07:59:00Z",
+      "route_id": "794880",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6227",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T08:21:00Z",
-      "route_id": "794545",
+      "arr_utc": "2026-07-26T08:21:00Z",
+      "route_id": "794887",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6123",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T08:23:00Z",
-      "route_id": "794544",
+      "arr_utc": "2026-07-26T08:23:00Z",
+      "route_id": "794886",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6722",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T08:25:00Z",
-      "route_id": "794550",
+      "arr_utc": "2026-07-26T08:25:00Z",
+      "route_id": "794893",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6518",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T08:29:00Z",
-      "route_id": "794539",
+      "arr_utc": "2026-07-26T08:29:00Z",
+      "route_id": "794881",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "861",
       "origin": "Valmiera",
-      "arr_utc": "2026-07-25T08:36:00Z",
-      "route_id": "794528",
+      "arr_utc": "2026-07-26T08:36:00Z",
+      "route_id": "794870",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6314",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T08:44:00Z",
-      "route_id": "794556",
+      "arr_utc": "2026-07-26T08:44:00Z",
+      "route_id": "794899",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6229",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T08:51:00Z",
-      "route_id": "794547",
+      "arr_utc": "2026-07-26T08:51:00Z",
+      "route_id": "794889",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6125",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T08:53:00Z",
-      "route_id": "794561",
+      "arr_utc": "2026-07-26T08:53:00Z",
+      "route_id": "794903",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6414",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T08:59:00Z",
-      "route_id": "794557",
+      "arr_utc": "2026-07-26T08:59:00Z",
+      "route_id": "794898",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6316",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T09:14:00Z",
-      "route_id": "794569",
+      "arr_utc": "2026-07-26T09:14:00Z",
+      "route_id": "794911",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6127",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T09:23:00Z",
-      "route_id": "794562",
+      "arr_utc": "2026-07-26T09:23:00Z",
+      "route_id": "794904",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6724",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T09:25:00Z",
-      "route_id": "794567",
+      "arr_utc": "2026-07-26T09:25:00Z",
+      "route_id": "794909",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6520",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T09:29:00Z",
-      "route_id": "794558",
+      "arr_utc": "2026-07-26T09:29:00Z",
+      "route_id": "794900",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6318",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T09:44:00Z",
-      "route_id": "794574",
+      "arr_utc": "2026-07-26T09:44:00Z",
+      "route_id": "794916",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6231",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T09:51:00Z",
-      "route_id": "794563",
+      "arr_utc": "2026-07-26T09:51:00Z",
+      "route_id": "794906",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6129",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T09:53:00Z",
-      "route_id": "794577",
+      "arr_utc": "2026-07-26T09:53:00Z",
+      "route_id": "794919",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6416",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T09:59:00Z",
-      "route_id": "794575",
+      "arr_utc": "2026-07-26T09:59:00Z",
+      "route_id": "794917",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6320",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T10:14:00Z",
-      "route_id": "794589",
+      "arr_utc": "2026-07-26T10:14:00Z",
+      "route_id": "794931",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6131",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T10:23:00Z",
-      "route_id": "794579",
+      "arr_utc": "2026-07-26T10:23:00Z",
+      "route_id": "794921",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6726",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T10:25:00Z",
-      "route_id": "794588",
+      "arr_utc": "2026-07-26T10:25:00Z",
+      "route_id": "794929",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6522",
       "origin": "Ķemeri",
-      "arr_utc": "2026-07-25T10:29:00Z",
-      "route_id": "794583",
+      "arr_utc": "2026-07-26T10:29:00Z",
+      "route_id": "794925",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "833",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T10:36:00Z",
-      "route_id": "794580",
+      "arr_utc": "2026-07-26T10:36:00Z",
+      "route_id": "794922",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6322",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T10:44:00Z",
-      "route_id": "794597",
+      "arr_utc": "2026-07-26T10:44:00Z",
+      "route_id": "794939",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6233",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T10:51:00Z",
-      "route_id": "794591",
+      "arr_utc": "2026-07-26T10:51:00Z",
+      "route_id": "794933",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6133",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T10:53:00Z",
-      "route_id": "794599",
+      "arr_utc": "2026-07-26T10:53:00Z",
+      "route_id": "794941",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "801",
       "origin": "Daugavpils",
-      "arr_utc": "2026-07-25T10:59:00Z",
-      "route_id": "794553",
+      "arr_utc": "2026-07-26T10:59:00Z",
+      "route_id": "794895",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6418",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T10:59:00Z",
-      "route_id": "794594",
+      "arr_utc": "2026-07-26T10:59:00Z",
+      "route_id": "794936",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6324",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T11:14:00Z",
-      "route_id": "794610",
+      "arr_utc": "2026-07-26T11:14:00Z",
+      "route_id": "794952",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6135",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T11:23:00Z",
-      "route_id": "794603",
+      "arr_utc": "2026-07-26T11:23:00Z",
+      "route_id": "794945",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6728",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T11:25:00Z",
-      "route_id": "794608",
+      "arr_utc": "2026-07-26T11:25:00Z",
+      "route_id": "794951",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6524",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T11:29:00Z",
-      "route_id": "794595",
+      "arr_utc": "2026-07-26T11:29:00Z",
+      "route_id": "794937",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6326",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T11:44:00Z",
-      "route_id": "794614",
+      "arr_utc": "2026-07-26T11:44:00Z",
+      "route_id": "794960",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6235",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T11:51:00Z",
-      "route_id": "794605",
+      "arr_utc": "2026-07-26T11:51:00Z",
+      "route_id": "794947",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6137",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T11:53:00Z",
-      "route_id": "794620",
+      "arr_utc": "2026-07-26T11:53:00Z",
+      "route_id": "794963",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6420",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T11:59:00Z",
-      "route_id": "794616",
+      "arr_utc": "2026-07-26T11:59:00Z",
+      "route_id": "794959",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "835",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T12:06:00Z",
-      "route_id": "794612",
+      "arr_utc": "2026-07-26T12:06:00Z",
+      "route_id": "794955",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6328",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T12:14:00Z",
-      "route_id": "794630",
+      "arr_utc": "2026-07-26T12:14:00Z",
+      "route_id": "794974",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6237",
       "origin": "Ogre",
-      "arr_utc": "2026-07-25T12:21:00Z",
-      "route_id": "794632",
+      "arr_utc": "2026-07-26T12:21:00Z",
+      "route_id": "794975",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6139",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T12:23:00Z",
-      "route_id": "794621",
+      "arr_utc": "2026-07-26T12:23:00Z",
+      "route_id": "794964",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6730",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T12:25:00Z",
-      "route_id": "794631",
+      "arr_utc": "2026-07-26T12:25:00Z",
+      "route_id": "794971",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6526",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T12:29:00Z",
-      "route_id": "794615",
+      "arr_utc": "2026-07-26T12:29:00Z",
+      "route_id": "794957",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6330",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T12:44:00Z",
-      "route_id": "794638",
+      "arr_utc": "2026-07-26T12:44:00Z",
+      "route_id": "794981",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6239",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T12:51:00Z",
-      "route_id": "794625",
+      "arr_utc": "2026-07-26T12:51:00Z",
+      "route_id": "794968",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6141",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T12:53:00Z",
-      "route_id": "794641",
+      "arr_utc": "2026-07-26T12:53:00Z",
+      "route_id": "794984",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6422",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T12:59:00Z",
-      "route_id": "794637",
+      "arr_utc": "2026-07-26T12:59:00Z",
+      "route_id": "794978",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6332",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T13:14:00Z",
-      "route_id": "794649",
+      "arr_utc": "2026-07-26T13:14:00Z",
+      "route_id": "794991",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6241",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T13:21:00Z",
-      "route_id": "794642",
+      "arr_utc": "2026-07-26T13:21:00Z",
+      "route_id": "794985",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6143",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T13:23:00Z",
-      "route_id": "794644",
+      "arr_utc": "2026-07-26T13:23:00Z",
+      "route_id": "794987",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6732",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T13:25:00Z",
-      "route_id": "794648",
+      "arr_utc": "2026-07-26T13:25:00Z",
+      "route_id": "794992",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6528",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T13:29:00Z",
-      "route_id": "794635",
+      "arr_utc": "2026-07-26T13:29:00Z",
+      "route_id": "794980",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6334",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T13:44:00Z",
-      "route_id": "794655",
+      "arr_utc": "2026-07-26T13:44:00Z",
+      "route_id": "794999",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "873",
       "origin": "Valga",
-      "arr_utc": "2026-07-25T13:47:00Z",
-      "route_id": "794622",
+      "arr_utc": "2026-07-26T13:47:00Z",
+      "route_id": "794965",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6243",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T13:51:00Z",
-      "route_id": "794601",
+      "arr_utc": "2026-07-26T13:51:00Z",
+      "route_id": "794943",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6145",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T13:53:00Z",
-      "route_id": "794659",
+      "arr_utc": "2026-07-26T13:53:00Z",
+      "route_id": "795002",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6424",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T13:59:00Z",
-      "route_id": "794656",
+      "arr_utc": "2026-07-26T13:59:00Z",
+      "route_id": "794998",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6336",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T14:14:00Z",
-      "route_id": "794670",
+      "arr_utc": "2026-07-26T14:14:00Z",
+      "route_id": "795012",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "837",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T14:16:00Z",
-      "route_id": "794654",
+      "arr_utc": "2026-07-26T14:16:00Z",
+      "route_id": "794996",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6245",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T14:21:00Z",
-      "route_id": "794663",
+      "arr_utc": "2026-07-26T14:21:00Z",
+      "route_id": "795006",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6147",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T14:23:00Z",
-      "route_id": "794661",
+      "arr_utc": "2026-07-26T14:23:00Z",
+      "route_id": "795004",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6736",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T14:25:00Z",
-      "route_id": "794672",
+      "arr_utc": "2026-07-26T14:25:00Z",
+      "route_id": "795014",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "803",
       "origin": "Zilupe",
-      "arr_utc": "2026-07-25T14:29:00Z",
-      "route_id": "794593",
+      "arr_utc": "2026-07-26T14:29:00Z",
+      "route_id": "794935",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6530",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T14:29:00Z",
-      "route_id": "794653",
+      "arr_utc": "2026-07-26T14:29:00Z",
+      "route_id": "794997",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6338",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T14:44:00Z",
-      "route_id": "794677",
+      "arr_utc": "2026-07-26T14:44:00Z",
+      "route_id": "795021",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6247",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T14:51:00Z",
-      "route_id": "794667",
+      "arr_utc": "2026-07-26T14:51:00Z",
+      "route_id": "795010",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6149",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T14:53:00Z",
-      "route_id": "794683",
+      "arr_utc": "2026-07-26T14:53:00Z",
+      "route_id": "795026",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6426",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T14:59:00Z",
-      "route_id": "794681",
+      "arr_utc": "2026-07-26T14:59:00Z",
+      "route_id": "795022",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6340",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T15:14:00Z",
-      "route_id": "794696",
+      "arr_utc": "2026-07-26T15:14:00Z",
+      "route_id": "795040",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6249",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T15:21:00Z",
-      "route_id": "794686",
+      "arr_utc": "2026-07-26T15:21:00Z",
+      "route_id": "795030",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6151",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T15:23:00Z",
-      "route_id": "794684",
+      "arr_utc": "2026-07-26T15:23:00Z",
+      "route_id": "795027",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6740",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T15:25:00Z",
-      "route_id": "794695",
+      "arr_utc": "2026-07-26T15:25:00Z",
+      "route_id": "795039",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6532",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T15:29:00Z",
-      "route_id": "794679",
+      "arr_utc": "2026-07-26T15:29:00Z",
+      "route_id": "795023",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6342",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T15:44:00Z",
-      "route_id": "794704",
+      "arr_utc": "2026-07-26T15:44:00Z",
+      "route_id": "795048",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "841",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T15:46:00Z",
-      "route_id": "794694",
+      "arr_utc": "2026-07-26T15:46:00Z",
+      "route_id": "795038",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6251",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T15:51:00Z",
-      "route_id": "794688",
+      "arr_utc": "2026-07-26T15:51:00Z",
+      "route_id": "795032",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6153",
       "origin": "Carnikava",
-      "arr_utc": "2026-07-25T15:53:00Z",
-      "route_id": "794707",
+      "arr_utc": "2026-07-26T15:53:00Z",
+      "route_id": "795052",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6430",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T15:59:00Z",
-      "route_id": "794702",
+      "arr_utc": "2026-07-26T15:59:00Z",
+      "route_id": "795047",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6344",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T16:14:00Z",
-      "route_id": "794719",
+      "arr_utc": "2026-07-26T16:14:00Z",
+      "route_id": "795064",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "839",
       "origin": "Cēsis",
-      "arr_utc": "2026-07-25T16:16:00Z",
-      "route_id": "794689",
+      "arr_utc": "2026-07-26T16:16:00Z",
+      "route_id": "795033",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6255",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T16:21:00Z",
-      "route_id": "794711",
+      "arr_utc": "2026-07-26T16:21:00Z",
+      "route_id": "795056",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6155",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T16:23:00Z",
-      "route_id": "794709",
+      "arr_utc": "2026-07-26T16:23:00Z",
+      "route_id": "795054",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6744",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T16:25:00Z",
-      "route_id": "794716",
+      "arr_utc": "2026-07-26T16:25:00Z",
+      "route_id": "795061",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6534",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T16:29:00Z",
-      "route_id": "794706",
+      "arr_utc": "2026-07-26T16:29:00Z",
+      "route_id": "795051",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "809",
       "origin": "Daugavpils",
-      "arr_utc": "2026-07-25T16:30:00Z",
-      "route_id": "794664",
+      "arr_utc": "2026-07-26T16:30:00Z",
+      "route_id": "795007",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6346",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T16:44:00Z",
-      "route_id": "794726",
+      "arr_utc": "2026-07-26T16:44:00Z",
+      "route_id": "795072",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6257",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T16:51:00Z",
-      "route_id": "794714",
+      "arr_utc": "2026-07-26T16:51:00Z",
+      "route_id": "795059",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6157",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T16:53:00Z",
-      "route_id": "794722",
+      "arr_utc": "2026-07-26T16:53:00Z",
+      "route_id": "795066",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "703",
       "origin": "Ludza",
-      "arr_utc": "2026-07-25T16:59:00Z",
-      "route_id": "794674",
+      "arr_utc": "2026-07-26T16:59:00Z",
+      "route_id": "795017",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6434",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T16:59:00Z",
-      "route_id": "794728",
+      "arr_utc": "2026-07-26T16:59:00Z",
+      "route_id": "795073",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6348",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T17:14:00Z",
-      "route_id": "794740",
+      "arr_utc": "2026-07-26T17:14:00Z",
+      "route_id": "795084",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "871",
       "origin": "Valga",
-      "arr_utc": "2026-07-25T17:18:00Z",
-      "route_id": "794691",
+      "arr_utc": "2026-07-26T17:18:00Z",
+      "route_id": "795035",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6259",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T17:21:00Z",
-      "route_id": "794732",
+      "arr_utc": "2026-07-26T17:21:00Z",
+      "route_id": "795076",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6159",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T17:23:00Z",
-      "route_id": "794731",
+      "arr_utc": "2026-07-26T17:23:00Z",
+      "route_id": "795075",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6748",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T17:25:00Z",
-      "route_id": "794738",
+      "arr_utc": "2026-07-26T17:25:00Z",
+      "route_id": "795083",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "805",
+      "origin": "Gulbene",
+      "arr_utc": "2026-07-26T17:29:00Z",
+      "route_id": "795028",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6536",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T17:29:00Z",
-      "route_id": "794727",
+      "arr_utc": "2026-07-26T17:29:00Z",
+      "route_id": "795071",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6350",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T17:44:00Z",
-      "route_id": "794748",
+      "arr_utc": "2026-07-26T17:44:00Z",
+      "route_id": "795089",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6261",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T17:51:00Z",
-      "route_id": "794735",
+      "arr_utc": "2026-07-26T17:51:00Z",
+      "route_id": "795079",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6161",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T17:53:00Z",
-      "route_id": "794742",
+      "arr_utc": "2026-07-26T17:53:00Z",
+      "route_id": "795086",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6438",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T17:59:00Z",
-      "route_id": "794747",
+      "arr_utc": "2026-07-26T17:59:00Z",
+      "route_id": "795092",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "722",
+      "origin": "Liepāja",
+      "arr_utc": "2026-07-26T18:10:00Z",
+      "route_id": "795043",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6352",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T18:14:00Z",
-      "route_id": "794757",
+      "arr_utc": "2026-07-26T18:14:00Z",
+      "route_id": "795102",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6263",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T18:21:00Z",
-      "route_id": "794750",
+      "arr_utc": "2026-07-26T18:21:00Z",
+      "route_id": "795094",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6163",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T18:23:00Z",
-      "route_id": "794749",
+      "arr_utc": "2026-07-26T18:23:00Z",
+      "route_id": "795093",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6750",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T18:25:00Z",
-      "route_id": "794756",
+      "arr_utc": "2026-07-26T18:25:00Z",
+      "route_id": "795101",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "825",
       "origin": "Daugavpils",
-      "arr_utc": "2026-07-25T18:29:00Z",
-      "route_id": "794705",
+      "arr_utc": "2026-07-26T18:29:00Z",
+      "route_id": "795050",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6538",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T18:29:00Z",
-      "route_id": "794745",
+      "arr_utc": "2026-07-26T18:29:00Z",
+      "route_id": "795091",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6265",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T18:51:00Z",
-      "route_id": "794752",
+      "arr_utc": "2026-07-26T18:51:00Z",
+      "route_id": "795097",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6165",
       "origin": "Saulkrasti",
-      "arr_utc": "2026-07-25T18:53:00Z",
-      "route_id": "794758",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "807",
-      "origin": "Gulbene",
-      "arr_utc": "2026-07-25T18:59:00Z",
-      "route_id": "794721",
+      "arr_utc": "2026-07-26T18:53:00Z",
+      "route_id": "795103",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6440",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T18:59:00Z",
-      "route_id": "794762",
+      "arr_utc": "2026-07-26T18:59:00Z",
+      "route_id": "795107",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6267",
       "origin": "Lielvārde",
-      "arr_utc": "2026-07-25T19:21:00Z",
-      "route_id": "794765",
+      "arr_utc": "2026-07-26T19:21:00Z",
+      "route_id": "795110",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6167",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T19:23:00Z",
-      "route_id": "794764",
+      "arr_utc": "2026-07-26T19:23:00Z",
+      "route_id": "795109",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6752",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T19:25:00Z",
-      "route_id": "794770",
+      "arr_utc": "2026-07-26T19:25:00Z",
+      "route_id": "795115",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6540",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T19:29:00Z",
-      "route_id": "794761",
+      "arr_utc": "2026-07-26T19:29:00Z",
+      "route_id": "795108",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6442",
       "origin": "Sloka",
-      "arr_utc": "2026-07-25T19:59:00Z",
-      "route_id": "794776",
+      "arr_utc": "2026-07-26T19:59:00Z",
+      "route_id": "795120",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "845",
       "origin": "Sigulda",
-      "arr_utc": "2026-07-25T20:06:00Z",
-      "route_id": "794772",
+      "arr_utc": "2026-07-26T20:06:00Z",
+      "route_id": "795117",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6269",
       "origin": "Aizkraukle",
-      "arr_utc": "2026-07-25T20:21:00Z",
-      "route_id": "794774",
+      "arr_utc": "2026-07-26T20:21:00Z",
+      "route_id": "795119",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6169",
       "origin": "Skulte",
-      "arr_utc": "2026-07-25T20:23:00Z",
-      "route_id": "794778",
+      "arr_utc": "2026-07-26T20:23:00Z",
+      "route_id": "795123",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6754",
       "origin": "Jelgava",
-      "arr_utc": "2026-07-25T20:25:00Z",
-      "route_id": "794783",
+      "arr_utc": "2026-07-26T20:25:00Z",
+      "route_id": "795128",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6542",
       "origin": "Tukums 2",
-      "arr_utc": "2026-07-25T20:29:00Z",
-      "route_id": "794775",
+      "arr_utc": "2026-07-26T20:29:00Z",
+      "route_id": "795121",
       "platform": 0,
       "track": 0
     },
     {
       "nr": "6358",
       "origin": "Dubulti",
-      "arr_utc": "2026-07-25T21:14:00Z",
-      "route_id": "794789",
+      "arr_utc": "2026-07-26T21:14:00Z",
+      "route_id": "795134",
       "platform": 0,
       "track": 0
     }
