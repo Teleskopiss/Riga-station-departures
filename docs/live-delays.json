@@ -1,21 +1,6 @@
 {
-  "updated": "01.08.2026 00:31:06",
+  "updated": "01.08.2026 00:32:09",
   "trains": {
-    "6539": {
-      "gps_delay": 0,
-      "dispatcher_delay": 120,
-      "dispatcher_text": "Train No. 6539 Rīga (21:30) - Tukums II (22:53) is delayed ~120 minutes."
-    },
-    "848": {
-      "gps_delay": 0,
-      "dispatcher_delay": 30,
-      "dispatcher_text": "Train No. 848 Rīga (21:30) - Cēsis (23:10) is delayed ~30 minutes."
-    },
-    "6545": {
-      "gps_delay": 0,
-      "dispatcher_delay": 90,
-      "dispatcher_text": "Vilciena Nr. 6545 Rīga (23:00) - Ķemeri (23:58) paredzamais kavējums ~90 min."
-    },
     "6547": {
       "gps_delay": 0,
       "dispatcher_delay": 50,
@@ -25,6 +10,21 @@
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 6541 Rīga (22:00) - Ķemeri (22:58) paredzamais kavējums ~60 min."
+    },
+    "6539": {
+      "gps_delay": 0,
+      "dispatcher_delay": 120,
+      "dispatcher_text": "Train No. 6539 Rīga (21:30) - Tukums II (22:53) is delayed ~120 minutes."
+    },
+    "6545": {
+      "gps_delay": 0,
+      "dispatcher_delay": 90,
+      "dispatcher_text": "Vilciena Nr. 6545 Rīga (23:00) - Ķemeri (23:58) paredzamais kavējums ~90 min."
+    },
+    "848": {
+      "gps_delay": 0,
+      "dispatcher_delay": 30,
+      "dispatcher_text": "Train No. 848 Rīga (21:30) - Cēsis (23:10) is delayed ~30 minutes."
     }
   }
 }
