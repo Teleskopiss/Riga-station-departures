@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-01",
-  "updated_utc": "2026-08-01T01:05:52Z",
-  "updated": "01.08.2026 04:05:52",
-  "total": 169,
+  "updated_utc": "2026-08-01T04:57:20Z",
+  "updated": "01.08.2026 07:57:20",
+  "total": 170,
   "trains": [
     {
       "nr": "6702",
@@ -1266,6 +1266,14 @@
       "origin": "Gulbene",
       "arr_utc": "2026-08-01T18:59:00Z",
       "route_id": "797219",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6440",
+      "origin": "Sloka",
+      "arr_utc": "2026-08-01T18:59:00Z",
+      "route_id": "797261",
       "platform": 0,
       "track": 0
     },
