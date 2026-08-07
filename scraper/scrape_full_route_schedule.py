@@ -374,8 +374,6 @@ def write_output(data: dict) -> None:
             ensure_ascii=False,
             indent=2,
         )
-        file.write("
-")
 
 
 def main() -> None:
