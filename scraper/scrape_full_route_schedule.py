@@ -22,10 +22,10 @@ OUTPUT_PATH = os.path.join(
     "full-day-schedule.json",
 )
 
-RIGA_TIME_ZONE = ZoneInfo("Europe/Riga")
+TIME_ZONE = ZoneInfo("Europe/Riga")
 
 
-def get_station_name(stop: dict) -> str:
+def station_name(stop: dict) -> str:
     return str(
         stop.get("title")
         or stop.get("name")
@@ -34,7 +34,7 @@ def get_station_name(stop: dict) -> str:
     ).strip()
 
 
-def get_train_number(train: dict) -> str:
+def train_number(train: dict) -> str:
     return str(
         train.get("train")
         or train.get("nr")
@@ -45,13 +45,14 @@ def get_train_number(train: dict) -> str:
 
 def format_time(value) -> str | None:
     """
-    Convert a Vivi time value to HH:MM.
+    Convert a time value into HH:MM.
 
-    Supports:
-    - 2026-07-03T07:25:00Z
-    - 2026-07-03 07:25:00
-    - 07:25:00
-    - 07:25
+    Supported formats:
+
+    2026-08-07T07:25:00Z
+    2026-08-07 07:25:00
+    07:25:00
+    07:25
     """
 
     if value is None:
@@ -62,9 +63,7 @@ def format_time(value) -> str | None:
     if not text:
         return None
 
-    # ISO datetime:
-    # 2026-07-03T07:25:00Z
-    # 2026-07-03 07:25:00
+    # ISO datetime format
     if len(text) >= 16 and text[10] in {"T", " "}:
         return text[11:16]
 
@@ -83,7 +82,7 @@ def format_time(value) -> str | None:
     return None
 
 
-def get_arrival(stop: dict) -> str | None:
+def arrival_time(stop: dict) -> str | None:
     return format_time(
         stop.get("arrival")
         or stop.get("arrive")
@@ -91,7 +90,7 @@ def get_arrival(stop: dict) -> str | None:
     )
 
 
-def get_departure(stop: dict) -> str | None:
+def departure_time(stop: dict) -> str | None:
     return format_time(
         stop.get("departure")
         or stop.get("depart")
@@ -99,11 +98,36 @@ def get_departure(stop: dict) -> str | None:
     )
 
 
-def get_generic_time(stop: dict) -> str | None:
+def generic_time(stop: dict) -> str | None:
     return format_time(stop.get("time"))
 
 
-def get_train_list(payload) -> list[dict]:
+def get_trains(payload) -> list[dict]:
+    """
+    Support the possible trainGraph response formats:
+
+    [
+      {...},
+      {...}
+    ]
+
+    or:
+
+    {
+      "data": [
+        {...}
+      ]
+    }
+
+    or:
+
+    {
+      "trains": [
+        {...}
+      ]
+    }
+    """
+
     if isinstance(payload, list):
         return payload
 
@@ -115,19 +139,24 @@ def get_train_list(payload) -> list[dict]:
             return payload["trains"]
 
     raise ValueError(
-        "trainGraph response does not contain a train list"
+        "Could not find train list in trainGraph response"
     )
 
 
-def build_route(stops: list[dict], train_number: str) -> str:
-    names = [
-        get_station_name(stop)
-        for stop in stops
-        if get_station_name(stop)
-    ]
+def build_route(
+    stops: list[dict],
+    number: str,
+) -> str:
+    names = []
+
+    for stop in stops:
+        name = station_name(stop)
+
+        if name:
+            names.append(name)
 
     if not names:
-        return train_number
+        return number
 
     if names[0] == names[-1]:
         return names[0]
@@ -137,7 +166,7 @@ def build_route(stops: list[dict], train_number: str) -> str:
 
 def build_schedule(stops: list[dict]) -> list[dict]:
     """
-    Output rules:
+    Time rules:
 
     First station:
         departure only
@@ -148,116 +177,117 @@ def build_schedule(stops: list[dict]) -> list[dict]:
     Last station:
         arrival only
 
-    Stops without any time:
-        omitted
+    If a station has no usable time:
+        omit that station
 
-    Null values:
-        never written
+    Never write null values.
     """
 
     usable_stops = []
 
     for stop in stops:
-        station = get_station_name(stop)
+        name = station_name(stop)
 
-        if not station:
+        if not name:
             continue
 
-        arrival = get_arrival(stop)
-        departure = get_departure(stop)
-        generic_time = get_generic_time(stop)
+        arrival = arrival_time(stop)
+        departure = departure_time(stop)
+        fallback = generic_time(stop)
 
-        available_time = (
+        available = (
             departure
             or arrival
-            or generic_time
+            or fallback
         )
 
-        if not available_time:
+        if not available:
             continue
 
         usable_stops.append(
             {
-                "station": station,
+                "station": name,
                 "arrival": arrival,
                 "departure": departure,
-                "generic_time": generic_time,
-                "available_time": available_time,
+                "fallback": fallback,
+                "available": available,
             }
         )
 
     if not usable_stops:
         return []
 
-    result = []
+    schedule = []
 
     for index, stop in enumerate(usable_stops):
-        is_first = index == 0
-        is_last = index == len(usable_stops) - 1
+        first = index == 0
+        last = index == len(usable_stops) - 1
 
         item = {
             "station": stop["station"],
         }
 
-        if is_first:
-            # First station is always departure.
-            chosen_time = (
+        if first:
+            # First station always uses departure.
+            value = (
                 stop["departure"]
                 or stop["arrival"]
-                or stop["generic_time"]
-                or stop["available_time"]
+                or stop["fallback"]
+                or stop["available"]
             )
 
-            if chosen_time:
-                item["departure"] = chosen_time
+            if value:
+                item["departure"] = value
 
-        elif is_last:
-            # Last station is always arrival.
-            chosen_time = (
+        elif last:
+            # Last station always uses arrival.
+            value = (
                 stop["arrival"]
                 or stop["departure"]
-                or stop["generic_time"]
-                or stop["available_time"]
+                or stop["fallback"]
+                or stop["available"]
             )
 
-            if chosen_time:
-                item["arrival"] = chosen_time
+            if value:
+                item["arrival"] = value
 
         else:
-            # Every intermediate station is departure.
-            chosen_time = (
+            # Intermediate stations always use departure.
+            value = (
                 stop["departure"]
                 or stop["arrival"]
-                or stop["generic_time"]
-                or stop["available_time"]
+                or stop["fallback"]
+                or stop["available"]
             )
 
-            if chosen_time:
-                item["departure"] = chosen_time
+            if value:
+                item["departure"] = value
 
         if (
             "departure" in item
             or "arrival" in item
         ):
-            result.append(item)
+            schedule.append(item)
 
-    return result
+    return schedule
 
 
-def sort_train_numbers(train_numbers: dict) -> OrderedDict:
-    def sort_key(train_number: str):
+def sort_trains(
+    trains: dict,
+) -> OrderedDict:
+    def sort_key(number: str):
         try:
-            return (0, int(train_number))
+            return (0, int(number))
         except ValueError:
-            return (1, train_number)
+            return (1, number)
 
     sorted_trains = OrderedDict()
 
-    for train_number in sorted(
-        train_numbers,
+    for number in sorted(
+        trains.keys(),
         key=sort_key,
     ):
-        sorted_trains[train_number] = train_numbers[train_number]
+        sorted_trains[number] = trains[number]
 
     return sorted_trains
 
@@ -269,7 +299,7 @@ def scrape_schedule() -> dict:
         headers={
             "Accept": "application/json",
             "User-Agent": (
-                "Riga-Station-Full-Route-Schedule/1.0"
+                "Riga-Full-Route-Schedule-Scraper/1.0"
             ),
         },
     )
@@ -277,18 +307,19 @@ def scrape_schedule() -> dict:
     response.raise_for_status()
 
     payload = response.json()
-    trains = get_train_list(payload)
+    trains = get_trains(payload)
 
     print(
-        f"Received {len(trains)} trains from trainGraph"
+        f"Received {len(trains)} trains "
+        "from trainGraph"
     )
 
-    train_numbers = {}
+    output_trains = {}
 
     for train in trains:
-        train_number = get_train_number(train)
+        number = train_number(train)
 
-        if not train_number:
+        if not number:
             continue
 
         stops = train.get("stops") or []
@@ -304,27 +335,25 @@ def scrape_schedule() -> dict:
         if not schedule:
             continue
 
-        train_numbers[train_number] = {
+        output_trains[number] = {
             "route": build_route(
                 stops,
-                train_number,
+                number,
             ),
             "schedule": schedule,
         }
 
     return {
         "updated": datetime.now(
-            RIGA_TIME_ZONE
+            TIME_ZONE
         ).strftime("%Y-%m-%d %H:%M:%S"),
-        "trainNumbers": sort_train_numbers(
-            train_numbers
+        "trainNumbers": sort_trains(
+            output_trains
         ),
     }
 
 
-def main() -> None:
-    output = scrape_schedule()
-
+def write_output(data: dict) -> None:
     output_directory = os.path.dirname(
         OUTPUT_PATH
     )
@@ -340,7 +369,7 @@ def main() -> None:
         encoding="utf-8",
     ) as file:
         json.dump(
-            output,
+            data,
             file,
             ensure_ascii=False,
             indent=2,
@@ -348,8 +377,18 @@ def main() -> None:
         file.write("
 ")
 
+
+def main() -> None:
+    data = scrape_schedule()
+
+    write_output(data)
+
+    train_count = len(
+        data["trainNumbers"]
+    )
+
     print(
-        f"Wrote {len(output['trainNumbers'])} trains "
+        f"Wrote {train_count} trains "
         f"to {OUTPUT_PATH}"
     )
 
