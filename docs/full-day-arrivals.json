@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-14",
-  "updated_utc": "2026-08-14T08:45:59Z",
-  "updated": "14.08.2026 11:45:59",
-  "total": 179,
+  "updated_utc": "2026-08-14T10:34:01Z",
+  "updated": "14.08.2026 13:34:01",
+  "total": 180,
   "trains": [
     {
       "nr": "6702",
@@ -66,6 +66,14 @@
       "origin": "Tukums 2",
       "arr_utc": "2026-08-14T03:49:00Z",
       "route_id": "801582",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6205",
+      "origin": "Lielvārde",
+      "arr_utc": "2026-08-14T03:51:00Z",
+      "route_id": "801590",
       "platform": 0,
       "track": 0
     },
