@@ -1,15 +1,15 @@
 {
-  "updated": "14.08.2026 07:39:18",
+  "updated": "14.08.2026 07:40:20",
   "trains": {
-    "811": {
-      "gps_delay": 0,
-      "dispatcher_delay": 55,
-      "dispatcher_text": "Train No. 811 Zilupe (03:31) - Rīga (07:59) is delayed ~55 minutes."
-    },
     "815": {
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Train No. 815 Madona (05:03) - Rīga (07:29) is delayed ~15 minutes."
+    },
+    "811": {
+      "gps_delay": 0,
+      "dispatcher_delay": 50,
+      "dispatcher_text": "Train No. 811 Zilupe (03:31) - Rīga (07:59) is delayed ~50 minutes."
     }
   }
 }
