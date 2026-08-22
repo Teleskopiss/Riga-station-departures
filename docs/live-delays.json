@@ -1,15 +1,15 @@
 {
-  "updated": "23.08.2026 00:58:39",
+  "updated": "23.08.2026 00:59:36",
   "trains": {
-    "850": {
-      "gps_delay": 0,
-      "dispatcher_delay": 90,
-      "dispatcher_text": "Train No. 850 Rīga (22:30) - Sigulda (23:38) is delayed ~90 minutes."
-    },
     "848": {
       "gps_delay": 0,
       "dispatcher_delay": 120,
       "dispatcher_text": "Train No. 848 Rīga (21:30) - Cēsis (23:10) is delayed ~120 minutes."
+    },
+    "850": {
+      "gps_delay": 0,
+      "dispatcher_delay": 90,
+      "dispatcher_text": "Train No. 850 Rīga (22:30) - Sigulda (23:38) is delayed ~90 minutes."
     }
   }
 }
