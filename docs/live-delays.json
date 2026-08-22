@@ -1,6 +1,11 @@
 {
-  "updated": "22.08.2026 21:39:37",
+  "updated": "22.08.2026 21:40:40",
   "trains": {
+    "6260": {
+      "gps_delay": 0,
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 6260 Rīga (20:09) - Aizkraukle (21:27) is delayed ~25 minutes."
+    },
     "814": {
       "gps_delay": 0,
       "dispatcher_delay": 85,
@@ -15,11 +20,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Train No. 866 Rīga (19:30) - Valmiera (21:46) is delayed ~15 minutes."
-    },
-    "6260": {
-      "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 6260 Rīga (20:09) - Aizkraukle (21:27) is delayed ~25 minutes."
     }
   }
 }
