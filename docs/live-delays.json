@@ -1,15 +1,20 @@
 {
-  "updated": "22.08.2026 21:10:39",
+  "updated": "22.08.2026 21:11:38",
   "trains": {
+    "812": {
+      "gps_delay": 0,
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 812 Rīga (17:01) - Zilupe (21:28) is delayed ~25 minutes."
+    },
     "6535": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 6535 Rīga (19:30) - Tukums II (20:53) is delayed ~20 minutes."
     },
-    "812": {
+    "6258": {
       "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 812 Rīga (17:01) - Zilupe (21:28) is delayed ~25 minutes."
+      "dispatcher_delay": 40,
+      "dispatcher_text": "Train No. 6258 Rīga (19:39) - Lielvārde (20:35) is delayed ~40 minutes."
     }
   }
 }
