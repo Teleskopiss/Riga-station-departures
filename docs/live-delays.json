@@ -1,10 +1,15 @@
 {
-  "updated": "22.08.2026 23:28:39",
+  "updated": "22.08.2026 23:29:38",
   "trains": {
     "6168": {
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Vilciena Nr. 6168 Rīga (22:38) - Skulte (23:45) paredzamais kavējums ~15 min."
+    },
+    "822": {
+      "gps_delay": 0,
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~60 minutes."
     }
   }
 }
