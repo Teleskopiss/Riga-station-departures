@@ -1,15 +1,15 @@
 {
-  "updated": "22.08.2026 20:57:38",
+  "updated": "22.08.2026 20:58:36",
   "trains": {
-    "6439": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 6439 Rīga (20:00) - Sloka (20:50) is delayed ~15 minutes."
-    },
     "812": {
       "gps_delay": 0,
       "dispatcher_delay": 25,
       "dispatcher_text": "Train No. 812 Rīga (17:01) - Zilupe (21:28) is delayed ~25 minutes."
+    },
+    "6439": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 6439 Rīga (20:00) - Sloka (20:50) is delayed ~15 minutes."
     }
   }
 }
