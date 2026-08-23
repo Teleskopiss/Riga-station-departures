@@ -1,15 +1,15 @@
 {
-  "updated": "24.08.2026 00:10:40",
+  "updated": "24.08.2026 00:11:38",
   "trains": {
-    "6170": {
-      "gps_delay": 0,
-      "dispatcher_delay": 60,
-      "dispatcher_text": "Vilciena Nr. 6170 Rīga (23:38) - Saulkrasti (00:36) paredzamais kavējums ~60 min."
-    },
     "6753": {
       "gps_delay": 0,
       "dispatcher_delay": 90,
       "dispatcher_text": "Vilciena Nr. 6753 Rīga (23:35) - Jelgava (00:21) paredzamais kavējums ~90 min."
+    },
+    "6170": {
+      "gps_delay": 0,
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Vilciena Nr. 6170 Rīga (23:38) - Saulkrasti (00:36) paredzamais kavējums ~60 min."
     }
   }
 }
