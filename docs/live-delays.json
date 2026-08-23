@@ -1,21 +1,6 @@
 {
-  "updated": "23.08.2026 14:10:38",
+  "updated": "23.08.2026 14:11:37",
   "trains": {
-    "836": {
-      "gps_delay": 0,
-      "dispatcher_delay": 40,
-      "dispatcher_text": "Train No. 836 Rīga (12:30) - Sigulda (13:38) is delayed ~40 minutes."
-    },
-    "6517": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Vilciena Nr. 6517 Rīga (13:30) - Tukums II (14:53) paredzamais kavējums ~15 min."
-    },
-    "874": {
-      "gps_delay": 0,
-      "dispatcher_delay": 100,
-      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~100 min."
-    },
     "810": {
       "gps_delay": 0,
       "dispatcher_delay": 60,
@@ -26,10 +11,25 @@
       "dispatcher_delay": 180,
       "dispatcher_text": "Vilciena Nr. 702 Rīga (10:01) - Daugavpils (12:55) paredzamais kavējums ~180 min."
     },
+    "836": {
+      "gps_delay": 0,
+      "dispatcher_delay": 40,
+      "dispatcher_text": "Train No. 836 Rīga (12:30) - Sigulda (13:38) is delayed ~40 minutes."
+    },
     "721": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Vilciena Nr. 721 Rīga (13:55) - Liepāja (17:11) paredzamais kavējums ~20 min."
+    },
+    "6517": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Vilciena Nr. 6517 Rīga (13:30) - Tukums II (14:53) paredzamais kavējums ~15 min."
+    },
+    "874": {
+      "gps_delay": 0,
+      "dispatcher_delay": 100,
+      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~100 min."
     },
     "804": {
       "gps_delay": 0,
