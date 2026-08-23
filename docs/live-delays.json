@@ -1,11 +1,6 @@
 {
-  "updated": "23.08.2026 09:18:41",
+  "updated": "23.08.2026 09:19:36",
   "trains": {
-    "806": {
-      "gps_delay": 0,
-      "dispatcher_delay": 60,
-      "dispatcher_text": "Vilciena Nr. 806 Rīga (08:31) - Gulbene (11:42) paredzamais kavējums ~60 min."
-    },
     "872": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
@@ -15,6 +10,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 90,
       "dispatcher_text": "Vilciena Nr. 804 Rīga (08:01) - Zilupe (12:24) paredzamais kavējums ~90 min."
+    },
+    "806": {
+      "gps_delay": 0,
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Vilciena Nr. 806 Rīga (08:31) - Gulbene (11:42) paredzamais kavējums ~60 min."
     }
   }
 }
