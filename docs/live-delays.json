@@ -1,10 +1,15 @@
 {
-  "updated": "23.08.2026 13:44:44",
+  "updated": "23.08.2026 13:45:37",
   "trains": {
-    "836": {
+    "804": {
       "gps_delay": 0,
-      "dispatcher_delay": 40,
-      "dispatcher_text": "Train No. 836 Rīga (12:30) - Sigulda (13:38) is delayed ~40 minutes."
+      "dispatcher_delay": 360,
+      "dispatcher_text": "Vilciena Nr. 804 Rīga (08:01) - Zilupe (12:24) paredzamais kavējums ~360 min."
+    },
+    "874": {
+      "gps_delay": 0,
+      "dispatcher_delay": 100,
+      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~100 min."
     },
     "6517": {
       "gps_delay": 0,
@@ -21,15 +26,10 @@
       "dispatcher_delay": 180,
       "dispatcher_text": "Vilciena Nr. 702 Rīga (10:01) - Daugavpils (12:55) paredzamais kavējums ~180 min."
     },
-    "874": {
+    "836": {
       "gps_delay": 0,
-      "dispatcher_delay": 100,
-      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~100 min."
-    },
-    "804": {
-      "gps_delay": 0,
-      "dispatcher_delay": 360,
-      "dispatcher_text": "Vilciena Nr. 804 Rīga (08:01) - Zilupe (12:24) paredzamais kavējums ~360 min."
+      "dispatcher_delay": 40,
+      "dispatcher_text": "Train No. 836 Rīga (12:30) - Sigulda (13:38) is delayed ~40 minutes."
     }
   }
 }
