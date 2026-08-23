@@ -1,6 +1,16 @@
 {
-  "updated": "23.08.2026 18:44:37",
+  "updated": "23.08.2026 18:45:37",
   "trains": {
+    "6138": {
+      "gps_delay": 0,
+      "dispatcher_delay": 30,
+      "dispatcher_text": "Vilciena Nr. 6138 Rīga (14:38) - Vecāķi(15:03) paredzamais kavējums ~30 min."
+    },
+    "874": {
+      "gps_delay": 0,
+      "dispatcher_delay": 190,
+      "dispatcher_text": "Train No. 874 Riga (11:45) - Valga (14:05) is delayed ~190 minutes."
+    },
     "704": {
       "gps_delay": 0,
       "dispatcher_delay": 275,
@@ -10,16 +20,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Train No. 6345 Riga (18:15) - Dubulti (18:49) is delayed ~15 minutes."
-    },
-    "874": {
-      "gps_delay": 0,
-      "dispatcher_delay": 190,
-      "dispatcher_text": "Train No. 874 Riga (11:45) - Valga (14:05) is delayed ~190 minutes."
-    },
-    "6138": {
-      "gps_delay": 0,
-      "dispatcher_delay": 30,
-      "dispatcher_text": "Vilciena Nr. 6138 Rīga (14:38) - Vecāķi(15:03) paredzamais kavējums ~30 min."
     }
   }
 }
