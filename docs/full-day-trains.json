@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-23",
-  "updated_utc": "2026-08-23T09:33:22Z",
-  "updated": "23.08.2026 12:33:22",
-  "total": 164,
+  "updated_utc": "2026-08-23T12:51:34Z",
+  "updated": "23.08.2026 15:51:34",
+  "total": 161,
   "trains": [
     {
       "nr": "6202",
@@ -68,6 +68,14 @@
       "route_id": "804790",
       "track": 3,
       "platform": 3
+    },
+    {
+      "nr": "862",
+      "dest": "Valmiera",
+      "dep_utc": "2026-08-23T03:30:00Z",
+      "route_id": "804791",
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6705",
@@ -148,6 +156,14 @@
       "route_id": "804813",
       "track": 4,
       "platform": 3
+    },
+    {
+      "nr": "830",
+      "dest": "Sigulda",
+      "dep_utc": "2026-08-23T05:00:00Z",
+      "route_id": "804817",
+      "track": 12,
+      "platform": 1
     },
     {
       "nr": "6409",
@@ -470,22 +486,6 @@
       "platform": 1
     },
     {
-      "nr": "6228",
-      "dest": "Aizkraukle",
-      "dep_utc": "2026-08-23T09:39:00Z",
-      "route_id": "804899",
-      "track": 4,
-      "platform": 3
-    },
-    {
-      "nr": "6323",
-      "dest": "Dubulti",
-      "dep_utc": "2026-08-23T09:50:00Z",
-      "route_id": "804901",
-      "track": 3,
-      "platform": 3
-    },
-    {
       "nr": "6419",
       "dest": "Sloka",
       "dep_utc": "2026-08-23T10:00:00Z",
@@ -510,14 +510,6 @@
       "platform": 2
     },
     {
-      "nr": "6325",
-      "dest": "Dubulti",
-      "dep_utc": "2026-08-23T10:20:00Z",
-      "route_id": "804913",
-      "track": 3,
-      "platform": 3
-    },
-    {
       "nr": "6517",
       "dest": "Tukums 2",
       "dep_utc": "2026-08-23T10:30:00Z",
@@ -540,22 +532,6 @@
       "route_id": "804918",
       "track": 10,
       "platform": 2
-    },
-    {
-      "nr": "6232",
-      "dest": "Aizkraukle",
-      "dep_utc": "2026-08-23T10:39:00Z",
-      "route_id": "804920",
-      "track": 4,
-      "platform": 3
-    },
-    {
-      "nr": "6327",
-      "dest": "Dubulti",
-      "dep_utc": "2026-08-23T10:45:00Z",
-      "route_id": "804922",
-      "track": 3,
-      "platform": 3
     },
     {
       "nr": "721",
@@ -586,8 +562,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-23T11:10:00Z",
       "route_id": "804930",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6329",
@@ -858,8 +834,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-23T14:20:00Z",
       "route_id": "804998",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6527",
