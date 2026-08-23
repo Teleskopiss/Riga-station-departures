@@ -1,20 +1,20 @@
 {
-  "updated": "23.08.2026 07:22:37",
+  "updated": "23.08.2026 07:23:37",
   "trains": {
     "847": {
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 847 Cēsis (07:27) - Rīga (09:06) paredzamais kavējums ~60 min."
     },
-    "821": {
-      "gps_delay": 0,
-      "dispatcher_delay": 80,
-      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~80 minutes."
-    },
     "849": {
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 849 Sigulda (07:27) - Rīga (08:33) paredzamais kavējums ~60 min."
+    },
+    "821": {
+      "gps_delay": 0,
+      "dispatcher_delay": 80,
+      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~80 minutes."
     }
   }
 }
