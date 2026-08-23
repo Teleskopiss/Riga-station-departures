@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-23",
-  "updated_utc": "2026-08-23T04:43:04Z",
-  "updated": "23.08.2026 07:43:04",
-  "total": 170,
+  "updated_utc": "2026-08-23T05:34:19Z",
+  "updated": "23.08.2026 08:34:19",
+  "total": 169,
   "trains": [
     {
       "nr": "6202",
@@ -68,14 +68,6 @@
       "route_id": "804790",
       "track": 3,
       "platform": 3
-    },
-    {
-      "nr": "862",
-      "dest": "Valmiera",
-      "dep_utc": "2026-08-23T03:30:00Z",
-      "route_id": "804791",
-      "track": 11,
-      "platform": 1
     },
     {
       "nr": "6705",
@@ -906,8 +898,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-23T14:20:00Z",
       "route_id": "804998",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6527",
