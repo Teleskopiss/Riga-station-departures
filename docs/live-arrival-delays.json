@@ -1,6 +1,11 @@
 {
-  "updated": "23.08.2026 17:29:36",
+  "updated": "23.08.2026 17:30:42",
   "trains": {
+    "813": {
+      "gps_delay": 0,
+      "dispatcher_delay": 40,
+      "dispatcher_text": "Train No. 813 Daugavpils (07:42) - Rīga (10:59) is delayed ~40 minutes."
+    },
     "839": {
       "gps_delay": 0,
       "dispatcher_delay": 60,
@@ -10,11 +15,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr.871 Valga (17:37) - Rīga (20:19) - paredzamais kavējums ~60 min."
-    },
-    "813": {
-      "gps_delay": 0,
-      "dispatcher_delay": 40,
-      "dispatcher_text": "Train No. 813 Daugavpils (07:42) - Rīga (10:59) is delayed ~40 minutes."
     }
   }
 }
