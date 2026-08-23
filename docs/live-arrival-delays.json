@@ -1,15 +1,15 @@
 {
-  "updated": "23.08.2026 11:29:38",
+  "updated": "23.08.2026 11:30:40",
   "trains": {
-    "847": {
-      "gps_delay": 0,
-      "dispatcher_delay": 210,
-      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~210 minutes."
-    },
     "813": {
       "gps_delay": 0,
       "dispatcher_delay": 40,
       "dispatcher_text": "Train No. 813 Daugavpils (07:42) - Rīga (10:59) is delayed ~40 minutes."
+    },
+    "847": {
+      "gps_delay": 0,
+      "dispatcher_delay": 210,
+      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~210 minutes."
     }
   }
 }
