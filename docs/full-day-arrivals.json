@@ -1,8 +1,8 @@
 {
   "station": "Rīga",
   "date": "2026-08-23",
-  "updated_utc": "2026-08-23T05:03:37Z",
-  "updated": "23.08.2026 08:03:37",
+  "updated_utc": "2026-08-23T05:56:53Z",
+  "updated": "23.08.2026 08:56:53",
   "total": 167,
   "trains": [
     {
@@ -170,6 +170,14 @@
       "origin": "Saulkrasti",
       "arr_utc": "2026-08-23T04:53:00Z",
       "route_id": "804799",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "811",
+      "origin": "Zilupe",
+      "arr_utc": "2026-08-23T04:59:00Z",
+      "route_id": "804764",
       "platform": 0,
       "track": 0
     },
@@ -346,14 +354,6 @@
       "origin": "Tukums 2",
       "arr_utc": "2026-08-23T07:29:00Z",
       "route_id": "804836",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "831",
-      "origin": "Sigulda",
-      "arr_utc": "2026-08-23T07:36:00Z",
-      "route_id": "804840",
       "platform": 0,
       "track": 0
     },
