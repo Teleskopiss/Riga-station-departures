@@ -1,10 +1,10 @@
 {
-  "updated": "23.08.2026 16:29:38",
+  "updated": "23.08.2026 16:30:46",
   "trains": {
-    "6238": {
+    "810": {
       "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Vilciena Nr. 6238 Rīga (15:09) - Lielvārde (16:06) paredzamais kavējums ~15 min."
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Vilciena Nr. 810 Rīga (12:31) - Daugavpils (15:45) paredzamais kavējums ~60 min."
     },
     "6138": {
       "gps_delay": 0,
@@ -16,10 +16,10 @@
       "dispatcher_delay": 245,
       "dispatcher_text": "Train No. 704 Riga (12:01) - Ludza (15:10) is delayed ~245 minutes."
     },
-    "810": {
+    "6238": {
       "gps_delay": 0,
-      "dispatcher_delay": 60,
-      "dispatcher_text": "Vilciena Nr. 810 Rīga (12:31) - Daugavpils (15:45) paredzamais kavējums ~60 min."
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Vilciena Nr. 6238 Rīga (15:09) - Lielvārde (16:06) paredzamais kavējums ~15 min."
     }
   }
 }
