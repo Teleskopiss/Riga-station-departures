@@ -1,10 +1,15 @@
 {
-  "updated": "23.08.2026 19:47:38",
+  "updated": "23.08.2026 19:48:38",
   "trains": {
-    "816": {
+    "6345": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 6345 Riga (18:15) - Dubulti (18:49) is delayed ~15 minutes."
+    },
+    "6138": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
-      "dispatcher_text": "Vilciena Nr. 816 Rīga (19:01) - Madona (21:26) paredzamais kavējums ~30 min."
+      "dispatcher_text": "Vilciena Nr. 6138 Rīga (14:38) - Vecāķi(15:03) paredzamais kavējums ~30 min."
     },
     "704": {
       "gps_delay": 0,
@@ -16,25 +21,20 @@
       "dispatcher_delay": 190,
       "dispatcher_text": "Train No. 874 Riga (11:45) - Valga (14:05) is delayed ~190 minutes."
     },
-    "6345": {
+    "723": {
       "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 6345 Riga (18:15) - Dubulti (18:49) is delayed ~15 minutes."
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 723 Riga (18:20) - Liepaja (21:39) is delayed ~10 minutes."
     },
     "866": {
       "gps_delay": 0,
       "dispatcher_delay": 240,
       "dispatcher_text": "Vilciena Nr. 866 Rīga (19:30) - Valmiera (21:46) paredzamais kavējums ~240 min."
     },
-    "723": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 723 Riga (18:20) - Liepaja (21:39) is delayed ~10 minutes."
-    },
-    "6138": {
+    "816": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
-      "dispatcher_text": "Vilciena Nr. 6138 Rīga (14:38) - Vecāķi(15:03) paredzamais kavējums ~30 min."
+      "dispatcher_text": "Vilciena Nr. 816 Rīga (19:01) - Madona (21:26) paredzamais kavējums ~30 min."
     }
   }
 }
