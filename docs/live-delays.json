@@ -1,6 +1,11 @@
 {
-  "updated": "23.08.2026 16:51:37",
+  "updated": "23.08.2026 16:52:38",
   "trains": {
+    "6238": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Vilciena Nr. 6238 Rīga (15:09) - Lielvārde (16:06) paredzamais kavējums ~15 min."
+    },
     "6138": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
@@ -11,20 +16,15 @@
       "dispatcher_delay": 80,
       "dispatcher_text": "Vilciena Nr. 840 Rīga (15:25) - Cēsis (17:11) paredzamais kavējums ~80 min."
     },
-    "6238": {
+    "704": {
       "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Vilciena Nr. 6238 Rīga (15:09) - Lielvārde (16:06) paredzamais kavējums ~15 min."
+      "dispatcher_delay": 245,
+      "dispatcher_text": "Train No. 704 Riga (12:01) - Ludza (15:10) is delayed ~245 minutes."
     },
     "6523": {
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Vilciena Nr. 6523 Rīga (16:30) - Tukums II (17:53) paredzamais kavējums ~15 min."
-    },
-    "704": {
-      "gps_delay": 0,
-      "dispatcher_delay": 245,
-      "dispatcher_text": "Train No. 704 Riga (12:01) - Ludza (15:10) is delayed ~245 minutes."
     }
   }
 }
