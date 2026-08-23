@@ -1,5 +1,5 @@
 {
-  "updated": "23.08.2026 09:44:39",
+  "updated": "23.08.2026 09:45:37",
   "trains": {
     "806": {
       "gps_delay": 0,
@@ -11,6 +11,11 @@
       "dispatcher_delay": 90,
       "dispatcher_text": "Vilciena Nr. 804 Rīga (08:01) - Zilupe (12:24) paredzamais kavējums ~90 min."
     },
+    "702": {
+      "gps_delay": 0,
+      "dispatcher_delay": 30,
+      "dispatcher_text": "Vilciena Nr. 702 Rīga (10:01) - Daugavpils (12:55) paredzamais kavējums ~30 min."
+    },
     "872": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
@@ -20,11 +25,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 15,
       "dispatcher_text": "Vilciena Nr. 6509 Rīga (09:30) - Tukums II (10:53) paredzamais kavējums ~15 min."
-    },
-    "702": {
-      "gps_delay": 0,
-      "dispatcher_delay": 30,
-      "dispatcher_text": "Vilciena Nr. 702 Rīga (10:01) - Daugavpils (12:55) paredzamais kavējums ~30 min."
     }
   }
 }
