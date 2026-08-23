@@ -1,6 +1,16 @@
 {
-  "updated": "23.08.2026 20:54:37",
+  "updated": "23.08.2026 20:55:38",
   "trains": {
+    "866": {
+      "gps_delay": 0,
+      "dispatcher_delay": 240,
+      "dispatcher_text": "Vilciena Nr. 866 Rīga (19:30) - Valmiera (21:46) paredzamais kavējums ~240 min."
+    },
+    "6345": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 6345 Riga (18:15) - Dubulti (18:49) is delayed ~15 minutes."
+    },
     "874": {
       "gps_delay": 0,
       "dispatcher_delay": 190,
@@ -10,16 +20,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 723 Riga (18:20) - Liepaja (21:39) is delayed ~10 minutes."
-    },
-    "6345": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 6345 Riga (18:15) - Dubulti (18:49) is delayed ~15 minutes."
-    },
-    "866": {
-      "gps_delay": 0,
-      "dispatcher_delay": 240,
-      "dispatcher_text": "Vilciena Nr. 866 Rīga (19:30) - Valmiera (21:46) paredzamais kavējums ~240 min."
     }
   }
 }
