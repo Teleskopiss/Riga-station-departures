@@ -1,15 +1,15 @@
 {
-  "updated": "23.08.2026 04:29:38",
+  "updated": "23.08.2026 04:30:37",
   "trains": {
-    "825": {
-      "gps_delay": 0,
-      "dispatcher_delay": 240,
-      "dispatcher_text": "Train No. 825 Daugavpils (18:10) - Rīga (21:29) is delayed ~240 minutes."
-    },
     "821": {
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 821 Daugavpils (03:48) - Rīga (06:59) paredzamais kavējums ~60 min."
+    },
+    "825": {
+      "gps_delay": 0,
+      "dispatcher_delay": 240,
+      "dispatcher_text": "Train No. 825 Daugavpils (18:10) - Rīga (21:29) is delayed ~240 minutes."
     }
   }
 }
