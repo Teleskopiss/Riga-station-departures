@@ -1,15 +1,15 @@
 {
-  "updated": "23.08.2026 03:05:37",
+  "updated": "23.08.2026 03:06:36",
   "trains": {
-    "822": {
-      "gps_delay": 0,
-      "dispatcher_delay": 220,
-      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~220 minutes."
-    },
     "848": {
       "gps_delay": 0,
       "dispatcher_delay": 210,
       "dispatcher_text": "Train No. 848 Rīga (21:30) - Cēsis (23:10) is delayed ~210 minutes."
+    },
+    "822": {
+      "gps_delay": 0,
+      "dispatcher_delay": 220,
+      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~220 minutes."
     }
   }
 }
