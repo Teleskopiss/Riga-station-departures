@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-23",
-  "updated_utc": "2026-08-23T11:48:35Z",
-  "updated": "23.08.2026 14:48:35",
-  "total": 161,
+  "updated_utc": "2026-08-23T14:51:33Z",
+  "updated": "23.08.2026 17:51:33",
+  "total": 165,
   "trains": [
     {
       "nr": "6702",
@@ -350,6 +350,22 @@
       "track": 0
     },
     {
+      "nr": "6516",
+      "origin": "Tukums 2",
+      "arr_utc": "2026-08-23T07:29:00Z",
+      "route_id": "804836",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "831",
+      "origin": "Sigulda",
+      "arr_utc": "2026-08-23T07:36:00Z",
+      "route_id": "804840",
+      "platform": 0,
+      "track": 0
+    },
+    {
       "nr": "6225",
       "origin": "Ogre",
       "arr_utc": "2026-08-23T07:51:00Z",
@@ -362,14 +378,6 @@
       "origin": "Carnikava",
       "arr_utc": "2026-08-23T07:53:00Z",
       "route_id": "804853",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "813",
-      "origin": "Daugavpils",
-      "arr_utc": "2026-08-23T07:59:00Z",
-      "route_id": "804815",
       "platform": 0,
       "track": 0
     },
@@ -394,6 +402,22 @@
       "origin": "Skulte",
       "arr_utc": "2026-08-23T08:23:00Z",
       "route_id": "804855",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6722",
+      "origin": "Jelgava",
+      "arr_utc": "2026-08-23T08:25:00Z",
+      "route_id": "804862",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6518",
+      "origin": "Tukums 2",
+      "arr_utc": "2026-08-23T08:29:00Z",
+      "route_id": "804849",
       "platform": 0,
       "track": 0
     },
@@ -442,6 +466,14 @@
       "origin": "Dubulti",
       "arr_utc": "2026-08-23T09:14:00Z",
       "route_id": "804880",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6127",
+      "origin": "Saulkrasti",
+      "arr_utc": "2026-08-23T09:23:00Z",
+      "route_id": "804873",
       "platform": 0,
       "track": 0
     },
