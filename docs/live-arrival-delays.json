@@ -1,15 +1,15 @@
 {
-  "updated": "23.08.2026 12:30:44",
+  "updated": "23.08.2026 12:31:36",
   "trains": {
-    "847": {
-      "gps_delay": 0,
-      "dispatcher_delay": 280,
-      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~280 minutes."
-    },
     "875": {
       "gps_delay": 0,
       "dispatcher_delay": 320,
       "dispatcher_text": "Train No. 875 Valga (05:15) - Rīga (07:46) is delayed ~320 minutes."
+    },
+    "847": {
+      "gps_delay": 0,
+      "dispatcher_delay": 280,
+      "dispatcher_text": "Train No. 847 Cēsis (07:27) - Rīga (09:06) is delayed ~280 minutes."
     }
   }
 }
