@@ -1,6 +1,11 @@
 {
-  "updated": "23.08.2026 16:11:36",
+  "updated": "23.08.2026 16:12:36",
   "trains": {
+    "874": {
+      "gps_delay": 0,
+      "dispatcher_delay": 130,
+      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~130 min."
+    },
     "704": {
       "gps_delay": 0,
       "dispatcher_delay": 245,
@@ -15,11 +20,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 810 Rīga (12:31) - Daugavpils (15:45) paredzamais kavējums ~60 min."
-    },
-    "874": {
-      "gps_delay": 0,
-      "dispatcher_delay": 130,
-      "dispatcher_text": "Vilciena Nr. 874 Rīga (11:45) - Valga (14:05) paredzamais kavējums ~130 min."
     },
     "6138": {
       "gps_delay": 0,
