@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T07:09:14Z",
-  "updated": "24.08.2026 10:09:14",
-  "total": 174,
+  "updated_utc": "2026-08-24T08:54:50Z",
+  "updated": "24.08.2026 11:54:50",
+  "total": 173,
   "trains": [
     {
       "nr": "6871",
@@ -43,6 +43,14 @@
       "dep_utc": "2026-08-24T02:35:00Z",
       "route_id": "805124",
       "track": 1,
+      "platform": 2
+    },
+    {
+      "nr": "6102",
+      "dest": "Skulte",
+      "dep_utc": "2026-08-24T02:38:00Z",
+      "route_id": "805125",
+      "track": 10,
       "platform": 2
     },
     {
@@ -370,8 +378,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T07:10:00Z",
       "route_id": "805218",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6313",
@@ -396,14 +404,6 @@
       "route_id": "805226",
       "track": 5,
       "platform": 4
-    },
-    {
-      "nr": "6122",
-      "dest": "Skulte",
-      "dep_utc": "2026-08-24T07:38:00Z",
-      "route_id": "805227",
-      "track": 10,
-      "platform": 2
     },
     {
       "nr": "6224",
@@ -498,8 +498,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T09:10:00Z",
       "route_id": "805250",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6321",
@@ -540,14 +540,6 @@
       "route_id": "805259",
       "track": 5,
       "platform": 4
-    },
-    {
-      "nr": "6130",
-      "dest": "Skulte",
-      "dep_utc": "2026-08-24T09:38:00Z",
-      "route_id": "805260",
-      "track": 11,
-      "platform": 1
     },
     {
       "nr": "6228",
@@ -642,8 +634,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T11:10:00Z",
       "route_id": "805288",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6329",
@@ -679,9 +671,9 @@
     },
     {
       "nr": "6138",
-      "dest": "Skulte",
+      "dest": "Saulkrasti",
       "dep_utc": "2026-08-24T11:38:00Z",
-      "route_id": "805297",
+      "route_id": "808658",
       "track": 10,
       "platform": 2
     },
@@ -751,9 +743,9 @@
     },
     {
       "nr": "6142",
-      "dest": "Skulte",
+      "dest": "Saulkrasti",
       "dep_utc": "2026-08-24T12:38:00Z",
-      "route_id": "805315",
+      "route_id": "808659",
       "track": 10,
       "platform": 2
     },
@@ -849,7 +841,7 @@
       "nr": "6146",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T13:38:00Z",
-      "route_id": "805337",
+      "route_id": "808661",
       "track": 10,
       "platform": 2
     },
@@ -922,8 +914,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T14:20:00Z",
       "route_id": "805355",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6248",
@@ -961,7 +953,7 @@
       "nr": "6152",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T14:38:00Z",
-      "route_id": "805364",
+      "route_id": "808663",
       "track": 11,
       "platform": 1
     },
@@ -1073,7 +1065,7 @@
       "nr": "6156",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T15:38:00Z",
-      "route_id": "805392",
+      "route_id": "808665",
       "track": 10,
       "platform": 2
     },
@@ -1161,7 +1153,7 @@
       "nr": "6160",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T16:38:00Z",
-      "route_id": "805412",
+      "route_id": "808667",
       "track": 10,
       "platform": 2
     },
@@ -1233,7 +1225,7 @@
       "nr": "6164",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T17:38:00Z",
-      "route_id": "805430",
+      "route_id": "808669",
       "track": 11,
       "platform": 1
     },
@@ -1297,7 +1289,7 @@
       "nr": "6166",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T18:38:00Z",
-      "route_id": "805445",
+      "route_id": "808671",
       "track": 11,
       "platform": 1
     },
@@ -1345,7 +1337,7 @@
       "nr": "6168",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T19:38:00Z",
-      "route_id": "805457",
+      "route_id": "808673",
       "track": 1,
       "platform": 2
     },
@@ -1377,7 +1369,7 @@
       "nr": "6170",
       "dest": "Skulte",
       "dep_utc": "2026-08-24T20:38:00Z",
-      "route_id": "805462",
+      "route_id": "808674",
       "track": 10,
       "platform": 2
     },
