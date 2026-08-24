@@ -1,15 +1,15 @@
 {
-  "updated": "24.08.2026 06:02:37",
+  "updated": "24.08.2026 06:03:40",
   "trains": {
-    "821": {
-      "gps_delay": 0,
-      "dispatcher_delay": 30,
-      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~30 minutes."
-    },
     "811": {
       "gps_delay": 0,
       "dispatcher_delay": 25,
       "dispatcher_text": "Train No. 811 Zilupe (03:31) - Rīga (07:59) is delayed ~25 minutes."
+    },
+    "821": {
+      "gps_delay": 0,
+      "dispatcher_delay": 30,
+      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~30 minutes."
     }
   }
 }
