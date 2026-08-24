@@ -1,8 +1,8 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T11:56:09Z",
-  "updated": "24.08.2026 14:56:09",
+  "updated_utc": "2026-08-24T13:31:42Z",
+  "updated": "24.08.2026 16:31:42",
   "total": 173,
   "trains": [
     {
@@ -438,6 +438,14 @@
       "track": 0
     },
     {
+      "nr": "6119",
+      "origin": "Saulkrasti",
+      "arr_utc": "2026-08-24T07:23:00Z",
+      "route_id": "805205",
+      "platform": 0,
+      "track": 0
+    },
+    {
       "nr": "6720",
       "origin": "Jelgava",
       "arr_utc": "2026-08-24T07:25:00Z",
@@ -498,6 +506,14 @@
       "origin": "Lielvārde",
       "arr_utc": "2026-08-24T08:21:00Z",
       "route_id": "805223",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6123",
+      "origin": "Saulkrasti",
+      "arr_utc": "2026-08-24T08:23:00Z",
+      "route_id": "805222",
       "platform": 0,
       "track": 0
     },
@@ -974,14 +990,6 @@
       "track": 0
     },
     {
-      "nr": "6151",
-      "origin": "Skulte",
-      "arr_utc": "2026-08-24T15:23:00Z",
-      "route_id": "808662",
-      "platform": 0,
-      "track": 0
-    },
-    {
       "nr": "6740",
       "origin": "Jelgava",
       "arr_utc": "2026-08-24T15:25:00Z",
@@ -1074,14 +1082,6 @@
       "origin": "Lielvārde",
       "arr_utc": "2026-08-24T16:21:00Z",
       "route_id": "805384",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "6155",
-      "origin": "Skulte",
-      "arr_utc": "2026-08-24T16:23:00Z",
-      "route_id": "808664",
       "platform": 0,
       "track": 0
     },
