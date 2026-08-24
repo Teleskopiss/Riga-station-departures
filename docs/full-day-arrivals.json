@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T19:10:51Z",
-  "updated": "24.08.2026 22:10:51",
-  "total": 174,
+  "updated_utc": "2026-08-24T19:56:25Z",
+  "updated": "24.08.2026 22:56:25",
+  "total": 176,
   "trains": [
     {
       "nr": "6702",
@@ -1014,6 +1014,14 @@
       "track": 0
     },
     {
+      "nr": "6151",
+      "origin": "Skulte",
+      "arr_utc": "2026-08-24T15:23:00Z",
+      "route_id": "808662",
+      "platform": 0,
+      "track": 0
+    },
+    {
       "nr": "6740",
       "origin": "Jelgava",
       "arr_utc": "2026-08-24T15:25:00Z",
@@ -1106,6 +1114,14 @@
       "origin": "Lielvārde",
       "arr_utc": "2026-08-24T16:21:00Z",
       "route_id": "805384",
+      "platform": 0,
+      "track": 0
+    },
+    {
+      "nr": "6155",
+      "origin": "Skulte",
+      "arr_utc": "2026-08-24T16:23:00Z",
+      "route_id": "808664",
       "platform": 0,
       "track": 0
     },
