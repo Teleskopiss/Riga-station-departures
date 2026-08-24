@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T04:51:53Z",
-  "updated": "24.08.2026 07:51:53",
-  "total": 176,
+  "updated_utc": "2026-08-24T05:42:38Z",
+  "updated": "24.08.2026 08:42:38",
+  "total": 175,
   "trains": [
     {
       "nr": "6871",
@@ -294,14 +294,6 @@
       "platform": 4
     },
     {
-      "nr": "6114",
-      "dest": "Skulte",
-      "dep_utc": "2026-08-24T05:38:00Z",
-      "route_id": "805192",
-      "track": 11,
-      "platform": 1
-    },
-    {
       "nr": "6218",
       "dest": "Aizkraukle",
       "dep_utc": "2026-08-24T05:39:00Z",
@@ -442,8 +434,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T08:10:00Z",
       "route_id": "805235",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6317",
@@ -514,8 +506,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T09:10:00Z",
       "route_id": "805250",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6321",
@@ -938,8 +930,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T14:20:00Z",
       "route_id": "805355",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6248",
