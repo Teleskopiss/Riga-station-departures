@@ -1,15 +1,20 @@
 {
-  "updated": "24.08.2026 07:23:40",
+  "updated": "24.08.2026 07:24:37",
   "trains": {
-    "6215": {
-      "gps_delay": 0,
-      "dispatcher_delay": 10,
-      "dispatcher_text": "Train No. 6215 Aizkraukle (07:02) - Rīga (08:21) is delayed ~10 minutes."
-    },
     "815": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 815 Madona (05:03) - Rīga (07:29) is delayed ~20 minutes."
+    },
+    "821": {
+      "gps_delay": 0,
+      "dispatcher_delay": 40,
+      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~40 minutes."
+    },
+    "6215": {
+      "gps_delay": 0,
+      "dispatcher_delay": 10,
+      "dispatcher_text": "Train No. 6215 Aizkraukle (07:02) - Rīga (08:21) is delayed ~10 minutes."
     },
     "6211": {
       "gps_delay": 0,
@@ -20,11 +25,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 25,
       "dispatcher_text": "Train No. 811 Zilupe (03:31) - Rīga (07:59) is delayed ~25 minutes."
-    },
-    "821": {
-      "gps_delay": 0,
-      "dispatcher_delay": 40,
-      "dispatcher_text": "Train No. 821 Daugavpils (03:48) - Rīga (06:59) is delayed ~40 minutes."
     }
   }
 }
