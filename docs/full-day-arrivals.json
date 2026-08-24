@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T07:39:43Z",
-  "updated": "24.08.2026 10:39:43",
-  "total": 174,
+  "updated_utc": "2026-08-24T09:25:09Z",
+  "updated": "24.08.2026 12:25:09",
+  "total": 172,
   "trains": [
     {
       "nr": "6702",
@@ -23,7 +23,7 @@
     },
     {
       "nr": "6101",
-      "origin": "Skulte",
+      "origin": "Saulkrasti",
       "arr_utc": "2026-08-24T02:53:00Z",
       "route_id": "805111",
       "platform": 0,
@@ -127,7 +127,7 @@
     },
     {
       "nr": "6105",
-      "origin": "Skulte",
+      "origin": "Saulkrasti",
       "arr_utc": "2026-08-24T04:23:00Z",
       "route_id": "805138",
       "platform": 0,
@@ -598,14 +598,6 @@
       "track": 0
     },
     {
-      "nr": "6131",
-      "origin": "Skulte",
-      "arr_utc": "2026-08-24T10:23:00Z",
-      "route_id": "805253",
-      "platform": 0,
-      "track": 0
-    },
-    {
       "nr": "6726",
       "origin": "Jelgava",
       "arr_utc": "2026-08-24T10:25:00Z",
@@ -738,14 +730,6 @@
       "origin": "Ogre",
       "arr_utc": "2026-08-24T12:21:00Z",
       "route_id": "805301",
-      "platform": 0,
-      "track": 0
-    },
-    {
-      "nr": "6139",
-      "origin": "Skulte",
-      "arr_utc": "2026-08-24T12:23:00Z",
-      "route_id": "805291",
       "platform": 0,
       "track": 0
     },
@@ -897,7 +881,7 @@
       "nr": "6147",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T14:23:00Z",
-      "route_id": "805329",
+      "route_id": "808660",
       "platform": 0,
       "track": 0
     },
@@ -985,7 +969,7 @@
       "nr": "6151",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T15:23:00Z",
-      "route_id": "805354",
+      "route_id": "808662",
       "platform": 0,
       "track": 0
     },
@@ -1089,7 +1073,7 @@
       "nr": "6155",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T16:23:00Z",
-      "route_id": "805382",
+      "route_id": "808664",
       "platform": 0,
       "track": 0
     },
@@ -1185,7 +1169,7 @@
       "nr": "6159",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T17:23:00Z",
-      "route_id": "805405",
+      "route_id": "808666",
       "platform": 0,
       "track": 0
     },
@@ -1265,7 +1249,7 @@
       "nr": "6163",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T18:23:00Z",
-      "route_id": "805424",
+      "route_id": "808668",
       "platform": 0,
       "track": 0
     },
@@ -1329,7 +1313,7 @@
       "nr": "6167",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T19:23:00Z",
-      "route_id": "805440",
+      "route_id": "808670",
       "platform": 0,
       "track": 0
     },
@@ -1377,7 +1361,7 @@
       "nr": "6169",
       "origin": "Skulte",
       "arr_utc": "2026-08-24T20:23:00Z",
-      "route_id": "805453",
+      "route_id": "808672",
       "platform": 0,
       "track": 0
     },
