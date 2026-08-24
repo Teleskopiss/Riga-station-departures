@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T09:54:14Z",
-  "updated": "24.08.2026 12:54:14",
-  "total": 173,
+  "updated_utc": "2026-08-24T10:41:55Z",
+  "updated": "24.08.2026 13:41:55",
+  "total": 174,
   "trains": [
     {
       "nr": "6871",
@@ -206,6 +206,14 @@
       "platform": 4
     },
     {
+      "nr": "6110",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-08-24T04:38:00Z",
+      "route_id": "805170",
+      "track": 11,
+      "platform": 1
+    },
+    {
       "nr": "6214",
       "dest": "Lielvārde",
       "dep_utc": "2026-08-24T04:39:00Z",
@@ -378,8 +386,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T07:10:00Z",
       "route_id": "805218",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6313",
@@ -426,8 +434,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T08:10:00Z",
       "route_id": "805235",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6317",
