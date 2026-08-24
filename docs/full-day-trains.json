@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-08-24",
-  "updated_utc": "2026-08-24T13:01:11Z",
-  "updated": "24.08.2026 16:01:11",
-  "total": 174,
+  "updated_utc": "2026-08-24T14:48:39Z",
+  "updated": "24.08.2026 17:48:39",
+  "total": 173,
   "trains": [
     {
       "nr": "6871",
@@ -124,6 +124,14 @@
       "route_id": "805143",
       "track": 5,
       "platform": 4
+    },
+    {
+      "nr": "6106",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-08-24T03:38:00Z",
+      "route_id": "805144",
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6210",
@@ -394,8 +402,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T07:10:00Z",
       "route_id": "805218",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6313",
@@ -422,6 +430,14 @@
       "platform": 4
     },
     {
+      "nr": "6122",
+      "dest": "Saulkrasti",
+      "dep_utc": "2026-08-24T07:38:00Z",
+      "route_id": "805227",
+      "track": 10,
+      "platform": 2
+    },
+    {
       "nr": "6224",
       "dest": "Lielvārde",
       "dep_utc": "2026-08-24T07:39:00Z",
@@ -442,8 +458,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T08:10:00Z",
       "route_id": "805235",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6317",
@@ -586,8 +602,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T10:10:00Z",
       "route_id": "805270",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6325",
@@ -750,14 +766,6 @@
       "platform": 4
     },
     {
-      "nr": "6142",
-      "dest": "Saulkrasti",
-      "dep_utc": "2026-08-24T12:38:00Z",
-      "route_id": "808659",
-      "track": 10,
-      "platform": 2
-    },
-    {
       "nr": "6240",
       "dest": "Aizkraukle",
       "dep_utc": "2026-08-24T12:39:00Z",
@@ -846,14 +854,6 @@
       "platform": 4
     },
     {
-      "nr": "6146",
-      "dest": "Skulte",
-      "dep_utc": "2026-08-24T13:38:00Z",
-      "route_id": "808661",
-      "track": 10,
-      "platform": 2
-    },
-    {
       "nr": "6244",
       "dest": "Aizkraukle",
       "dep_utc": "2026-08-24T13:39:00Z",
@@ -922,8 +922,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-08-24T14:20:00Z",
       "route_id": "805355",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6248",
@@ -956,14 +956,6 @@
       "route_id": "805363",
       "track": 5,
       "platform": 4
-    },
-    {
-      "nr": "6152",
-      "dest": "Skulte",
-      "dep_utc": "2026-08-24T14:38:00Z",
-      "route_id": "808663",
-      "track": 11,
-      "platform": 1
     },
     {
       "nr": "6250",
