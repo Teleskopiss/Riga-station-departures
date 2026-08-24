@@ -1,15 +1,15 @@
 {
-  "updated": "24.08.2026 08:02:38",
+  "updated": "24.08.2026 08:03:39",
   "trains": {
-    "6215": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 6215 Aizkraukle (07:02) - Rīga (08:21) is delayed ~15 minutes."
-    },
     "811": {
       "gps_delay": 0,
       "dispatcher_delay": 25,
       "dispatcher_text": "Train No. 811 Zilupe (03:31) - Rīga (07:59) is delayed ~25 minutes."
+    },
+    "6215": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 6215 Aizkraukle (07:02) - Rīga (08:21) is delayed ~15 minutes."
     }
   }
 }
