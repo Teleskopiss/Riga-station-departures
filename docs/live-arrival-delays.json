@@ -1,15 +1,15 @@
 {
-  "updated": "31.08.2026 09:16:38",
+  "updated": "31.08.2026 09:17:39",
   "trains": {
-    "724": {
-      "gps_delay": 0,
-      "dispatcher_delay": 165,
-      "dispatcher_text": "Train No. 724 Liepāja (04:57) - Rīga (08:10) is delayed ~165 minutes."
-    },
     "6876": {
       "gps_delay": 0,
       "dispatcher_delay": 120,
       "dispatcher_text": "Vilciena Nr. 6876 Jelgava (08:05) - Rīga (08:54) paredzamais kavējums ~120 min."
+    },
+    "724": {
+      "gps_delay": 0,
+      "dispatcher_delay": 165,
+      "dispatcher_text": "Train No. 724 Liepāja (04:57) - Rīga (08:10) is delayed ~165 minutes."
     }
   }
 }
