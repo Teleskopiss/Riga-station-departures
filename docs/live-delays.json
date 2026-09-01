@@ -1,11 +1,6 @@
 {
-  "updated": "01.09.2026 13:18:58",
+  "updated": "01.09.2026 13:20:03",
   "trains": {
-    "6417": {
-      "gps_delay": 0,
-      "dispatcher_delay": 45,
-      "dispatcher_text": "Train No. 6417 Rīga (12:00) - Sloka (12:50) is delayed ~45 minutes."
-    },
     "6515": {
       "gps_delay": 0,
       "dispatcher_delay": 25,
@@ -15,6 +10,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 35,
       "dispatcher_text": "Train No. 6321 Rīga (12:15) - Dubulti (12:48) is delayed ~35 minutes."
+    },
+    "6417": {
+      "gps_delay": 0,
+      "dispatcher_delay": 45,
+      "dispatcher_text": "Train No. 6417 Rīga (12:00) - Sloka (12:50) is delayed ~45 minutes."
     }
   }
 }
