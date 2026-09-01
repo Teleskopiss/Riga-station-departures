@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
-  "date": "2026-09-01",
-  "updated_utc": "2026-09-01T14:39:48Z",
-  "updated": "01.09.2026 17:39:48",
-  "total": 177,
+  "date": "2026-09-02",
+  "updated_utc": "2026-09-01T21:40:01Z",
+  "updated": "02.09.2026 00:40:01",
+  "total": 178,
   "trains": [
     {
       "nr": "6871",
@@ -402,8 +402,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T07:10:00Z",
       "route_id": "808069",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6313",
@@ -458,8 +458,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T08:10:00Z",
       "route_id": "808085",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6317",
@@ -530,8 +530,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T09:10:00Z",
       "route_id": "808100",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6321",
@@ -548,6 +548,14 @@
       "route_id": "808106",
       "track": 12,
       "platform": 1
+    },
+    {
+      "nr": "6515",
+      "dest": "Tukums 2",
+      "dep_utc": "2026-09-01T09:30:00Z",
+      "route_id": "808107",
+      "track": 3,
+      "platform": 3
     },
     {
       "nr": "810",
@@ -602,8 +610,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T10:10:00Z",
       "route_id": "808120",
-      "track": 10,
-      "platform": 2
+      "track": 11,
+      "platform": 1
     },
     {
       "nr": "6325",
@@ -666,8 +674,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T11:10:00Z",
       "route_id": "808138",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6329",
@@ -946,8 +954,8 @@
       "dest": "Carnikava",
       "dep_utc": "2026-09-01T14:20:00Z",
       "route_id": "808205",
-      "track": 11,
-      "platform": 1
+      "track": 10,
+      "platform": 2
     },
     {
       "nr": "6248",
