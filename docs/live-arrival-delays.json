@@ -1,15 +1,15 @@
 {
-  "updated": "01.09.2026 13:22:57",
+  "updated": "01.09.2026 13:23:58",
   "trains": {
-    "6322": {
-      "gps_delay": 0,
-      "dispatcher_delay": 20,
-      "dispatcher_text": "Vilciena Nr. 6322 Dubulti (13:09) - Rīga (13:44) paredzamais kavējums ~20 min."
-    },
     "6418": {
       "gps_delay": 0,
       "dispatcher_delay": 30,
       "dispatcher_text": "Vilciena Nr. 6418 Sloka (13:09) - Rīga (13:59) paredzamais kavējums ~30 min."
+    },
+    "6322": {
+      "gps_delay": 0,
+      "dispatcher_delay": 20,
+      "dispatcher_text": "Vilciena Nr. 6322 Dubulti (13:09) - Rīga (13:44) paredzamais kavējums ~20 min."
     }
   }
 }
