@@ -1,15 +1,15 @@
 {
-  "updated": "01.09.2026 13:30:57",
+  "updated": "01.09.2026 13:31:55",
   "trains": {
-    "6417": {
-      "gps_delay": 0,
-      "dispatcher_delay": 45,
-      "dispatcher_text": "Train No. 6417 Rīga (12:00) - Sloka (12:50) is delayed ~45 minutes."
-    },
     "6515": {
       "gps_delay": 0,
       "dispatcher_delay": 25,
       "dispatcher_text": "Train No. 6515 Rīga (12:30) - Tukums II (13:53) is delayed ~25 minutes."
+    },
+    "6417": {
+      "gps_delay": 0,
+      "dispatcher_delay": 45,
+      "dispatcher_text": "Train No. 6417 Rīga (12:00) - Sloka (12:50) is delayed ~45 minutes."
     }
   }
 }
