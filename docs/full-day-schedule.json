@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-02 15:01:04",
+  "updated": "2026-09-03 15:00:53",
   "trainNumbers": {
     "702": {
       "route": "Rīga - Daugavpils",
@@ -153,8 +153,8 @@
         }
       ]
     },
-    "706": {
-      "route": "Rīga - Krāslava",
+    "708": {
+      "route": "Rīga - Indra",
       "schedule": [
         {
           "station": "Rīga",
@@ -186,7 +186,11 @@
         },
         {
           "station": "Krāslava",
-          "arrival": "19:49"
+          "departure": "19:50"
+        },
+        {
+          "station": "Indra",
+          "arrival": "20:09"
         }
       ]
     },
