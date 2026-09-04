@@ -1,20 +1,20 @@
 {
-  "updated": "04.09.2026 20:01:44",
+  "updated": "04.09.2026 20:02:45",
   "trains": {
-    "809": {
+    "703": {
       "gps_delay": 0,
-      "dispatcher_delay": 55,
-      "dispatcher_text": "Train No. 809 Daugavpils (16:29) - Rīga (19:30) is delayed ~55 minutes."
+      "dispatcher_delay": 25,
+      "dispatcher_text": "Train No. 703 Ludza (16:55) - Rīga (19:59) is delayed ~25 minutes."
     },
     "6261": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 6261 Aizkraukle (19:33) - Rīga (20:51) is delayed ~20 minutes."
     },
-    "703": {
+    "809": {
       "gps_delay": 0,
-      "dispatcher_delay": 25,
-      "dispatcher_text": "Train No. 703 Ludza (16:55) - Rīga (19:59) is delayed ~25 minutes."
+      "dispatcher_delay": 55,
+      "dispatcher_text": "Train No. 809 Daugavpils (16:29) - Rīga (19:30) is delayed ~55 minutes."
     }
   }
 }
