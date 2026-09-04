@@ -1,20 +1,15 @@
 {
-  "updated": "05.09.2026 00:04:44",
+  "updated": "05.09.2026 00:05:44",
   "trains": {
-    "850": {
-      "gps_delay": 0,
-      "dispatcher_delay": 60,
-      "dispatcher_text": "Train No. 850 Rīga (22:30) - Sigulda (23:38) is delayed ~60 minutes."
-    },
     "6266": {
       "gps_delay": 0,
       "dispatcher_delay": 90,
       "dispatcher_text": "Train No. 6266 Rīga (21:39) - Aizkraukle (22:57) is delayed ~90 minutes."
     },
-    "822": {
+    "850": {
       "gps_delay": 0,
-      "dispatcher_delay": 100,
-      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~100 minutes."
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Train No. 850 Rīga (22:30) - Sigulda (23:38) is delayed ~60 minutes."
     },
     "6268": {
       "gps_delay": 0,
@@ -25,6 +20,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 60,
       "dispatcher_text": "Vilciena Nr. 6547 Rīga (23:45) - Tukums II (01:04) paredzamais kavējums ~60 min."
+    },
+    "822": {
+      "gps_delay": 0,
+      "dispatcher_delay": 100,
+      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~100 minutes."
     }
   }
 }
