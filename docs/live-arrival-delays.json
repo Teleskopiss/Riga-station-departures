@@ -1,15 +1,15 @@
 {
-  "updated": "04.09.2026 23:30:47",
+  "updated": "04.09.2026 23:31:43",
   "trains": {
-    "6269": {
-      "gps_delay": 0,
-      "dispatcher_delay": 90,
-      "dispatcher_text": "Vilciena Nr. 6269 Aizkraukle (22:05) - Rīga (23:21) paredzamais kavējums ~90 min."
-    },
     "6267": {
       "gps_delay": 0,
       "dispatcher_delay": 110,
       "dispatcher_text": "Train No. 6267 Lielvārde (21:27) - Rīga (22:21) is delayed ~110 minutes."
+    },
+    "6269": {
+      "gps_delay": 0,
+      "dispatcher_delay": 120,
+      "dispatcher_text": "Vilciena Nr. 6269 Aizkraukle (22:05) - Rīga (23:21) paredzamais kavējums ~120 min."
     }
   }
 }
