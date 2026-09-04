@@ -1,9 +1,9 @@
 {
   "station": "Rīga",
   "date": "2026-09-05",
-  "updated_utc": "2026-09-04T21:19:16Z",
-  "updated": "05.09.2026 00:19:16",
-  "total": 166,
+  "updated_utc": "2026-09-04T23:51:41Z",
+  "updated": "05.09.2026 02:51:41",
+  "total": 168,
   "trains": [
     {
       "nr": "6871",
@@ -1078,6 +1078,14 @@
       "platform": 2
     },
     {
+      "nr": "6256",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-09-04T16:09:00Z",
+      "route_id": "809291",
+      "track": 4,
+      "platform": 3
+    },
+    {
       "nr": "6349",
       "dest": "Dubulti",
       "dep_utc": "2026-09-04T16:15:00Z",
@@ -1116,6 +1124,14 @@
       "route_id": "809300",
       "track": 10,
       "platform": 2
+    },
+    {
+      "nr": "6258",
+      "dest": "Lielvārde",
+      "dep_utc": "2026-09-04T16:39:00Z",
+      "route_id": "809301",
+      "track": 4,
+      "platform": 3
     },
     {
       "nr": "6439",
