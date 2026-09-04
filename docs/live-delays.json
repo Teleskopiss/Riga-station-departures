@@ -1,6 +1,11 @@
 {
-  "updated": "04.09.2026 23:14:49",
+  "updated": "04.09.2026 23:15:48",
   "trains": {
+    "6264": {
+      "gps_delay": 0,
+      "dispatcher_delay": 105,
+      "dispatcher_text": "Train No. 6264 Rīga (21:09) - Lielvārde (22:05) is delayed ~105 minutes."
+    },
     "822": {
       "gps_delay": 0,
       "dispatcher_delay": 100,
@@ -20,11 +25,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 80,
       "dispatcher_text": "Train No. 6266 Rīga (21:39) - Aizkraukle (22:57) is delayed ~80 minutes."
-    },
-    "6264": {
-      "gps_delay": 0,
-      "dispatcher_delay": 105,
-      "dispatcher_text": "Train No. 6264 Rīga (21:09) - Lielvārde (22:05) is delayed ~105 minutes."
     }
   }
 }
