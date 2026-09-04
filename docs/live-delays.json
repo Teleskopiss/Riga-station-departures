@@ -1,6 +1,11 @@
 {
-  "updated": "04.09.2026 23:13:46",
+  "updated": "04.09.2026 23:14:49",
   "trains": {
+    "822": {
+      "gps_delay": 0,
+      "dispatcher_delay": 100,
+      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~100 minutes."
+    },
     "850": {
       "gps_delay": 0,
       "dispatcher_delay": 40,
@@ -15,11 +20,6 @@
       "gps_delay": 0,
       "dispatcher_delay": 80,
       "dispatcher_text": "Train No. 6266 Rīga (21:39) - Aizkraukle (22:57) is delayed ~80 minutes."
-    },
-    "822": {
-      "gps_delay": 0,
-      "dispatcher_delay": 100,
-      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~100 minutes."
     },
     "6264": {
       "gps_delay": 0,
