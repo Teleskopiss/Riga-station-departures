@@ -1,5 +1,5 @@
 {
-  "updated": "05.09.2026 00:17:50",
+  "updated": "05.09.2026 00:18:45",
   "trains": {
     "6547": {
       "gps_delay": 0,
@@ -11,11 +11,6 @@
       "dispatcher_delay": 60,
       "dispatcher_text": "Train No. 850 Rīga (22:30) - Sigulda (23:38) is delayed ~60 minutes."
     },
-    "6268": {
-      "gps_delay": 0,
-      "dispatcher_delay": 60,
-      "dispatcher_text": "Train No. 6268 Rīga (22:39) - Aizkraukle (23:56) is delayed ~60 minutes."
-    },
     "822": {
       "gps_delay": 0,
       "dispatcher_delay": 100,
@@ -25,6 +20,11 @@
       "gps_delay": 0,
       "dispatcher_delay": 90,
       "dispatcher_text": "Train No. 6266 Rīga (21:39) - Aizkraukle (22:57) is delayed ~90 minutes."
+    },
+    "6268": {
+      "gps_delay": 0,
+      "dispatcher_delay": 60,
+      "dispatcher_text": "Train No. 6268 Rīga (22:39) - Aizkraukle (23:56) is delayed ~60 minutes."
     }
   }
 }
