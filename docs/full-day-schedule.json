@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04 15:01:00",
+  "updated": "2026-09-05 15:01:07",
   "trainNumbers": {
     "702": {
       "route": "Rīga - Daugavpils",
@@ -116,6 +116,43 @@
         }
       ]
     },
+    "706": {
+      "route": "Rīga - Krāslava",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "16:31"
+        },
+        {
+          "station": "Ogre",
+          "departure": "17:02"
+        },
+        {
+          "station": "Aizkraukle",
+          "departure": "17:35"
+        },
+        {
+          "station": "Pļaviņas",
+          "departure": "17:58"
+        },
+        {
+          "station": "Krustpils",
+          "departure": "18:13"
+        },
+        {
+          "station": "Līvāni",
+          "departure": "18:35"
+        },
+        {
+          "station": "Daugavpils",
+          "departure": "19:19"
+        },
+        {
+          "station": "Krāslava",
+          "arrival": "19:49"
+        }
+      ]
+    },
     "707": {
       "route": "Indra - Rīga",
       "schedule": [
@@ -154,47 +191,6 @@
         {
           "station": "Rīga",
           "arrival": "08:59"
-        }
-      ]
-    },
-    "708": {
-      "route": "Rīga - Indra",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "16:31"
-        },
-        {
-          "station": "Ogre",
-          "departure": "17:02"
-        },
-        {
-          "station": "Aizkraukle",
-          "departure": "17:35"
-        },
-        {
-          "station": "Pļaviņas",
-          "departure": "17:58"
-        },
-        {
-          "station": "Krustpils",
-          "departure": "18:13"
-        },
-        {
-          "station": "Līvāni",
-          "departure": "18:35"
-        },
-        {
-          "station": "Daugavpils",
-          "departure": "19:19"
-        },
-        {
-          "station": "Krāslava",
-          "departure": "19:50"
-        },
-        {
-          "station": "Indra",
-          "arrival": "20:09"
         }
       ]
     },
@@ -519,10 +515,6 @@
           "departure": "08:11"
         },
         {
-          "station": "Šķirotava",
-          "departure": "08:17"
-        },
-        {
           "station": "Ogre",
           "departure": "08:35"
         },
@@ -605,6 +597,128 @@
         {
           "station": "Zilupe",
           "arrival": "12:24"
+        }
+      ]
+    },
+    "806": {
+      "route": "Rīga - Gulbene",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "08:31"
+        },
+        {
+          "station": "Jāņavārti",
+          "departure": "08:41"
+        },
+        {
+          "station": "Ogre",
+          "departure": "09:05"
+        },
+        {
+          "station": "Lielvārde",
+          "departure": "09:19"
+        },
+        {
+          "station": "Aizkraukle",
+          "departure": "09:42"
+        },
+        {
+          "station": "Koknese",
+          "departure": "09:53"
+        },
+        {
+          "station": "Pļaviņas",
+          "departure": "10:10"
+        },
+        {
+          "station": "Jaunkalsnava",
+          "departure": "10:27"
+        },
+        {
+          "station": "Kalsnava",
+          "departure": "10:34"
+        },
+        {
+          "station": "Mārciena",
+          "departure": "10:41"
+        },
+        {
+          "station": "Madona",
+          "departure": "10:55"
+        },
+        {
+          "station": "Cesvaine",
+          "departure": "11:08"
+        },
+        {
+          "station": "Jaungulbene",
+          "departure": "11:27"
+        },
+        {
+          "station": "Gulbene",
+          "arrival": "11:42"
+        }
+      ]
+    },
+    "807": {
+      "route": "Gulbene - Rīga",
+      "schedule": [
+        {
+          "station": "Gulbene",
+          "departure": "18:47"
+        },
+        {
+          "station": "Jaungulbene",
+          "departure": "19:05"
+        },
+        {
+          "station": "Cesvaine",
+          "departure": "19:24"
+        },
+        {
+          "station": "Madona",
+          "departure": "19:38"
+        },
+        {
+          "station": "Mārciena",
+          "departure": "19:51"
+        },
+        {
+          "station": "Kalsnava",
+          "departure": "19:59"
+        },
+        {
+          "station": "Jaunkalsnava",
+          "departure": "20:06"
+        },
+        {
+          "station": "Pļaviņas",
+          "departure": "20:24"
+        },
+        {
+          "station": "Koknese",
+          "departure": "20:40"
+        },
+        {
+          "station": "Aizkraukle",
+          "departure": "20:51"
+        },
+        {
+          "station": "Lielvārde",
+          "departure": "21:15"
+        },
+        {
+          "station": "Ogre",
+          "departure": "21:28"
+        },
+        {
+          "station": "Jāņavārti",
+          "departure": "21:50"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "21:59"
         }
       ]
     },
@@ -1082,65 +1196,8 @@
         }
       ]
     },
-    "815": {
-      "route": "Madona - Rīga",
-      "schedule": [
-        {
-          "station": "Madona",
-          "departure": "05:03"
-        },
-        {
-          "station": "Mārciena",
-          "departure": "05:16"
-        },
-        {
-          "station": "Kalsnava",
-          "departure": "05:24"
-        },
-        {
-          "station": "Jaunkalsnava",
-          "departure": "05:31"
-        },
-        {
-          "station": "Pļaviņas",
-          "departure": "05:49"
-        },
-        {
-          "station": "Koknese",
-          "departure": "06:05"
-        },
-        {
-          "station": "Aizkraukle",
-          "departure": "06:16"
-        },
-        {
-          "station": "Lielvārde",
-          "departure": "06:40"
-        },
-        {
-          "station": "Ogre",
-          "departure": "06:53"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "07:06"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "07:15"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "07:20"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "07:29"
-        }
-      ]
-    },
-    "820": {
-      "route": "Rīga - Gulbene",
+    "816": {
+      "route": "Rīga - Madona",
       "schedule": [
         {
           "station": "Rīga",
@@ -1188,19 +1245,68 @@
         },
         {
           "station": "Madona",
-          "departure": "21:27"
-        },
+          "arrival": "21:26"
+        }
+      ]
+    },
+    "819": {
+      "route": "Gulbene - Rīga",
+      "schedule": [
         {
-          "station": "Cesvaine",
-          "departure": "21:40"
+          "station": "Gulbene",
+          "departure": "06:47"
         },
         {
           "station": "Jaungulbene",
-          "departure": "21:59"
+          "departure": "07:05"
         },
         {
-          "station": "Gulbene",
-          "arrival": "22:14"
+          "station": "Cesvaine",
+          "departure": "07:24"
+        },
+        {
+          "station": "Madona",
+          "departure": "07:38"
+        },
+        {
+          "station": "Mārciena",
+          "departure": "07:51"
+        },
+        {
+          "station": "Kalsnava",
+          "departure": "07:59"
+        },
+        {
+          "station": "Jaunkalsnava",
+          "departure": "08:06"
+        },
+        {
+          "station": "Pļaviņas",
+          "departure": "08:24"
+        },
+        {
+          "station": "Koknese",
+          "departure": "08:40"
+        },
+        {
+          "station": "Aizkraukle",
+          "departure": "08:51"
+        },
+        {
+          "station": "Lielvārde",
+          "departure": "09:15"
+        },
+        {
+          "station": "Ogre",
+          "departure": "09:28"
+        },
+        {
+          "station": "Jāņavārti",
+          "departure": "09:50"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "09:59"
         }
       ]
     },
@@ -2109,55 +2215,6 @@
         }
       ]
     },
-    "843": {
-      "route": "Sigulda - Rīga",
-      "schedule": [
-        {
-          "station": "Sigulda",
-          "departure": "20:08"
-        },
-        {
-          "station": "Egļupe",
-          "departure": "20:17"
-        },
-        {
-          "station": "Inčukalns",
-          "departure": "20:22"
-        },
-        {
-          "station": "Vangaži",
-          "departure": "20:28"
-        },
-        {
-          "station": "Krievupe",
-          "departure": "20:34"
-        },
-        {
-          "station": "Garkalne",
-          "departure": "20:41"
-        },
-        {
-          "station": "Jugla",
-          "departure": "20:51"
-        },
-        {
-          "station": "Šmerlis",
-          "departure": "20:55"
-        },
-        {
-          "station": "Čiekurkalns",
-          "departure": "20:58"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "21:05"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "21:15"
-        }
-      ]
-    },
     "844": {
       "route": "Rīga - Sigulda",
       "schedule": [
@@ -2253,55 +2310,6 @@
         {
           "station": "Rīga",
           "arrival": "23:06"
-        }
-      ]
-    },
-    "846": {
-      "route": "Rīga - Sigulda",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "20:30"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "20:39"
-        },
-        {
-          "station": "Čiekurkalns",
-          "departure": "20:44"
-        },
-        {
-          "station": "Šmerlis",
-          "departure": "20:47"
-        },
-        {
-          "station": "Jugla",
-          "departure": "20:51"
-        },
-        {
-          "station": "Garkalne",
-          "departure": "21:02"
-        },
-        {
-          "station": "Krievupe",
-          "departure": "21:10"
-        },
-        {
-          "station": "Vangaži",
-          "departure": "21:16"
-        },
-        {
-          "station": "Inčukalns",
-          "departure": "21:23"
-        },
-        {
-          "station": "Egļupe",
-          "departure": "21:28"
-        },
-        {
-          "station": "Sigulda",
-          "arrival": "21:38"
         }
       ]
     },
@@ -2701,39 +2709,6 @@
         {
           "station": "Rīga",
           "arrival": "08:08"
-        }
-      ]
-    },
-    "864": {
-      "route": "Rīga - Valmiera",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "17:26"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "17:35"
-        },
-        {
-          "station": "Inčukalns",
-          "departure": "18:03"
-        },
-        {
-          "station": "Sigulda",
-          "departure": "18:16"
-        },
-        {
-          "station": "Cēsis",
-          "departure": "18:45"
-        },
-        {
-          "station": "Lode",
-          "departure": "18:58"
-        },
-        {
-          "station": "Valmiera",
-          "arrival": "19:11"
         }
       ]
     },
@@ -3536,79 +3511,6 @@
         }
       ]
     },
-    "6104": {
-      "route": "Rīga - Saulkrasti",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "06:08"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "06:15"
-        },
-        {
-          "station": "Brasa",
-          "departure": "06:17"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "06:20"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "06:22"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "06:24"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "06:28"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "06:31"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "06:34"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "06:37"
-        },
-        {
-          "station": "Garciems",
-          "departure": "06:40"
-        },
-        {
-          "station": "Garupe",
-          "departure": "06:43"
-        },
-        {
-          "station": "Carnikava",
-          "departure": "06:47"
-        },
-        {
-          "station": "Gauja",
-          "departure": "06:49"
-        },
-        {
-          "station": "Lilaste",
-          "departure": "06:54"
-        },
-        {
-          "station": "Pabaži",
-          "departure": "07:01"
-        },
-        {
-          "station": "Saulkrasti",
-          "arrival": "07:04"
-        }
-      ]
-    },
     "6105": {
       "route": "Skulte - Rīga",
       "schedule": [
@@ -3864,83 +3766,6 @@
         }
       ]
     },
-    "6108": {
-      "route": "Rīga - Saulkrasti",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "07:08"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "07:15"
-        },
-        {
-          "station": "Brasa",
-          "departure": "07:17"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "07:20"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "07:22"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "07:24"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "07:28"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "07:31"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "07:34"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "07:37"
-        },
-        {
-          "station": "Garciems",
-          "departure": "07:40"
-        },
-        {
-          "station": "Garupe",
-          "departure": "07:43"
-        },
-        {
-          "station": "Carnikava",
-          "departure": "07:47"
-        },
-        {
-          "station": "Gauja",
-          "departure": "07:49"
-        },
-        {
-          "station": "Lilaste",
-          "departure": "07:54"
-        },
-        {
-          "station": "Inčupe",
-          "departure": "08:00"
-        },
-        {
-          "station": "Pabaži",
-          "departure": "08:02"
-        },
-        {
-          "station": "Saulkrasti",
-          "arrival": "08:06"
-        }
-      ]
-    },
     "6109": {
       "route": "Skulte - Rīga",
       "schedule": [
@@ -4116,140 +3941,6 @@
         {
           "station": "Skulte",
           "arrival": "08:45"
-        }
-      ]
-    },
-    "6111": {
-      "route": "Saulkrasti - Rīga",
-      "schedule": [
-        {
-          "station": "Saulkrasti",
-          "departure": "07:56"
-        },
-        {
-          "station": "Pabaži",
-          "departure": "07:59"
-        },
-        {
-          "station": "Inčupe",
-          "departure": "08:02"
-        },
-        {
-          "station": "Lilaste",
-          "departure": "08:07"
-        },
-        {
-          "station": "Gauja",
-          "departure": "08:12"
-        },
-        {
-          "station": "Carnikava",
-          "departure": "08:15"
-        },
-        {
-          "station": "Garupe",
-          "departure": "08:18"
-        },
-        {
-          "station": "Garciems",
-          "departure": "08:21"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "08:24"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "08:27"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "08:30"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "08:33"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "08:37"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "08:39"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "08:41"
-        },
-        {
-          "station": "Brasa",
-          "departure": "08:44"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "08:47"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "08:53"
-        }
-      ]
-    },
-    "6112": {
-      "route": "Rīga - Carnikava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "08:10"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "08:17"
-        },
-        {
-          "station": "Brasa",
-          "departure": "08:19"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "08:22"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "08:24"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "08:26"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "08:30"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "08:33"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "08:36"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "08:39"
-        },
-        {
-          "station": "Garciems",
-          "departure": "08:43"
-        },
-        {
-          "station": "Garupe",
-          "departure": "08:46"
-        },
-        {
-          "station": "Carnikava",
-          "arrival": "08:49"
         }
       ]
     },
@@ -4431,79 +4122,6 @@
         }
       ]
     },
-    "6117": {
-      "route": "Saulkrasti - Rīga",
-      "schedule": [
-        {
-          "station": "Saulkrasti",
-          "departure": "08:57"
-        },
-        {
-          "station": "Pabaži",
-          "departure": "09:00"
-        },
-        {
-          "station": "Lilaste",
-          "departure": "09:07"
-        },
-        {
-          "station": "Gauja",
-          "departure": "09:12"
-        },
-        {
-          "station": "Carnikava",
-          "departure": "09:15"
-        },
-        {
-          "station": "Garupe",
-          "departure": "09:18"
-        },
-        {
-          "station": "Garciems",
-          "departure": "09:21"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "09:24"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "09:27"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "09:30"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "09:33"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "09:37"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "09:39"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "09:41"
-        },
-        {
-          "station": "Brasa",
-          "departure": "09:44"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "09:47"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "09:53"
-        }
-      ]
-    },
     "6118": {
       "route": "Rīga - Saulkrasti",
       "schedule": [
@@ -4667,63 +4285,6 @@
         {
           "station": "Rīga",
           "arrival": "10:23"
-        }
-      ]
-    },
-    "6121": {
-      "route": "Carnikava - Rīga",
-      "schedule": [
-        {
-          "station": "Carnikava",
-          "departure": "10:15"
-        },
-        {
-          "station": "Garupe",
-          "departure": "10:18"
-        },
-        {
-          "station": "Garciems",
-          "departure": "10:21"
-        },
-        {
-          "station": "Kalngale",
-          "departure": "10:24"
-        },
-        {
-          "station": "Vecāķi",
-          "departure": "10:27"
-        },
-        {
-          "station": "Vecdaugava",
-          "departure": "10:30"
-        },
-        {
-          "station": "Ziemeļblāzma",
-          "departure": "10:33"
-        },
-        {
-          "station": "Mangaļi",
-          "departure": "10:37"
-        },
-        {
-          "station": "Dauderi",
-          "departure": "10:39"
-        },
-        {
-          "station": "Sarkandaugava",
-          "departure": "10:41"
-        },
-        {
-          "station": "Brasa",
-          "departure": "10:44"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "10:47"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "10:53"
         }
       ]
     },
@@ -8170,67 +7731,6 @@
         }
       ]
     },
-    "6204": {
-      "route": "Rīga - Ogre",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "05:39"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "05:44"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "05:49"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "05:51"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "05:53"
-        },
-        {
-          "station": "Gaisma",
-          "departure": "05:55"
-        },
-        {
-          "station": "Rumbula",
-          "departure": "05:57"
-        },
-        {
-          "station": "Dārziņi",
-          "departure": "05:59"
-        },
-        {
-          "station": "Dole",
-          "departure": "06:02"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "06:05"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "06:09"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "06:13"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "06:18"
-        },
-        {
-          "station": "Ogre",
-          "arrival": "06:20"
-        }
-      ]
-    },
     "6205": {
       "route": "Lielvārde - Rīga",
       "schedule": [
@@ -8486,120 +7986,6 @@
         }
       ]
     },
-    "6208": {
-      "route": "Rīga - Ogre",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "06:24"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "06:29"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "06:34"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "06:36"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "06:38"
-        },
-        {
-          "station": "Gaisma",
-          "departure": "06:40"
-        },
-        {
-          "station": "Rumbula",
-          "departure": "06:42"
-        },
-        {
-          "station": "Dārziņi",
-          "departure": "06:45"
-        },
-        {
-          "station": "Dole",
-          "departure": "06:48"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "06:50"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "06:55"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "06:59"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "07:04"
-        },
-        {
-          "station": "Ogre",
-          "arrival": "07:06"
-        }
-      ]
-    },
-    "6209": {
-      "route": "Ogre - Rīga",
-      "schedule": [
-        {
-          "station": "Ogre",
-          "departure": "07:00"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "07:02"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "07:07"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "07:11"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "07:16"
-        },
-        {
-          "station": "Dole",
-          "departure": "07:18"
-        },
-        {
-          "station": "Dārziņi",
-          "departure": "07:21"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "07:26"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "07:28"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "07:30"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "07:35"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "07:40"
-        }
-      ]
-    },
     "6210": {
       "route": "Rīga - Lielvārde",
       "schedule": [
@@ -8840,59 +8226,6 @@
         {
           "station": "Aizkraukle",
           "arrival": "08:28"
-        }
-      ]
-    },
-    "6213": {
-      "route": "Ogre - Rīga",
-      "schedule": [
-        {
-          "station": "Ogre",
-          "departure": "07:30"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "07:32"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "07:37"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "07:41"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "07:46"
-        },
-        {
-          "station": "Dole",
-          "departure": "07:48"
-        },
-        {
-          "station": "Dārziņi",
-          "departure": "07:51"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "07:56"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "07:58"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "08:00"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "08:05"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "08:10"
         }
       ]
     },
@@ -11610,67 +10943,6 @@
         }
       ]
     },
-    "6248": {
-      "route": "Rīga - Ogre",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "17:24"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "17:29"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "17:34"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "17:36"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "17:38"
-        },
-        {
-          "station": "Gaisma",
-          "departure": "17:40"
-        },
-        {
-          "station": "Rumbula",
-          "departure": "17:42"
-        },
-        {
-          "station": "Dārziņi",
-          "departure": "17:44"
-        },
-        {
-          "station": "Dole",
-          "departure": "17:47"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "17:50"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "17:54"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "17:58"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "18:03"
-        },
-        {
-          "station": "Ogre",
-          "arrival": "18:05"
-        }
-      ]
-    },
     "6249": {
       "route": "Lielvārde - Rīga",
       "schedule": [
@@ -12000,55 +11272,6 @@
         {
           "station": "Lielvārde",
           "arrival": "19:06"
-        }
-      ]
-    },
-    "6253": {
-      "route": "Ogre - Rīga",
-      "schedule": [
-        {
-          "station": "Ogre",
-          "departure": "18:31"
-        },
-        {
-          "station": "Jaunogre",
-          "departure": "18:33"
-        },
-        {
-          "station": "Ikšķile",
-          "departure": "18:38"
-        },
-        {
-          "station": "Saulkalne",
-          "departure": "18:42"
-        },
-        {
-          "station": "Salaspils",
-          "departure": "18:47"
-        },
-        {
-          "station": "Dole",
-          "departure": "18:49"
-        },
-        {
-          "station": "Šķirotava",
-          "departure": "18:55"
-        },
-        {
-          "station": "Daugmale",
-          "departure": "18:57"
-        },
-        {
-          "station": "Jāņavārti",
-          "departure": "18:59"
-        },
-        {
-          "station": "Vagonu parks",
-          "departure": "19:04"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "19:09"
         }
       ]
     },
@@ -13385,333 +12608,427 @@
         }
       ]
     },
-    "6301": {
+    "6317": {
       "route": "Rīga - Dubulti",
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "07:23"
+          "departure": "11:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:27"
+          "departure": "11:19"
         },
         {
           "station": "Zasulauks",
-          "departure": "07:31"
-        },
-        {
-          "station": "Depo",
-          "departure": "07:33"
+          "departure": "11:24"
         },
         {
           "station": "Zolitūde",
-          "departure": "07:35"
+          "departure": "11:27"
         },
         {
           "station": "Imanta",
-          "departure": "07:37"
+          "departure": "11:29"
+        },
+        {
+          "station": "Babīte",
+          "departure": "11:32"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "11:36"
         },
         {
           "station": "Lielupe",
-          "departure": "07:44"
+          "departure": "11:39"
         },
         {
           "station": "Bulduri",
-          "departure": "07:46"
+          "departure": "11:41"
         },
         {
           "station": "Dzintari",
-          "departure": "07:48"
+          "departure": "11:43"
         },
         {
           "station": "Majori",
-          "departure": "07:51"
+          "departure": "11:46"
         },
         {
           "station": "Dubulti",
-          "arrival": "07:53"
+          "arrival": "11:48"
         }
       ]
     },
-    "6302": {
+    "6318": {
       "route": "Dubulti - Rīga",
       "schedule": [
         {
           "station": "Dubulti",
-          "departure": "08:08"
+          "departure": "12:09"
         },
         {
           "station": "Majori",
-          "departure": "08:11"
+          "departure": "12:12"
         },
         {
           "station": "Dzintari",
-          "departure": "08:13"
+          "departure": "12:14"
         },
         {
           "station": "Bulduri",
-          "departure": "08:15"
+          "departure": "12:16"
         },
         {
           "station": "Lielupe",
-          "departure": "08:17"
+          "departure": "12:18"
         },
         {
           "station": "Priedaine",
-          "departure": "08:20"
+          "departure": "12:21"
         },
         {
           "station": "Babīte",
-          "departure": "08:24"
+          "departure": "12:25"
         },
         {
           "station": "Imanta",
-          "departure": "08:27"
+          "departure": "12:28"
         },
         {
           "station": "Zolitūde",
-          "departure": "08:29"
-        },
-        {
-          "station": "Depo",
-          "departure": "08:31"
+          "departure": "12:30"
         },
         {
           "station": "Zasulauks",
-          "departure": "08:34"
+          "departure": "12:34"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:40"
+          "departure": "12:40"
         },
         {
           "station": "Rīga",
-          "arrival": "08:44"
+          "arrival": "12:44"
         }
       ]
     },
-    "6303": {
+    "6321": {
       "route": "Rīga - Dubulti",
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "07:45"
+          "departure": "12:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:49"
+          "departure": "12:19"
         },
         {
           "station": "Zasulauks",
-          "departure": "07:54"
-        },
-        {
-          "station": "Depo",
-          "departure": "07:56"
+          "departure": "12:24"
         },
         {
           "station": "Zolitūde",
-          "departure": "07:58"
+          "departure": "12:27"
         },
         {
           "station": "Imanta",
-          "departure": "08:00"
+          "departure": "12:29"
         },
         {
           "station": "Babīte",
-          "departure": "08:03"
+          "departure": "12:32"
         },
         {
           "station": "Priedaine",
-          "departure": "08:07"
+          "departure": "12:36"
         },
         {
           "station": "Lielupe",
-          "departure": "08:10"
+          "departure": "12:39"
         },
         {
           "station": "Bulduri",
-          "departure": "08:12"
+          "departure": "12:41"
         },
         {
           "station": "Dzintari",
-          "departure": "08:14"
+          "departure": "12:43"
         },
         {
           "station": "Majori",
-          "departure": "08:17"
+          "departure": "12:46"
         },
         {
           "station": "Dubulti",
-          "arrival": "08:19"
+          "arrival": "12:48"
         }
       ]
     },
-    "6304": {
+    "6322": {
       "route": "Dubulti - Rīga",
       "schedule": [
         {
           "station": "Dubulti",
-          "departure": "08:40"
+          "departure": "13:09"
         },
         {
           "station": "Majori",
-          "departure": "08:43"
+          "departure": "13:12"
         },
         {
           "station": "Dzintari",
-          "departure": "08:45"
+          "departure": "13:14"
         },
         {
           "station": "Bulduri",
-          "departure": "08:47"
+          "departure": "13:16"
         },
         {
           "station": "Lielupe",
-          "departure": "08:49"
+          "departure": "13:18"
         },
         {
           "station": "Priedaine",
-          "departure": "08:52"
+          "departure": "13:21"
         },
         {
           "station": "Babīte",
-          "departure": "08:56"
+          "departure": "13:25"
         },
         {
           "station": "Imanta",
-          "departure": "08:59"
+          "departure": "13:28"
         },
         {
           "station": "Zolitūde",
-          "departure": "09:01"
-        },
-        {
-          "station": "Depo",
-          "departure": "09:03"
+          "departure": "13:30"
         },
         {
           "station": "Zasulauks",
-          "departure": "09:06"
+          "departure": "13:34"
         },
         {
           "station": "Torņakalns",
-          "departure": "09:10"
+          "departure": "13:40"
         },
         {
           "station": "Rīga",
-          "arrival": "09:14"
+          "arrival": "13:44"
         }
       ]
     },
-    "6305": {
+    "6325": {
       "route": "Rīga - Dubulti",
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "08:15"
+          "departure": "13:20"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:19"
+          "departure": "13:24"
         },
         {
           "station": "Zasulauks",
-          "departure": "08:24"
-        },
-        {
-          "station": "Depo",
-          "departure": "08:26"
+          "departure": "13:29"
         },
         {
           "station": "Zolitūde",
-          "departure": "08:28"
+          "departure": "13:32"
         },
         {
           "station": "Imanta",
-          "departure": "08:30"
+          "departure": "13:34"
         },
         {
           "station": "Babīte",
-          "departure": "08:33"
+          "departure": "13:37"
         },
         {
           "station": "Priedaine",
-          "departure": "08:37"
+          "departure": "13:41"
         },
         {
           "station": "Lielupe",
-          "departure": "08:40"
+          "departure": "13:44"
         },
         {
           "station": "Bulduri",
-          "departure": "08:42"
+          "departure": "13:46"
         },
         {
           "station": "Dzintari",
-          "departure": "08:44"
+          "departure": "13:48"
         },
         {
           "station": "Majori",
-          "departure": "08:47"
+          "departure": "13:51"
         },
         {
           "station": "Dubulti",
-          "arrival": "08:49"
+          "arrival": "13:53"
         }
       ]
     },
-    "6306": {
+    "6326": {
       "route": "Dubulti - Rīga",
       "schedule": [
         {
           "station": "Dubulti",
-          "departure": "09:09"
+          "departure": "14:09"
         },
         {
           "station": "Majori",
-          "departure": "09:12"
+          "departure": "14:12"
         },
         {
           "station": "Dzintari",
-          "departure": "09:14"
+          "departure": "14:14"
         },
         {
           "station": "Bulduri",
-          "departure": "09:16"
+          "departure": "14:16"
         },
         {
           "station": "Lielupe",
-          "departure": "09:18"
+          "departure": "14:18"
         },
         {
           "station": "Priedaine",
-          "departure": "09:21"
+          "departure": "14:21"
         },
         {
           "station": "Babīte",
-          "departure": "09:25"
+          "departure": "14:25"
         },
         {
           "station": "Imanta",
-          "departure": "09:28"
+          "departure": "14:28"
         },
         {
           "station": "Zolitūde",
-          "departure": "09:30"
+          "departure": "14:30"
         },
         {
           "station": "Zasulauks",
-          "departure": "09:34"
+          "departure": "14:34"
         },
         {
           "station": "Torņakalns",
-          "departure": "09:40"
+          "departure": "14:40"
         },
         {
           "station": "Rīga",
-          "arrival": "09:44"
+          "arrival": "14:44"
+        }
+      ]
+    },
+    "6329": {
+      "route": "Rīga - Dubulti",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "14:15"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "14:19"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "14:24"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "14:27"
+        },
+        {
+          "station": "Imanta",
+          "departure": "14:29"
+        },
+        {
+          "station": "Babīte",
+          "departure": "14:32"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "14:36"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "14:39"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "14:41"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "14:43"
+        },
+        {
+          "station": "Majori",
+          "departure": "14:46"
+        },
+        {
+          "station": "Dubulti",
+          "arrival": "14:48"
+        }
+      ]
+    },
+    "6330": {
+      "route": "Dubulti - Rīga",
+      "schedule": [
+        {
+          "station": "Dubulti",
+          "departure": "15:09"
+        },
+        {
+          "station": "Majori",
+          "departure": "15:12"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "15:14"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "15:16"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "15:18"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "15:21"
+        },
+        {
+          "station": "Babīte",
+          "departure": "15:25"
+        },
+        {
+          "station": "Imanta",
+          "departure": "15:28"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "15:30"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "15:34"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "15:40"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "15:44"
         }
       ]
     },
@@ -14049,6 +13366,96 @@
         }
       ]
     },
+    "6339": {
+      "route": "Rīga - Dubulti",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "16:45"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "16:49"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "16:53"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "16:56"
+        },
+        {
+          "station": "Imanta",
+          "departure": "16:58"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "17:05"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "17:07"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "17:09"
+        },
+        {
+          "station": "Majori",
+          "departure": "17:12"
+        },
+        {
+          "station": "Dubulti",
+          "arrival": "17:14"
+        }
+      ]
+    },
+    "6340": {
+      "route": "Dubulti - Rīga",
+      "schedule": [
+        {
+          "station": "Dubulti",
+          "departure": "17:42"
+        },
+        {
+          "station": "Majori",
+          "departure": "17:45"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "17:47"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "17:50"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "17:52"
+        },
+        {
+          "station": "Imanta",
+          "departure": "17:58"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "18:00"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "18:04"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "18:10"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "18:14"
+        }
+      ]
+    },
     "6341": {
       "route": "Rīga - Dubulti",
       "schedule": [
@@ -14159,6 +13566,96 @@
         }
       ]
     },
+    "6343": {
+      "route": "Rīga - Dubulti",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "17:45"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "17:49"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "17:53"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "17:56"
+        },
+        {
+          "station": "Imanta",
+          "departure": "17:58"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "18:05"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "18:07"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "18:09"
+        },
+        {
+          "station": "Majori",
+          "departure": "18:12"
+        },
+        {
+          "station": "Dubulti",
+          "arrival": "18:14"
+        }
+      ]
+    },
+    "6344": {
+      "route": "Dubulti - Rīga",
+      "schedule": [
+        {
+          "station": "Dubulti",
+          "departure": "18:42"
+        },
+        {
+          "station": "Majori",
+          "departure": "18:45"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "18:47"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "18:50"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "18:52"
+        },
+        {
+          "station": "Imanta",
+          "departure": "18:58"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "19:00"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "19:04"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "19:10"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "19:14"
+        }
+      ]
+    },
     "6345": {
       "route": "Rīga - Dubulti",
       "schedule": [
@@ -14266,6 +13763,96 @@
         {
           "station": "Rīga",
           "arrival": "19:44"
+        }
+      ]
+    },
+    "6347": {
+      "route": "Rīga - Dubulti",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "18:45"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "18:49"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "18:53"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "18:56"
+        },
+        {
+          "station": "Imanta",
+          "departure": "18:58"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "19:05"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "19:07"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "19:09"
+        },
+        {
+          "station": "Majori",
+          "departure": "19:12"
+        },
+        {
+          "station": "Dubulti",
+          "arrival": "19:14"
+        }
+      ]
+    },
+    "6348": {
+      "route": "Dubulti - Rīga",
+      "schedule": [
+        {
+          "station": "Dubulti",
+          "departure": "19:44"
+        },
+        {
+          "station": "Majori",
+          "departure": "19:47"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "19:49"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "19:52"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "19:54"
+        },
+        {
+          "station": "Imanta",
+          "departure": "20:00"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "20:02"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "20:06"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "20:10"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "20:14"
         }
       ]
     },
@@ -14700,96 +14287,6 @@
         {
           "station": "Rīga",
           "arrival": "07:59"
-        }
-      ]
-    },
-    "6405": {
-      "route": "Rīga - Sloka",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "06:45"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "06:49"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "06:53"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "06:56"
-        },
-        {
-          "station": "Imanta",
-          "departure": "06:58"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "07:05"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "07:08"
-        },
-        {
-          "station": "Majori",
-          "departure": "07:10"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "07:13"
-        },
-        {
-          "station": "Sloka",
-          "arrival": "07:23"
-        }
-      ]
-    },
-    "6406": {
-      "route": "Sloka - Rīga",
-      "schedule": [
-        {
-          "station": "Sloka",
-          "departure": "07:33"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "07:43"
-        },
-        {
-          "station": "Majori",
-          "departure": "07:46"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "07:48"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "07:50"
-        },
-        {
-          "station": "Imanta",
-          "departure": "07:58"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "08:00"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "08:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "08:10"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "08:14"
         }
       ]
     },
@@ -16413,136 +15910,6 @@
         }
       ]
     },
-    "6427": {
-      "route": "Rīga - Sloka",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "16:30"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "16:34"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "16:39"
-        },
-        {
-          "station": "Depo",
-          "departure": "16:41"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "16:43"
-        },
-        {
-          "station": "Imanta",
-          "departure": "16:45"
-        },
-        {
-          "station": "Babīte",
-          "departure": "16:48"
-        },
-        {
-          "station": "Priedaine",
-          "departure": "16:52"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "16:54"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "16:56"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "16:59"
-        },
-        {
-          "station": "Majori",
-          "departure": "17:01"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "17:04"
-        },
-        {
-          "station": "Jaundubulti",
-          "departure": "17:07"
-        },
-        {
-          "station": "Pumpuri",
-          "departure": "17:09"
-        },
-        {
-          "station": "Melluži",
-          "departure": "17:11"
-        },
-        {
-          "station": "Asari",
-          "departure": "17:13"
-        },
-        {
-          "station": "Vaivari",
-          "departure": "17:15"
-        },
-        {
-          "station": "Sloka",
-          "arrival": "17:19"
-        }
-      ]
-    },
-    "6428": {
-      "route": "Sloka - Rīga",
-      "schedule": [
-        {
-          "station": "Sloka",
-          "departure": "17:32"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "17:42"
-        },
-        {
-          "station": "Majori",
-          "departure": "17:45"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "17:47"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "17:50"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "17:52"
-        },
-        {
-          "station": "Imanta",
-          "departure": "17:58"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "18:00"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "18:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "18:10"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "18:14"
-        }
-      ]
-    },
     "6429": {
       "route": "Rīga - Sloka",
       "schedule": [
@@ -16705,136 +16072,6 @@
         }
       ]
     },
-    "6431": {
-      "route": "Rīga - Sloka",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "17:30"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "17:34"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "17:39"
-        },
-        {
-          "station": "Depo",
-          "departure": "17:41"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "17:43"
-        },
-        {
-          "station": "Imanta",
-          "departure": "17:45"
-        },
-        {
-          "station": "Babīte",
-          "departure": "17:48"
-        },
-        {
-          "station": "Priedaine",
-          "departure": "17:52"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "17:54"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "17:56"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "17:59"
-        },
-        {
-          "station": "Majori",
-          "departure": "18:01"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "18:04"
-        },
-        {
-          "station": "Jaundubulti",
-          "departure": "18:07"
-        },
-        {
-          "station": "Pumpuri",
-          "departure": "18:09"
-        },
-        {
-          "station": "Melluži",
-          "departure": "18:11"
-        },
-        {
-          "station": "Asari",
-          "departure": "18:13"
-        },
-        {
-          "station": "Vaivari",
-          "departure": "18:15"
-        },
-        {
-          "station": "Sloka",
-          "arrival": "18:19"
-        }
-      ]
-    },
-    "6432": {
-      "route": "Sloka - Rīga",
-      "schedule": [
-        {
-          "station": "Sloka",
-          "departure": "18:32"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "18:42"
-        },
-        {
-          "station": "Majori",
-          "departure": "18:45"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "18:47"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "18:50"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "18:52"
-        },
-        {
-          "station": "Imanta",
-          "departure": "18:58"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "19:00"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "19:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "19:10"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "19:14"
-        }
-      ]
-    },
     "6433": {
       "route": "Rīga - Sloka",
       "schedule": [
@@ -16994,136 +16231,6 @@
         {
           "station": "Rīga",
           "arrival": "19:59"
-        }
-      ]
-    },
-    "6435": {
-      "route": "Rīga - Sloka",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "18:30"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "18:34"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "18:39"
-        },
-        {
-          "station": "Depo",
-          "departure": "18:41"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "18:43"
-        },
-        {
-          "station": "Imanta",
-          "departure": "18:45"
-        },
-        {
-          "station": "Babīte",
-          "departure": "18:48"
-        },
-        {
-          "station": "Priedaine",
-          "departure": "18:52"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "18:54"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "18:56"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "18:59"
-        },
-        {
-          "station": "Majori",
-          "departure": "19:01"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "19:04"
-        },
-        {
-          "station": "Jaundubulti",
-          "departure": "19:07"
-        },
-        {
-          "station": "Pumpuri",
-          "departure": "19:09"
-        },
-        {
-          "station": "Melluži",
-          "departure": "19:11"
-        },
-        {
-          "station": "Asari",
-          "departure": "19:13"
-        },
-        {
-          "station": "Vaivari",
-          "departure": "19:15"
-        },
-        {
-          "station": "Sloka",
-          "arrival": "19:19"
-        }
-      ]
-    },
-    "6436": {
-      "route": "Sloka - Rīga",
-      "schedule": [
-        {
-          "station": "Sloka",
-          "departure": "19:34"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "19:44"
-        },
-        {
-          "station": "Majori",
-          "departure": "19:47"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "19:49"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "19:52"
-        },
-        {
-          "station": "Lielupe",
-          "departure": "19:54"
-        },
-        {
-          "station": "Imanta",
-          "departure": "20:00"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "20:02"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "20:06"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "20:10"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "20:14"
         }
       ]
     },
@@ -19827,6 +18934,107 @@
         }
       ]
     },
+    "6523": {
+      "route": "Rīga - Tukums 2",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "16:30"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "16:34"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "16:39"
+        },
+        {
+          "station": "Depo",
+          "departure": "16:41"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "16:43"
+        },
+        {
+          "station": "Imanta",
+          "departure": "16:45"
+        },
+        {
+          "station": "Babīte",
+          "departure": "16:48"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "16:52"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "16:54"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "16:56"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "16:59"
+        },
+        {
+          "station": "Majori",
+          "departure": "17:01"
+        },
+        {
+          "station": "Dubulti",
+          "departure": "17:04"
+        },
+        {
+          "station": "Jaundubulti",
+          "departure": "17:07"
+        },
+        {
+          "station": "Pumpuri",
+          "departure": "17:09"
+        },
+        {
+          "station": "Melluži",
+          "departure": "17:11"
+        },
+        {
+          "station": "Asari",
+          "departure": "17:13"
+        },
+        {
+          "station": "Vaivari",
+          "departure": "17:15"
+        },
+        {
+          "station": "Sloka",
+          "departure": "17:24"
+        },
+        {
+          "station": "Ķemeri",
+          "departure": "17:32"
+        },
+        {
+          "station": "Smārde",
+          "departure": "17:39"
+        },
+        {
+          "station": "Milzkalne",
+          "departure": "17:44"
+        },
+        {
+          "station": "Tukums 1",
+          "departure": "17:49"
+        },
+        {
+          "station": "Tukums 2",
+          "arrival": "17:53"
+        }
+      ]
+    },
     "6524": {
       "route": "Tukums 2 - Rīga",
       "schedule": [
@@ -19929,71 +19137,6 @@
         {
           "station": "Rīga",
           "arrival": "14:29"
-        }
-      ]
-    },
-    "6525": {
-      "route": "Rīga - Tukums 2",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "16:45"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "16:49"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "16:53"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "16:56"
-        },
-        {
-          "station": "Imanta",
-          "departure": "16:58"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "17:05"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "17:08"
-        },
-        {
-          "station": "Majori",
-          "departure": "17:10"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "17:13"
-        },
-        {
-          "station": "Sloka",
-          "departure": "17:24"
-        },
-        {
-          "station": "Ķemeri",
-          "departure": "17:32"
-        },
-        {
-          "station": "Smārde",
-          "departure": "17:39"
-        },
-        {
-          "station": "Milzkalne",
-          "departure": "17:44"
-        },
-        {
-          "station": "Tukums 1",
-          "departure": "17:49"
-        },
-        {
-          "station": "Tukums 2",
-          "arrival": "17:53"
         }
       ]
     },
@@ -20102,6 +19245,111 @@
         }
       ]
     },
+    "6527": {
+      "route": "Rīga - Tukums 2",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "17:30"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "17:34"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "17:39"
+        },
+        {
+          "station": "Depo",
+          "departure": "17:41"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "17:43"
+        },
+        {
+          "station": "Imanta",
+          "departure": "17:45"
+        },
+        {
+          "station": "Babīte",
+          "departure": "17:48"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "17:52"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "17:54"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "17:56"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "17:59"
+        },
+        {
+          "station": "Majori",
+          "departure": "18:01"
+        },
+        {
+          "station": "Dubulti",
+          "departure": "18:04"
+        },
+        {
+          "station": "Jaundubulti",
+          "departure": "18:07"
+        },
+        {
+          "station": "Pumpuri",
+          "departure": "18:09"
+        },
+        {
+          "station": "Melluži",
+          "departure": "18:11"
+        },
+        {
+          "station": "Asari",
+          "departure": "18:13"
+        },
+        {
+          "station": "Vaivari",
+          "departure": "18:15"
+        },
+        {
+          "station": "Sloka",
+          "departure": "18:24"
+        },
+        {
+          "station": "Kūdra",
+          "departure": "18:29"
+        },
+        {
+          "station": "Ķemeri",
+          "departure": "18:34"
+        },
+        {
+          "station": "Smārde",
+          "departure": "18:41"
+        },
+        {
+          "station": "Milzkalne",
+          "departure": "18:46"
+        },
+        {
+          "station": "Tukums 1",
+          "departure": "18:51"
+        },
+        {
+          "station": "Tukums 2",
+          "arrival": "18:55"
+        }
+      ]
+    },
     "6528": {
       "route": "Tukums 2 - Rīga",
       "schedule": [
@@ -20204,75 +19452,6 @@
         {
           "station": "Rīga",
           "arrival": "16:29"
-        }
-      ]
-    },
-    "6529": {
-      "route": "Rīga - Tukums 2",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "17:45"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "17:49"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "17:53"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "17:56"
-        },
-        {
-          "station": "Imanta",
-          "departure": "17:58"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "18:05"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "18:08"
-        },
-        {
-          "station": "Majori",
-          "departure": "18:10"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "18:13"
-        },
-        {
-          "station": "Sloka",
-          "departure": "18:24"
-        },
-        {
-          "station": "Kūdra",
-          "departure": "18:29"
-        },
-        {
-          "station": "Ķemeri",
-          "departure": "18:34"
-        },
-        {
-          "station": "Smārde",
-          "departure": "18:41"
-        },
-        {
-          "station": "Milzkalne",
-          "departure": "18:46"
-        },
-        {
-          "station": "Tukums 1",
-          "departure": "18:51"
-        },
-        {
-          "station": "Tukums 2",
-          "arrival": "18:55"
         }
       ]
     },
@@ -20381,6 +19560,107 @@
         }
       ]
     },
+    "6531": {
+      "route": "Rīga - Tukums 2",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "18:30"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "18:34"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "18:39"
+        },
+        {
+          "station": "Depo",
+          "departure": "18:41"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "18:43"
+        },
+        {
+          "station": "Imanta",
+          "departure": "18:45"
+        },
+        {
+          "station": "Babīte",
+          "departure": "18:48"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "18:52"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "18:54"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "18:56"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "18:59"
+        },
+        {
+          "station": "Majori",
+          "departure": "19:01"
+        },
+        {
+          "station": "Dubulti",
+          "departure": "19:04"
+        },
+        {
+          "station": "Jaundubulti",
+          "departure": "19:07"
+        },
+        {
+          "station": "Pumpuri",
+          "departure": "19:09"
+        },
+        {
+          "station": "Melluži",
+          "departure": "19:11"
+        },
+        {
+          "station": "Asari",
+          "departure": "19:13"
+        },
+        {
+          "station": "Vaivari",
+          "departure": "19:15"
+        },
+        {
+          "station": "Sloka",
+          "departure": "19:24"
+        },
+        {
+          "station": "Ķemeri",
+          "departure": "19:32"
+        },
+        {
+          "station": "Smārde",
+          "departure": "19:39"
+        },
+        {
+          "station": "Milzkalne",
+          "departure": "19:44"
+        },
+        {
+          "station": "Tukums 1",
+          "departure": "19:49"
+        },
+        {
+          "station": "Tukums 2",
+          "arrival": "19:53"
+        }
+      ]
+    },
     "6532": {
       "route": "Tukums 2 - Rīga",
       "schedule": [
@@ -20483,71 +19763,6 @@
         {
           "station": "Rīga",
           "arrival": "18:29"
-        }
-      ]
-    },
-    "6533": {
-      "route": "Rīga - Tukums 2",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "18:45"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "18:49"
-        },
-        {
-          "station": "Zasulauks",
-          "departure": "18:53"
-        },
-        {
-          "station": "Zolitūde",
-          "departure": "18:56"
-        },
-        {
-          "station": "Imanta",
-          "departure": "18:58"
-        },
-        {
-          "station": "Bulduri",
-          "departure": "19:05"
-        },
-        {
-          "station": "Dzintari",
-          "departure": "19:08"
-        },
-        {
-          "station": "Majori",
-          "departure": "19:10"
-        },
-        {
-          "station": "Dubulti",
-          "departure": "19:13"
-        },
-        {
-          "station": "Sloka",
-          "departure": "19:24"
-        },
-        {
-          "station": "Ķemeri",
-          "departure": "19:32"
-        },
-        {
-          "station": "Smārde",
-          "departure": "19:39"
-        },
-        {
-          "station": "Milzkalne",
-          "departure": "19:44"
-        },
-        {
-          "station": "Tukums 1",
-          "departure": "19:49"
-        },
-        {
-          "station": "Tukums 2",
-          "arrival": "19:53"
         }
       ]
     },
@@ -23942,472 +23157,6 @@
         {
           "station": "Rīga",
           "arrival": "23:25"
-        }
-      ]
-    },
-    "6871": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "05:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "05:10"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "05:15"
-        },
-        {
-          "station": "Olaine",
-          "departure": "05:29"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "05:41"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "05:46"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "05:51"
-        }
-      ]
-    },
-    "6872": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "06:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "06:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "06:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "06:30"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "06:44"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "06:49"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "06:54"
-        }
-      ]
-    },
-    "6873": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "06:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "06:10"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "06:15"
-        },
-        {
-          "station": "Tīraine",
-          "departure": "06:19"
-        },
-        {
-          "station": "Olaine",
-          "departure": "06:31"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "06:43"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "06:48"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "06:53"
-        }
-      ]
-    },
-    "6874": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "07:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "07:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "07:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "07:30"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "07:44"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "07:49"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "07:54"
-        }
-      ]
-    },
-    "6875": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "07:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "07:11"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "07:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "07:30"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "07:42"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "07:47"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "07:52"
-        }
-      ]
-    },
-    "6876": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "08:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "08:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "08:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "08:30"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "08:44"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "08:49"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "08:54"
-        }
-      ]
-    },
-    "6877": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "08:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "08:11"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "08:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "08:31"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "08:43"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "08:48"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "08:53"
-        }
-      ]
-    },
-    "6878": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "09:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "09:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "09:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "09:29"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "09:43"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "09:48"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "09:53"
-        }
-      ]
-    },
-    "6879": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "16:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "16:11"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "16:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "16:30"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "16:42"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "16:47"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "16:52"
-        }
-      ]
-    },
-    "6880": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "17:06"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "17:11"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "17:17"
-        },
-        {
-          "station": "Olaine",
-          "departure": "17:30"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "17:44"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "17:49"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "17:54"
-        }
-      ]
-    },
-    "6881": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "17:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "17:11"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "17:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "17:32"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "17:44"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "17:49"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "17:54"
-        }
-      ]
-    },
-    "6882": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "18:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "18:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "18:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "18:30"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "18:44"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "18:49"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "18:54"
-        }
-      ]
-    },
-    "6883": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "18:04"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "18:11"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "18:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "18:31"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "18:43"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "18:48"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "18:53"
-        }
-      ]
-    },
-    "6884": {
-      "route": "Jelgava - Rīga",
-      "schedule": [
-        {
-          "station": "Jelgava",
-          "departure": "19:05"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "19:10"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "19:16"
-        },
-        {
-          "station": "Olaine",
-          "departure": "19:29"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "19:43"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "19:48"
-        },
-        {
-          "station": "Rīga",
-          "arrival": "19:53"
         }
       ]
     }
