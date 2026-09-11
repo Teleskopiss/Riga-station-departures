@@ -1,15 +1,15 @@
 {
-  "updated": "11.09.2026 22:23:29",
+  "updated": "11.09.2026 22:24:31",
   "trains": {
-    "6539": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 6539 Rīga (21:30) - Tukums II (22:53) is delayed ~15 minutes."
-    },
     "822": {
       "gps_delay": 0,
       "dispatcher_delay": 20,
       "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~20 minutes."
+    },
+    "6539": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 6539 Rīga (21:30) - Tukums II (22:53) is delayed ~15 minutes."
     }
   }
 }
