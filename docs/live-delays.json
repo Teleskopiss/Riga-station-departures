@@ -1,15 +1,15 @@
 {
-  "updated": "11.09.2026 21:56:29",
+  "updated": "11.09.2026 21:57:31",
   "trains": {
-    "822": {
-      "gps_delay": 0,
-      "dispatcher_delay": 15,
-      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~15 minutes."
-    },
     "6264": {
       "gps_delay": 0,
       "dispatcher_delay": 10,
       "dispatcher_text": "Train No. 6264 Rīga (21:09) - Lielvārde (22:05) is delayed ~10 minutes."
+    },
+    "822": {
+      "gps_delay": 0,
+      "dispatcher_delay": 15,
+      "dispatcher_text": "Train No. 822 Rīga (21:01) - Daugavpils (00:12) is delayed ~15 minutes."
     }
   }
 }
