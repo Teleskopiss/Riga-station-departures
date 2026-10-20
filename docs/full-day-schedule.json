@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19 15:01:13",
+  "updated": "2026-10-20 03:01:12",
   "trainNumbers": {
     "702": {
       "route": "Rīga - Daugavpils",
@@ -18667,6 +18667,111 @@
         {
           "station": "Tukums 2",
           "arrival": "13:53"
+        }
+      ]
+    },
+    "6516": {
+      "route": "Tukums 2 - Rīga",
+      "schedule": [
+        {
+          "station": "Tukums 2",
+          "departure": "09:09"
+        },
+        {
+          "station": "Tukums 1",
+          "departure": "09:14"
+        },
+        {
+          "station": "Milzkalne",
+          "departure": "09:18"
+        },
+        {
+          "station": "Smārde",
+          "departure": "09:23"
+        },
+        {
+          "station": "Ķemeri",
+          "departure": "09:30"
+        },
+        {
+          "station": "Kūdra",
+          "departure": "09:34"
+        },
+        {
+          "station": "Sloka",
+          "departure": "09:39"
+        },
+        {
+          "station": "Vaivari",
+          "departure": "09:43"
+        },
+        {
+          "station": "Asari",
+          "departure": "09:45"
+        },
+        {
+          "station": "Melluži",
+          "departure": "09:47"
+        },
+        {
+          "station": "Pumpuri",
+          "departure": "09:49"
+        },
+        {
+          "station": "Jaundubulti",
+          "departure": "09:51"
+        },
+        {
+          "station": "Dubulti",
+          "departure": "09:54"
+        },
+        {
+          "station": "Majori",
+          "departure": "09:57"
+        },
+        {
+          "station": "Dzintari",
+          "departure": "09:59"
+        },
+        {
+          "station": "Bulduri",
+          "departure": "10:02"
+        },
+        {
+          "station": "Lielupe",
+          "departure": "10:04"
+        },
+        {
+          "station": "Priedaine",
+          "departure": "10:07"
+        },
+        {
+          "station": "Babīte",
+          "departure": "10:11"
+        },
+        {
+          "station": "Imanta",
+          "departure": "10:14"
+        },
+        {
+          "station": "Zolitūde",
+          "departure": "10:16"
+        },
+        {
+          "station": "Depo",
+          "departure": "10:18"
+        },
+        {
+          "station": "Zasulauks",
+          "departure": "10:21"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "10:25"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "10:29"
         }
       ]
     },
