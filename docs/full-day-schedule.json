@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21 15:01:14",
+  "updated": "2026-10-22 15:01:13",
   "trainNumbers": {
     "702": {
       "route": "Rīga - Daugavpils",
@@ -153,8 +153,8 @@
         }
       ]
     },
-    "706": {
-      "route": "Rīga - Krāslava",
+    "708": {
+      "route": "Rīga - Indra",
       "schedule": [
         {
           "station": "Rīga",
@@ -186,7 +186,11 @@
         },
         {
           "station": "Krāslava",
-          "arrival": "19:49"
+          "departure": "19:50"
+        },
+        {
+          "station": "Indra",
+          "arrival": "20:09"
         }
       ]
     },
@@ -12300,43 +12304,43 @@
         },
         {
           "station": "Ogre",
-          "departure": "20:47"
+          "departure": "20:48"
         },
         {
           "station": "Pārogre",
-          "departure": "20:49"
+          "departure": "20:51"
         },
         {
           "station": "Ciemupe",
-          "departure": "20:52"
+          "departure": "20:55"
         },
         {
           "station": "Ķegums",
-          "departure": "20:57"
+          "departure": "21:01"
         },
         {
           "station": "Lielvārde",
-          "departure": "21:02"
+          "departure": "21:07"
         },
         {
           "station": "Kaibala",
-          "departure": "21:06"
+          "departure": "21:12"
         },
         {
           "station": "Jumprava",
-          "departure": "21:11"
+          "departure": "21:16"
         },
         {
           "station": "Skrīveri",
-          "departure": "21:17"
+          "departure": "21:23"
         },
         {
           "station": "Muldakmens",
-          "departure": "21:22"
+          "departure": "21:28"
         },
         {
           "station": "Aizkraukle",
-          "arrival": "21:27"
+          "arrival": "21:33"
         }
       ]
     },
@@ -12661,27 +12665,27 @@
       "schedule": [
         {
           "station": "Aizkraukle",
-          "departure": "20:33"
+          "departure": "20:32"
         },
         {
           "station": "Muldakmens",
-          "departure": "20:37"
+          "departure": "20:36"
         },
         {
           "station": "Skrīveri",
-          "departure": "20:42"
+          "departure": "20:41"
         },
         {
           "station": "Jumprava",
-          "departure": "20:48"
+          "departure": "20:47"
         },
         {
           "station": "Kaibala",
-          "departure": "20:53"
+          "departure": "20:52"
         },
         {
           "station": "Lielvārde",
-          "departure": "20:58"
+          "departure": "20:57"
         },
         {
           "station": "Ķegums",
@@ -12786,43 +12790,43 @@
         },
         {
           "station": "Ogre",
-          "departure": "22:17"
+          "departure": "22:18"
         },
         {
           "station": "Pārogre",
-          "departure": "22:19"
-        },
-        {
-          "station": "Ciemupe",
           "departure": "22:22"
         },
         {
-          "station": "Ķegums",
-          "departure": "22:27"
+          "station": "Ciemupe",
+          "departure": "22:26"
         },
         {
-          "station": "Lielvārde",
+          "station": "Ķegums",
           "departure": "22:32"
         },
         {
+          "station": "Lielvārde",
+          "departure": "22:37"
+        },
+        {
           "station": "Kaibala",
-          "departure": "22:36"
+          "departure": "22:42"
         },
         {
           "station": "Jumprava",
-          "departure": "22:41"
-        },
-        {
-          "station": "Skrīveri",
           "departure": "22:47"
         },
         {
+          "station": "Skrīveri",
+          "departure": "22:53"
+        },
+        {
           "station": "Muldakmens",
-          "departure": "22:52"
+          "departure": "22:58"
         },
         {
           "station": "Aizkraukle",
-          "arrival": "22:57"
+          "arrival": "23:03"
         }
       ]
     },
@@ -12956,19 +12960,19 @@
         },
         {
           "station": "Kaibala",
-          "departure": "23:36"
+          "departure": "23:37"
         },
         {
           "station": "Jumprava",
-          "departure": "23:41"
+          "departure": "23:42"
         },
         {
           "station": "Skrīveri",
-          "departure": "23:47"
+          "departure": "23:48"
         },
         {
           "station": "Aizkraukle",
-          "arrival": "23:56"
+          "arrival": "23:57"
         }
       ]
     },
@@ -12977,19 +12981,19 @@
       "schedule": [
         {
           "station": "Aizkraukle",
-          "departure": "22:05"
+          "departure": "22:04"
         },
         {
           "station": "Skrīveri",
-          "departure": "22:12"
+          "departure": "22:11"
         },
         {
           "station": "Jumprava",
-          "departure": "22:19"
+          "departure": "22:18"
         },
         {
           "station": "Kaibala",
-          "departure": "22:23"
+          "departure": "22:22"
         },
         {
           "station": "Lielvārde",
