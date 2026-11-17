@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17 02:00:50",
+  "updated": "2026-11-17 14:00:49",
   "trainNumbers": {
     "702": {
       "route": "Rīga - Daugavpils",
@@ -116,9 +116,13 @@
         }
       ]
     },
-    "705": {
-      "route": "Krāslava - Rīga",
+    "707": {
+      "route": "Indra - Rīga",
       "schedule": [
+        {
+          "station": "Indra",
+          "departure": "05:25"
+        },
         {
           "station": "Krāslava",
           "departure": "05:45"
@@ -207,31 +211,31 @@
         },
         {
           "station": "Olaine",
-          "departure": "18:43"
+          "departure": "18:42"
         },
         {
           "station": "Jelgava",
-          "departure": "19:06"
+          "departure": "19:04"
         },
         {
           "station": "Dobele",
-          "departure": "19:29"
+          "departure": "19:27"
         },
         {
           "station": "Biksti",
-          "departure": "19:49"
+          "departure": "19:47"
         },
         {
           "station": "Saldus",
-          "departure": "20:17"
+          "departure": "20:15"
         },
         {
           "station": "Skrunda",
-          "departure": "20:42"
+          "departure": "20:40"
         },
         {
           "station": "Liepāja",
-          "arrival": "21:41"
+          "arrival": "21:39"
         }
       ]
     },
@@ -240,43 +244,39 @@
       "schedule": [
         {
           "station": "Liepāja",
-          "departure": "04:57"
+          "departure": "04:54"
         },
         {
           "station": "Skrunda",
-          "departure": "05:57"
+          "departure": "05:54"
         },
         {
           "station": "Saldus",
-          "departure": "06:21"
+          "departure": "06:18"
         },
         {
           "station": "Biksti",
-          "departure": "06:47"
+          "departure": "06:44"
         },
         {
           "station": "Dobele",
-          "departure": "07:07"
+          "departure": "07:04"
         },
         {
           "station": "Jelgava",
-          "departure": "07:33"
-        },
-        {
-          "station": "Cena",
-          "departure": "07:44"
+          "departure": "07:30"
         },
         {
           "station": "Olaine",
-          "departure": "07:54"
+          "departure": "07:50"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:15"
+          "departure": "08:05"
         },
         {
           "station": "Rīga",
-          "arrival": "08:20"
+          "arrival": "08:10"
         }
       ]
     },
@@ -1135,8 +1135,8 @@
         }
       ]
     },
-    "816": {
-      "route": "Rīga - Madona",
+    "820": {
+      "route": "Rīga - Gulbene",
       "schedule": [
         {
           "station": "Rīga",
@@ -1184,7 +1184,19 @@
         },
         {
           "station": "Madona",
-          "arrival": "21:26"
+          "departure": "21:27"
+        },
+        {
+          "station": "Cesvaine",
+          "departure": "21:40"
+        },
+        {
+          "station": "Jaungulbene",
+          "departure": "21:59"
+        },
+        {
+          "station": "Gulbene",
+          "arrival": "22:14"
         }
       ]
     },
@@ -1575,55 +1587,6 @@
         }
       ]
     },
-    "832": {
-      "route": "Rīga - Sigulda",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "09:30"
-        },
-        {
-          "station": "Zemitāni",
-          "departure": "09:39"
-        },
-        {
-          "station": "Čiekurkalns",
-          "departure": "09:44"
-        },
-        {
-          "station": "Šmerlis",
-          "departure": "09:47"
-        },
-        {
-          "station": "Jugla",
-          "departure": "09:51"
-        },
-        {
-          "station": "Garkalne",
-          "departure": "10:02"
-        },
-        {
-          "station": "Krievupe",
-          "departure": "10:10"
-        },
-        {
-          "station": "Vangaži",
-          "departure": "10:16"
-        },
-        {
-          "station": "Inčukalns",
-          "departure": "10:23"
-        },
-        {
-          "station": "Egļupe",
-          "departure": "10:28"
-        },
-        {
-          "station": "Sigulda",
-          "arrival": "10:38"
-        }
-      ]
-    },
     "833": {
       "route": "Sigulda - Rīga",
       "schedule": [
@@ -1670,6 +1633,55 @@
         {
           "station": "Rīga",
           "arrival": "13:36"
+        }
+      ]
+    },
+    "834": {
+      "route": "Rīga - Sigulda",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "11:00"
+        },
+        {
+          "station": "Zemitāni",
+          "departure": "11:09"
+        },
+        {
+          "station": "Čiekurkalns",
+          "departure": "11:14"
+        },
+        {
+          "station": "Šmerlis",
+          "departure": "11:17"
+        },
+        {
+          "station": "Jugla",
+          "departure": "11:21"
+        },
+        {
+          "station": "Garkalne",
+          "departure": "11:32"
+        },
+        {
+          "station": "Krievupe",
+          "departure": "11:40"
+        },
+        {
+          "station": "Vangaži",
+          "departure": "11:46"
+        },
+        {
+          "station": "Inčukalns",
+          "departure": "11:53"
+        },
+        {
+          "station": "Egļupe",
+          "departure": "11:58"
+        },
+        {
+          "station": "Sigulda",
+          "arrival": "12:08"
         }
       ]
     },
@@ -2880,6 +2892,172 @@
         {
           "station": "Valmiera",
           "arrival": "21:46"
+        }
+      ]
+    },
+    "871": {
+      "route": "Valga - Rīga",
+      "schedule": [
+        {
+          "station": "Valga",
+          "departure": "17:37"
+        },
+        {
+          "station": "Lugaži",
+          "departure": "17:44"
+        },
+        {
+          "station": "Strenči",
+          "departure": "18:01"
+        },
+        {
+          "station": "Valmiera",
+          "departure": "18:17"
+        },
+        {
+          "station": "Lode",
+          "departure": "18:30"
+        },
+        {
+          "station": "Jāņamuiža",
+          "departure": "18:37"
+        },
+        {
+          "station": "Cēsis",
+          "departure": "18:45"
+        },
+        {
+          "station": "Līgatne",
+          "departure": "19:07"
+        },
+        {
+          "station": "Sigulda",
+          "departure": "19:16"
+        },
+        {
+          "station": "Egļupe",
+          "departure": "19:24"
+        },
+        {
+          "station": "Inčukalns",
+          "departure": "19:29"
+        },
+        {
+          "station": "Vangaži",
+          "departure": "19:35"
+        },
+        {
+          "station": "Garkalne",
+          "departure": "19:45"
+        },
+        {
+          "station": "Jugla",
+          "departure": "19:55"
+        },
+        {
+          "station": "Šmerlis",
+          "departure": "19:58"
+        },
+        {
+          "station": "Čiekurkalns",
+          "departure": "20:02"
+        },
+        {
+          "station": "Zemitāni",
+          "departure": "20:08"
+        },
+        {
+          "station": "Rīga",
+          "arrival": "20:18"
+        }
+      ]
+    },
+    "872": {
+      "route": "Rīga - Valga",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "09:30"
+        },
+        {
+          "station": "Zemitāni",
+          "departure": "09:39"
+        },
+        {
+          "station": "Čiekurkalns",
+          "departure": "09:44"
+        },
+        {
+          "station": "Šmerlis",
+          "departure": "09:47"
+        },
+        {
+          "station": "Jugla",
+          "departure": "09:51"
+        },
+        {
+          "station": "Garkalne",
+          "departure": "10:02"
+        },
+        {
+          "station": "Krievupe",
+          "departure": "10:10"
+        },
+        {
+          "station": "Vangaži",
+          "departure": "10:16"
+        },
+        {
+          "station": "Inčukalns",
+          "departure": "10:23"
+        },
+        {
+          "station": "Egļupe",
+          "departure": "10:28"
+        },
+        {
+          "station": "Sigulda",
+          "departure": "10:38"
+        },
+        {
+          "station": "Līgatne",
+          "departure": "10:48"
+        },
+        {
+          "station": "Ieriķi",
+          "departure": "10:57"
+        },
+        {
+          "station": "Āraiši",
+          "departure": "11:08"
+        },
+        {
+          "station": "Cēsis",
+          "departure": "11:17"
+        },
+        {
+          "station": "Jāņamuiža",
+          "departure": "11:23"
+        },
+        {
+          "station": "Lode",
+          "departure": "11:31"
+        },
+        {
+          "station": "Valmiera",
+          "departure": "11:45"
+        },
+        {
+          "station": "Strenči",
+          "departure": "12:01"
+        },
+        {
+          "station": "Lugaži",
+          "departure": "12:18"
+        },
+        {
+          "station": "Valga",
+          "arrival": "12:24"
         }
       ]
     },
@@ -21496,7 +21674,7 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "05:25"
+          "departure": "05:26"
         },
         {
           "station": "Torņakalns",
@@ -21504,19 +21682,19 @@
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "05:32"
+          "departure": "05:33"
         },
         {
           "station": "BA Turība",
-          "departure": "05:34"
+          "departure": "05:35"
         },
         {
           "station": "Tīraine",
-          "departure": "05:37"
+          "departure": "05:38"
         },
         {
           "station": "Medemciems",
-          "departure": "05:41"
+          "departure": "05:42"
         },
         {
           "station": "Jaunolaine",
@@ -21524,27 +21702,27 @@
         },
         {
           "station": "Olaine",
-          "departure": "05:50"
+          "departure": "05:51"
         },
         {
           "station": "Dalbe",
-          "departure": "05:55"
+          "departure": "05:56"
         },
         {
           "station": "Cena",
-          "departure": "05:59"
+          "departure": "06:01"
         },
         {
           "station": "Ozolnieki",
-          "departure": "06:02"
+          "departure": "06:04"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "06:07"
+          "departure": "06:09"
         },
         {
           "station": "Jelgava",
-          "arrival": "06:11"
+          "arrival": "06:13"
         }
       ]
     },
@@ -21553,55 +21731,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "04:49"
+          "departure": "04:30"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "04:53"
+          "departure": "04:34"
         },
         {
           "station": "Ozolnieki",
-          "departure": "04:57"
+          "departure": "04:38"
         },
         {
           "station": "Cena",
-          "departure": "05:00"
+          "departure": "04:42"
         },
         {
           "station": "Dalbe",
-          "departure": "05:04"
+          "departure": "04:46"
         },
         {
           "station": "Olaine",
-          "departure": "05:09"
+          "departure": "04:52"
         },
         {
           "station": "Jaunolaine",
-          "departure": "05:13"
+          "departure": "04:56"
         },
         {
           "station": "Medemciems",
-          "departure": "05:18"
+          "departure": "05:01"
         },
         {
           "station": "Tīraine",
-          "departure": "05:22"
+          "departure": "05:04"
         },
         {
           "station": "BA Turība",
-          "departure": "05:25"
+          "departure": "05:07"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "05:27"
+          "departure": "05:09"
         },
         {
           "station": "Torņakalns",
-          "departure": "05:30"
+          "departure": "05:12"
         },
         {
           "station": "Rīga",
-          "arrival": "05:34"
+          "arrival": "05:16"
         }
       ]
     },
@@ -21610,55 +21788,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "05:48"
+          "departure": "05:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "05:52"
+          "departure": "05:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "05:56"
+          "departure": "05:44"
         },
         {
           "station": "Cena",
-          "departure": "06:00"
+          "departure": "05:48"
         },
         {
           "station": "Dalbe",
-          "departure": "06:04"
+          "departure": "05:52"
         },
         {
           "station": "Olaine",
-          "departure": "06:09"
+          "departure": "05:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "06:13"
+          "departure": "06:02"
         },
         {
           "station": "Medemciems",
-          "departure": "06:18"
+          "departure": "06:07"
         },
         {
           "station": "Tīraine",
-          "departure": "06:22"
+          "departure": "06:10"
         },
         {
           "station": "BA Turība",
-          "departure": "06:25"
+          "departure": "06:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "06:27"
+          "departure": "06:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "06:30"
+          "departure": "06:18"
         },
         {
           "station": "Rīga",
-          "arrival": "06:34"
+          "arrival": "06:22"
         }
       ]
     },
@@ -21667,55 +21845,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "06:25"
+          "departure": "06:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "06:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "06:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "06:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "06:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "06:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "06:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "06:41"
+          "departure": "06:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "06:46"
+          "departure": "06:48"
         },
         {
           "station": "Olaine",
-          "departure": "06:50"
+          "departure": "06:53"
         },
         {
           "station": "Dalbe",
-          "departure": "06:55"
+          "departure": "06:58"
         },
         {
           "station": "Cena",
-          "departure": "06:59"
+          "departure": "07:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "07:02"
+          "departure": "07:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "07:07"
+          "departure": "07:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "07:11"
+          "arrival": "07:15"
         }
       ]
     },
@@ -21724,55 +21902,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "06:48"
+          "departure": "06:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "06:52"
+          "departure": "06:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "06:56"
+          "departure": "06:44"
         },
         {
           "station": "Cena",
-          "departure": "07:00"
+          "departure": "06:48"
         },
         {
           "station": "Dalbe",
-          "departure": "07:04"
+          "departure": "06:52"
         },
         {
           "station": "Olaine",
-          "departure": "07:09"
+          "departure": "06:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "07:13"
+          "departure": "07:02"
         },
         {
           "station": "Medemciems",
-          "departure": "07:18"
+          "departure": "07:07"
         },
         {
           "station": "Tīraine",
-          "departure": "07:22"
+          "departure": "07:10"
         },
         {
           "station": "BA Turība",
-          "departure": "07:25"
+          "departure": "07:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "07:27"
+          "departure": "07:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:30"
+          "departure": "07:18"
         },
         {
           "station": "Rīga",
-          "arrival": "07:34"
+          "arrival": "07:22"
         }
       ]
     },
@@ -21781,55 +21959,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "07:25"
+          "departure": "07:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "07:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "07:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "07:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "07:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "07:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "07:41"
+          "departure": "07:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "07:46"
+          "departure": "07:48"
         },
         {
           "station": "Olaine",
-          "departure": "07:50"
+          "departure": "07:53"
         },
         {
           "station": "Dalbe",
-          "departure": "07:55"
+          "departure": "07:58"
         },
         {
           "station": "Cena",
-          "departure": "07:59"
+          "departure": "08:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "08:02"
+          "departure": "08:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "08:07"
+          "departure": "08:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "08:11"
+          "arrival": "08:15"
         }
       ]
     },
@@ -21838,55 +22016,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "07:48"
+          "departure": "07:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "07:52"
+          "departure": "07:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "07:56"
+          "departure": "07:44"
         },
         {
           "station": "Cena",
-          "departure": "08:00"
+          "departure": "07:48"
         },
         {
           "station": "Dalbe",
-          "departure": "08:04"
+          "departure": "07:52"
         },
         {
           "station": "Olaine",
-          "departure": "08:09"
+          "departure": "07:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "08:13"
+          "departure": "08:02"
         },
         {
           "station": "Medemciems",
-          "departure": "08:18"
+          "departure": "08:07"
         },
         {
           "station": "Tīraine",
-          "departure": "08:22"
+          "departure": "08:10"
         },
         {
           "station": "BA Turība",
-          "departure": "08:25"
+          "departure": "08:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "08:27"
+          "departure": "08:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:30"
+          "departure": "08:18"
         },
         {
           "station": "Rīga",
-          "arrival": "08:34"
+          "arrival": "08:22"
         }
       ]
     },
@@ -21895,55 +22073,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "08:25"
+          "departure": "08:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "08:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "08:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "08:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "08:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "08:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "08:41"
+          "departure": "08:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "08:46"
+          "departure": "08:48"
         },
         {
           "station": "Olaine",
-          "departure": "08:50"
+          "departure": "08:53"
         },
         {
           "station": "Dalbe",
-          "departure": "08:55"
+          "departure": "08:58"
         },
         {
           "station": "Cena",
-          "departure": "08:59"
+          "departure": "09:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "09:02"
+          "departure": "09:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "09:07"
+          "departure": "09:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "09:11"
+          "arrival": "09:15"
         }
       ]
     },
@@ -21952,55 +22130,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "09:25"
+          "departure": "09:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "09:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "09:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "09:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "09:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "09:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "09:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "09:41"
+          "departure": "09:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "09:46"
+          "departure": "09:48"
         },
         {
           "station": "Olaine",
-          "departure": "09:50"
+          "departure": "09:53"
         },
         {
           "station": "Dalbe",
-          "departure": "09:55"
+          "departure": "09:58"
         },
         {
           "station": "Cena",
-          "departure": "09:59"
+          "departure": "10:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "10:02"
+          "departure": "10:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "10:07"
+          "departure": "10:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "10:11"
+          "arrival": "10:15"
         }
       ]
     },
@@ -22009,55 +22187,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "08:48"
+          "departure": "08:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "08:52"
+          "departure": "08:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "08:56"
+          "departure": "08:44"
         },
         {
           "station": "Cena",
-          "departure": "09:00"
+          "departure": "08:48"
         },
         {
           "station": "Dalbe",
-          "departure": "09:04"
+          "departure": "08:52"
         },
         {
           "station": "Olaine",
-          "departure": "09:09"
+          "departure": "08:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "09:13"
+          "departure": "09:02"
         },
         {
           "station": "Medemciems",
-          "departure": "09:18"
+          "departure": "09:07"
         },
         {
           "station": "Tīraine",
-          "departure": "09:22"
+          "departure": "09:10"
         },
         {
           "station": "BA Turība",
-          "departure": "09:25"
+          "departure": "09:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "09:27"
+          "departure": "09:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "09:30"
+          "departure": "09:18"
         },
         {
           "station": "Rīga",
-          "arrival": "09:34"
+          "arrival": "09:22"
         }
       ]
     },
@@ -22066,55 +22244,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "10:25"
+          "departure": "10:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "10:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "10:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "10:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "10:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "10:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "10:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "10:41"
+          "departure": "10:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "10:46"
+          "departure": "10:48"
         },
         {
           "station": "Olaine",
-          "departure": "10:50"
+          "departure": "10:53"
         },
         {
           "station": "Dalbe",
-          "departure": "10:55"
+          "departure": "10:58"
         },
         {
           "station": "Cena",
-          "departure": "10:59"
+          "departure": "11:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "11:02"
+          "departure": "11:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "11:07"
+          "departure": "11:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "11:11"
+          "arrival": "11:15"
         }
       ]
     },
@@ -22123,55 +22301,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "11:25"
+          "departure": "11:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "11:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "11:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "11:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "11:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "11:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "11:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "11:41"
+          "departure": "11:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "11:46"
+          "departure": "11:48"
         },
         {
           "station": "Olaine",
-          "departure": "11:50"
+          "departure": "11:53"
         },
         {
           "station": "Dalbe",
-          "departure": "11:55"
+          "departure": "11:58"
         },
         {
           "station": "Cena",
-          "departure": "11:59"
+          "departure": "12:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "12:02"
+          "departure": "12:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "12:07"
+          "departure": "12:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "12:11"
+          "arrival": "12:15"
         }
       ]
     },
@@ -22180,55 +22358,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "09:48"
+          "departure": "09:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "09:52"
+          "departure": "09:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "09:56"
+          "departure": "09:44"
         },
         {
           "station": "Cena",
-          "departure": "10:00"
+          "departure": "09:48"
         },
         {
           "station": "Dalbe",
-          "departure": "10:04"
+          "departure": "09:52"
         },
         {
           "station": "Olaine",
-          "departure": "10:09"
+          "departure": "09:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "10:13"
+          "departure": "10:02"
         },
         {
           "station": "Medemciems",
-          "departure": "10:18"
+          "departure": "10:07"
         },
         {
           "station": "Tīraine",
-          "departure": "10:22"
+          "departure": "10:10"
         },
         {
           "station": "BA Turība",
-          "departure": "10:25"
+          "departure": "10:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "10:27"
+          "departure": "10:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "10:30"
+          "departure": "10:18"
         },
         {
           "station": "Rīga",
-          "arrival": "10:34"
+          "arrival": "10:22"
         }
       ]
     },
@@ -22237,55 +22415,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "12:25"
+          "departure": "12:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "12:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "12:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "12:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "12:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "12:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "12:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "12:41"
+          "departure": "12:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "12:46"
+          "departure": "12:48"
         },
         {
           "station": "Olaine",
-          "departure": "12:50"
+          "departure": "12:53"
         },
         {
           "station": "Dalbe",
-          "departure": "12:55"
+          "departure": "12:58"
         },
         {
           "station": "Cena",
-          "departure": "12:59"
+          "departure": "13:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "13:02"
+          "departure": "13:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "13:07"
+          "departure": "13:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "13:11"
+          "arrival": "13:15"
         }
       ]
     },
@@ -22294,55 +22472,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "10:48"
+          "departure": "10:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "10:52"
+          "departure": "10:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "10:56"
+          "departure": "10:44"
         },
         {
           "station": "Cena",
-          "departure": "11:00"
+          "departure": "10:48"
         },
         {
           "station": "Dalbe",
-          "departure": "11:04"
+          "departure": "10:52"
         },
         {
           "station": "Olaine",
-          "departure": "11:09"
+          "departure": "10:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "11:13"
+          "departure": "11:02"
         },
         {
           "station": "Medemciems",
-          "departure": "11:18"
+          "departure": "11:07"
         },
         {
           "station": "Tīraine",
-          "departure": "11:22"
+          "departure": "11:10"
         },
         {
           "station": "BA Turība",
-          "departure": "11:25"
+          "departure": "11:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "11:27"
+          "departure": "11:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "11:30"
+          "departure": "11:18"
         },
         {
           "station": "Rīga",
-          "arrival": "11:34"
+          "arrival": "11:22"
         }
       ]
     },
@@ -22351,55 +22529,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "13:25"
+          "departure": "13:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "13:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "13:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "13:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "13:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "13:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "13:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "13:41"
+          "departure": "13:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "13:46"
+          "departure": "13:48"
         },
         {
           "station": "Olaine",
-          "departure": "13:50"
+          "departure": "13:53"
         },
         {
           "station": "Dalbe",
-          "departure": "13:55"
+          "departure": "13:58"
         },
         {
           "station": "Cena",
-          "departure": "13:59"
+          "departure": "14:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "14:02"
+          "departure": "14:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "14:07"
+          "departure": "14:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "14:11"
+          "arrival": "14:15"
         }
       ]
     },
@@ -22408,55 +22586,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "11:48"
+          "departure": "11:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "11:52"
+          "departure": "11:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "11:56"
+          "departure": "11:44"
         },
         {
           "station": "Cena",
-          "departure": "12:00"
+          "departure": "11:48"
         },
         {
           "station": "Dalbe",
-          "departure": "12:04"
+          "departure": "11:52"
         },
         {
           "station": "Olaine",
-          "departure": "12:09"
+          "departure": "11:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "12:13"
+          "departure": "12:02"
         },
         {
           "station": "Medemciems",
-          "departure": "12:18"
+          "departure": "12:07"
         },
         {
           "station": "Tīraine",
-          "departure": "12:22"
+          "departure": "12:10"
         },
         {
           "station": "BA Turība",
-          "departure": "12:25"
+          "departure": "12:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "12:27"
+          "departure": "12:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "12:30"
+          "departure": "12:18"
         },
         {
           "station": "Rīga",
-          "arrival": "12:34"
+          "arrival": "12:22"
         }
       ]
     },
@@ -22465,55 +22643,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "14:25"
+          "departure": "14:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "14:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "14:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "14:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "14:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "14:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "14:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "14:41"
+          "departure": "14:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "14:46"
+          "departure": "14:48"
         },
         {
           "station": "Olaine",
-          "departure": "14:50"
+          "departure": "14:53"
         },
         {
           "station": "Dalbe",
-          "departure": "14:55"
+          "departure": "14:58"
         },
         {
           "station": "Cena",
-          "departure": "14:59"
+          "departure": "15:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "15:02"
+          "departure": "15:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "15:07"
+          "departure": "15:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "15:11"
+          "arrival": "15:15"
         }
       ]
     },
@@ -22522,55 +22700,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "12:48"
+          "departure": "12:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "12:52"
+          "departure": "12:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "12:56"
+          "departure": "12:44"
         },
         {
           "station": "Cena",
-          "departure": "13:00"
+          "departure": "12:48"
         },
         {
           "station": "Dalbe",
-          "departure": "13:04"
+          "departure": "12:52"
         },
         {
           "station": "Olaine",
-          "departure": "13:09"
+          "departure": "12:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "13:13"
+          "departure": "13:02"
         },
         {
           "station": "Medemciems",
-          "departure": "13:18"
+          "departure": "13:07"
         },
         {
           "station": "Tīraine",
-          "departure": "13:22"
+          "departure": "13:10"
         },
         {
           "station": "BA Turība",
-          "departure": "13:25"
+          "departure": "13:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "13:27"
+          "departure": "13:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "13:30"
+          "departure": "13:18"
         },
         {
           "station": "Rīga",
-          "arrival": "13:34"
+          "arrival": "13:22"
         }
       ]
     },
@@ -22579,55 +22757,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "13:48"
+          "departure": "13:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "13:52"
+          "departure": "13:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "13:56"
+          "departure": "13:44"
         },
         {
           "station": "Cena",
-          "departure": "14:00"
+          "departure": "13:48"
         },
         {
           "station": "Dalbe",
-          "departure": "14:04"
+          "departure": "13:52"
         },
         {
           "station": "Olaine",
-          "departure": "14:09"
+          "departure": "13:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "14:13"
+          "departure": "14:02"
         },
         {
           "station": "Medemciems",
-          "departure": "14:18"
+          "departure": "14:07"
         },
         {
           "station": "Tīraine",
-          "departure": "14:22"
+          "departure": "14:10"
         },
         {
           "station": "BA Turība",
-          "departure": "14:25"
+          "departure": "14:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "14:27"
+          "departure": "14:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "14:30"
+          "departure": "14:18"
         },
         {
           "station": "Rīga",
-          "arrival": "14:34"
+          "arrival": "14:22"
         }
       ]
     },
@@ -22636,55 +22814,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "15:25"
+          "departure": "15:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "15:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "15:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "15:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "15:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "15:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "15:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "15:41"
+          "departure": "15:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "15:46"
+          "departure": "15:48"
         },
         {
           "station": "Olaine",
-          "departure": "15:50"
+          "departure": "15:53"
         },
         {
           "station": "Dalbe",
-          "departure": "15:55"
+          "departure": "15:58"
         },
         {
           "station": "Cena",
-          "departure": "15:59"
+          "departure": "16:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "16:02"
+          "departure": "16:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "16:07"
+          "departure": "16:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "16:11"
+          "arrival": "16:15"
         }
       ]
     },
@@ -22693,55 +22871,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "14:48"
+          "departure": "14:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "14:52"
+          "departure": "14:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "14:56"
+          "departure": "14:44"
         },
         {
           "station": "Cena",
-          "departure": "15:00"
+          "departure": "14:48"
         },
         {
           "station": "Dalbe",
-          "departure": "15:04"
+          "departure": "14:52"
         },
         {
           "station": "Olaine",
-          "departure": "15:09"
+          "departure": "14:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "15:13"
+          "departure": "15:02"
         },
         {
           "station": "Medemciems",
-          "departure": "15:18"
+          "departure": "15:07"
         },
         {
           "station": "Tīraine",
-          "departure": "15:22"
+          "departure": "15:10"
         },
         {
           "station": "BA Turība",
-          "departure": "15:25"
+          "departure": "15:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "15:27"
+          "departure": "15:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "15:30"
+          "departure": "15:18"
         },
         {
           "station": "Rīga",
-          "arrival": "15:34"
+          "arrival": "15:22"
         }
       ]
     },
@@ -22750,55 +22928,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "15:48"
+          "departure": "15:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "15:52"
+          "departure": "15:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "15:56"
+          "departure": "15:44"
         },
         {
           "station": "Cena",
-          "departure": "16:00"
+          "departure": "15:48"
         },
         {
           "station": "Dalbe",
-          "departure": "16:04"
+          "departure": "15:52"
         },
         {
           "station": "Olaine",
-          "departure": "16:09"
+          "departure": "15:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "16:13"
+          "departure": "16:02"
         },
         {
           "station": "Medemciems",
-          "departure": "16:18"
+          "departure": "16:07"
         },
         {
           "station": "Tīraine",
-          "departure": "16:22"
+          "departure": "16:10"
         },
         {
           "station": "BA Turība",
-          "departure": "16:25"
+          "departure": "16:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "16:27"
+          "departure": "16:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "16:30"
+          "departure": "16:18"
         },
         {
           "station": "Rīga",
-          "arrival": "16:34"
+          "arrival": "16:22"
         }
       ]
     },
@@ -22807,55 +22985,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "16:25"
+          "departure": "16:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "16:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "16:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "16:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "16:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "16:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "16:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "16:41"
+          "departure": "16:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "16:46"
+          "departure": "16:48"
         },
         {
           "station": "Olaine",
-          "departure": "16:50"
+          "departure": "16:53"
         },
         {
           "station": "Dalbe",
-          "departure": "16:55"
+          "departure": "16:58"
         },
         {
           "station": "Cena",
-          "departure": "16:59"
+          "departure": "17:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "17:02"
+          "departure": "17:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "17:07"
+          "departure": "17:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "17:11"
+          "arrival": "17:15"
         }
       ]
     },
@@ -22864,55 +23042,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "16:48"
+          "departure": "16:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "16:52"
+          "departure": "16:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "16:56"
+          "departure": "16:44"
         },
         {
           "station": "Cena",
-          "departure": "17:00"
+          "departure": "16:48"
         },
         {
           "station": "Dalbe",
-          "departure": "17:04"
+          "departure": "16:52"
         },
         {
           "station": "Olaine",
-          "departure": "17:09"
+          "departure": "16:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "17:13"
+          "departure": "17:02"
         },
         {
           "station": "Medemciems",
-          "departure": "17:18"
+          "departure": "17:07"
         },
         {
           "station": "Tīraine",
-          "departure": "17:22"
+          "departure": "17:10"
         },
         {
           "station": "BA Turība",
-          "departure": "17:25"
+          "departure": "17:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "17:27"
+          "departure": "17:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "17:30"
+          "departure": "17:18"
         },
         {
           "station": "Rīga",
-          "arrival": "17:34"
+          "arrival": "17:22"
         }
       ]
     },
@@ -22921,55 +23099,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "17:25"
+          "departure": "17:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "17:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "17:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "17:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "17:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "17:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "17:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "17:41"
+          "departure": "17:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "17:46"
+          "departure": "17:48"
         },
         {
           "station": "Olaine",
-          "departure": "17:50"
+          "departure": "17:53"
         },
         {
           "station": "Dalbe",
-          "departure": "17:55"
+          "departure": "17:58"
         },
         {
           "station": "Cena",
-          "departure": "17:59"
+          "departure": "18:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "18:02"
+          "departure": "18:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "18:07"
+          "departure": "18:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "18:11"
+          "arrival": "18:15"
         }
       ]
     },
@@ -22978,55 +23156,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "17:48"
+          "departure": "17:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "17:52"
+          "departure": "17:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "17:56"
+          "departure": "17:44"
         },
         {
           "station": "Cena",
-          "departure": "18:00"
+          "departure": "17:48"
         },
         {
           "station": "Dalbe",
-          "departure": "18:04"
+          "departure": "17:52"
         },
         {
           "station": "Olaine",
-          "departure": "18:09"
+          "departure": "17:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "18:13"
+          "departure": "18:02"
         },
         {
           "station": "Medemciems",
-          "departure": "18:18"
+          "departure": "18:07"
         },
         {
           "station": "Tīraine",
-          "departure": "18:22"
+          "departure": "18:10"
         },
         {
           "station": "BA Turība",
-          "departure": "18:25"
+          "departure": "18:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "18:27"
+          "departure": "18:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "18:30"
+          "departure": "18:18"
         },
         {
           "station": "Rīga",
-          "arrival": "18:34"
+          "arrival": "18:22"
         }
       ]
     },
@@ -23035,55 +23213,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "18:25"
+          "departure": "18:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "18:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "18:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "18:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "18:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "18:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "18:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "18:41"
+          "departure": "18:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "18:46"
+          "departure": "18:48"
         },
         {
           "station": "Olaine",
-          "departure": "18:50"
+          "departure": "18:53"
         },
         {
           "station": "Dalbe",
-          "departure": "18:55"
+          "departure": "18:58"
         },
         {
           "station": "Cena",
-          "departure": "18:59"
+          "departure": "19:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "19:02"
+          "departure": "19:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "19:07"
+          "departure": "19:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "19:11"
+          "arrival": "19:15"
         }
       ]
     },
@@ -23092,55 +23270,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "18:48"
+          "departure": "18:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "18:52"
+          "departure": "18:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "18:56"
+          "departure": "18:44"
         },
         {
           "station": "Cena",
-          "departure": "19:00"
+          "departure": "18:48"
         },
         {
           "station": "Dalbe",
-          "departure": "19:04"
+          "departure": "18:52"
         },
         {
           "station": "Olaine",
-          "departure": "19:09"
+          "departure": "18:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "19:13"
+          "departure": "19:02"
         },
         {
           "station": "Medemciems",
-          "departure": "19:18"
+          "departure": "19:07"
         },
         {
           "station": "Tīraine",
-          "departure": "19:22"
+          "departure": "19:10"
         },
         {
           "station": "BA Turība",
-          "departure": "19:25"
+          "departure": "19:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "19:27"
+          "departure": "19:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "19:30"
+          "departure": "19:18"
         },
         {
           "station": "Rīga",
-          "arrival": "19:34"
+          "arrival": "19:22"
         }
       ]
     },
@@ -23149,55 +23327,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "19:25"
+          "departure": "19:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "19:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "19:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "19:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "19:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "19:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "19:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "19:41"
+          "departure": "19:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "19:46"
+          "departure": "19:48"
         },
         {
           "station": "Olaine",
-          "departure": "19:50"
+          "departure": "19:53"
         },
         {
           "station": "Dalbe",
-          "departure": "19:55"
+          "departure": "19:58"
         },
         {
           "station": "Cena",
-          "departure": "19:59"
+          "departure": "20:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "20:02"
+          "departure": "20:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "20:07"
+          "departure": "20:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "20:11"
+          "arrival": "20:15"
         }
       ]
     },
@@ -23206,55 +23384,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "20:25"
+          "departure": "20:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "20:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "20:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "20:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "20:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "20:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "20:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "20:41"
+          "departure": "20:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "20:46"
+          "departure": "20:48"
         },
         {
           "station": "Olaine",
-          "departure": "20:50"
+          "departure": "20:53"
         },
         {
           "station": "Dalbe",
-          "departure": "20:55"
+          "departure": "20:58"
         },
         {
           "station": "Cena",
-          "departure": "20:59"
+          "departure": "21:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "21:02"
+          "departure": "21:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "21:07"
+          "departure": "21:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "21:11"
+          "arrival": "21:15"
         }
       ]
     },
@@ -23263,55 +23441,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "19:48"
+          "departure": "19:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "19:52"
+          "departure": "19:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "19:56"
+          "departure": "19:44"
         },
         {
           "station": "Cena",
-          "departure": "20:00"
+          "departure": "19:48"
         },
         {
           "station": "Dalbe",
-          "departure": "20:04"
+          "departure": "19:52"
         },
         {
           "station": "Olaine",
-          "departure": "20:09"
+          "departure": "19:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "20:13"
+          "departure": "20:02"
         },
         {
           "station": "Medemciems",
-          "departure": "20:18"
+          "departure": "20:07"
         },
         {
           "station": "Tīraine",
-          "departure": "20:22"
+          "departure": "20:10"
         },
         {
           "station": "BA Turība",
-          "departure": "20:25"
+          "departure": "20:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "20:27"
+          "departure": "20:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "20:30"
+          "departure": "20:18"
         },
         {
           "station": "Rīga",
-          "arrival": "20:34"
+          "arrival": "20:22"
         }
       ]
     },
@@ -23320,55 +23498,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "21:25"
+          "departure": "21:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "21:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "21:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "21:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "21:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "21:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "21:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "21:41"
+          "departure": "21:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "21:46"
+          "departure": "21:48"
         },
         {
           "station": "Olaine",
-          "departure": "21:50"
+          "departure": "21:53"
         },
         {
           "station": "Dalbe",
-          "departure": "21:55"
+          "departure": "21:58"
         },
         {
           "station": "Cena",
-          "departure": "21:59"
+          "departure": "22:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "22:02"
+          "departure": "22:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "22:07"
+          "departure": "22:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "22:11"
+          "arrival": "22:15"
         }
       ]
     },
@@ -23377,55 +23555,55 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "20:48"
+          "departure": "20:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "20:52"
+          "departure": "20:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "20:56"
+          "departure": "20:45"
         },
         {
           "station": "Cena",
-          "departure": "21:00"
+          "departure": "20:48"
         },
         {
           "station": "Dalbe",
-          "departure": "21:04"
+          "departure": "20:52"
         },
         {
           "station": "Olaine",
-          "departure": "21:09"
+          "departure": "20:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "21:13"
+          "departure": "21:02"
         },
         {
           "station": "Medemciems",
-          "departure": "21:18"
+          "departure": "21:07"
         },
         {
           "station": "Tīraine",
-          "departure": "21:22"
+          "departure": "21:10"
         },
         {
           "station": "BA Turība",
-          "departure": "21:25"
+          "departure": "21:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "21:27"
+          "departure": "21:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "21:30"
+          "departure": "21:18"
         },
         {
           "station": "Rīga",
-          "arrival": "21:34"
+          "arrival": "21:22"
         }
       ]
     },
@@ -23434,55 +23612,55 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "22:25"
+          "departure": "22:28"
         },
         {
           "station": "Torņakalns",
-          "departure": "22:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
           "departure": "22:32"
         },
         {
-          "station": "BA Turība",
-          "departure": "22:34"
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "22:35"
         },
         {
-          "station": "Tīraine",
+          "station": "BA Turība",
           "departure": "22:37"
         },
         {
+          "station": "Tīraine",
+          "departure": "22:40"
+        },
+        {
           "station": "Medemciems",
-          "departure": "22:41"
+          "departure": "22:44"
         },
         {
           "station": "Jaunolaine",
-          "departure": "22:46"
+          "departure": "22:48"
         },
         {
           "station": "Olaine",
-          "departure": "22:50"
+          "departure": "22:53"
         },
         {
           "station": "Dalbe",
-          "departure": "22:55"
+          "departure": "22:58"
         },
         {
           "station": "Cena",
-          "departure": "22:59"
+          "departure": "23:03"
         },
         {
           "station": "Ozolnieki",
-          "departure": "23:02"
+          "departure": "23:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "23:07"
+          "departure": "23:11"
         },
         {
           "station": "Jelgava",
-          "arrival": "23:11"
+          "arrival": "23:15"
         }
       ]
     },
@@ -23491,112 +23669,55 @@
       "schedule": [
         {
           "station": "Jelgava",
+          "departure": "21:36"
+        },
+        {
+          "station": "Cukurfabrika",
+          "departure": "21:40"
+        },
+        {
+          "station": "Ozolnieki",
+          "departure": "21:44"
+        },
+        {
+          "station": "Cena",
           "departure": "21:48"
         },
         {
-          "station": "Cukurfabrika",
+          "station": "Dalbe",
           "departure": "21:52"
         },
         {
-          "station": "Ozolnieki",
-          "departure": "21:56"
-        },
-        {
-          "station": "Cena",
-          "departure": "22:00"
-        },
-        {
-          "station": "Dalbe",
-          "departure": "22:04"
-        },
-        {
           "station": "Olaine",
-          "departure": "22:09"
+          "departure": "21:58"
         },
         {
           "station": "Jaunolaine",
+          "departure": "22:02"
+        },
+        {
+          "station": "Medemciems",
+          "departure": "22:07"
+        },
+        {
+          "station": "Tīraine",
+          "departure": "22:10"
+        },
+        {
+          "station": "BA Turība",
           "departure": "22:13"
         },
         {
-          "station": "Medemciems",
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "22:15"
+        },
+        {
+          "station": "Torņakalns",
           "departure": "22:18"
         },
         {
-          "station": "Tīraine",
-          "departure": "22:22"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "22:25"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "22:27"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "22:30"
-        },
-        {
           "station": "Rīga",
-          "arrival": "22:34"
-        }
-      ]
-    },
-    "6753": {
-      "route": "Rīga - Jelgava",
-      "schedule": [
-        {
-          "station": "Rīga",
-          "departure": "23:25"
-        },
-        {
-          "station": "Torņakalns",
-          "departure": "23:30"
-        },
-        {
-          "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "23:32"
-        },
-        {
-          "station": "BA Turība",
-          "departure": "23:34"
-        },
-        {
-          "station": "Tīraine",
-          "departure": "23:37"
-        },
-        {
-          "station": "Medemciems",
-          "departure": "23:41"
-        },
-        {
-          "station": "Jaunolaine",
-          "departure": "23:46"
-        },
-        {
-          "station": "Olaine",
-          "departure": "23:50"
-        },
-        {
-          "station": "Dalbe",
-          "departure": "23:55"
-        },
-        {
-          "station": "Cena",
-          "departure": "23:59"
-        },
-        {
-          "station": "Ozolnieki",
-          "departure": "00:02"
-        },
-        {
-          "station": "Cukurfabrika",
-          "departure": "00:07"
-        },
-        {
-          "station": "Jelgava",
-          "arrival": "00:11"
+          "arrival": "22:22"
         }
       ]
     },
@@ -23605,55 +23726,112 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "22:48"
+          "departure": "22:36"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "22:52"
+          "departure": "22:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "22:56"
+          "departure": "22:44"
         },
         {
           "station": "Cena",
-          "departure": "23:00"
+          "departure": "22:48"
         },
         {
           "station": "Dalbe",
-          "departure": "23:04"
+          "departure": "22:52"
         },
         {
           "station": "Olaine",
-          "departure": "23:09"
+          "departure": "22:58"
         },
         {
           "station": "Jaunolaine",
-          "departure": "23:13"
+          "departure": "23:02"
         },
         {
           "station": "Medemciems",
-          "departure": "23:18"
+          "departure": "23:07"
         },
         {
           "station": "Tīraine",
-          "departure": "23:22"
+          "departure": "23:10"
         },
         {
           "station": "BA Turība",
-          "departure": "23:25"
+          "departure": "23:13"
         },
         {
           "station": "Bieriņi / Bērnu slimnīca",
-          "departure": "23:27"
+          "departure": "23:15"
         },
         {
           "station": "Torņakalns",
-          "departure": "23:30"
+          "departure": "23:18"
         },
         {
           "station": "Rīga",
-          "arrival": "23:34"
+          "arrival": "23:22"
+        }
+      ]
+    },
+    "6853": {
+      "route": "Rīga - Jelgava",
+      "schedule": [
+        {
+          "station": "Rīga",
+          "departure": "23:28"
+        },
+        {
+          "station": "Torņakalns",
+          "departure": "23:33"
+        },
+        {
+          "station": "Bieriņi / Bērnu slimnīca",
+          "departure": "23:36"
+        },
+        {
+          "station": "BA Turība",
+          "departure": "23:39"
+        },
+        {
+          "station": "Tīraine",
+          "departure": "23:43"
+        },
+        {
+          "station": "Medemciems",
+          "departure": "23:48"
+        },
+        {
+          "station": "Jaunolaine",
+          "departure": "23:54"
+        },
+        {
+          "station": "Olaine",
+          "departure": "00:00"
+        },
+        {
+          "station": "Dalbe",
+          "departure": "00:07"
+        },
+        {
+          "station": "Cena",
+          "departure": "00:13"
+        },
+        {
+          "station": "Ozolnieki",
+          "departure": "00:17"
+        },
+        {
+          "station": "Cukurfabrika",
+          "departure": "00:23"
+        },
+        {
+          "station": "Jelgava",
+          "arrival": "00:28"
         }
       ]
     },
@@ -23662,31 +23840,31 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "05:09"
+          "departure": "05:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "05:15"
+          "departure": "05:10"
         },
         {
           "station": "BA Turība",
-          "departure": "05:20"
+          "departure": "05:15"
         },
         {
           "station": "Olaine",
-          "departure": "05:35"
+          "departure": "05:29"
         },
         {
           "station": "Ozolnieki",
-          "departure": "05:47"
+          "departure": "05:41"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "05:53"
+          "departure": "05:46"
         },
         {
           "station": "Jelgava",
-          "arrival": "05:58"
+          "arrival": "05:51"
         }
       ]
     },
@@ -23695,31 +23873,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "06:12"
+          "departure": "06:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "06:17"
+          "departure": "06:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "06:23"
+          "departure": "06:16"
         },
         {
           "station": "Olaine",
-          "departure": "06:35"
+          "departure": "06:30"
         },
         {
           "station": "BA Turība",
-          "departure": "06:48"
+          "departure": "06:44"
         },
         {
           "station": "Torņakalns",
-          "departure": "06:53"
+          "departure": "06:49"
         },
         {
           "station": "Rīga",
-          "arrival": "06:58"
+          "arrival": "06:54"
         }
       ]
     },
@@ -23728,35 +23906,35 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "06:07"
+          "departure": "06:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "06:13"
+          "departure": "06:10"
         },
         {
           "station": "BA Turība",
-          "departure": "06:18"
+          "departure": "06:15"
         },
         {
           "station": "Tīraine",
-          "departure": "06:22"
+          "departure": "06:19"
         },
         {
           "station": "Olaine",
-          "departure": "06:35"
+          "departure": "06:31"
         },
         {
           "station": "Ozolnieki",
-          "departure": "06:47"
+          "departure": "06:43"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "06:53"
+          "departure": "06:48"
         },
         {
           "station": "Jelgava",
-          "arrival": "06:58"
+          "arrival": "06:53"
         }
       ]
     },
@@ -23765,31 +23943,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "07:12"
+          "departure": "07:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "07:17"
+          "departure": "07:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "07:23"
+          "departure": "07:16"
         },
         {
           "station": "Olaine",
-          "departure": "07:35"
+          "departure": "07:30"
         },
         {
           "station": "BA Turība",
-          "departure": "07:48"
+          "departure": "07:44"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:53"
+          "departure": "07:49"
         },
         {
           "station": "Rīga",
-          "arrival": "07:58"
+          "arrival": "07:54"
         }
       ]
     },
@@ -23798,31 +23976,35 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "07:09"
+          "departure": "07:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "07:15"
+          "departure": "07:11"
         },
         {
           "station": "BA Turība",
-          "departure": "07:20"
+          "departure": "07:16"
         },
         {
           "station": "Olaine",
-          "departure": "07:35"
+          "departure": "07:30"
+        },
+        {
+          "station": "Cena",
+          "departure": "07:40"
         },
         {
           "station": "Ozolnieki",
-          "departure": "07:47"
+          "departure": "07:45"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "07:53"
+          "departure": "07:50"
         },
         {
           "station": "Jelgava",
-          "arrival": "07:58"
+          "arrival": "07:55"
         }
       ]
     },
@@ -23831,31 +24013,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "08:20"
+          "departure": "08:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "08:24"
+          "departure": "08:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "08:31"
+          "departure": "08:16"
         },
         {
           "station": "Olaine",
-          "departure": "08:43"
+          "departure": "08:30"
         },
         {
           "station": "BA Turība",
-          "departure": "08:56"
+          "departure": "08:44"
         },
         {
           "station": "Torņakalns",
-          "departure": "09:01"
+          "departure": "08:49"
         },
         {
           "station": "Rīga",
-          "arrival": "09:06"
+          "arrival": "08:54"
         }
       ]
     },
@@ -23864,31 +24046,31 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "08:09"
+          "departure": "08:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "08:15"
+          "departure": "08:11"
         },
         {
           "station": "BA Turība",
-          "departure": "08:20"
+          "departure": "08:16"
         },
         {
           "station": "Olaine",
-          "departure": "08:35"
+          "departure": "08:31"
         },
         {
           "station": "Ozolnieki",
-          "departure": "08:47"
+          "departure": "08:43"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "08:53"
+          "departure": "08:48"
         },
         {
           "station": "Jelgava",
-          "arrival": "08:58"
+          "arrival": "08:53"
         }
       ]
     },
@@ -23897,31 +24079,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "09:20"
+          "departure": "09:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "09:25"
+          "departure": "09:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "09:31"
+          "departure": "09:16"
         },
         {
           "station": "Olaine",
-          "departure": "09:43"
+          "departure": "09:29"
         },
         {
           "station": "BA Turība",
-          "departure": "09:56"
+          "departure": "09:43"
         },
         {
           "station": "Torņakalns",
-          "departure": "10:01"
+          "departure": "09:48"
         },
         {
           "station": "Rīga",
-          "arrival": "10:06"
+          "arrival": "09:53"
         }
       ]
     },
@@ -23930,31 +24112,31 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "16:09"
+          "departure": "16:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "16:15"
+          "departure": "16:11"
         },
         {
           "station": "BA Turība",
-          "departure": "16:20"
+          "departure": "16:16"
         },
         {
           "station": "Olaine",
-          "departure": "16:35"
+          "departure": "16:30"
         },
         {
           "station": "Ozolnieki",
-          "departure": "16:47"
+          "departure": "16:42"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "16:53"
+          "departure": "16:47"
         },
         {
           "station": "Jelgava",
-          "arrival": "16:58"
+          "arrival": "16:52"
         }
       ]
     },
@@ -23963,31 +24145,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "17:12"
+          "departure": "17:06"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "17:17"
+          "departure": "17:11"
         },
         {
           "station": "Ozolnieki",
-          "departure": "17:23"
+          "departure": "17:17"
         },
         {
           "station": "Olaine",
-          "departure": "17:35"
+          "departure": "17:30"
         },
         {
           "station": "BA Turība",
-          "departure": "17:48"
+          "departure": "17:44"
         },
         {
           "station": "Torņakalns",
-          "departure": "17:53"
+          "departure": "17:49"
         },
         {
           "station": "Rīga",
-          "arrival": "17:58"
+          "arrival": "17:54"
         }
       ]
     },
@@ -23996,31 +24178,31 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "17:09"
+          "departure": "17:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "17:15"
+          "departure": "17:11"
         },
         {
           "station": "BA Turība",
-          "departure": "17:20"
+          "departure": "17:16"
         },
         {
           "station": "Olaine",
-          "departure": "17:35"
+          "departure": "17:32"
         },
         {
           "station": "Ozolnieki",
-          "departure": "17:47"
+          "departure": "17:44"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "17:53"
+          "departure": "17:49"
         },
         {
           "station": "Jelgava",
-          "arrival": "17:58"
+          "arrival": "17:54"
         }
       ]
     },
@@ -24029,31 +24211,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "18:20"
+          "departure": "18:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "18:25"
+          "departure": "18:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "18:31"
+          "departure": "18:16"
         },
         {
           "station": "Olaine",
-          "departure": "18:43"
+          "departure": "18:30"
         },
         {
           "station": "BA Turība",
-          "departure": "18:56"
+          "departure": "18:44"
         },
         {
           "station": "Torņakalns",
-          "departure": "19:01"
+          "departure": "18:49"
         },
         {
           "station": "Rīga",
-          "arrival": "19:06"
+          "arrival": "18:54"
         }
       ]
     },
@@ -24062,31 +24244,31 @@
       "schedule": [
         {
           "station": "Rīga",
-          "departure": "18:09"
+          "departure": "18:04"
         },
         {
           "station": "Torņakalns",
-          "departure": "18:15"
+          "departure": "18:11"
         },
         {
           "station": "BA Turība",
-          "departure": "18:20"
+          "departure": "18:16"
         },
         {
           "station": "Olaine",
-          "departure": "18:35"
+          "departure": "18:31"
         },
         {
           "station": "Ozolnieki",
-          "departure": "18:47"
+          "departure": "18:43"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "18:53"
+          "departure": "18:48"
         },
         {
           "station": "Jelgava",
-          "arrival": "18:58"
+          "arrival": "18:53"
         }
       ]
     },
@@ -24095,31 +24277,31 @@
       "schedule": [
         {
           "station": "Jelgava",
-          "departure": "19:20"
+          "departure": "19:05"
         },
         {
           "station": "Cukurfabrika",
-          "departure": "19:25"
+          "departure": "19:10"
         },
         {
           "station": "Ozolnieki",
-          "departure": "19:31"
+          "departure": "19:16"
         },
         {
           "station": "Olaine",
-          "departure": "19:43"
+          "departure": "19:29"
         },
         {
           "station": "BA Turība",
-          "departure": "19:56"
+          "departure": "19:43"
         },
         {
           "station": "Torņakalns",
-          "departure": "20:01"
+          "departure": "19:48"
         },
         {
           "station": "Rīga",
-          "arrival": "20:06"
+          "arrival": "19:53"
         }
       ]
     }
